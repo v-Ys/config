@@ -1,0 +1,22 @@
+- defaults:
+    link:
+      create: true
+      relink: true
+
+- clean: ['~', '~/.config']
+
+- link:
+    ~/.fdignore:
+    ~/.dotfiles: ''
+    ~/.tmux.conf: tmux.conf
+    ~/.vim: vim
+    ~/.config/nvim: nvim
+    ~/.config/alacritty: alacritty 
+    ~/.vimrc_local:
+    ~/.ideavimrc:
+    ~/.zshrc: zshrc
+
+# - create:
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
