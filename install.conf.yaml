@@ -6,15 +6,34 @@
 - clean: ['~', '~/.config']
 
 - link:
-    ~/.fdignore:
-    ~/.dotfiles: ''
+    ~/.ideavimrc: ideavimrc
+    ~/.fdignore: fdignore
+    ~/.zshrc: zshrc
     ~/.tmux.conf: tmux.conf
     ~/.vim: vim
+
+    ~/.clang-format: fmtstyle/clang-format
+    ~/.rustfmt.toml: fmtstyle/rustfmt.toml
+
     ~/.config/nvim: nvim
+    ~/.config/btop: btop
+    ~/.config/fish: fish
+    ~/.config/git: git
     ~/.config/alacritty: alacritty 
-    ~/.vimrc_local:
-    ~/.ideavimrc:
-    ~/.zshrc: zshrc
+    ~/.config/helix: helix
+    ~/.config/wezterm: wezterm
+    ~/.config/starship.toml: starship.toml
+    # ~/.config/pycodestyle: fmtstyle/pycodestyle
+
+    ~/.config/raycast: 
+      if: '[ `uname` = Darwin ]'
+      path: raycast
+    ~/.hammerspoon:
+      if: '[ `uname` = Darwin ]'
+      path: hammerspoon
+    ~/.config/karabiner:
+      if: '[ `uname` = Darwin ]'
+      path: karabiner
 
 # - create:
 
