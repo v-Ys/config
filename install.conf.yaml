@@ -25,17 +25,14 @@
     ~/.config/starship.toml: starship.toml
     # ~/.config/pycodestyle: fmtstyle/pycodestyle
 
-    ~/.config/raycast: 
-      if: '[ `uname` = Darwin ]'
-      path: raycast
-    ~/.hammerspoon:
-      if: '[ `uname` = Darwin ]'
-      path: hammerspoon
-    ~/.config/karabiner:
-      if: '[ `uname` = Darwin ]'
-      path: karabiner
+    ~/.config/raycast: raycast
+    ~/.hammerspoon:  hammerspoon
+    ~/.config/karabiner: karabiner
 
 # - create:
 
 - shell:
-  - [git submodule update --init --recursive, Installing submodules]
+    - [systemctl --user enable radicale.service, Enabling and starting Radicale DecSync service]
+  # - git submodule sync --recursive
+  # # the following have to run after linking ~/.gitconfig
+  # - git update-submodules
