@@ -32,7 +32,4 @@
 # - create:
 
 - shell:
-    - [systemctl --user enable radicale.service, Enabling and starting Radicale DecSync service]
-  # - git submodule sync --recursive
-  # # the following have to run after linking ~/.gitconfig
-  # - git update-submodules
+   - git submodule sync --recursive
