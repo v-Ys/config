@@ -10,7 +10,7 @@
     ~/.fdignore: fdignore
     ~/.zshrc: zshrc
     ~/.tmux.conf: tmux.conf
-    ~/.vim: vim
+    ~/.vim/vimrc: vimrc
 
     ~/.clang-format: fmtstyle/clang-format
     ~/.rustfmt.toml: fmtstyle/rustfmt.toml
