@@ -1,0 +1,9 @@
+Applications
+Library
+.git
+.idea
+.vscode
+.sass-cache
+node_modules
+build
+.DS_Store

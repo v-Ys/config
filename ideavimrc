@@ -1,0 +1,115 @@
+
+
+
+" ================================================================================================
+" = Extensions =====================================
+" ================================================================================================
+Plug 'tpope/vim-surround'
+Plug 'preservim/nerdtree'
+
+" ================================================================================================
+" = Basic settings =====================================
+" ================================================================================================
+set clipboard+=unnamed
+set ignorecase
+set scrolloff=30
+set history=200
+
+set number
+set relativenumber
+
+set incsearch
+set hlsearch
+set keep-english-in-normal
+
+" ================================================================================================
+" = No Leader Keymaps =====================================
+" ================================================================================================
+nmap ge <action>(GotoNextError)
+nmap gt <action>(GotoTest)
+nmap gm <action>(MethodUp)
+" last changed in current buffer(file)
+nmap ga '.
+
+" paste之后不会把yank的内容替换掉
+vmap p "_dp
+
+nmap gk K
+nmap J 5j
+noremap K 5k
+nmap L $
+nmap H ^
+" ================================================================================================
+" = Leader Keymaps =====================================
+" ================================================================================================
+" leaderkey
+let mapleader=" "
+
+" ================================================================================================
+" 👻👻👻 Which-Key 👻👻👻
+" ================================================================================================
+
+set notimeout
+
+" f: Find/Format ⭐️
+nmap <leader>ff <action>(GotoFile)
+
+nmap <leader>fl <action>(SelectInProjectView)
+
+nmap <leader>ft <action>(FindInPath)
+
+nmap <leader>fc <action>(GotoAction)
+
+nmap <leader>fp <action>(OpenProjectWindows)
+
+nmap <leader>fm <action>(ReformatCode) \| <action>(OptimizeImports)
+
+" g: Git ⭐️
+nmap <leader>gr :action Vcs.RollbackChangedLines<CR>
+
+" i: Insert ⭐️
+nmap <leader>i f(a
+
+" j: add Semicolon and goto nextline⭐️
+nmap <leader>j A;<ESC>o
+
+" l: lsp: Language server protocol (align with neovim)⭐️
+nmap <leader>lr <action>(RenameElement)
+
+
+" n: No ⭐️
+nmap <leader>nl :nohlsearch<CR>
+
+
+" s: Show ⭐️
+nmap <leader>ss <action>(FileStructurePopup)
+nmap <leader>sb <action>(ShowBookmarks)
+
+" r: Run/Re ⭐️
+nmap <leader>rr <action>(Rerun)
+nmap <leader>rt <action>(RerunTests)
+map <leader>rn <action>(RenameElement)
+
+" w: Window ⭐️
+nmap <leader>wo <action>(UnsplitAll) \| <action>(HideAllWindows)
+nmap <leader>wc <c-w>c
+
+" z: zip(fold) ⭐️
+nmap <leader>zo <action>(ExpandAllRegions)
+nmap <leader>zc <action>(CollapseAllRegions)
+
+" c: Close ⭐️;
+nmap <leader>c :q!<CR>
+
+" e: Toggle Explorer ⭐️
+nmap <leader>e <action>(ActivateProjectToolWindow)
+" e: Extract
+" extract method/function
+vmap <leader>em <action>(ExtractMethod)
+" extract constant
+vmap <leader>ec <action>(IntroduceConstant)
+" extract field
+vmap <leader>ef <action>(IntroduceField)
+" extract variable
+vmap <leader>ev <action>(IntroduceVariable)
+
