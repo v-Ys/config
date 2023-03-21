@@ -208,13 +208,6 @@ return {
                         require("Miku-vim.plugin.conf.neotree")
                 end,
         },
-        --PLUG: show color
-        -- {
-        --         "norcalli/nvim-colorizer.lua",
-        --         config = function()
-        --                 vim.opt.termguicolors = true
-        --         end
-        -- },
         --PLUG: leetcode
         {
                 'ianding1/leetcode.vim',
@@ -237,4 +230,16 @@ return {
                 ft = 'markdown',
         },
 
+        --PLUG: show color
+        -- {
+        --         "norcalli/nvim-colorizer.lua",
+        --         config = function()
+        --                 vim.opt.termguicolors = true
+        --         end
+        -- },
+        --PLUG: diff view
+        -- {
+        -- 'sindrets/diffview.nvim',
+        -- dependencies = 'nvim-lua/plenary.nvim'
+        -- },
 }

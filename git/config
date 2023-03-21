@@ -1,8 +1,4 @@
 
-# [filter "lfs"] clean = git-lfs clean -- %f
-#   smudge = git-lfs smudge -- %f
-#   process = git-lfs filter-process
-#   required = true
 [user] 
     name = Vv-ys
 	email = vincent.vv.mys@gmail.com 
@@ -18,10 +14,20 @@
 	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-cask
 	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-core
 	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-services
+
+[merge]
+	tool = vimdiff
+[mergetool]
+	keepBackup = false
+[mergetool "vimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
 [difftool]
     prompt = true
 [diff]
     tool = nvimdiff
+
+#NOTE:
 # [url "git@github.com:"]
 #   insteadOf = https://github.com/
 # [http "https://github.com"]
