@@ -41,6 +41,12 @@ if status is-interactive
 
     #NOTE: clashx
     export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
+    
+
+    # NOTE: key bind
+    function fish_user_key_bindings
+        bind -M default \co 'lfcd; and commandline -f repaint'
+    end
 
 end
 
