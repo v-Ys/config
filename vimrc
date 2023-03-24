@@ -4,7 +4,7 @@
 
 
 
-set termguicolors
+" set termguicolors
 
 set completeopt=preview,menu                 "代码补全
 
@@ -72,17 +72,10 @@ set foldmethod=manual                        "代码折叠
 set nowrap                                   "不要换行
 set encoding=utf-8 fileencodings=utf-8
 
-"剪切板
-" set clipboard=unnamedplus
-" set clipboard=unnamed
 
 "Ui
-"highlight VertSplit ctermbg=100 ctermfg=100
 set bg=dark
 
-"Cursor
-" let &t_SI = "\e[6 q"
-" let &t_EI = "\e[2 q"
 
 "Keyboard Map
 let mapleader = "\<Space>"
