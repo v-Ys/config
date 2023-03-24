@@ -1,0 +1,16 @@
+
+{
+  "root_dir_cmake": {
+    "prefix": "fuck",
+    "body": [
+        "SET(CMAKE_EXPORT_COMPILE_COMMANDS ON)",
+        "CMAKE_MINIMUM_REQUIRED(VERSION 3.10)",
+        "PROJECT (${HELLO})",
+        "ADD_SUBDIRECTORY(src bin)"
+    ],
+    "description": "ROOT CMAKE"
+  }
+}
+
+
+

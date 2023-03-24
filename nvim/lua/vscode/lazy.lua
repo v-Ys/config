@@ -16,14 +16,17 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
 
-        { 'numToStr/Comment.nvim',
+        --PLUG: comment
+        {
+                'numToStr/Comment.nvim',
                 config = function()
                         require("Comment").setup()
                 end,
-        }, --comment
-        { 'ggandor/leap.nvim',
+        },
+        --PLUG: leap
+        {
+                'ggandor/leap.nvim',
                 config = function()
-
                         require('leap').opts.safe_labels = { 'f', 'e', 'j', 'k', 'i', 'n', 'c', 'w', 'r', 'o', 'a', 's',
                                 'd', 't', 'g', 'v', 'm',
                                 'l',
@@ -31,14 +34,28 @@ local plugins = {
                 end,
         },
 
-        { 'tpope/vim-surround',
+        --PLUG: surround
+        {
+                'tpope/vim-surround',
                 config = function()
                 end,
         },
-        -- enhance '.' for surround
-        { 'tpope/vim-repeat',
+        --PLUG: enhance '.' for surround
+        {
+                'tpope/vim-repeat',
                 config = function()
                 end,
+        },
+        --PLUG: markdown
+        {
+                'ybian/smartim',
+                -- ft = {
+                --         'markdown',
+                --         'latex'
+                -- },
+                config = function()
+                        vim.g.smartim_default = 'com.apple.keylayout.ABC'
+                end
         },
 }
 local options = {

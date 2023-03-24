@@ -1,15 +1,18 @@
 {
-  "name": "my-snippets",
-  "engines": {
-    "vscode": "^1.11.0"
-  },
-  "contributes": {
-    "snippets": [
-      {
-        "language": "cmake",
-        "path": "./cmake.json"
-      }
-    ]
-  }
+    "name": "my-snippets",
+    "engines": {
+        "vscode": "^1.11.0"
+    },
+    "contributes": {
+        "snippets": [
+            {
+                "language": "cmake",
+                "path": "./cmake.json"
+            },
+            {
+                "language": "lua",
+                "path": "./cmake.json"
+            }
+        ]
+    }
 }
-

@@ -10,7 +10,7 @@ if not cmp_status_ok then
 end
 
 require("luasnip/loaders/from_vscode").lazy_load()
-require("luasnip.loaders.from_vscode").load({
+require("luasnip.loaders.from_vscode").lazy_load({
         paths = {
                 vim.fn.stdpath("config") .. "/lua/Miku-vim/snippets"
         }
