@@ -3,15 +3,13 @@
 "    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 
-
-" set termguicolors
-
 set completeopt=preview,menu                 "代码补全
 
 set nobackup                                 "禁止生成临时文件
 set noswapfile
 
 set noerrorbells                             "关闭错误信息响铃
+set vb t_vb=
 
 set number                                   "显示行号
 
@@ -73,9 +71,6 @@ set nowrap                                   "不要换行
 set encoding=utf-8 fileencodings=utf-8
 
 
-"Ui
-set bg=dark
-
 
 "Keyboard Map
 let mapleader = "\<Space>"
@@ -117,14 +112,15 @@ call plug#end()
 "#######################################################################
 "--vim-lightline themes----
 let g:lightline = {
-       \ 'colorscheme': 'one',
-      \ }
-      " \ 'colorscheme': 'PaperColor',
-      
+        \ 'colorscheme': 'rosepine',
+       \ }
+        " \ 'colorscheme': 'PaperColor',
+
 "--theme----
-colorscheme xcodewwdc
-set bg=dark
-" set bg=light
+" colorscheme xcodewwdc
+" set bg=dark
+colorscheme xcodelight
+set bg=light
 
 "--Startify-----
 let g:startify_files_number = 5
