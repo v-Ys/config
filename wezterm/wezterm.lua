@@ -8,10 +8,10 @@ local MyKey = require('keybinds')
 return {
         disable_default_key_bindings = false,
         font = wezterm.font('Iosevka Nerd Font Mono',
-                { weight = 520, italic = false, }),
-        font_size = 21,
+                { weight = 510, italic = false, }),
+        font_size = 18,
         cell_width = 0.95,
-        line_height = 0.95,
+        line_height = 1,
         enable_tab_bar = false,
         color_scheme = "OneLight (Gogh)",
         -- color_scheme = "TokyoNight (Gogh)",
