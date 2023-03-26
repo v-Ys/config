@@ -37,7 +37,7 @@ if status is-interactive
     # set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /Users/Miku/.ghcup/bin $PATH # ghcup-env
 
     # lsp for helix
-    set -x PATH /Users/Miku/.local/share/nvim/mason/bin $PATH
+    # set -x PATH /Users/Miku/.local/share/nvim/mason/bin $PATH
 
     #NOTE: clashx
     export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890
