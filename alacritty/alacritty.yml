@@ -82,8 +82,8 @@ font:
     family: Iosevka Nerd Font Mono # size=21 x=-1 y=0 size 17 x=-1 y=0
     # family: JetBrainsMono Nerd Font Mono # size =17
     # style: Book
-    # style: Medium
-    style: Regular
+    style: Medium
+    # style: Regular
     # weight: 600
 
   #Bold font face
