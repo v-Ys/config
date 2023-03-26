@@ -70,9 +70,7 @@ telescope.setup {
                 },
                 project = {
                         base_dirs = {
-                                -- '~/Code',
-                                { '~/.config/nvim' },
-                                { '~/.dotfiles' },
+                                { '~/.dotfiles',  max_depth = 1 },
                                 -- { '~/code', max_depth = 1 },
                                 -- { '~/dev/src3', max_depth = 4 },
                                 { path = '~/Code' },

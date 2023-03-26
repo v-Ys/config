@@ -11,7 +11,7 @@ return {
         },
         {
                 'projekt0n/github-nvim-theme',
-                -- version = "v0.0.7",
+                version = "v0.0.6",
                 config = function()
                         require('github-theme').setup({
                                 theme_style = "light",
@@ -145,22 +145,22 @@ return {
         --PLUG: enhance '.' for surround
         {
                 'tpope/vim-repeat',
+        },
+        --PLUG: add align
+        {
+                'junegunn/vim-easy-align',
                 config = function()
                         vim.api.nvim_set_keymap("n", "ga", "<Plug>(EasyAlign)", { noremap = true, silent = true })
                         vim.api.nvim_set_keymap("v", "ga", "<Plug>(EasyAlign)", { noremap = true, silent = true })
                 end,
         },
-        --PLUG: add align
-        {
-                'junegunn/vim-easy-align',
-        },
         --PLUG: lastplace
         {
                 'ethanholz/nvim-lastplace',
                 opts = {
-                        lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
+                        lastplace_ignore_buftype  = { "quickfix", "nofile", "help" },
                         lastplace_ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit" },
-                        lastplace_open_folds = true
+                        lastplace_open_folds      = true
                 },
         },
         --PLUG: todo

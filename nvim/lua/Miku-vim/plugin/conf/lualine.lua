@@ -16,6 +16,7 @@ local colors = {
         magenta  = '#c678dd',
         blue     = '#51afef',
         red      = '#ec5f67',
+        purple   = '734AAC'
 }
 
 local conditions = {
@@ -35,7 +36,7 @@ local conditions = {
 
 local M = {}
 M.theme = function()
-        local colors = {
+        local color = {
                 darkgray = "#98be65",
                 gray = "#98be65",
                 innerbg = "#1E50A2",
@@ -48,34 +49,34 @@ M.theme = function()
         }
         return {
                 inactive = {
-                        a = { fg = colors.gray, bg = colors.outerbg, gui = "bold" },
-                        b = { fg = colors.gray, bg = colors.outerbg },
-                        c = { fg = colors.gray, bg = colors.innerbg },
+                        a = { fg = color.gray, bg = color.outerbg, gui = "bold" },
+                        b = { fg = color.gray, bg = color.outerbg },
+                        c = { fg = color.gray, bg = color.innerbg },
                 },
                 visual = {
-                        a = { fg = colors.darkgray, bg = colors.visual, gui = "bold" },
-                        b = { fg = colors.gray, bg = colors.outerbg },
-                        c = { fg = colors.gray, bg = colors.innerbg },
+                        a = { fg = color.darkgray, bg = color.visual, gui = "bold" },
+                        b = { fg = color.gray, bg = color.outerbg },
+                        c = { fg = color.gray, bg = color.innerbg },
                 },
                 replace = {
-                        a = { fg = colors.darkgray, bg = colors.replace, gui = "bold" },
-                        b = { fg = colors.gray, bg = colors.outerbg },
-                        c = { fg = colors.gray, bg = colors.innerbg },
+                        a = { fg = color.darkgray, bg = color.replace, gui = "bold" },
+                        b = { fg = color.gray, bg = color.outerbg },
+                        c = { fg = color.gray, bg = color.innerbg },
                 },
                 normal = {
-                        a = { fg = colors.darkgray, bg = colors.normal, gui = "bold" },
-                        b = { fg = colors.gray, bg = colors.outerbg },
-                        c = { fg = colors.gray, bg = colors.innerbg },
+                        a = { fg = color.darkgray, bg = color.normal, gui = "bold" },
+                        b = { fg = color.gray, bg = color.outerbg },
+                        c = { fg = color.gray, bg = color.innerbg },
                 },
                 insert = {
-                        a = { fg = colors.darkgray, bg = colors.insert, gui = "bold" },
-                        b = { fg = colors.gray, bg = colors.outerbg },
-                        c = { fg = colors.gray, bg = colors.innerbg },
+                        a = { fg = color.darkgray, bg = color.insert, gui = "bold" },
+                        b = { fg = color.gray, bg = color.outerbg },
+                        c = { fg = color.gray, bg = color.innerbg },
                 },
                 command = {
-                        a = { fg = colors.darkgray, bg = colors.command, gui = "bold" },
-                        b = { fg = colors.gray, bg = colors.outerbg },
-                        c = { fg = colors.gray, bg = colors.innerbg },
+                        a = { fg = color.darkgray, bg = color.command, gui = "bold" },
+                        b = { fg = color.gray, bg = color.outerbg },
+                        c = { fg = color.gray, bg = color.innerbg },
                 },
         }
 end
@@ -86,7 +87,7 @@ local left = {
                 function()
                         return '▊'
                 end,
-                color = { fg = colors.blue },      -- Sets highlighting of component
+                color = { fg = colors.purple },    -- Sets highlighting of component
                 padding = { left = 0, right = 1 }, -- We don't need space before this
         },
         --NOTE: mode component
@@ -196,7 +197,7 @@ local right = {
                 function()
                         return '▊'
                 end,
-                color = { fg = colors.blue },
+                color = { fg = colors.purple },
                 padding = { left = 1 },
         },
 
@@ -208,7 +209,7 @@ local config = {
                 -- Disable sections and component separators
                 component_separators = '',
                 section_separators = '',
-                -- theme = 'auto'
+                -- theme = 'auto',
                 theme = M.theme(),
         },
         sections = {
