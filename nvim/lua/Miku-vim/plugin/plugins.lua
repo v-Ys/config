@@ -11,7 +11,7 @@ return {
         },
         {
                 'projekt0n/github-nvim-theme',
-                version = "v0.0.6",
+                version = "v0.0.5",
                 config = function()
                         require('github-theme').setup({
                                 theme_style = "light",
