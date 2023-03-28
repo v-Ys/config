@@ -70,10 +70,10 @@ telescope.setup {
                 },
                 project = {
                         base_dirs = {
-                                { '~/.dotfiles',  max_depth = 1 },
+                                { '~/.dotfiles', max_depth = 1 },
                                 -- { '~/code', max_depth = 1 },
                                 -- { '~/dev/src3', max_depth = 4 },
-                                { path = '~/Code' },
+                                { path = '~/Dev' },
                                 -- { path = '~/dev/src5', max_depth = 2 },
                         },
                         hidden_files = true, -- default: false
