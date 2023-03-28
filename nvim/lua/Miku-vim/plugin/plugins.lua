@@ -221,17 +221,6 @@ return {
         --PLUG: latex
         {
                 'lervag/vimtex',
-                dependencies = {
-                        'ybian/smartim',
-                        config = function()
-                                vim.g.smartim_default = 'com.apple.keylayout.ABC'
-                        end
-                },
-                ft = "tex",
-        },
-        --PLUG: markdown
-        {
-                'iamcco/markdown-preview.nvim',
                 config = function()
                         vim.g.tex_flavor = 'latex' -- Default tex file format
 
@@ -253,6 +242,17 @@ return {
                                 xelatex  = '-xelatex',
                         }
                 end,
+                dependencies = {
+                        'ybian/smartim',
+                        config = function()
+                                vim.g.smartim_default = 'com.apple.keylayout.ABC'
+                        end
+                },
+                ft = "tex",
+        },
+        --PLUG: markdown
+        {
+                'iamcco/markdown-preview.nvim',
                 dependencies = {
                         'ybian/smartim',
                         config = function()
