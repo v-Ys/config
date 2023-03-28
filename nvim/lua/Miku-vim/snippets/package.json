@@ -10,9 +10,8 @@
                 "path": "./cmake.json"
             },
             {
-                "language": "lua",
-                "path": "./cmake.json"
-            }
+                "language": "tex",
+                "path": "./tex.json" }
         ]
     }
 }
