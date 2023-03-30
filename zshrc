@@ -2,20 +2,21 @@
 ############################################
 ### option #################################
 setopt AUTO_CD
-
-
-############################################
-### ENV ####################################
-
-#python 
-# export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
-
 # starship theme
 eval "$(starship init zsh)"
 # zoxide
 eval "$(zoxide init zsh)"
+
+
+############################################
+### ENV ####################################
+#python 
+# export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
+
 # FZF
 export FZF_DEFAULT_COMMAND="fd --hidden --exclude={Applications,Library,.git,.idea,.vscode,.sass-cache,node_modules,build} --type f"
+#editor
+export EDITOR="lvim"
 
 
 ############################################
@@ -32,7 +33,7 @@ alias rf="rm -r -f"
 
 
 ############################################
-### alias ##################################
+### myfun ##################################
 lfcd () {
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
@@ -45,6 +46,7 @@ lfcd () {
 
 bindkey -s '^o' 'lfcd\n'
 
+
 ############################################
 ### Added by Zinit's installer #############
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -54,11 +56,9 @@ if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
         print -P "%F{33} %F{34}Installation successful.%f%b" || \
         print -P "%F{160} The clone has failed.%f%b"
 fi
-
 source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
-
 # (this is currently required for annexes)
 zinit light-mode for \
     zdharma-continuum/zinit-annex-as-monitor \
@@ -69,11 +69,7 @@ zinit light-mode for \
 
 ############################################
 ### Plug ###################################
-
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
-
-
-
-
+zinit light Aloxaf/fzf-tab
 

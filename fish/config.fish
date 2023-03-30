@@ -21,6 +21,7 @@ if status is-interactive
     zoxide init fish | source
 
     # --?
+    export EDITOR="nvim"
     export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
     # export FZF_DEFAULT_COMMAND="fd --hidden"
     export FZF_DEFAULT_COMMAND="fd --hidden --exclude={Applications,Library,.git,.idea,.vscode,.sass-cache,node_modules,build} --type f"
