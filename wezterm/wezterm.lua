@@ -13,9 +13,9 @@ return {
         font = wezterm.font('Iosevka Nerd Font Mono',
                 { weight = 500, italic = false, }),
         enable_tab_bar = false,
-        -- color_scheme = "OneLight (Gogh)",
+        color_scheme = "OneLight (Gogh)",
         -- color_scheme = "TokyoNight (Gogh)",
-        color_scheme = 'Catppuccin Mocha',
+        -- color_scheme = 'Catppuccin Mocha',
         window_padding = {
                 left = 0,
                 right = 0,

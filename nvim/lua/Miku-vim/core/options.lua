@@ -42,8 +42,8 @@ local options = {
         foldmethod     = 'expr',
         foldexpr       = 'nvim_treesitter#foldexpr()',
         --
-        bg             = 'dark'
-        -- bg             = 'light'
+        -- bg             = 'dark'
+        bg             = 'light'
 }
 
 
