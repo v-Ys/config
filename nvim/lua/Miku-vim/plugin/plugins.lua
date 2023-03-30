@@ -12,13 +12,19 @@ return {
         {
                 'projekt0n/github-nvim-theme',
                 version = "v0.0.5",
-                config = function()
-                        require('github-theme').setup({
-                                theme_style = "light",
-                        })
-                end,
+                -- config = function()
+                --         require('github-theme').setup({
+                --                 theme_style = "light",
+                --         })
+                -- end,
         },
-        { "catppuccin/nvim",             name = "catppuccin" },
+        {
+                "catppuccin/nvim",
+                name = "catppuccin",
+                config = function()
+                        vim.cmd.colorscheme "catppuccin"
+                end
+        },
         { "sainnhe/everforest", },
 
         --NOTE: UI

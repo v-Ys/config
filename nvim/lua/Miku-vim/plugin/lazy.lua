@@ -24,9 +24,8 @@ local opts = {
                 border = "rounded",
         },
         install = {
-                colorscheme = { 'github_light' }
+                colorscheme = { 'github_light' },
         }
-
 }
 
 require("lazy").setup(plugins, opts)
