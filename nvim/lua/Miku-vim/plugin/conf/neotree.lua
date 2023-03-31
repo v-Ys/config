@@ -1,10 +1,13 @@
 local status_ok, neotree = pcall(require, "neo-tree")
 if not status_ok then return end
 
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 neotree.setup({
         close_if_last_window = true,
         popup_border_style = "rounded",
         enable_diagnostics = false,
+        hijack_netrw_behavior = "open_default",
         default_component_configs = {
                 indent = {
                         padding = 0,
@@ -52,7 +55,7 @@ neotree.setup({
                 },
                 follow_current_file = true,
                 hijack_netrw_behavior = "open_current", -- netrw disabled, opening a directory opens neo-tree
-                use_libuv_file_watcher = true,  -- This will use the OS level file watchers to detect changes
+                use_libuv_file_watcher = true,          -- This will use the OS level file watchers to detect changes
         },
         git_status = {
                 window = {
