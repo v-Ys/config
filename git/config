@@ -29,6 +29,6 @@
 
 #NOTE:
 # [url "git@github.com:"]
-#   insteadOf = https://github.com/
+#     insteadOf = https://github.com/
 # [http "https://github.com"]
-#   proxy = socks5://127.0.0.1:7890
+#     proxy = socks5://127.0.0.1:7890
