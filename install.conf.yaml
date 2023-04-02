@@ -12,24 +12,22 @@
     ~/.tmux.conf: tmux.conf
     ~/.vim/vimrc: vimrc
 
+    ~/.config/git: git
+    ~/.config/nvim: nvim
+    ~/.config/fish: fish
+    ~/.config/helix: helix
+    ~/.config/btop: btop
+    ~/.config/wezterm: wezterm
+    ~/.config/alacritty: alacritty 
+    ~/.config/starship.toml: starship.toml
+
     ~/.clang-format: fmtstyle/clang-format
     ~/.rustfmt.toml: fmtstyle/rustfmt.toml
-
-    ~/.config/nvim: nvim
-    ~/.config/btop: btop
-    ~/.config/fish: fish
-    ~/.config/git: git
-    ~/.config/alacritty: alacritty 
-    ~/.config/helix: helix
-    ~/.config/wezterm: wezterm
-    ~/.config/starship.toml: starship.toml
     # ~/.config/pycodestyle: fmtstyle/pycodestyle
-
+  
     ~/.config/raycast: raycast
     ~/.hammerspoon:  hammerspoon
     ~/.config/karabiner: karabiner
-
-# - create:
 
 - shell:
    - git submodule sync --recursive
