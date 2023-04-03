@@ -67,7 +67,7 @@ M.rename = function()
                 '<cmd>stopinsert | close<CR>',
                 { silent = true })
         vim.api.nvim_buf_set_keymap(buf, 'i', '<CR>',
-                string.format('<cmd>lua require("Miku-vim.core.fun")._rename(%d)<CR>', win),
+                string.format('<cmd>lua require("Miku-vim.utils.modules")._rename(%d)<CR>', win),
                 { silent = true })
 end
 

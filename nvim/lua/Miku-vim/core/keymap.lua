@@ -25,7 +25,7 @@ local keymaps = {
                     ["<A-s>"] = "<cmd>w<CR>",
         },
         normal_mode = {
-                    ["<leader>m"] = "<cmd>lua require('Miku-vim.core.fun').run()<cr>",
+                    ["<leader>m"] = "<cmd>lua require('Miku-vim.utils.modules').run()<cr>",
                 -- Resize with arrows
                     ["<A-Up>"] = ":resize +2<CR>",
                     ["<A-Down>"] = ":resize -2<CR>",
@@ -100,7 +100,7 @@ local keymaps = {
                     ["L"] = "$",
         },
         command_mode = {
-                -- [";;"] = "lua require('Miku-vim.core.fun').btop()",
+                -- [";;"] = "lua require('Miku-vim.utils.modules').btop()",
         },
 }
 
