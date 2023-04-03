@@ -2,12 +2,7 @@ local M = {}
 --for btop
 local Terminal = require("toggleterm.terminal").Terminal
 local btop = Terminal:new({ cmd = "btop", hidden = true })
-dasfjklfj
-fjaskfj
 
-local x = {
-        dfsakjfk,
-}
 -- for run
 local RUN = {
         c = function()
@@ -37,6 +32,33 @@ end
 
 M.FormatJSON = function()
         vim.cmd("%!python -m json.tool")
+end
+
+
+M._rename = function(win)
+        local new_name = vim.trim(vim.fn.getline('.'))
+        vim.api.nvim_win_close(win, true)
+        vim.cmd('stopinsert')
+        vim.lsp.buf.rename(new_name)
+end
+
+M.rename = function()
+        local opts = {
+                relative = 'cursor',
+                row = 0,
+                col = 0,
+                width = 30,
+                height = 1,
+                style = 'minimal',
+                border = 'single'
+        }
+        local buf = vim.api.nvim_create_buf(false, true)
+        local win = vim.api.nvim_open_win(buf, true, opts)
+        vim.cmd('startinsert')
+        vim.api.nvim_buf_set_lines(buf, 0, -1, false, {})
+        vim.api.nvim_buf_set_keymap(buf, 'i', '<CR>',
+                string.format('<cmd>lua require("Miku-vim.core.fun")._rename(%d)<CR>', win),
+                { silent = true })
 end
 
 

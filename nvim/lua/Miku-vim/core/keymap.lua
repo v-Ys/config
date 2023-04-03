@@ -100,6 +100,7 @@ local keymaps = {
                     ["L"] = "$",
         },
         command_mode = {
+                -- [";;"] = "lua require('Miku-vim.core.fun').btop()",
         },
 }
 
