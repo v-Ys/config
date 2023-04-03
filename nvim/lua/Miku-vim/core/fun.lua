@@ -19,22 +19,7 @@ local RUN = {
         end
 }
 
-M.btop = function()
-        btop:toggle()
-end
-
-M.run = function()
-        --get current buffer filetype
-        local ftp = vim.bo.filetype
-        --RUN
-        RUN[ftp]()
-end
-
-M.FormatJSON = function()
-        vim.cmd("%!python -m json.tool")
-end
-
-
+--for rename
 M._rename = function(win)
         local new_name = vim.trim(vim.fn.getline('.'))
         vim.api.nvim_win_close(win, true)
@@ -42,6 +27,28 @@ M._rename = function(win)
         vim.lsp.buf.rename(new_name)
 end
 
+--NOTE: btop
+M.btop = function()
+        btop:toggle()
+end
+
+
+--NOTE: run
+M.run = function()
+        --get current buffer filetype
+        local ftp = vim.bo.filetype
+        --RUN
+        RUN[ftp]()
+end
+
+--NOTE: FormatJSON
+M.FormatJSON = function()
+        vim.cmd("%!python -m json.tool")
+end
+
+
+
+--NOTE: lsp rename
 M.rename = function()
         local opts = {
                 relative = 'cursor',
@@ -50,12 +57,15 @@ M.rename = function()
                 width = 30,
                 height = 1,
                 style = 'minimal',
-                border = 'single'
+                border = 'rounded'
         }
         local buf = vim.api.nvim_create_buf(false, true)
         local win = vim.api.nvim_open_win(buf, true, opts)
         vim.cmd('startinsert')
         vim.api.nvim_buf_set_lines(buf, 0, -1, false, {})
+        vim.api.nvim_buf_set_keymap(buf, 'i', '<esc>',
+                '<cmd>stopinsert | close<CR>',
+                { silent = true })
         vim.api.nvim_buf_set_keymap(buf, 'i', '<CR>',
                 string.format('<cmd>lua require("Miku-vim.core.fun")._rename(%d)<CR>', win),
                 { silent = true })
