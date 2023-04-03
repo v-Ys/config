@@ -16,7 +16,8 @@ local colors = {
         magenta  = '#c678dd',
         blue     = '#51afef',
         red      = '#ec5f67',
-        purple   = '#1E50A2'
+        purple   = '#1E50A2',
+        gray     = "#bdbebd",
 }
 
 local conditions = {
@@ -34,52 +35,52 @@ local conditions = {
 }
 
 
-local M = {}
-M.theme = function()
-        local color = {
-                darkgray = "#98be65",
-                gray = "#98be65",
-                innerbg = "#1E50A2",
-                outerbg = "#ec5f67",
-                normal = "#98be65",
-                insert = "#003399",
-                visual = "#98be65",
-                replace = "#98be65",
-                command = "#98be65",
-        }
-        return {
-                inactive = {
-                        a = { fg = color.gray, bg = color.outerbg, gui = "bold" },
-                        b = { fg = color.gray, bg = color.outerbg },
-                        c = { fg = color.gray, bg = color.innerbg },
-                },
-                visual = {
-                        a = { fg = color.darkgray, bg = color.visual, gui = "bold" },
-                        b = { fg = color.gray, bg = color.outerbg },
-                        c = { fg = color.gray, bg = color.innerbg },
-                },
-                replace = {
-                        a = { fg = color.darkgray, bg = color.replace, gui = "bold" },
-                        b = { fg = color.gray, bg = color.outerbg },
-                        c = { fg = color.gray, bg = color.innerbg },
-                },
-                normal = {
-                        a = { fg = color.darkgray, bg = color.normal, gui = "bold" },
-                        b = { fg = color.gray, bg = color.outerbg },
-                        c = { fg = color.gray, bg = color.innerbg },
-                },
-                insert = {
-                        a = { fg = color.darkgray, bg = color.insert, gui = "bold" },
-                        b = { fg = color.gray, bg = color.outerbg },
-                        c = { fg = color.gray, bg = color.innerbg },
-                },
-                command = {
-                        a = { fg = color.darkgray, bg = color.command, gui = "bold" },
-                        b = { fg = color.gray, bg = color.outerbg },
-                        c = { fg = color.gray, bg = color.innerbg },
-                },
-        }
-end
+-- local M = {}
+-- M.theme = function()
+--         local color = {
+--                 darkgray = "#98be65",
+--                 gray = "#98be65",
+--                 innerbg = "#1E50A2",
+--                 outerbg = "#ec5f67",
+--                 normal = "#98be65",
+--                 insert = "#003399",
+--                 visual = "#98be65",
+--                 replace = "#98be65",
+--                 command = "#98be65",
+--         }
+--         return {
+--                 inactive = {
+--                         a = { fg = color.gray, bg = color.outerbg, gui = "bold" },
+--                         b = { fg = color.gray, bg = color.outerbg },
+--                         c = { fg = color.gray, bg = color.innerbg },
+--                 },
+--                 visual = {
+--                         a = { fg = color.darkgray, bg = color.visual, gui = "bold" },
+--                         b = { fg = color.gray, bg = color.outerbg },
+--                         c = { fg = color.gray, bg = color.innerbg },
+--                 },
+--                 replace = {
+--                         a = { fg = color.darkgray, bg = color.replace, gui = "bold" },
+--                         b = { fg = color.gray, bg = color.outerbg },
+--                         c = { fg = color.gray, bg = color.innerbg },
+--                 },
+--                 normal = {
+--                         a = { fg = color.darkgray, bg = color.normal, gui = "bold" },
+--                         b = { fg = color.gray, bg = color.outerbg },
+--                         c = { fg = color.gray, bg = color.innerbg },
+--                 },
+--                 insert = {
+--                         a = { fg = color.darkgray, bg = color.insert, gui = "bold" },
+--                         b = { fg = color.gray, bg = color.outerbg },
+--                         c = { fg = color.gray, bg = color.innerbg },
+--                 },
+--                 command = {
+--                         a = { fg = color.darkgray, bg = color.command, gui = "bold" },
+--                         b = { fg = color.gray, bg = color.outerbg },
+--                         c = { fg = color.gray, bg = color.innerbg },
+--                 },
+--         }
+-- end
 
 local left = {
         --NOTE: ▊
@@ -142,11 +143,12 @@ local left = {
                 -- filesize component
                 'filesize',
                 cond = conditions.buffer_not_empty,
+                color = { fg = colors.gray, gui = 'bold' }
         },
         --NOTE: location
-        { 'location' },
+        { 'location', color = { fg = colors.gray, gui = 'bold' } },
         --NOTE: progress
-        { 'progress', color = { fg = colors.fg, gui = 'bold' } },
+        { 'progress', color = { fg = colors.gray, gui = 'bold' } },
         --NOTE: diagnostics
         {
                 'diagnostics',
@@ -209,8 +211,8 @@ local config = {
                 -- Disable sections and component separators
                 component_separators = '',
                 section_separators = '',
-                -- theme = 'auto',
-                theme = M.theme(),
+                theme = 'auto',
+                -- theme = M.theme(),
         },
         sections = {
                 -- these are to remove the defaults

@@ -9,15 +9,15 @@ return {
                         vim.opt.rtp:append(plugin.dir .. "/vim")
                 end
         },
-        {
-                'projekt0n/github-nvim-theme',
-                version = "v0.0.7",
-                config = function()
-                        require('github-theme').setup({
-                                theme_style = "light",
-                        })
-                end,
-        },
+        -- {
+        --         'projekt0n/github-nvim-theme',
+        --         version = "v0.0.4",
+        --         config = function()
+        --                 require('github-theme').setup({
+        --                         theme_style = "light",
+        --                 })
+        --         end,
+        -- },
         {
                 "catppuccin/nvim",
                 name = "catppuccin",
@@ -26,6 +26,16 @@ return {
                 -- end
         },
         { "sainnhe/everforest", },
+
+        {
+                'Vv-ys/github-nvim-theme',
+                -- version = "v0.0.7",
+                config = function()
+                        require('github-theme').setup({
+                                theme_style = "light",
+                        })
+                end,
+        },
 
         --NOTE: UI
         --
