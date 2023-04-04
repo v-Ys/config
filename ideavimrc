@@ -86,7 +86,7 @@ nmap <leader>ss <action>(FileStructurePopup)
 nmap <leader>sb <action>(ShowBookmarks)
 
 " r: Run/Re ⭐️
-nmap <leader>rr <action>(Rerun)
+nmap <leader>mm <action>(Rerun)
 nmap <leader>rt <action>(RerunTests)
 map <leader>rn <action>(RenameElement)
 
@@ -102,7 +102,7 @@ nmap <leader>zc <action>(CollapseAllRegions)
 nmap <leader>c :q!<CR>
 
 " e: Toggle Explorer ⭐️
-nmap <leader>e <action>(ActivateProjectToolWindow)
+nmap <leader>m< ction>(ActivateProjectToolWindow)
 " e: Extract
 " extract method/function
 vmap <leader>em <action>(ExtractMethod)

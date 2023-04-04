@@ -7,30 +7,27 @@ eval "$(starship init zsh)"
 # zoxide
 eval "$(zoxide init zsh)"
 
-
+# for fzf-tab
 ############################################
 ### ENV ####################################
-#python 
-# export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
+# python 
+# export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH 
+# FZF 
+export FZF_DEFAULT_COMMAND="fd --hidden --exclude={Applications,Library,.git,.idea,.vscode,.sass-cache,node_modules,build} --type f" 
+# editor 
+export EDITOR="nvim" 
 
-# FZF
-export FZF_DEFAULT_COMMAND="fd --hidden --exclude={Applications,Library,.git,.idea,.vscode,.sass-cache,node_modules,build} --type f"
-#editor
-export EDITOR="lvim"
-
-
-############################################
-### alias ##################################
-alias nv="nvim"
-alias c="cd"
-alias e="exa"
-alias et="exa -T"
-alias etl="exa -T -L"
-alias ea="exa -a"
-alias el="exa -l"
-alias ela="exa -l -a"
-alias rf="rm -r -f"
-
+############################################ 
+### alias ################################## 
+alias nv="nvim" 
+alias c="cd" 
+alias e="exa" 
+alias et="exa -T" 
+alias etl="exa -T -L" 
+alias ea="exa -a" 
+alias el="exa -l" 
+alias ela="exa -l -a" 
+alias rf="rm -r -f" 
 
 ############################################
 ### myfun ##################################
@@ -43,9 +40,7 @@ lfcd () {
         [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
     fi
 }
-
 bindkey -s '^o' 'lfcd\n'
-
 
 ############################################
 ### Added by Zinit's installer #############
@@ -66,10 +61,10 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
 
-
 ############################################
 ### Plug ###################################
+autoload -Uz compinit && compinit
+zinit light Aloxaf/fzf-tab
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
-zinit light Aloxaf/fzf-tab
 
