@@ -2,12 +2,15 @@
 ############################################
 ### option #################################
 setopt AUTO_CD
+# emacs mode
+set -o emacs
+
 # starship theme
 eval "$(starship init zsh)"
 # zoxide
 eval "$(zoxide init zsh)"
 
-# for fzf-tab
+
 ############################################
 ### ENV ####################################
 # python 
@@ -15,7 +18,8 @@ eval "$(zoxide init zsh)"
 # FZF 
 export FZF_DEFAULT_COMMAND="fd --hidden --exclude={Applications,Library,.git,.idea,.vscode,.sass-cache,node_modules,build} --type f" 
 # editor 
-export EDITOR="nvim" 
+export EDITOR="nvim"
+
 
 ############################################ 
 ### alias ################################## 
@@ -29,6 +33,7 @@ alias el="exa -l"
 alias ela="exa -l -a" 
 alias rf="rm -r -f" 
 
+
 ############################################
 ### myfun ##################################
 lfcd () {
@@ -41,6 +46,7 @@ lfcd () {
     fi
 }
 bindkey -s '^o' 'lfcd\n'
+
 
 ############################################
 ### Added by Zinit's installer #############
@@ -61,10 +67,28 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
 
+
 ############################################
 ### Plug ###################################
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit # for fzf-tab
 zinit light Aloxaf/fzf-tab
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
