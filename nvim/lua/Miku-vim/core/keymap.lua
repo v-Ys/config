@@ -63,7 +63,7 @@ local keymaps = {
                     ["<Leader>fm"] = "<cmd>lua require('telescope.builtin').marks()<CR>",
                     ["<Leader>fs"] = "<cmd>lua require('telescope.builtin').colorscheme()<CR>",
                     ["<Leader>fp"] = "<cmd>lua require'telescope'.extensions.project.project{}<CR>",
-                    ["<Leader>fr"] = "<cmd>lua rgquire('telescope.builtin').commands()<CR>",
+                    ["<Leader>fr"] = "<cmd>lua require('telescope.builtin').commands()<CR>",
                     ["<Leader>fM"] = "<cmd>TodoTelescope<CR>",
                 --leap
                     ["f"]      = "<Plug>(leap-forward-to)",

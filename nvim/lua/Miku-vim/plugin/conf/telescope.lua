@@ -38,14 +38,15 @@ telescope.setup {
                 },
                 find_files = {
                         find_command = { "fd", "-H", },
-                        -- "--exclude={Applications,Library,.git,.idea,.vscode,.sass-cache,node_modules,build}" },
                 },
                 colorscheme = {
                         theme = "dropdown",
                 },
                 lsp_references = {
                         theme = "cursor",
-                        -- theme = "command_pane",
+                },
+                lsp_definitions = {
+                        theme = "cursor",
                 },
                 commands = {
                         theme = "dropdown",
