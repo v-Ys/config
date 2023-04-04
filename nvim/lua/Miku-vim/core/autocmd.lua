@@ -11,6 +11,3 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         command = "lua vim.lsp.buf.format{sync=true}",
         group = Format,
 })
-vim.cmd [[
-autocmd FileType netrw let g:nvim_tree_disable_netrw = 0 | NvimTreeToggle
-]]
