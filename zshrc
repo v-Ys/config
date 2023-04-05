@@ -2,12 +2,10 @@
 ############################################
 ### option #################################
 setopt AUTO_CD
-# emacs mode
 set -o emacs
+unsetopt BEEP
 
-# starship theme
 eval "$(starship init zsh)"
-# zoxide
 eval "$(zoxide init zsh)"
 
 
