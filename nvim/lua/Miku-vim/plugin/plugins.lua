@@ -9,25 +9,8 @@ return {
                         vim.opt.rtp:append(plugin.dir .. "/vim")
                 end
         },
-        -- {
-        --         'projekt0n/github-nvim-theme',
-        --         version = "v0.0.4",
-        --         config = function()
-        --                 require('github-theme').setup({
-        --                         theme_style = "light",
-        --                 })
-        --         end,
-        -- },
         {
-                "catppuccin/nvim",
-                name = "catppuccin",
-                -- config = function()
-                --         vim.cmd.colorscheme "catppuccin"
-                -- end
-        },
-        { "sainnhe/everforest", },
-
-        {
+                -- 'projekt0n/github-nvim-theme',
                 'Vv-ys/github-nvim-theme',
                 -- version = "v0.0.7",
                 config = function()
@@ -36,6 +19,14 @@ return {
                         })
                 end,
         },
+        {
+                "catppuccin/nvim",
+                name = "catppuccin",
+                -- config = function()
+                --         vim.cmd.colorscheme "catppuccin"
+                -- end
+        },
+        { "sainnhe/everforest", },
 
         --NOTE: UI
         --
@@ -50,14 +41,14 @@ return {
                 end
         },
 
-        --PLUG:alpha
+        --PLUG: alpha
         {
                 'goolord/alpha-nvim',
                 config = function()
                         require("Miku-vim.plugin.conf.alpha")
                 end,
         },
-        --PLUG:indentline
+        --PLUG: indentline
         {
                 'lukas-reineke/indent-blankline.nvim',
                 config = function()
@@ -77,7 +68,7 @@ return {
         --PLUG:bufferline
         {
                 'akinsho/bufferline.nvim',
-                version = "v2.*",
+                version = "v3.*",
                 config = function()
                         require("Miku-vim.plugin.conf.bufferline")
                 end,
@@ -111,15 +102,44 @@ return {
         {
                 'neovim/nvim-lspconfig',
                 dependencies = {
-                        { 'williamboman/mason.nvim' },         -- install lsp server
-                        { "jose-elias-alvarez/null-ls.nvim" }, -- for formatters and linters
-                        { 'ray-x/lsp_signature.nvim', },       -- fun signature
+                        -- install lsp server
+                        {
+                                'williamboman/mason.nvim',
+                                opts = {
+                                        max_concurrent_installers = 10,
+                                        ui = {
+                                                icons = {
+                                                        package_installed = "",
+                                                        package_pending = "",
+                                                        package_uninstalled = "",
+                                                },
+                                                border = "rounded",
+                                        },
+                                },
+                        },
+                        { 'ray-x/lsp_signature.nvim', }, -- fun signature
                 },
                 config = function()
                         require("Miku-vim.plugin.conf.lsp")
                 end,
         },
-        --PLUG:Telescope,
+        --PLUG: null-ls for formatters and linters
+        {
+                "jose-elias-alvarez/null-ls.nvim",
+                config = function()
+                        local null_ls = require("null-ls")
+                        local formatting = null_ls.builtins.formatting
+                        -- local completion = null_ls.builtins.completion
+                        null_ls.setup({
+                                debug = false,
+                                sources = {
+                                        formatting.autopep8, -- for python
+                                        -- completion.spell,
+                                },
+                        })
+                end
+        },
+        --PLUG: Telescope,
         {
                 'nvim-telescope/telescope.nvim',
                 dependencies = {
@@ -277,14 +297,8 @@ return {
                 ft = 'markdown',
         },
 
-        --PLUG: show color
-        -- {
-        --         "norcalli/nvim-colorizer.lua",
-        --         config = function()
-        --                 vim.opt.termguicolors = true
-        --         end
-        -- },
         --PLUG: diff view
+        --
         -- {
         -- 'sindrets/diffview.nvim',
         -- dependencies = 'nvim-lua/plenary.nvim'
