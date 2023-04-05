@@ -80,7 +80,10 @@ M.on_attach = function(client, bufnr)
                 client.server_capabilities.document_formatting = false
         end
         lsp_keymaps(bufnr)
-        -- require "lsp_signature".on_attach()
+        -- require "lsp_signature".on_attach({
+        --         hint_prefix = "🐼 ",
+        --         floating_window = false,
+        -- }, bufnr)
 end
 
 

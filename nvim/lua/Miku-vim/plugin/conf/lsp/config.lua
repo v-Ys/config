@@ -1,19 +1,5 @@
 --NOTE:
-local mason = require("mason")
 local lspconfig = require("lspconfig")
-
-mason.setup {
-        max_concurrent_installers = 10,
-        ui = {
-                icons = {
-                        package_installed = "",
-                        package_pending = "",
-                        package_uninstalled = "",
-                },
-                border = "rounded",
-        },
-}
-
 local servers = {
         "clangd",
         "rust_analyzer",
@@ -21,7 +7,6 @@ local servers = {
         "pyright",
         -- "hls",
 }
-
 
 for _, server in pairs(servers) do
         local opts = {
