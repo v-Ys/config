@@ -36,8 +36,8 @@ local keymaps = {
                 -- ["<c-->"] = ":m .-2<CR>==",
 
                 -- -- Better move
-                -- ["K"]      = "4k",
-                -- ["J"]      = "4j",
+                    ["K"]      = "3k",
+                    ["J"]      = "3j",
                     ["H"]      = "^",
                     ["L"]      = "$",
                     ["<"]      = "<<",
@@ -84,8 +84,8 @@ local keymaps = {
                 -- Better indenting
                     ["<"] = "<gv",
                     [">"] = ">gv",
-                -- ["K"] = "3k",
-                -- ["J"] = "3j",
+                    ["K"] = "3k",
+                    ["J"] = "3j",
                     ["H"] = "^",
                     ["L"] = "$",
         },
@@ -93,8 +93,8 @@ local keymaps = {
                 -- Move current line / block with Alt-j/k ala vscode.
                     ["<A-s>"] = ":m '>+1<CR>gv-gv",
                     ["<A-w>"] = ":m '<-2<CR>gv-gv",
-                -- ["k"] = "3k",
-                -- ["J"] = "3j",
+                    ["k"] = "3k",
+                    ["J"] = "3j",
                     ["H"] = "^",
                     ["L"] = "$",
         },
