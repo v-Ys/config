@@ -2,7 +2,7 @@
 -- 'colorscheme xcodewwdc'
 local options = {
         termguicolors  = true,  --真彩模式
-        scrolloff      = 20,    --scroll 时留下五行
+        scrolloff      = 5,     --scroll 时留下五行
         cursorline     = true,  --编辑行下划线
         wrap           = false, --不要换行
         -- linebreak      = true, --换行显示时不把一个单词拆开，遇到指定的符号（比如空格，连词号和其他标点符号）才换行
