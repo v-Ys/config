@@ -1,14 +1,6 @@
 --NOTE:
-local snip_status_ok, luasnip = pcall(require, "luasnip")
-if not snip_status_ok then
-        return
-end
-
-local cmp_status_ok, cmp = pcall(require, "cmp")
-if not cmp_status_ok then
-        return
-end
-
+local luasnip = require("luasnip")
+local cmp = require("cmp")
 require("luasnip/loaders/from_vscode").lazy_load()
 require("luasnip.loaders.from_vscode").lazy_load({
         paths = {
@@ -146,5 +138,5 @@ cmp.setup.cmdline(':', {
 
 
 --lsp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)

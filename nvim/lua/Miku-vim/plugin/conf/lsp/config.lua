@@ -1,8 +1,6 @@
 --NOTE:
-local ok, mason = pcall(require, "mason")
-if not ok then
-        return
-end
+local mason = require("mason")
+local lspconfig = require("lspconfig")
 
 mason.setup {
         max_concurrent_installers = 10,
@@ -12,9 +10,9 @@ mason.setup {
                         package_pending = "",
                         package_uninstalled = "",
                 },
+                border = "rounded",
         },
 }
-local lspconfig = require("lspconfig")
 
 local servers = {
         "clangd",
