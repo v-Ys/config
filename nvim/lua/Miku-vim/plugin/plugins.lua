@@ -1,7 +1,7 @@
 return {
         --NOTE: theme
         { 'Th3Whit3Wolf/one-nvim' },
-        { "EdenEast/nightfox.nvim" },
+        { "EdenEast/nightfox.nvim", },
         { "sainnhe/edge" },
         {
                 'sonph/onehalf',
@@ -13,7 +13,6 @@ return {
                 -- 'projekt0n/github-nvim-theme',
                 'Vv-ys/github-nvim-theme',
                 -- version = "v0.0.7",
-
                 config = function()
                         require('github-theme').setup({
                                 theme_style = "light",
@@ -79,17 +78,15 @@ return {
         {
                 'hrsh7th/nvim-cmp',
                 dependencies = {
-                        { 'hrsh7th/cmp-nvim-lsp' }, --for lsp
-                        { 'hrsh7th/cmp-buffer' },   -- buffer completions
-                        { 'hrsh7th/cmp-path' },     -- path completions
-                        { 'hrsh7th/cmp-cmdline' },  -- cmdline completions
-                        --NOTE:snip,
+                        { 'hrsh7th/cmp-nvim-lsp' },
+                        { 'hrsh7th/cmp-buffer' },
+                        { 'hrsh7th/cmp-path' },
+                        { 'hrsh7th/cmp-cmdline' },
+                        --NOTE: snip,
                         {
                                 'saadparwaiz1/cmp_luasnip',
                                 dependencies = {
-                                        --snippet engine
                                         { "L3MON4D3/LuaSnip", },
-                                        -- a bunch of snippets to
                                         { 'rafamadriz/friendly-snippets', },
                                 }
                         },
@@ -103,7 +100,6 @@ return {
         {
                 'neovim/nvim-lspconfig',
                 dependencies = {
-                        -- install lsp server
                         {
                                 'williamboman/mason.nvim',
                                 opts = {
@@ -118,11 +114,17 @@ return {
                                         },
                                 },
                         },
-                        { 'ray-x/lsp_signature.nvim', }, -- fun signature
+                        { 'ray-x/lsp_signature.nvim', },
                 },
                 config = function()
                         require("Miku-vim.plugin.conf.lsp")
                 end,
+        },
+        -- PLUG: for fold  !!! Please load plugin afer lsp
+        {
+                'kevinhwang91/nvim-ufo',
+                dependencies = 'kevinhwang91/promise-async',
+                config = true,
         },
         --PLUG: null-ls for formatters and linters
         {
@@ -156,27 +158,19 @@ return {
         {
                 'nvim-treesitter/nvim-treesitter',
                 build = ':TSUpdate',
-                --for fold
-                dependencies = {
-                        'kevinhwang91/nvim-ufo',
-                        dependencies = 'kevinhwang91/promise-async',
-                        opts = {
-                                provider_selector = function(bufnr, filetype, buftype)
-                                        return { 'treesitter', 'indent' }
-                                end,
-                        },
-                },
-                opts = {
-                        ensure_installed = { "c", "cpp", "lua" },
-                        sync_install = false,
-                        highlight = {
-                                enable = true,
-                                additional_vim_regex_highlighting = true,
-                        },
-                        indent = {
-                                enable = true
-                        }
-                }
+                config = function()
+                        require("nvim-treesitter.configs").setup({
+                                ensure_installed = { "rust", "c", "cpp", "lua" },
+                                sync_install = false,
+                                highlight = {
+                                        enable = true,
+                                        -- additional_vim_regex_highlighting = true,
+                                },
+                                indent = {
+                                        enable = true
+                                }
+                        })
+                end,
         },
         --PLUG: autopairs
         {
@@ -329,6 +323,17 @@ return {
                 },
                 ft = 'markdown',
         },
+        -- --PLUG: show color
+        -- {
+        --         'NvChad/nvim-colorizer.lua',
+        --         -- cmd = "COLLLLLor",
+        --         config = function()
+        --                 require("colorizer").setup {
+        --                         filetypes = { "lua" },
+        --
+        --                 }
+        --         end
+        -- },
 
         --PLUG: diff view
         --

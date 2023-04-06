@@ -1,7 +1,9 @@
 --NOTE:
 local luasnip = require("luasnip")
 local cmp = require("cmp")
-require("luasnip/loaders/from_vscode").lazy_load()
+require("luasnip/loaders/from_vscode").lazy_load({
+        include = { "python", "rust", "cpp", "c", "lua" }
+})
 require("luasnip.loaders.from_vscode").lazy_load({
         paths = {
                 vim.fn.stdpath("config") .. "/lua/Miku-vim/snippets"
@@ -13,34 +15,44 @@ local check_backspace = function()
         return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
 
-local kind_icons = {
-        Text = "",
-        Method = "m",
-        Function = "",
-        Constructor = "",
-        Field = "",
-        Variable = "",
-        Class = "",
-        Interface = "",
-        Module = "",
-        Property = "",
-        Unit = "",
-        Value = "",
-        Enum = "",
-        Keyword = "",
-        Snippet = "",
-        Color = "",
-        File = "",
-        Reference = "",
-        Folder = "",
-        EnumMember = "",
-        Constant = "",
-        Struct = "",
-        Event = "",
-        Operator = "",
-        TypeParameter = "",
-}
+--         "",
 
+local kind_icons = {
+        Array = "",
+        Boolean = "",
+        Class = "",
+        Color = "",
+        Constant = "",
+        Constructor = "",
+        Enum = "",
+        EnumMember = "",
+        Event = "",
+        Field = "",
+        File = "",
+        Folder = "",
+        Function = "",
+        Interface = "",
+        Key = "",
+        Keyword = "",
+        Method = "",
+        Module = "",
+        Namespace = "",
+        Null = "ﳠ",
+        Number = "",
+        Object = "",
+        Operator = "",
+        Package = "",
+        Property = "",
+        Reference = "",
+        Snippet = "",
+        String = "",
+        Struct = "",
+        Text = "",
+        TypeParameter = "",
+        Unit = "",
+        Value = "",
+        Variable = "",
+}
 
 cmp.setup({
         snippet = {
