@@ -40,22 +40,20 @@ ${d.message}`:g,c=[_,p,e].filter(Boolean).join(`
 # \u{1F6A8}Error: Something happened while trying to run your command
   
 [![Google Chrome](https://www.google.com/chrome/static/images/chrome-logo-m100.svg)]()
-`,ze="An Error Occurred",We="Google Chrome not installed";var id=()=>{if(!process.env.HOME)throw new Error("$HOME environment variable is not set.");return Ke.default.join(process.env.HOME,"Library")},md=e=>Ke.default.join(id(),...pd,e??p1,"History"),rd=()=>Ke.default.join(id(),...ad);var k9=require("@raycast/api");var R8=require("react/jsx-runtime");var sd=require("react"),H=require("@raycast/api"),Up=require("child_process");var od=require("os"),nd=require("path"),$p=require("react/jsx-runtime"),q9=(()=>{try{return(0,Up.execSync)("brew --prefix",{encoding:"utf8"}).trim()}catch{return(0,od.cpus)()[0].model.includes("Apple")?"/opt/homebrew":"/usr/local"}})();function ld(){return(0,nd.join)(q9,"bin/brew")}function $9(e){try{return(0,Up.execSync)(`${ld()} install --cask ${e}`,{maxBuffer:10*1024*1024})}catch(p){let a=p;throw a&&a.code===127?(a.stderr=`Brew executable not found at ${ld()}`,a):p}}function Xe(){let[e,p]=(0,sd.useState)(!0);return(0,$p.jsx)(H.Detail,{actions:(0,$p.jsx)(H.ActionPanel,{children:e&&(0,$p.jsx)(H.ActionPanel.Item,{title:"Install with Homebrew",onAction:async()=>{if(!e)return;let a=new H.Toast({style:H.Toast.Style.Animated,title:"Installing..."});await a.show();try{$9("google-chrome"),await a.hide()}catch{await a.hide(),await(0,H.showToast)(H.Toast.Style.Failure,ze,"An unknown error occurred while trying to install")}a.title="Installed! Please go back and try again.",a.style=H.Toast.Style.Success,await a.show(),p(!1)}})}),markdown:dd})}var X1=require("@raycast/api");var U9=require("react/jsx-runtime");function ud(){return(0,X1.showToast)(X1.Toast.Style.Failure,ze,"Something happened while trying to run your command"),(0,U9.jsx)(X1.Detail,{markdown:td})}var V=require("@raycast/api");var G6=X(require("node:process"),1),H6=X(j6(),1);async function pe(e){if(G6.default.platform!=="darwin")throw new Error("macOS only");let{stdout:p}=await(0,H6.default)("osascript",["-e",e]);return p}var S1=require("@raycast/api");var z6=X(P1());var ip=class{constructor(p,a,d,t,i){this.title=p;this.url=a;this.favicon=d;this.windowsIndex=t;this.tabIndex=i}static parse(p){let a=p.split(this.TAB_CONTENTS_SEPARATOR);return new ip(a[0],a[1],a[2],+a[3],+a[4])}key(){return`${this.windowsIndex}${ip.TAB_CONTENTS_SEPARATOR}${this.tabIndex}`}urlWithoutScheme(){return this.url.replace(/(^\w+:|^)\/\//,"").replace("www.","")}googleFavicon(){return(0,z6.getFavicon)(this.url)}},o1=ip;o1.TAB_CONTENTS_SEPARATOR="~~~";async function W6(e){let p=e?`execute of tab _tab_index of window _window_index javascript \xAC
+`,ze="An Error Occurred",We="Google Chrome not installed";var id=()=>{if(!process.env.HOME)throw new Error("$HOME environment variable is not set.");return Ke.default.join(process.env.HOME,"Library")},md=e=>Ke.default.join(id(),...pd,e??p1,"History"),rd=()=>Ke.default.join(id(),...ad);var k9=require("@raycast/api");var R8=require("react/jsx-runtime");var sd=require("react"),H=require("@raycast/api"),Up=require("child_process");var od=require("os"),nd=require("path"),$p=require("react/jsx-runtime"),q9=(()=>{try{return(0,Up.execSync)("brew --prefix",{encoding:"utf8"}).trim()}catch{return(0,od.cpus)()[0].model.includes("Apple")?"/opt/homebrew":"/usr/local"}})();function ld(){return(0,nd.join)(q9,"bin/brew")}function $9(e){try{return(0,Up.execSync)(`${ld()} install --cask ${e}`,{maxBuffer:10*1024*1024})}catch(p){let a=p;throw a&&a.code===127?(a.stderr=`Brew executable not found at ${ld()}`,a):p}}function Xe(){let[e,p]=(0,sd.useState)(!0);return(0,$p.jsx)(H.Detail,{actions:(0,$p.jsx)(H.ActionPanel,{children:e&&(0,$p.jsx)(H.ActionPanel.Item,{title:"Install with Homebrew",onAction:async()=>{if(!e)return;let a=new H.Toast({style:H.Toast.Style.Animated,title:"Installing..."});await a.show();try{$9("google-chrome"),await a.hide()}catch{await a.hide(),await(0,H.showToast)(H.Toast.Style.Failure,ze,"An unknown error occurred while trying to install")}a.title="Installed! Please go back and try again.",a.style=H.Toast.Style.Success,await a.show(),p(!1)}})}),markdown:dd})}var X1=require("@raycast/api");var U9=require("react/jsx-runtime");function ud(){return(0,X1.showToast)(X1.Toast.Style.Failure,ze,"Something happened while trying to run your command"),(0,U9.jsx)(X1.Detail,{markdown:td})}var V=require("@raycast/api");var G6=X(require("node:process"),1),H6=X(j6(),1);async function pe(e){if(G6.default.platform!=="darwin")throw new Error("macOS only");let{stdout:p}=await(0,H6.default)("osascript",["-e",e]);return p}var S1=require("@raycast/api");var z6=X(P1());var ip=class{constructor(p,a,d,t,i){this.title=p;this.url=a;this.favicon=d;this.windowsId=t;this.tabIndex=i}static parse(p){let a=p.split(this.TAB_CONTENTS_SEPARATOR);return new ip(a[0],a[1],a[2],+a[3],+a[4])}key(){return`${this.windowsId}${ip.TAB_CONTENTS_SEPARATOR}${this.tabIndex}`}urlWithoutScheme(){return this.url.replace(/(^\w+:|^)\/\//,"").replace("www.","")}googleFavicon(){return(0,z6.getFavicon)(this.url)}},o1=ip;o1.TAB_CONTENTS_SEPARATOR="~~~";async function W6(e){let p=e?`execute of tab _tab_index of window _window_index javascript \xAC
                     "document.head.querySelector('link[rel~=icon]').href;"`:'""';await i2();try{return(await pe(`
       set _output to ""
       tell application "Google Chrome"
-        set _window_index to 1
         repeat with w in windows
+          set _w_id to get id of w  
           set _tab_index to 1
           repeat with t in tabs of w
             set _title to get title of t
             set _url to get URL of t
             set _favicon to ${p}
-            set _output to (_output & _title & "${o1.TAB_CONTENTS_SEPARATOR}" & _url & "${o1.TAB_CONTENTS_SEPARATOR}" & _favicon & "${o1.TAB_CONTENTS_SEPARATOR}" & _window_index & "${o1.TAB_CONTENTS_SEPARATOR}" & _tab_index & "\\n")
+            set _output to (_output & _title & "${o1.TAB_CONTENTS_SEPARATOR}" & _url & "${o1.TAB_CONTENTS_SEPARATOR}" & _favicon & "${o1.TAB_CONTENTS_SEPARATOR}" & _w_id & "${o1.TAB_CONTENTS_SEPARATOR}" & _tab_index & "\\n")
             set _tab_index to _tab_index + 1
           end repeat
-          set _window_index to _window_index + 1
-          if _window_index > count windows then exit repeat
         end repeat
       end tell
       return _output
@@ -75,16 +73,18 @@ ${d.message}`:g,c=[_,p,e].filter(Boolean).join(`
   `;break;case"profile_current":i=m(a);break;case"profile_original":i=m(d);break}return await pe(i)}async function K6(e){await pe(`
     tell application "Google Chrome"
       activate
-      set index of window (${e.windowsIndex} as number) to (${e.windowsIndex} as number)
-      set active tab index of window (${e.windowsIndex} as number) to (${e.tabIndex} as number)
+      set _wnd to first window where id is ${e.windowsId}
+      set index of _wnd to 1
+      set active tab index of _wnd to ${e.tabIndex}
     end tell
     return true
   `)}async function X6(e){await pe(`
     tell application "Google Chrome"
       activate
-      set index of window (${e.windowsIndex} as number) to (${e.windowsIndex} as number)
-      set active tab index of window (${e.windowsIndex} as number) to (${e.tabIndex} as number)
-      close active tab of window (${e.windowsIndex} as number)
+      set _wnd to first window where id is ${e.windowsId}
+      set index of _wnd to 1
+      set active tab index of _wnd to ${e.tabIndex}
+      close active tab of _wnd
     end tell
     return true
   `)}var i2=async()=>{if(await S1.LocalStorage.getItem("is-installed"))return;if(await pe(`

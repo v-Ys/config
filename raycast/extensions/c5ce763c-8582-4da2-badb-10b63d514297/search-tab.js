@@ -27,22 +27,20 @@ ${a.message}`:s,n=[u,p,e].filter(Boolean).join(`
       ${e>0&&e<1?`<path d="${Y3(50,50,r,0,e*360)}" stroke="${p}" stroke-width="${i}" fill="none" />`:""}
     </svg>
   `.replaceAll(`
-`,"")}`}Ge.getProgressIcon=J3});var _6=o(d1=>{"use strict";var Q3=d1&&d1.__createBinding||(Object.create?function(e,p,a,d){d===void 0&&(d=a);var t=Object.getOwnPropertyDescriptor(p,a);(!t||("get"in t?!p.__esModule:t.writable||t.configurable))&&(t={enumerable:!0,get:function(){return p[a]}}),Object.defineProperty(e,d,t)}:function(e,p,a,d){d===void 0&&(d=a),e[d]=p[a]}),zp=d1&&d1.__exportStar||function(e,p){for(var a in e)a!=="default"&&!Object.prototype.hasOwnProperty.call(p,a)&&Q3(p,e,a)};Object.defineProperty(d1,"__esModule",{value:!0});zp(f6(),d1);zp(h6(),d1);zp(g6(),d1)});var ze=o($=>{"use strict";var e5=$&&$.__createBinding||(Object.create?function(e,p,a,d){d===void 0&&(d=a);var t=Object.getOwnPropertyDescriptor(p,a);(!t||("get"in t?!p.__esModule:t.writable||t.configurable))&&(t={enumerable:!0,get:function(){return p[a]}}),Object.defineProperty(e,d,t)}:function(e,p,a,d){d===void 0&&(d=a),e[d]=p[a]}),f1=$&&$.__exportStar||function(e,p){for(var a in e)a!=="default"&&!Object.prototype.hasOwnProperty.call(p,a)&&e5(p,e,a)};Object.defineProperty($,"__esModule",{value:!0});f1(Ve(),$);f1(Sp(),$);f1(Ae(),$);f1(Gd(),$);f1(Jd(),$);f1(d6(),$);f1(m6(),$);f1(_6(),$)});var u5={};G6(u5,{default:()=>A6});module.exports=z6(u5);var Xe=require("@raycast/api"),Ze=require("react");var Ia=W1(require("node:process"),1),La=W1(Ba(),1);async function R1(e){if(Ia.default.platform!=="darwin")throw new Error("macOS only");let{stdout:p}=await(0,La.default)("osascript",["-e",e]);return p}var v1=require("@raycast/api");var y6=W1(ze());var He=class{constructor(p,a,d,t,i){this.title=p;this.url=a;this.favicon=d;this.windowsIndex=t;this.tabIndex=i}static parse(p){let a=p.split(this.TAB_CONTENTS_SEPARATOR);return new He(a[0],a[1],a[2],+a[3],+a[4])}key(){return`${this.windowsIndex}${He.TAB_CONTENTS_SEPARATOR}${this.tabIndex}`}urlWithoutScheme(){return this.url.replace(/(^\w+:|^)\/\//,"").replace("www.","")}googleFavicon(){return(0,y6.getFavicon)(this.url)}},t1=He;t1.TAB_CONTENTS_SEPARATOR="~~~";var Hp="Default",Wp="CHROME_PROFILE_KEY";var b6="Google Chrome not installed";async function S6(e){let p=e?`execute of tab _tab_index of window _window_index javascript \xAC
+`,"")}`}Ge.getProgressIcon=J3});var _6=o(d1=>{"use strict";var Q3=d1&&d1.__createBinding||(Object.create?function(e,p,a,d){d===void 0&&(d=a);var t=Object.getOwnPropertyDescriptor(p,a);(!t||("get"in t?!p.__esModule:t.writable||t.configurable))&&(t={enumerable:!0,get:function(){return p[a]}}),Object.defineProperty(e,d,t)}:function(e,p,a,d){d===void 0&&(d=a),e[d]=p[a]}),zp=d1&&d1.__exportStar||function(e,p){for(var a in e)a!=="default"&&!Object.prototype.hasOwnProperty.call(p,a)&&Q3(p,e,a)};Object.defineProperty(d1,"__esModule",{value:!0});zp(f6(),d1);zp(h6(),d1);zp(g6(),d1)});var ze=o($=>{"use strict";var e5=$&&$.__createBinding||(Object.create?function(e,p,a,d){d===void 0&&(d=a);var t=Object.getOwnPropertyDescriptor(p,a);(!t||("get"in t?!p.__esModule:t.writable||t.configurable))&&(t={enumerable:!0,get:function(){return p[a]}}),Object.defineProperty(e,d,t)}:function(e,p,a,d){d===void 0&&(d=a),e[d]=p[a]}),f1=$&&$.__exportStar||function(e,p){for(var a in e)a!=="default"&&!Object.prototype.hasOwnProperty.call(p,a)&&e5(p,e,a)};Object.defineProperty($,"__esModule",{value:!0});f1(Ve(),$);f1(Sp(),$);f1(Ae(),$);f1(Gd(),$);f1(Jd(),$);f1(d6(),$);f1(m6(),$);f1(_6(),$)});var u5={};G6(u5,{default:()=>A6});module.exports=z6(u5);var Xe=require("@raycast/api"),Ze=require("react");var Ia=W1(require("node:process"),1),La=W1(Ba(),1);async function R1(e){if(Ia.default.platform!=="darwin")throw new Error("macOS only");let{stdout:p}=await(0,La.default)("osascript",["-e",e]);return p}var v1=require("@raycast/api");var y6=W1(ze());var He=class{constructor(p,a,d,t,i){this.title=p;this.url=a;this.favicon=d;this.windowsId=t;this.tabIndex=i}static parse(p){let a=p.split(this.TAB_CONTENTS_SEPARATOR);return new He(a[0],a[1],a[2],+a[3],+a[4])}key(){return`${this.windowsId}${He.TAB_CONTENTS_SEPARATOR}${this.tabIndex}`}urlWithoutScheme(){return this.url.replace(/(^\w+:|^)\/\//,"").replace("www.","")}googleFavicon(){return(0,y6.getFavicon)(this.url)}},t1=He;t1.TAB_CONTENTS_SEPARATOR="~~~";var Hp="Default",Wp="CHROME_PROFILE_KEY";var b6="Google Chrome not installed";async function S6(e){let p=e?`execute of tab _tab_index of window _window_index javascript \xAC
                     "document.head.querySelector('link[rel~=icon]').href;"`:'""';await Kp();try{return(await R1(`
       set _output to ""
       tell application "Google Chrome"
-        set _window_index to 1
         repeat with w in windows
+          set _w_id to get id of w  
           set _tab_index to 1
           repeat with t in tabs of w
             set _title to get title of t
             set _url to get URL of t
             set _favicon to ${p}
-            set _output to (_output & _title & "${t1.TAB_CONTENTS_SEPARATOR}" & _url & "${t1.TAB_CONTENTS_SEPARATOR}" & _favicon & "${t1.TAB_CONTENTS_SEPARATOR}" & _window_index & "${t1.TAB_CONTENTS_SEPARATOR}" & _tab_index & "\\n")
+            set _output to (_output & _title & "${t1.TAB_CONTENTS_SEPARATOR}" & _url & "${t1.TAB_CONTENTS_SEPARATOR}" & _favicon & "${t1.TAB_CONTENTS_SEPARATOR}" & _w_id & "${t1.TAB_CONTENTS_SEPARATOR}" & _tab_index & "\\n")
             set _tab_index to _tab_index + 1
           end repeat
-          set _window_index to _window_index + 1
-          if _window_index > count windows then exit repeat
         end repeat
       end tell
       return _output
@@ -62,16 +60,18 @@ ${a.message}`:s,n=[u,p,e].filter(Boolean).join(`
   `;break;case"profile_current":i=m(a);break;case"profile_original":i=m(d);break}return await R1(i)}async function N6(e){await R1(`
     tell application "Google Chrome"
       activate
-      set index of window (${e.windowsIndex} as number) to (${e.windowsIndex} as number)
-      set active tab index of window (${e.windowsIndex} as number) to (${e.tabIndex} as number)
+      set _wnd to first window where id is ${e.windowsId}
+      set index of _wnd to 1
+      set active tab index of _wnd to ${e.tabIndex}
     end tell
     return true
   `)}async function T6(e){await R1(`
     tell application "Google Chrome"
       activate
-      set index of window (${e.windowsIndex} as number) to (${e.windowsIndex} as number)
-      set active tab index of window (${e.windowsIndex} as number) to (${e.tabIndex} as number)
-      close active tab of window (${e.windowsIndex} as number)
+      set _wnd to first window where id is ${e.windowsId}
+      set index of _wnd to 1
+      set active tab index of _wnd to ${e.tabIndex}
+      close active tab of _wnd
     end tell
     return true
   `)}var Kp=async()=>{if(await v1.LocalStorage.getItem("is-installed"))return;if(await R1(`
