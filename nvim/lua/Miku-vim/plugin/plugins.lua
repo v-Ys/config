@@ -13,6 +13,7 @@ return {
                 -- 'projekt0n/github-nvim-theme',
                 'Vv-ys/github-nvim-theme',
                 -- version = "v0.0.7",
+
                 config = function()
                         require('github-theme').setup({
                                 theme_style = "light",
@@ -155,13 +156,27 @@ return {
         {
                 'nvim-treesitter/nvim-treesitter',
                 build = ':TSUpdate',
+                --for fold
                 dependencies = {
                         'kevinhwang91/nvim-ufo',
-                        dependencies = 'kevinhwang91/promise-async'
-                }, --for fold
-                config = function()
-                        require('Miku-vim.plugin.conf.treesitter')
-                end,
+                        dependencies = 'kevinhwang91/promise-async',
+                        opts = {
+                                provider_selector = function(bufnr, filetype, buftype)
+                                        return { 'treesitter', 'indent' }
+                                end,
+                        },
+                },
+                opts = {
+                        ensure_installed = { "c", "cpp", "lua" },
+                        sync_install = false,
+                        highlight = {
+                                enable = true,
+                                additional_vim_regex_highlighting = true,
+                        },
+                        indent = {
+                                enable = true
+                        }
+                }
         },
         --PLUG: autopairs
         {
@@ -204,7 +219,6 @@ return {
                 opts = {
                         keywords = {
                                 -- alt ： 别名
-                                --
                                 FIX = {
                                         icon = " ",
                                         color = "#C0392B",
@@ -230,9 +244,28 @@ return {
         {
                 "akinsho/toggleterm.nvim",
                 version = '*',
-                config = function()
-                        require("Miku-vim.plugin.conf.toggleterm")
-                end,
+                opts = {
+                        size = 20,
+                        open_mapping = [[<A-m>]],
+                        hide_numbers = true,
+                        shade_filetypes = {},
+                        shade_terminals = true,
+                        shading_factor = 2,
+                        start_in_insert = true,
+                        insert_mappings = true,
+                        persist_size = true,
+                        direction = "float",
+                        close_on_exit = true,
+                        shell = vim.o.shell,
+                        float_opts = {
+                                border = "curved",
+                                winblend = 0,
+                                highlights = {
+                                        border = "Normal",
+                                        background = "Normal",
+                                },
+                        },
+                }
         },
         --PLUG: neotree
         {
