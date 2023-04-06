@@ -42,7 +42,7 @@ local keymaps = {
                     ["L"]      = "$",
                     ["<"]      = "<<",
                     [">"]      = ">>",
-                -- ["<leader>u"] = "J",
+                    ["<leader>u"] = "J",
                 --buffers
                     ["<A-]>"]  = ":BufferLineCycleNext<CR>",
                     ["<A-[>"]  = ":BufferLineCyclePre<CR>",
