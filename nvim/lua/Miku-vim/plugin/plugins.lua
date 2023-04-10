@@ -1,14 +1,5 @@
 return {
         --NOTE: theme
-        { 'Th3Whit3Wolf/one-nvim' },
-        { "EdenEast/nightfox.nvim", },
-        { "sainnhe/edge" },
-        {
-                'sonph/onehalf',
-                config = function(plugin)
-                        vim.opt.rtp:append(plugin.dir .. "/vim")
-                end
-        },
         {
                 'projekt0n/github-nvim-theme',
                 -- version = "v0.0.7",
@@ -19,14 +10,7 @@ return {
                         })
                 end,
         },
-        {
-                "catppuccin/nvim",
-                name = "catppuccin",
-                -- config = function()
-                --         vim.cmd.colorscheme "catppuccin"
-                -- end
-        },
-        { "sainnhe/everforest", },
+        { "EdenEast/nightfox.nvim", },
 
         --NOTE: UI
         --
@@ -125,6 +109,7 @@ return {
                 'kevinhwang91/nvim-ufo',
                 dependencies = 'kevinhwang91/promise-async',
                 config = true,
+                event = "VeryLazy",
         },
         --PLUG: null-ls for formatters and linters
         {
@@ -197,6 +182,7 @@ return {
                         vim.api.nvim_set_keymap("n", "ga", "<Plug>(EasyAlign)", { noremap = true, silent = true })
                         vim.api.nvim_set_keymap("v", "ga", "<Plug>(EasyAlign)", { noremap = true, silent = true })
                 end,
+                event = "VeryLazy",
         },
         --PLUG: lastplace
         {
@@ -233,6 +219,7 @@ return {
                         require('leap').opts.safe_labels = { 'f', 'e', 'j', 'k', 'i', 'n', 'c', 'w', 'r', 'o',
                                 'a', 's', 'd', 't', 'g', 'v', 'm', 'l', 'q', 'x', 'b' }
                 end,
+                event = "VeryLazy",
         },
         --PLUG: toggleterm
         {
@@ -259,7 +246,8 @@ return {
                                         background = "Normal",
                                 },
                         },
-                }
+                },
+                event = "VeryLazy",
         },
         --PLUG: neotree
         {
@@ -341,4 +329,34 @@ return {
         -- 'sindrets/diffview.nvim',
         -- dependencies = 'nvim-lua/plenary.nvim'
         -- },
+        --
+        --
+
+        {
+                'Th3Whit3Wolf/one-nvim',
+                event = "VeryLazy",
+        },
+        {
+                "sainnhe/edge",
+                event = "VeryLazy",
+        },
+        {
+                'sonph/onehalf',
+                config = function(plugin)
+                        vim.opt.rtp:append(plugin.dir .. "/vim")
+                end,
+                event = "VeryLazy",
+        },
+        {
+                "sainnhe/everforest",
+                event = "VeryLazy",
+        },
+        {
+                "catppuccin/nvim",
+                name = "catppuccin",
+                -- config = function()
+                --         vim.cmd.colorscheme "catppuccin"
+                -- end,
+                event = "VeryLazy",
+        },
 }
