@@ -10,12 +10,12 @@ return {
                 end
         },
         {
-                -- 'projekt0n/github-nvim-theme',
-                'Vv-ys/github-nvim-theme',
+                'projekt0n/github-nvim-theme',
                 -- version = "v0.0.7",
                 config = function()
                         require('github-theme').setup({
                                 theme_style = "light",
+                                colors = { bg2 = "#1E50A2" },
                         })
                 end,
         },
