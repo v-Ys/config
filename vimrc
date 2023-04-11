@@ -78,6 +78,7 @@ noremap K 5k
 noremap J 5j
 noremap L $
 noremap H ^
+noremap gt %
 
 " set <M-s> ^[s
 nnoremap <leader>] :bn<CR>
