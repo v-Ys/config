@@ -78,13 +78,12 @@ scrolling:
 font:
 
   normal:
-    # family: Consolas NF # size=21 x=1 y=1  size=19 x=-1 y=1 
-    family: Iosevka Nerd Font Mono # size=21 x=-1 y=0 size 17 x=-1 y=0
+    family: Consolas NF # size=21 x=1 y=1  size=19 x=-1 y=1 
+    # family: Iosevka Nerd Font Mono # size=21 x=-1 y=0 size 17 x=-1 y=0
     # family: JetBrainsMono Nerd Font Mono # size =17
-    # style: Book
+    style: Book
     # style: Medium
-    style: Regular
-    # weight: 600
+    # style: Regular
 
   #Bold font face
   bold:
@@ -108,8 +107,8 @@ font:
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   offset:
-    # x: 0
-    x: 1
+    x: 0
+    # x: 1
     y: 0
 
 #NOTE: colors
