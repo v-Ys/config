@@ -71,6 +71,14 @@ set nowrap                                   "不要换行
 set encoding=utf-8 fileencodings=utf-8
 
 
+"cursor
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+"fix delay
+set ttimeout
+set ttimeoutlen=1
+set ttyfast
 
 "Keyboard Map
 let mapleader = "\<Space>"
@@ -158,7 +166,7 @@ nnoremap  <Leader>fs :Colors<CR>
 nnoremap  <Leader>fl :Rg<CR>
 nnoremap  <Leader>fm :Marks<CR>
 nnoremap  <Leader>fw :Lines<CR>
-" nnoremap  <Leader>fb :BLines<CR>
+nnoremap  <Leader>fb :Buffers<CR>
 
 
 
