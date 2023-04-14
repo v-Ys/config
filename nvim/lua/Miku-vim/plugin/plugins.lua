@@ -2,15 +2,20 @@ return {
         --NOTE: theme
         {
                 'projekt0n/github-nvim-theme',
-                -- version = "v0.0.7",
+                commit = "79be3b58f9facac10f7d0a2d2fda691424c9e5b3",
                 config = function()
                         require('github-theme').setup({
-                                theme_style = "light",
-                                colors = { bg2 = "#1E50A2" },
+                                colors = { bg2 = "#1E50A2", },
                         })
+                        vim.cmd('colorscheme github_light')
                 end,
         },
-        { "EdenEast/nightfox.nvim", },
+
+
+        {
+                "EdenEast/nightfox.nvim",
+                -- vim.cmd('colorscheme nightfox')
+        },
 
         --NOTE: UI
         --

@@ -1,8 +1,5 @@
 --NOTE:
-local status_ok, telescope = pcall(require, "telescope")
-if not status_ok then
-        return
-end
+local telescope = require("telescope")
 
 telescope.setup {
         defaults = {
@@ -79,10 +76,8 @@ telescope.setup {
                         },
                         hidden_files = true, -- default: false
                         -- theme = "dropdown",
-                        -- theme = "ivy",
                         order_by = "asc",
                         search_by = "title",
-                        sync_with_nvim_tree = true, -- default false
                 }
         },
 

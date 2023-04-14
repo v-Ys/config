@@ -31,7 +31,7 @@
         "body": [
             "\\begin{figure}[H]",
             "\\centering",
-            "\\includegraphics[width=0.9\\textwidth]{pic/${1:jup1}}",
+            "\\includegraphics[width=0.9\\textwidth]{figures/${1:jup1}}",
             "\\caption{${0:caption}}",
             "\\end{figure}"
         ],
@@ -91,7 +91,7 @@
             "\\Large{\\textbf{\u6b66\u6c49\u5927\u5b66}}\\\\\\\\",
             "\\Large{\\textbf{\u2014\u2014 \u4fe1\u606f\u7ba1\u7406\u5b66\u9662\u2014\u2014 }}\\\\\\\\",
             "\\vfill",
-            "\\line(1,0){400}\\ \\[1mm]",
+            "\\line(1,0){400}\\\\\\\\[1mm]",
             "\\huge{\\textbf{Python\u8bed\u8a00\u57fa\u7840\u4e0e\u5b9e\u8df5}}\\\\\\\\[3mm]",
             "\\Large{\\textbf{\u57fa\u672c\u6570\u636e\u7c7b\u578b\u7684\u4f7f\u7528}}\\\\\\\\[1mm]",
             "\\line(1,0){400}",
@@ -109,7 +109,7 @@
             "\\end{flushright}",
             "\\end{minipage}\\\\\\\\[3cm]",
             "\\vfill",
-            "\\textbf{\u6210\u7ee9\uff1a}\\ \\ \\",
+            "\\textbf{\u6210\u7ee9\uff1a}\\\\\\\\",
             "\u59d3\u540d: \u9a6c\u4e91\u677e\\ \\  \u5b66\u53f7\uff1a2021302192007\\\\\\\\",
             "\u6307\u5bfc\u6559\u5e08\uff1a\u8303\u660a \\\\\\\\",
             "\\today \\\\\\\\",

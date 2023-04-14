@@ -64,7 +64,9 @@ M.run = function()
         --get current buffer filetype
         local ftp = vim.bo.filetype
         --RUN
-        RUN[ftp]()
+        if RUN[ftp] ~= nil then
+                RUN[ftp]()
+        end
 end
 
 --NOTE: FormatJSON
