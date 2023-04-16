@@ -76,40 +76,43 @@ scrolling:
 #tabspaces: 4
 #NOTE: Font configuration
 font:
-
   normal:
-    family: Consolas NF # size=21 x=1 y=1  size=19 x=-1 y=1 
+    family: CaskaydiaCove Nerd Font Mono
     # family: Iosevka Nerd Font Mono # size=21 x=-1 y=0 size 17 x=-1 y=0
-    # family: JetBrainsMono Nerd Font Mono # size =17
-    style: Book
-    # style: Medium
     # style: Regular
+    style: SemiLight
 
-  #Bold font face
+  # # Bold font face
+  # bold:
+  #   family: Iosevka Nerd Font Mono
+  #   style: Bold
+  # # Italic font face
+  # italic:
+  #   family: Iosevka Nerd Font Mono
+  #   # style: Medium Italic
+  #   style: Italic
+  # # Bold italic font face
+  # bold_italic:
+  #   family: Iosevka Nerd Font Mono
+  #   style: Bold Italic
+  # Bold font face
   bold:
-    family: Iosevka Nerd Font Mono
-    style: Bold
-
+    family: CaskaydiaCove Nerd Font Mono
+    style: Regular
   # Italic font face
   italic:
-    family: Iosevka Nerd Font Mono
+    family: CaskaydiaCove Nerd Font Mono
     # style: Medium Italic
-    style: Italic
-
+    style: SemiLight Italic
   # Bold italic font face
   bold_italic:
-    family: Iosevka Nerd Font Mono
-    style: Bold Italic
+    family: CaskaydiaCove Nerd Font Mono
+    style: Italic
 
-  #Point size
-  size: 17
-
-  # Offset is the extra space around each character. `offset.y` can be thought of
-  # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
+  size: 15
   offset:
-    x: 0
-    # x: 1
-    y: 0
+    x: 1
+    y: 1
 
 #NOTE: colors
 # Thin stroke font rendering (macOS only)
