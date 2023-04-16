@@ -1,4 +1,5 @@
 nvim/lazy-lock.json
 raycast/config.json
 raycast/extensions/*
+nvim/package-lock.json
 
