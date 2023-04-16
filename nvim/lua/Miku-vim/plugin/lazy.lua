@@ -24,7 +24,7 @@ local opts = {
                 border = "rounded",
         },
         install = {
-                -- colorscheme = { 'github_light' },
+                colorscheme = { 'github_light' },
         },
         performance = {
                 rtp = {
