@@ -77,10 +77,10 @@ scrolling:
 #NOTE: Font configuration
 font:
   normal:
-    family: CaskaydiaCove Nerd Font Mono
+    family: Maple Mono NF
     # family: Iosevka Nerd Font Mono # size=21 x=-1 y=0 size 17 x=-1 y=0
     # style: Regular
-    style: SemiLight
+    # style: SemiLight
 
   # # Bold font face
   # bold:
@@ -95,23 +95,11 @@ font:
   # bold_italic:
   #   family: Iosevka Nerd Font Mono
   #   style: Bold Italic
-  # Bold font face
-  bold:
-    family: CaskaydiaCove Nerd Font Mono
-    style: Regular
-  # Italic font face
-  italic:
-    family: CaskaydiaCove Nerd Font Mono
-    # style: Medium Italic
-    style: SemiLight Italic
-  # Bold italic font face
-  bold_italic:
-    family: CaskaydiaCove Nerd Font Mono
-    style: Italic
+  
 
   size: 15
   offset:
-    x: 1
+    x: 0
     y: 1
 
 #NOTE: colors
