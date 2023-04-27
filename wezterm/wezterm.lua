@@ -7,9 +7,9 @@ local MyKey = require('keybinds')
 
 return {
         disable_default_key_bindings = false,
-        font_size = 18,
-        cell_width = 0.95,
-        line_height = 1,
+        font_size = 16,
+        cell_width = 1,
+        line_height = 0.98,
         font = wezterm.font('Iosevka Nerd Font Mono',
                 { weight = 500, italic = false, }),
         enable_tab_bar = false,
