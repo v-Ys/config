@@ -25,7 +25,7 @@
     ~/.rustfmt.toml: fmtstyle/rustfmt.toml
     # ~/.config/pycodestyle: fmtstyle/pycodestyle
   
-    ~/.config/raycast: raycast
+    ~/.config/raycast/Raycast.rayconfig: Raycast.rayconfig
     ~/.hammerspoon:  hammerspoon
     ~/.config/karabiner: karabiner
 
