@@ -17,7 +17,8 @@ eval "$(zoxide init zsh)"
 export FZF_DEFAULT_COMMAND="fd --hidden --exclude={Applications,Library,.git,.idea,.vscode,.sass-cache,node_modules,build} --type f" 
 # editor 
 export EDITOR="nvim"
-
+# pyenv
+# alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
 ############################################ 
 ### alias ################################## 

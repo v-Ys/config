@@ -16,31 +16,29 @@ if status is-interactive
 
     #NOTE: --?
 
-    # starship
+    #### starship
     starship init fish | source
-    # zoxide
+    #### zoxide
     zoxide init fish | source
-    # --?
+    #### --?
     export EDITOR="nvim"
     export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
-    # export FZF_DEFAULT_COMMAND="fd --hidden"
+    #### export FZF_DEFAULT_COMMAND="fd --hidden"
     export FZF_DEFAULT_COMMAND="fd --hidden --exclude={Applications,Library,.git,.idea,.vscode,.sass-cache,node_modules,build} --type f"
-    # homebrew mirrors
+    #### homebrew mirrors
     # export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 
     #NOTE:" Environment variable
 
-    # nvm.fish (plug) PATH 
+    #### nvm.fish (plug) PATH 
     set -x PATH /Users/Miku/.local/share/nvm/v19.6.0/bin $PATH
-    # homebrew PATH 
-    set -x PATH /opt/homebrew/sbin $PATH
-    set -x PATH /opt/homebrew/bin $PATH
-    # haskell 
-    # set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /Users/Miku/.ghcup/bin $PATH # ghcup-env
-    # lsp for helix
-    # set -x PATH /Users/Miku/.local/share/nvim/mason/bin $PATH
-
+    #### python3
+    # set -x PATH /Users/Miku/.pyenv/shims/python3 $PATH
+    alias brew="env PATH=(string replace (pyenv root)/shims '' \"\$PATH\") brew" # avoid bug
+    #### homebrew PATH 
+    # set -x PATH /opt/homebrew/sbin $PATH
+    # set -x PATH /opt/homebrew/bin $PATH
 
     #NOTE: clashx
 

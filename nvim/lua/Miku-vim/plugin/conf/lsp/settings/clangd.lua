@@ -1,6 +1,7 @@
 return {
         -- cmd = {
         --     -- "clangd", -- NOTE: 只支持clangd 13.0.0 及其以下版本，新版本会有问题
+        --
         --     -- "--background-index", -- 后台建立索引，并持久化到disk
         --     --         "--clang-tidy", -- 开启clang-tidy
         --     --         -- 指定clang-tidy的检查参数， 摘抄自cmu15445. 全部参数可参考 https://clang.llvm.org/extra/clang-tidy/checks
@@ -14,5 +15,14 @@ return {
         --     --         -- 输入建议中，已包含头文件的项与还未包含头文件的项会以圆点加以区分
         --     --         "-j=12",
         --     --         "--pretty",
-        -- }
+        -- },
+        root_dir = root_pattern(
+                '.clangd',
+                '.clang-tidy',
+                '.clang-format',
+                'compile_commands.json',
+                'compile_flags.txt',
+                'configure.ac',
+                '.git'
+        )
 }

@@ -41,12 +41,25 @@ local RUN = {
         c = function()
                 vim.cmd("TermExec cmd=\"cd %:p:h && gcc %:t -o %:t:r && ./%:t:r && rm %:t:r\"")
         end,
+
+        -- cpp = function()
+        --         vim.cmd("TermExec cmd=\"cd %:p:h && g++ %:t -o %:t:r && ./%:t:r && rm %:t:r\"")
+        -- end,
+
+        --cpp 20
+        cpp = function()
+                vim.cmd(
+                        "TermExec cmd=\"cd %:p:h && /opt/homebrew/opt/llvm/bin/clang++ -std=c++20 -fmodules %:t -o %:t:r && ./%:t:r && rm %:t:r\"")
+        end,
+
         lua = function()
                 vim.cmd("TermExec cmd=\"cd %:p:h && lua %:t\"")
         end,
+
         python = function()
-                vim.cmd("TermExec cmd=\"cd %:p:h && python3 %:t\"")
+                vim.cmd("TermExec cmd=\"cd %:p:h && python %:t\"")
         end,
+
         rust = function()
                 vim.cmd("TermExec cmd=\"cd %:p:h && cargo run\"")
         end

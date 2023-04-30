@@ -18,10 +18,11 @@
     ~/.config/helix: helix
     ~/.config/btop: btop
     ~/.config/wezterm: wezterm
-    ~/.config/alacritty: alacritty 
     ~/.config/starship.toml: starship.toml
+    ~/.config/alacritty/alacritty.yml: alacritty.yml 
 
     ~/.clang-format: fmtstyle/clang-format
+    ~/.clangd: clangd
     ~/.rustfmt.toml: fmtstyle/rustfmt.toml
     # ~/.config/pycodestyle: fmtstyle/pycodestyle
   

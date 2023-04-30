@@ -82,7 +82,8 @@ local left = {
         --NOTE: ▊
         {
                 function()
-                        return '▊'
+                        -- return '▊'
+                        return ' '
                 end,
                 color = { fg = colors.purple },    -- Sets highlighting of component
                 padding = { left = 0, right = 1 }, -- We don't need space before this
@@ -92,7 +93,6 @@ local left = {
                 -- mode component
                 function()
                         return ''
-                        -- return ''
                 end,
                 color = function()
                         -- auto change color according to neovims mode
@@ -100,13 +100,13 @@ local left = {
                                 n = colors.red,
                                 i = colors.green,
                                 v = colors.blue,
-                                    [''] = colors.blue,
+                                [''] = colors.blue,
                                 V = colors.blue,
                                 c = colors.magenta,
                                 no = colors.red,
                                 s = colors.orange,
                                 S = colors.orange,
-                                    [''] = colors.orange,
+                                [''] = colors.orange,
                                 ic = colors.yellow,
                                 R = colors.violet,
                                 Rv = colors.violet,
@@ -114,8 +114,8 @@ local left = {
                                 ce = colors.red,
                                 r = colors.cyan,
                                 rm = colors.cyan,
-                                    ['r?'] = colors.cyan,
-                                    ['!'] = colors.red,
+                                ['r?'] = colors.cyan,
+                                ['!'] = colors.red,
                                 t = colors.red,
                         }
                         return { fg = mode_color[vim.fn.mode()] }
@@ -193,7 +193,7 @@ local right = {
         --NOTE:
         {
                 function()
-                        return '▊'
+                        return ' '
                 end,
                 color = { fg = colors.purple },
                 padding = { left = 1 },
@@ -209,6 +209,7 @@ local config = {
                 section_separators = '',
                 theme = 'auto',
                 -- theme = M.theme(),
+                globalstatus = true,
         },
         sections = {
                 -- these are to remove the defaults
@@ -232,5 +233,5 @@ local config = {
 }
 
 
-
+-- vim.o.laststatus = 3
 lualine.setup(config)

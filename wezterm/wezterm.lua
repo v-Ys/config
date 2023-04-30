@@ -1,17 +1,43 @@
 local wezterm = require 'wezterm'
 local MyKey = require('keybinds')
 
---FIX: ?????
--- local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
--- local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
 
 return {
-        disable_default_key_bindings = false,
+        disable_default_key_bindings = true,
         font_size = 16,
         cell_width = 1,
         line_height = 0.98,
-        font = wezterm.font('Iosevka Nerd Font Mono',
-                { weight = 500, italic = false, }),
+        font = wezterm.font_with_fallback {
+                {
+                        family = 'Iosevka Nerd Font Mono',
+                        weight = 'Medium',
+                        italic = false,
+                },
+                {
+                        family = 'STFangsong',
+
+                }
+        },
+        font_rules = {
+                {
+                        intensity = 'Bold',
+                        italic = true,
+                        font = wezterm.font {
+                                family = 'Iosevka Nerd Font Mono',
+                                weight = 'Bold',
+                                style = 'Italic',
+                        },
+                },
+                {
+                        intensity = 'Bold',
+                        italic = false,
+                        font = wezterm.font {
+                                family = 'Iosevka Nerd Font Mono',
+                                weight = 'Bold',
+                                style = 'Normal',
+                        },
+                },
+        },
         enable_tab_bar = false,
         color_scheme = "OneLight (Gogh)",
         -- color_scheme = "TokyoNight (Gogh)",

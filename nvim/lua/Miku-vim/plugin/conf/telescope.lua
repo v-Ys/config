@@ -56,6 +56,18 @@ telescope.setup {
                         find_command = { "rg" },
                         theme = "ivy",
                 },
+                buffers = {
+                        initial_mode = "normal",
+                        theme = "dropdown",
+                        mappings = {
+                                n = {
+                                        ["d"] = "delete_buffer"
+                                }
+
+                        },
+                        path_display = { "tail" },
+
+                },
         },
 
 

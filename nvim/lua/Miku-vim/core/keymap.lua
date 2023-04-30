@@ -62,7 +62,7 @@ local keymaps = {
                 ["<leader>ff"] = "<cmd>lua require('telescope.builtin').find_files()<CR>",
                 ["<leader>fw"] = "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>",
                 ["<leader>fl"] = "<cmd>lua require('telescope.builtin').live_grep()<CR>",
-                ["<leader>fb"] = "<cmd>lua require('telescope.builtin').buffers()<CR>",
+                ["<leader>j"]  = "<cmd>lua require('telescope.builtin').buffers()<CR>",
                 ["<Leader>fm"] = "<cmd>lua require('telescope.builtin').marks()<CR>",
                 ["<Leader>fs"] = "<cmd>lua require('telescope.builtin').colorscheme()<CR>",
                 ["<Leader>fp"] = "<cmd>lua require'telescope'.extensions.project.project{}<CR>",
@@ -78,7 +78,7 @@ local keymaps = {
                 -- Terminal window navigation
                 -- ["<C-h>"] = "<C-\\><C-N><C-w>h",
                 -- ["<C-j>"] = "<C-\\><C-N><C-w>j",
-                -- ["<C-k>"] = "<C-\\><C-N><C-w>k",
+                -- ["<C-k>" = "<C-\\><C-N><C-w>k",
                 -- ["<C-l>"] = "<C-\\><C-N><C-w>l",
                 ["<C-]>"] = "<C-\\><C-N>",
         },

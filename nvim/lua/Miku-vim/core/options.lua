@@ -11,7 +11,9 @@ local options = {
         relativenumber = true,  --相对行数
         signcolumn     = 'yes',
         list           = true,
-        listchars      = ("eol:↴,tab:»·,trail:·"),
+        -- showtabline    = 0, -- don't showtabline
+        -- laststatus     = 3, --always show statusline on the bottom
+        -- listchars      = ("eol:↴,tab:»·,trail:·"),
         -- autochdir      = true,
         --
         backup         = false, --禁止生成临时文件

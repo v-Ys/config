@@ -44,7 +44,7 @@ return {
                         require("indent_blankline").setup {
                                 show_end_of_line = true,
                         }
-                        vim.g.indent_blankline_buftype_exclude = { "terminal", "nofile" }
+                        vim.g.indent_blankline_buftype_exclude = { "terminal", "nofile", "neo-tree" }
                         vim.g.indent_blankline_filetype_exclude = {
                                 "help",
                                 "packer",
@@ -58,9 +58,9 @@ return {
         {
                 'akinsho/bufferline.nvim',
                 version = "v3.*",
-                config = function()
-                        require("Miku-vim.plugin.conf.bufferline")
-                end,
+                -- config = function()
+                --         require("Miku-vim.plugin.conf.bufferline")
+                -- end,
         },
 
         --PLUG:cmp
@@ -310,10 +310,12 @@ return {
         {
                 'iamcco/markdown-preview.nvim',
                 dependencies = {
-                        'ybian/smartim',
-                        config = function()
-                                vim.g.smartim_default = 'com.apple.keylayout.ABC'
-                        end
+                        {
+                                'ybian/smartim',
+                                config = function()
+                                        vim.g.smartim_default = 'com.apple.keylayout.ABC'
+                                end
+                        },
                 },
                 ft = 'markdown',
         },
@@ -354,15 +356,15 @@ return {
                 event = "VeryLazy",
         },
         {
-                "sainnhe/everforest",
-                event = "VeryLazy",
-        },
-        {
                 "catppuccin/nvim",
                 name = "catppuccin",
                 -- config = function()
                 --         vim.cmd.colorscheme "catppuccin"
                 -- end,
                 event = "VeryLazy",
+        },
+        {
+                'rose-pine/neovim',
+                name = 'rose-pine'
         },
 }
