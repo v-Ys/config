@@ -1,5 +1,4 @@
 --NOTE:
--- 'colorscheme xcodewwdc'
 local options = {
         termguicolors  = true,  --真彩模式
         scrolloff      = 5,     --scroll 时留下五行
@@ -11,6 +10,7 @@ local options = {
         relativenumber = true,  --相对行数
         signcolumn     = 'yes',
         list           = true,
+        listchars      = ("trail:·"),
         -- showtabline    = 0, -- don't showtabline
         -- laststatus     = 3, --always show statusline on the bottom
         -- listchars      = ("eol:↴,tab:»·,trail:·"),
@@ -21,8 +21,8 @@ local options = {
         errorbells     = false, --关闭错误信息响铃
         fileencodings  = 'utf-8',
         --
-        -- smartindent    = true,                              --智能缩进-
-        -- autoindent     = true,                              --回车后下一行自动缩进
+        -- smartindent    = true,                           --智能缩进-
+        -- autoindent     = true,                           --回车后下一行自动缩进
         shiftwidth     = 4,                                 -- the number of spaces inserted for each indentation
         copyindent     = true,                              --复制粘贴时保留原有的缩进
         tabstop        = 4,                                 --一个tab键所占的列数
@@ -52,7 +52,3 @@ local options = {
 for k, v in pairs(options) do
         vim.opt[k] = v
 end
-
-
---Colorscheme
--- vim.g.catppuccin_flavour = "latte" -- latte, frappe

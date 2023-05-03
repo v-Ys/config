@@ -24,7 +24,7 @@ require("lazy").setup({
                 border = "rounded",
         },
         install = {
-                colorscheme = { 'github_light' },
+                colorscheme = { 'github_light', 'nightfox', },
         },
         performance = {
                 rtp = {

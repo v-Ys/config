@@ -47,8 +47,10 @@ local keymaps = {
                 [">"]          = ">>",
                 ["<leader>u"]  = "J",
                 --buffers
-                ["<A-]>"]      = ":BufferLineCycleNext<CR>",
-                ["<A-[>"]      = ":BufferLineCyclePre<CR>",
+                -- ["<A-]>"]      = ":BufferLineCycleNext<CR>",
+                -- ["<A-[>"]      = ":BufferLineCyclePre<CR>",
+                ["<A-]>"]      = ":bn<CR>",
+                ["<A-[>"]      = ":bp<CR>",
                 ["<c-]>"]      = ":bd<CR>",
                 --cancel the highlight
                 ["<leader>q"]  = ":nohl<CR>",
@@ -68,6 +70,8 @@ local keymaps = {
                 ["<Leader>fp"] = "<cmd>lua require'telescope'.extensions.project.project{}<CR>",
                 ["<Leader>fr"] = "<cmd>lua require('telescope.builtin').commands()<CR>",
                 ["<Leader>fM"] = "<cmd>TodoTelescope<CR>",
+                ["<Leader>t"]  = "<cmd>lua require('telescope-tabs').list_tabs(require('telescope.themes').get_dropdown({}))<CR>",
+
                 --leap
                 ["f"]          = "<Plug>(leap-forward-to)",
                 ["gf"]         = "<Plug>(leap-backward-to)",
