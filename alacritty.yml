@@ -79,8 +79,7 @@ font:
   normal:
     family: Maple Mono NF
     # family: Iosevka Nerd Font Mono # size=21 x=-1 y=0 size 17 x=-1 y=0
-    # style: Regular
-    # style: SemiLight
+    # style: R
 
   # # Bold font face
   # bold:
