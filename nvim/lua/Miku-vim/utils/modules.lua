@@ -57,7 +57,7 @@ local RUN = {
         end,
 
         python = function()
-                vim.cmd("TermExec cmd=\"cd %:p:h && python %:t\"")
+                vim.cmd("TermExec cmd=\"cd %:p:h && python3 %:t\"")
         end,
 
         rust = function()

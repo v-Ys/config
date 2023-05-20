@@ -7,7 +7,7 @@
 
 local Format = vim.api.nvim_create_augroup("_format", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
-        pattern = "*.c,*.py,*.cpp,*.rs,*.lua",
+        pattern = "*.c,*.py,*.cpp,*.rs,*.lua,*.vue,*.ts",
         command = "lua vim.lsp.buf.format{sync=true}",
         group = Format,
 })

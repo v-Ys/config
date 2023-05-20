@@ -40,7 +40,7 @@ local keymaps = {
                 ["J"]          = "3j",
                 ["H"]          = "^",
                 ["L"]          = "$",
-                ["gt"]         = "%",
+                ["gr"]         = "%",
                 ["zp"]         = "\"0p",
                 ["zP"]         = "\"2p",
                 ["<"]          = "<<",
@@ -70,7 +70,7 @@ local keymaps = {
                 ["<Leader>fp"] = "<cmd>lua require'telescope'.extensions.project.project{}<CR>",
                 ["<Leader>fr"] = "<cmd>lua require('telescope.builtin').commands()<CR>",
                 ["<Leader>fM"] = "<cmd>TodoTelescope<CR>",
-                ["<Leader>t"]  = "<cmd>lua require('telescope-tabs').list_tabs(require('telescope.themes').get_dropdown({}))<CR>",
+                ["<Leader>t"]  = "<cmd>lua require('telescope-tabs').list_tabs(require('telescope.themes').get_dropdown({ initial_mode = 'normal'}))<CR>",
 
                 --leap
                 ["f"]          = "<Plug>(leap-forward-to)",

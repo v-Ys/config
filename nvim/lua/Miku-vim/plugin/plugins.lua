@@ -9,6 +9,7 @@ return {
                         })
                         vim.cmd("colorscheme github_light")
                 end,
+                dependencies = "nvim-lualine/lualine.nvim",
         },
 
         {
@@ -128,7 +129,7 @@ return {
                         null_ls.setup({
                                 debug = false,
                                 sources = {
-                                        formatting.autopep8, -- for python
+                                        formatting.black, -- for python
                                         -- completion.spell,
                                 },
                         })
@@ -192,16 +193,7 @@ return {
         {
                 "tpope/vim-repeat",
         },
-        --PLUG: add align
-        {
-                "junegunn/vim-easy-align",
-                config = function()
-                        vim.api.nvim_set_keymap("n", "ga", "<Plug>(EasyAlign)", { noremap = true, silent = true })
-                        vim.api.nvim_set_keymap("v", "ga", "<Plug>(EasyAlign)", { noremap = true, silent = true })
-                end,
-                event = "VeryLazy",
-        },
-        --PLUG: lastplace
+        --PLUG: lastplac
         {
                 "ethanholz/nvim-lastplace",
                 opts = {
@@ -355,17 +347,6 @@ return {
                 },
                 ft = "markdown",
         },
-        -- --PLUG: show color
-        -- {
-        --         'NvChad/nvim-colorizer.lua',
-        --         -- cmd = "COLLLLLor",
-        --         config = function()
-        --                 require("colorizer").setup {
-        --                         filetypes = { "lua" },
-        --
-        --                 }
-        --         end
-        -- },
 
         --PLUG: diff view
         --
@@ -389,7 +370,7 @@ return {
                 config = function(plugin)
                         vim.opt.rtp:append(plugin.dir .. "/vim")
                 end,
-                event = "VeryLazy",
+                event = "VeryLazy"
         },
         {
                 "catppuccin/nvim",
@@ -403,4 +384,5 @@ return {
                 "rose-pine/neovim",
                 name = "rose-pine",
         },
+
 }

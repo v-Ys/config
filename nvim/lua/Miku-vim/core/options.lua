@@ -21,9 +21,9 @@ local options = {
         errorbells     = false, --关闭错误信息响铃
         fileencodings  = 'utf-8',
         --
-        -- smartindent    = true,                           --智能缩进-
-        -- autoindent     = true,                           --回车后下一行自动缩进
-        shiftwidth     = 4,                                 -- the number of spaces inserted for each indentation
+        -- smartindent    = true,                              --智能缩进-
+        autoindent     = true,                              --回车后下一行自动缩进
+        shiftwidth     = 8,                                 -- the number of spaces inserted for each indentation
         copyindent     = true,                              --复制粘贴时保留原有的缩进
         tabstop        = 4,                                 --一个tab键所占的列数
         expandtab      = true,                              --自动将tab键输入转化为相应的空格数

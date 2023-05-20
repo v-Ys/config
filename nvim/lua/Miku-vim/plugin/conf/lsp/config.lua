@@ -4,8 +4,11 @@ local servers = {
         "clangd",
         "rust_analyzer",
         "lua_ls",
-        "pyright",
+        -- "pyright",
         -- "hls",
+        "volar",
+        "tsserver",
+        "html",
 }
 
 for _, server in pairs(servers) do

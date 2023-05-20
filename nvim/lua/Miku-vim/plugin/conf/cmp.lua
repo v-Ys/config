@@ -2,7 +2,7 @@
 local luasnip = require("luasnip")
 local cmp = require("cmp")
 require("luasnip/loaders/from_vscode").lazy_load({
-        include = { "python", "rust", "cpp", "c", "lua" }
+        include = { "python", "rust", "cpp", "c", "lua", "typescript", "vue" }
 })
 require("luasnip.loaders.from_vscode").lazy_load({
         paths = {
@@ -71,23 +71,23 @@ cmp.setup({
                         vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
                         -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
                         vim_item.menu = ({
-                                    nvim_lsp = "[LSP]",
-                                    luasnip = "[Snippet]",
-                                    buffer = "[Buffer]",
-                                    path = "[Path]",
-                            })[entry.source.name]
+                                nvim_lsp = "[LSP]",
+                                luasnip = "[Snippet]",
+                                buffer = "[Buffer]",
+                                path = "[Path]",
+                        })[entry.source.name]
                         return vim_item
                 end,
         },
         mapping = cmp.mapping.preset.insert {
-                    ["<A-e>"] = cmp.mapping {
+                ["<A-e>"] = cmp.mapping {
                         i = cmp.mapping.abort(),
                         c = cmp.mapping.close(),
                 },
-                    ["<C-k>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
-                    ["<C-j>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-                    ['<CR>'] = cmp.mapping.confirm({ select = true }),
-                    ["<Tab>"] = cmp.mapping(function(fallback)
+                ["<C-k>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+                ["<C-j>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
+                ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                                 cmp.select_next_item()
                         elseif luasnip.expandable() then
@@ -103,7 +103,7 @@ cmp.setup({
                         "i",
                         "s",
                 }),
-                    ["<S-Tab>"] = cmp.mapping(function(fallback)
+                ["<S-Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                                 cmp.select_prev_item()
                         elseif luasnip.jumpable(-1) then

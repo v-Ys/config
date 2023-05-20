@@ -40,10 +40,10 @@ telescope.setup {
                         theme = "dropdown",
                 },
                 lsp_references = {
-                        theme = "cursor",
+                        theme = "ivy",
                 },
                 lsp_definitions = {
-                        theme = "cursor",
+                        theme = "ivy",
                 },
                 commands = {
                         theme = "dropdown",
@@ -70,17 +70,17 @@ telescope.setup {
                 },
                 list_tabs = {
 
-                        theme = "ivy",
+                        theme = "dropdown",
                 },
         },
 
 
         extensions = {
                 fzf = {
-                        fuzzy = true,                   -- false will only do exact matching
+                        fuzzy = true,
                         override_generic_sorter = true, -- override the generic sorter
                         override_file_sorter = true,    -- override the file sorter
-                        case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+                        -- case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
                 },
                 project = {
                         base_dirs = {
@@ -96,24 +96,9 @@ telescope.setup {
                         search_by = "title",
                 },
                 ["ui-select"] = {
-                        require("telescope.themes").get_dropdown {
-                                -- even more opts
-                        }
+                        require("telescope.themes").get_dropdown {}
 
-                        -- pseudo code / specification for writing custom displays, like the one
-                        -- for "codeactions"
-                        -- specific_opts = {
-                        --   [kind] = {
-                        --     make_indexed = function(items) -> indexed_items, width,
-                        --     make_displayer = function(widths) -> displayer
-                        --     make_display = function(displayer) -> function(e)
-                        --     make_ordinal = function(e) -> string
-                        --   },
-                        --   -- for example to disable the custom builtin "codeactions" display
-                        --      do the following
-                        --   codeactions = false,
-                        -- }
-                }
+                },
         },
 
 

@@ -68,9 +68,9 @@ local function lsp_keymaps(bufnr)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "go", "<cmd>lua require('telescope.builtin').lsp_implementations<CR>",
-        opts)
+                opts)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "gn", "<cmd>lua require('Miku-vim.utils.modules').rename()<CR>", opts)
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua require('telescope.builtin').lsp_references()<CR>", opts)
+        vim.api.nvim_buf_set_keymap(bufnr, "n", "gh", "<cmd>lua require('telescope.builtin').lsp_references()<CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "ga", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>',
                 opts)

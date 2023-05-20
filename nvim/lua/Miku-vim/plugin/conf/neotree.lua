@@ -1,5 +1,5 @@
-local status_ok, neotree = pcall(require, "neo-tree")
-if not status_ok then return end
+local neotree = require("neo-tree")
+
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -9,16 +9,18 @@ neotree.setup({
         enable_diagnostics = false,
         hijack_netrw_behavior = "open_default",
         default_component_configs = {
-                indent = {
-                        padding = 0,
-                        with_expanders = false,
-                },
                 icon = {
                         folder_closed = "",
                         folder_open = "",
                         folder_empty = "",
                         default = "",
                         highlight = "NeoTreeFileIcon",
+                },
+                indent = {
+                        indent_size = 3,
+                        padding = 0, -- extra padding on left hand side
+                        -- indent guides
+                        with_markers = false,
                 },
                 git_status = {
                         symbols = {
@@ -27,6 +29,7 @@ neotree.setup({
                                 modified = "",
                                 renamed = "➜",
                                 untracked = "",
+
                                 ignored = "",
                                 unstaged = "",
                                 staged = "",
@@ -37,11 +40,11 @@ neotree.setup({
         window = {
                 width = 30,
                 mappings = {
-                            ["o"] = "open",
-                            ["Z"] = "expand_all_nodes",
-                            ["n"] = "close_window",
-                            ["l"] = "set_root",
-                            ["h"] = "navigate_up",
+                        ["o"] = "open",
+                        ["Z"] = "expand_all_nodes",
+                        ["n"] = "close_window",
+                        ["l"] = "set_root",
+                        ["h"] = "navigate_up",
                 }
         },
         filesystem = {
@@ -56,10 +59,5 @@ neotree.setup({
                 follow_current_file = true,
                 hijack_netrw_behavior = "open_current", -- netrw disabled, opening a directory opens neo-tree
                 use_libuv_file_watcher = true,          -- This will use the OS level file watchers to detect changes
-        },
-        git_status = {
-                window = {
-                        position = "float",
-                },
         },
 })
