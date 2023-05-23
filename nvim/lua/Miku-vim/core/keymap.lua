@@ -124,6 +124,3 @@ for mode, map in pairs(keymaps) do
                 vim.api.nvim_set_keymap(mode_adapters[mode], key, cmd, opts[mode])
         end
 end
-
--- vim.g.mapleader = " "
--- vim.g.maplocalleader = " "
