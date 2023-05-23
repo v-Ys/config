@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then

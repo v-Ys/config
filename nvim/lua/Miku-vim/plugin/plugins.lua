@@ -54,13 +54,6 @@ return {
                         }
                 end,
         },
-        --PLUG:bufferline
-        {
-                "akinsho/bufferline.nvim",
-                version = "v3.*",
-                -- config = function()
-                --         require("Miku-vim.plugin.conf.bufferline")
-                -- end,
         },
 
         --PLUG:cmp
