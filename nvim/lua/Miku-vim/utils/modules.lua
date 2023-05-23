@@ -1,7 +1,8 @@
 local M = {}
---for btop
+--for Terminal
 local Terminal = require("toggleterm.terminal").Terminal
 local btop = Terminal:new({ cmd = "btop", hidden = true })
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 --for rename
 local Input = require("nui.input")
 
@@ -71,6 +72,10 @@ M.btop = function()
         btop:toggle()
 end
 
+--NOTE: lazygit
+M.lazygit = function()
+        lazygit:toggle()
+end
 
 --NOTE: run
 M.run = function()
@@ -80,11 +85,6 @@ M.run = function()
         if RUN[ftp] ~= nil then
                 RUN[ftp]()
         end
-end
-
---NOTE: FormatJSON
-M.FormatJSON = function()
-        vim.cmd("%!python -m json.tool")
 end
 
 --NOTE: lsp rename

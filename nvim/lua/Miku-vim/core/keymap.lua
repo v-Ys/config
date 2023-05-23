@@ -113,6 +113,7 @@ local keymaps = {
 --NOTE: user command
 local command = {
         ["FormatJSON"] = "%!python -m json.tool",
+        ["Git"] = "lua require('Miku-vim.utils.modules').lazygit()",
 }
 
 --NOTE: load
