@@ -2,19 +2,16 @@ return {
         --NOTE: theme
         {
                 "projekt0n/github-nvim-theme",
-                commit = "79be3b58f9facac10f7d0a2d2fda691424c9e5b3",
+                -- commit = "79be3b58f9facac10f7d0a2d2fda691424c9e5b3",
+                -- colors = { bg2 = "#1E50A2" },
                 config = function()
-                        require("github-theme").setup({
-                                colors = { bg2 = "#1E50A2" },
-                        })
                         vim.cmd("colorscheme github_light")
                 end,
-                dependencies = "nvim-lualine/lualine.nvim",
         },
 
         {
                 "EdenEast/nightfox.nvim",
-                init = function()
+                config = function()
                         require("nightfox").setup({})
                         -- vim.cmd("colorscheme nightfox")
                 end,
@@ -348,15 +345,19 @@ return {
                 ft = "markdown",
         },
 
-        --PLUG: diff view
+        --PLUG: Git
         --
         -- {
         -- 'sindrets/diffview.nvim',
         -- dependencies = 'nvim-lua/plenary.nvim'
         -- },
-        --
-        --
 
+        {
+                'TimUntersberger/neogit',
+                dependencies = 'nvim-lua/plenary.nvim',
+                config = true,
+        },
+        --PLUG: colorscheme
         {
                 "Th3Whit3Wolf/one-nvim",
                 event = "VeryLazy",
@@ -364,13 +365,6 @@ return {
         {
                 "sainnhe/edge",
                 event = "VeryLazy",
-        },
-        {
-                "sonph/onehalf",
-                config = function(plugin)
-                        vim.opt.rtp:append(plugin.dir .. "/vim")
-                end,
-                event = "VeryLazy"
         },
         {
                 "catppuccin/nvim",
