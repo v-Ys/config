@@ -77,7 +77,7 @@ local conditions = {
 --                 },
 --         }
 -- end
-
+--
 local left = {
         --NOTE: ▊
         {
