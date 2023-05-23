@@ -54,7 +54,6 @@ return {
                         }
                 end,
         },
-        },
 
         --PLUG:cmp
         {
@@ -138,7 +137,6 @@ return {
                         require("Miku-vim.plugin.conf.telescope")
                 end,
         },
-
         {
                 "LukasPietzschmann/telescope-tabs",
                 config = function()
