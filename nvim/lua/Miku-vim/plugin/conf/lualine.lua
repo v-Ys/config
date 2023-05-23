@@ -208,7 +208,6 @@ local config = {
                 component_separators = '',
                 section_separators = '',
                 theme = 'auto',
-                -- theme = M.theme(),
                 globalstatus = true,
         },
         sections = {
