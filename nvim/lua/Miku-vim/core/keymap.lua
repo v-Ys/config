@@ -53,23 +53,20 @@ local keymaps = {
                 ["<A-[>"]      = ":bp<CR>",
                 ["<c-]>"]      = ":bd<CR>",
                 --cancel the highlight
-                ["<leader>q"]  = ":nohl<CR>",
-                --save and format
+                ["\\q"]        = ":nohl<CR>",
+                --save
                 ["<A-s>"]      = "<cmd>w<CR>",
-                --dashboad
-                ["<Leader>ss"] = ":<C-u>SessionSave<CR>",
-                ["<Leader>sl"] = ":<C-u>SessionLoad<CR>",
                 --Telescope
                 ["<leader>fh"] = "<cmd>lua require('telescope.builtin').oldfiles()<CR>",
                 ["<leader>ff"] = "<cmd>lua require('telescope.builtin').find_files()<CR>",
                 ["<leader>fw"] = "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>",
                 ["<leader>fl"] = "<cmd>lua require('telescope.builtin').live_grep()<CR>",
-                ["<leader>j"]  = "<cmd>lua require('telescope.builtin').buffers()<CR>",
-                ["<Leader>fm"] = "<cmd>lua require('telescope.builtin').marks()<CR>",
                 ["<Leader>fs"] = "<cmd>lua require('telescope.builtin').colorscheme()<CR>",
                 ["<Leader>fp"] = "<cmd>lua require'telescope'.extensions.project.project{}<CR>",
-                ["<Leader>fr"] = "<cmd>lua require('telescope.builtin').commands()<CR>",
+                -- ["<Leader>fr"] = "<cmd>lua require('telescope.builtin').commands()<CR>",
+                ["<Leader>fm"] = "<cmd>lua require('telescope.builtin').marks()<CR>",
                 ["<Leader>fM"] = "<cmd>TodoTelescope<CR>",
+                ["<leader>j"]  = "<cmd>lua require('telescope.builtin').buffers()<CR>",
                 ["<Leader>t"]  = "<cmd>lua require('telescope-tabs').list_tabs(require('telescope.themes').get_dropdown({ initial_mode = 'normal'}))<CR>",
 
                 --leap
