@@ -14,11 +14,11 @@ if status is-interactive
         alias  rf="rm -r -f"
 
         function f
-                 cd (fd . ~ --hidden | fzf --preview 'bat --color=always {}')
+                 cd (fd . ~ --hidden | fzf --preview 'bat --color=always --line-range=:500 {} ')
         end
 
         function fj
-                 cd (dirname (fd . ~ --hidden | fzf --preview 'bat --color=always {}'))
+                 cd (dirname (fd . ~ --hidden | fzf --preview 'bat --color=always --line-range=:500 --theme=OneHalfLight {}'))
         end
         #NOTE: --?
 
@@ -31,8 +31,7 @@ if status is-interactive
         export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
         #### FZF
         export FZF_DEFAULT_COMMAND="fd --hidden --exclude={Applications,Library,.git,.idea,.vscode,.sass-cache,node_modules,build} --type f"
-        export FZF_DEFAULT_OPTS="--color=bg+:-1,fg+:4,gutter:-1 --preview 'bat --color=always {}'"
-        export FZF_CTRL_T_OPTS="--height 40% --exact --reverse --preview 'bat --color \"always\" {}'"
+        export FZF_DEFAULT_OPTS="--color=bg+:-1,fg+:6,gutter:-1 --preview 'bat --color=always --line-range=:500 --theme=OneHalfLight {}'"
         #### homebrew mirrors
         # export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
