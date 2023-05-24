@@ -13,6 +13,9 @@ if status is-interactive
         alias  ela="exa -l -a"
         alias  rf="rm -r -f"
 
+        function fj
+                 cd (dirname (fd . ~ --hidden | fzf --preview 'bat --color=always {}'))
+        end
 
         #NOTE: --?
 
@@ -25,7 +28,7 @@ if status is-interactive
         export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
         #### export FZF_DEFAULT_COMMAND="fd --hidden"
         export FZF_DEFAULT_COMMAND="fd --hidden --exclude={Applications,Library,.git,.idea,.vscode,.sass-cache,node_modules,build} --type f"
-        # export FZF_DEFAULT_OPTS="--color=bg+:#FF0000,gutter:-1"
+        export FZF_DEFAULT_OPTS="--color=bg+:-1,fg+:4,gutter:-1 --preview 'bat --color=always {}'"
         #### homebrew mirrors
         # export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
@@ -62,11 +65,12 @@ if status is-interactive
 
 
 
+
         # NOTE: key bind
 
-        function fish_user_key_bindings
-                bind -M default \co 'lfcd; and commandline -f repaint'
-        end
+        # function fish_user_key_bindings
+        #         bind -M default \co 'lfcd; and commandline -f repaint'
+        # end
 
 
 end
