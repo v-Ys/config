@@ -1,5 +1,6 @@
-Applications
-Library
+/Applications
+/Pictures
+/Library
 .git
 .idea
 .vscode
@@ -7,3 +8,4 @@ Library
 node_modules
 build
 .DS_Store
+
