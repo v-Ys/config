@@ -56,6 +56,7 @@ local keymaps = {
                 ["\\q"]        = ":nohl<CR>",
                 --save
                 ["<A-s>"]      = "<cmd>w<CR>",
+                ["=="]         = "ggvG=",
                 --Telescope
                 ["<leader>fh"] = "<cmd>lua require('telescope.builtin').oldfiles()<CR>",
                 ["<leader>ff"] = "<cmd>lua require('telescope.builtin').find_files()<CR>",
