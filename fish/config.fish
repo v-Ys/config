@@ -26,9 +26,10 @@ if status is-interactive
         #### --?
         export EDITOR="nvim"
         export DBUS_SESSION_BUS_ADDRESS="unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
-        #### export FZF_DEFAULT_COMMAND="fd --hidden"
+        #### FZF
         export FZF_DEFAULT_COMMAND="fd --hidden --exclude={Applications,Library,.git,.idea,.vscode,.sass-cache,node_modules,build} --type f"
         export FZF_DEFAULT_OPTS="--color=bg+:-1,fg+:4,gutter:-1 --preview 'bat --color=always {}'"
+        export FZF_CTRL_T_OPTS="--height 40% --exact --reverse --preview 'bat --color \"always\" {}'"
         #### homebrew mirrors
         # export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
