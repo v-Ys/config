@@ -13,10 +13,13 @@ if status is-interactive
         alias  ela="exa -l -a"
         alias  rf="rm -r -f"
 
+        function f
+                 cd (fd . ~ --hidden | fzf --preview 'bat --color=always {}')
+        end
+
         function fj
                  cd (dirname (fd . ~ --hidden | fzf --preview 'bat --color=always {}'))
         end
-
         #NOTE: --?
 
         #### starship
