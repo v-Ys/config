@@ -343,11 +343,6 @@ return {
         -- dependencies = 'nvim-lua/plenary.nvim'
         -- },
 
-        {
-                'TimUntersberger/neogit',
-                dependencies = 'nvim-lua/plenary.nvim',
-                config = true,
-        },
         --PLUG: colorscheme
         {
                 "Th3Whit3Wolf/one-nvim",
