@@ -1,6 +1,8 @@
 /Applications
 /Pictures
 /Library
+/Music
+/Movies
 .git
 .idea
 .vscode
