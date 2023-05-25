@@ -69,9 +69,9 @@ if status is-interactive
         end
 
         function _fzf_search_directory --description "Search the root directory"
-                set -f file_paths_selected (fd --hidden --base-directory=/Users/Miku/ 2>/dev/null | fzf)
+                set -f file_paths_selected (fd --hidden --base-directory=/Users/Miku/ | fzf)
                 if test $status -eq 0
-                        commandline --current-token --replace -- (string escape -- $file_paths_selected | string join ' ')
+                        commandline --current-token --replace -- (string escape -- ~/ $file_paths_selected | string join '')
                 end
                 commandline --function repaint
         end
