@@ -18,6 +18,9 @@ local mode_adapters = {
 }
 
 
+
+
+
 --NOTE: user keymaps
 local keymaps = {
         insert_mode = {
@@ -45,7 +48,7 @@ local keymaps = {
                 ["zP"]         = "\"2p",
                 ["<"]          = "<<",
                 [">"]          = ">>",
-                ["<leader>u"]  = "J",
+                [";j"]         = "J",
                 --buffers
                 -- ["<A-]>"]      = ":BufferLineCycleNext<CR>",
                 -- ["<A-[>"]      = ":BufferLineCyclePre<CR>",
@@ -53,10 +56,10 @@ local keymaps = {
                 ["<A-[>"]      = ":bp<CR>",
                 ["<c-]>"]      = ":bd<CR>",
                 --cancel the highlight
-                ["\\q"]        = ":nohl<CR>",
+                [";u"]         = ":nohl<CR>",
                 --save
                 ["<A-s>"]      = "<cmd>w<CR>",
-                ["=="]         = "ggvG=",
+                ["=="]         = "ggvG=<C-r>",
                 --Telescope
                 ["<leader>fh"] = "<cmd>lua require('telescope.builtin').oldfiles()<CR>",
                 ["<leader>ff"] = "<cmd>lua require('telescope.builtin').find_files()<CR>",
@@ -87,21 +90,23 @@ local keymaps = {
         visual_mode = {
                 ["<A-s>"] = "<cmd>w<CR>",
                 -- Better indenting
-                ["<"] = "<gv",
-                [">"] = ">gv",
-                ["K"] = "3k",
-                ["J"] = "3j",
-                ["H"] = "^",
-                ["L"] = "$",
+                ["<"]     = "<gv",
+                [">"]     = ">gv",
+                ["K"]     = "3k",
+                ["J"]     = "3j",
+                ["H"]     = "^",
+                ["L"]     = "$",
+                ["gr"]    = "%",
         },
         visual_block_mode = {
                 -- Move current line / block with Alt-j/k ala vscode.
                 ["<A-s>"] = ":m '>+1<CR>gv-gv",
                 ["<A-w>"] = ":m '<-2<CR>gv-gv",
-                ["k"] = "3k",
-                ["J"] = "3j",
-                ["H"] = "^",
-                ["L"] = "$",
+                ["k"]     = "3k",
+                ["J"]     = "3j",
+                ["H"]     = "^",
+                ["L"]     = "$",
+                ["gr"]    = "%",
         },
         command_mode = {
                 -- [";;"] = "lua require('Miku-vim.utils.modules').btop()",
