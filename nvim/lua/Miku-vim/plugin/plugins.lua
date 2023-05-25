@@ -164,7 +164,7 @@ return {
                                         keymaps = {
                                                 node_incremental = "v",
                                                 node_decremental = "<BS>",
-                                                -- init_selection = "<CR>", -- set to `false` to disable one of the mappings
+                                                init_selection = "<CR>", -- set to `false` to disable one of the mappings
                                                 scope_incremental = "<CR>",
                                         },
 
