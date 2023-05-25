@@ -82,19 +82,6 @@ telescope.setup {
                         override_file_sorter = true,    -- override the file sorter
                         case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
                 },
-                project = {
-                        base_dirs = {
-                                { '~/.dotfiles', max_depth = 1 },
-                                -- { '~/code', max_depth = 1 },
-                                -- { '~/dev/src3', max_depth = 4 },
-                                { path = '~/Dev' },
-                                -- { path = '~/dev/src5', max_depth = 2 },
-                        },
-                        hidden_files = true, -- default: false
-                        -- theme = "dropdown",
-                        order_by = "asc",
-                        search_by = "title",
-                },
                 ["ui-select"] = {
                         require("telescope.themes").get_dropdown {}
 
@@ -106,5 +93,5 @@ telescope.setup {
 
 
 telescope.load_extension('fzf')
-telescope.load_extension('project')
 telescope.load_extension('ui-select')
+telescope.load_extension('zoxide')
