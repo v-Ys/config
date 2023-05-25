@@ -13,15 +13,50 @@ if status is-interactive
         alias  ela="exa -l -a"
         alias  rf="rm -r -f"
 
-        function _fzf_wrapper --description "Prepares some environment variables before executing fzf."
-                set -f --export SHELL (command --search fish)
-                if not set --query FZF_DEFAULT_OPTS
-                        set --export FZF_DEFAULT_OPTS '--cycle --layout=reverse --border --height=90% --preview-window=wrap --marker="*"'
-                end
-                fzf $argv
-        end
+        #NOTE: --?
 
-        function lfcd
+        #### starship
+        starship init fish | source
+        #### zoxide
+        zoxide init fish | source
+        #### --?
+        set -x EDITOR "nvim"
+        set -x DBUS_SESSION_BUS_ADDRESS "unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
+        #### FZF
+        set -x FZF_DEFAULT_COMMAND "fd --hidden --exclude={Applications,Library,.git,.idea,.vscode,.sass-cache,node_modules,build} --type f"
+        set -x FZF_DEFAULT_OPTS "--color=bg+:-1,fg+:6,gutter:-1
+                                 --preview 'if test -d {} 
+                                                exa --all --long {} 
+                                           else 
+                                                bat --color=always --line-range=:500 --theme=OneHalfLight {} 
+                                           end'"
+        # bind 'ctrl-o:execute($EDITOR {} &> /dev/tty)'
+
+
+        #NOTE:" Environment variable
+
+        #### nvm.fish (plug) PATH 
+        set -x PATH /Users/Miku/.local/share/nvm/v19.6.0/bin $PATH
+        #### rust
+        set -x PATH /Users/Miku/.cargo/bin $PATH
+        #### python3
+        # set -x PATH /Users/Miku/.pyenv/shims/python3 $PATH
+        alias brew="env PATH=(string replace (pyenv root)/shims '' \"\$PATH\") brew" # avoid bug
+        #### homebrew PATH 
+        # set -x PATH /opt/homebrew/sbin $PATH
+        # set -x PATH /opt/homebrew/bin $PATH
+
+
+        #NOTE: clashx
+
+        set -x https_proxy http://127.0.0.1:7890 
+        set -x http_proxy http://127.0.0.1:7890 
+        set -x all_proxy socks5://127.0.0.1:7890
+
+
+        #NOTE: function
+
+        function _lfcd
                 set tmp (mktemp)
                 lf -last-dir-path=$tmp $argv
                 if test -f $tmp
@@ -67,53 +102,9 @@ if status is-interactive
         end
 
 
-        #NOTE: --?
-
-        #### starship
-        starship init fish | source
-        #### zoxide
-        zoxide init fish | source
-        #### --?
-        set -x EDITOR "nvim"
-        set -x DBUS_SESSION_BUS_ADDRESS "unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
-        #### FZF
-        set -x FZF_DEFAULT_COMMAND "fd --hidden --exclude={Applications,Library,.git,.idea,.vscode,.sass-cache,node_modules,build} --type f"
-        set -x FZF_DEFAULT_OPTS "--color=bg+:-1,fg+:6,gutter:-1
-                                 --preview 'if test -d {} 
-                                                exa --all --long {} 
-                                           else 
-                                                bat --color=always --line-range=:500 --theme=OneHalfLight {} 
-                                           end'"
-        # bind 'ctrl-o:execute($EDITOR {} &> /dev/tty)'
-
-
-        #NOTE:" Environment variable
-
-        #### nvm.fish (plug) PATH 
-        set -x PATH /Users/Miku/.local/share/nvm/v19.6.0/bin $PATH
-        #### rust
-        set -x PATH /Users/Miku/.cargo/bin $PATH
-        #### python3
-        # set -x PATH /Users/Miku/.pyenv/shims/python3 $PATH
-        alias brew="env PATH=(string replace (pyenv root)/shims '' \"\$PATH\") brew" # avoid bug
-        #### homebrew PATH 
-        # set -x PATH /opt/homebrew/sbin $PATH
-        # set -x PATH /opt/homebrew/bin $PATH
-
-
-        #NOTE: clashx
-
-        set -x https_proxy http://127.0.0.1:7890 
-        set -x http_proxy http://127.0.0.1:7890 
-        set -x all_proxy socks5://127.0.0.1:7890
-
-
-        # NOTE: key bind
-
         function fish_user_key_bindings
-                bind -M default \co 'lfcd; and commandline -f repaint'
+                bind -M default \co '_lfcd; and commandline -f repaint'
                 bind -M default \cf '_fzf_search_directory'
-                bind \cr ''
                 bind -M default \cr '_fzf_search_history; and commandline -f repaint'
 
         end
