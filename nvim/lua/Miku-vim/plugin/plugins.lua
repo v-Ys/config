@@ -129,9 +129,9 @@ return {
                 "nvim-telescope/telescope.nvim",
                 dependencies = {
                         { "nvim-lua/plenary.nvim" },
-                        { "nvim-telescope/telescope-project.nvim" }, --project },
                         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
                         { 'nvim-telescope/telescope-ui-select.nvim' },
+                        { 'jvgrootveld/telescope-zoxide' },
                 },
                 config = function()
                         require("Miku-vim.plugin.conf.telescope")
@@ -336,16 +336,22 @@ return {
         },
 
         --PLUG: Git
-        --
-        -- {
-        -- 'sindrets/diffview.nvim',
-        -- dependencies = 'nvim-lua/plenary.nvim'
-        -- },
+
+        {
+                'sindrets/diffview.nvim',
+                dependencies = 'nvim-lua/plenary.nvim',
+        },
 
 
         {
                 'TimUntersberger/neogit',
-                config = true
+                dependencies = 'sindrets/diffview.nvim',
+
+                opts = {
+                        integrations = {
+                                diffview = true
+                        },
+                }
         },
         --PLUG: colorscheme
         {
