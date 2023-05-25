@@ -345,6 +345,7 @@ return {
 
         {
                 'TimUntersberger/neogit',
+                config = true
         },
         --PLUG: colorscheme
         {
