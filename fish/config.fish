@@ -69,9 +69,9 @@ if status is-interactive
         end
 
         function _fzf_search_directory --description "Search the root directory"
-                set -f file_paths_selected (fd --hidden --base-directory=/Users/Miku/ | fzf)
+                set -f file_paths_selected (fd . ~/ --hidden  | fzf)
                 if test $status -eq 0
-                        commandline --current-token --replace -- (string escape -- ~/ $file_paths_selected | string join '')
+                        commandline --current-token --replace -- (string escape -- $file_paths_selected | string join '')
                 end
                 commandline --function repaint
         end
@@ -104,7 +104,7 @@ if status is-interactive
 
         function fish_user_key_bindings
                 bind -M default \co '_lfcd; and commandline -f repaint'
-                bind -M default \cf '_fzf_search_directory'
+                bind -M default \ef '_fzf_search_directory'
                 bind -M default \cr '_fzf_search_history; and commandline -f repaint'
 
         end
