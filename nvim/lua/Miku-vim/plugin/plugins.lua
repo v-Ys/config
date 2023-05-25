@@ -163,6 +163,21 @@ return {
                         })
                 end,
         },
+        --PLUG: Git
+        {
+                'sindrets/diffview.nvim',
+                dependencies = 'nvim-lua/plenary.nvim',
+        },
+        {
+                'TimUntersberger/neogit',
+                dependencies = 'sindrets/diffview.nvim',
+
+                opts = {
+                        integrations = {
+                                diffview = true
+                        },
+                }
+        },
         --PLUG: autopairs
         {
                 "windwp/nvim-autopairs",
@@ -335,24 +350,6 @@ return {
                 ft = "markdown",
         },
 
-        --PLUG: Git
-
-        {
-                'sindrets/diffview.nvim',
-                dependencies = 'nvim-lua/plenary.nvim',
-        },
-
-
-        {
-                'TimUntersberger/neogit',
-                dependencies = 'sindrets/diffview.nvim',
-
-                opts = {
-                        integrations = {
-                                diffview = true
-                        },
-                }
-        },
         --PLUG: colorscheme
         {
                 "Th3Whit3Wolf/one-nvim",
