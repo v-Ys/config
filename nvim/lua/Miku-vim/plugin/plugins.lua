@@ -173,13 +173,12 @@ return {
                 "numToStr/Comment.nvim",
                 config = true,
         },
-        --PLUG: vim surround
+        --PLUG: surround
         {
-                "tpope/vim-surround",
-        },
-        --PLUG: enhance '.' for surround
-        {
-                "tpope/vim-repeat",
+                "kylechui/nvim-surround",
+                version = "*",
+                event = "VeryLazy",
+                config = true,
         },
         --PLUG: lastplac
         {
