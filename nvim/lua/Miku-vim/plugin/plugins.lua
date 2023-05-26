@@ -147,6 +147,7 @@ return {
         --PLUG: treesitter
         {
                 "nvim-treesitter/nvim-treesitter",
+                dependencies = "RRethy/nvim-treesitter-textsubjects",
                 build = ":TSUpdate",
                 config = function()
                         require("nvim-treesitter.configs").setup({
@@ -165,9 +166,15 @@ return {
                                                 node_incremental = "v",
                                                 node_decremental = "<BS>",
                                                 init_selection = "<CR>", -- set to `false` to disable one of the mappings
-                                                scope_incremental = "<CR>",
                                         },
 
+                                },
+                                textsubjects = {
+                                        enable = true,
+                                        prev_selection = '.',
+                                        keymaps = {
+                                                ['<CR>'] = 'textsubjects-smart',
+                                        },
                                 },
                         })
                 end,
