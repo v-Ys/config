@@ -4,11 +4,19 @@ return {
                 "projekt0n/github-nvim-theme",
                 -- commit = "79be3b58f9facac10f7d0a2d2fda691424c9e5b3",
                 -- colors = { bg2 = "#1E50A2" },
-                config = function()
-                        vim.cmd("colorscheme github_light")
-                end,
+                -- config = function()
+                --         vim.cmd("colorscheme github_light")
+                -- end,
         },
 
+        {
+                "folke/tokyonight.nvim",
+                lazy = false,
+
+                config = function()
+                        vim.cmd("colorscheme tokyonight-day")
+                end,
+        },
         {
                 "EdenEast/nightfox.nvim",
                 config = function()
@@ -165,7 +173,7 @@ return {
                                         keymaps = {
                                                 node_incremental = "v",
                                                 node_decremental = "<BS>",
-                                                init_selection = "<CR>", -- set to `false` to disable one of the mappings
+                                                -- init_selection = "<CR>", -- set to `false` to disable one of the mappings
                                         },
 
                                 },
@@ -386,6 +394,42 @@ return {
         {
                 "rose-pine/neovim",
                 name = "rose-pine",
+        },
+        {
+                'stevearc/oil.nvim',
+                opts = {},
+                -- Optional dependencies
+                dependencies = { "nvim-tree/nvim-web-devicons" },
+                config = function()
+                        require("oil").setup({
+                                keymaps = {
+                                        ["g?"] = "actions.show_help",
+                                        ["l"] = "actions.select",
+                                        ["<C-v>"] = "actions.select_vsplit",
+                                        ["<C-s>"] = "actions.select_split",
+                                        ["<C-t>"] = "actions.select_tab",
+                                        ["<M-p>"] = "actions.preview",
+                                        ["n"] = "actions.close",
+                                        ["q"] = "actions.close",
+                                        ["<C-r>"] = "actions.refresh",
+                                        ["h"] = "actions.parent",
+                                        ["H"] = "actions.open_cwd",
+                                        ["-"] = "actions.cd",
+                                        ["~"] = "actions.tcd",
+                                        ["."] = "actions.toggle_hidden",
+                                },
+                                float = {
+                                        -- Padding around the floating window
+                                        padding = 2,
+                                        max_width = 0,
+                                        max_height = 0,
+                                        border = "rounded",
+                                        win_options = {
+                                                winblend = 10,
+                                        },
+                                },
+                        })
+                end
         },
 
 }
