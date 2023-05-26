@@ -72,9 +72,8 @@ set encoding=utf-8 fileencodings=utf-8
 
 
 "cursor
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
 "fix delay
 set ttimeout
 set ttimeoutlen=1
@@ -86,13 +85,12 @@ noremap K 5k
 noremap J 5j
 noremap L $
 noremap H ^
-noremap gt %
+noremap gr %
 
-" set <M-s> ^[s
-nnoremap <leader>] :bn<CR>
-nnoremap <M-s> :w<CR>
-nnoremap <M-[> :bn<CR>
-nnoremap <M-]> :bp<CR>
+nnoremap <c-]> :bn<CR>
+nnoremap <Esc>s :w<CR>
+nnoremap <Esc>n :bn<CR>
+nnoremap <Esc>p :bp<CR>
 
 "#######################################################################
 "  Plug
@@ -112,7 +110,6 @@ Plug 'preservim/nerdtree'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'jiangmiao/auto-pairs'
 
 call plug#end()
 
@@ -121,9 +118,9 @@ call plug#end()
 "#######################################################################
 "--vim-lightline themes----
 let g:lightline = {
-        \ 'colorscheme': 'rosepine',
-       \ }
-        " \ 'colorscheme': 'PaperColor',
+            \ 'colorscheme': 'rosepine',
+            \ }
+" \ 'colorscheme': 'PaperColor',
 
 "--theme----
 " colorscheme xcodewwdc
@@ -135,26 +132,26 @@ set bg=light
 let g:startify_files_number = 5
 let g:startify_session_autoload = 1
 let g:startify_custom_header = [
-    \'',
-    \'',
-    \'        ⢀⣴⡾⠃⠄⠄⠄⠄⠄⠈⠺⠟⠛⠛⠛⠛⠻⢿⣿⣿⣿⣿⣶⣤⡀  ',
-    \'      ⢀⣴⣿⡿⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣸⣿⣿⣿⣿⣿⣿⣿⣷ ',
-    \'     ⣴⣿⡿⡟⡼⢹⣷⢲⡶⣖⣾⣶⢄⠄⠄⠄⠄⠄⢀⣼⣿⢿⣿⣿⣿⣿⣿⣿⣿ ',
-    \'    ⣾⣿⡟⣾⡸⢠⡿⢳⡿⠍⣼⣿⢏⣿⣷⢄⡀⠄⢠⣾⢻⣿⣸⣿⣿⣿⣿⣿⣿⣿ ',
-    \'  ⣡⣿⣿⡟⡼⡁⠁⣰⠂⡾⠉⢨⣿⠃⣿⡿⠍⣾⣟⢤⣿⢇⣿⢇⣿⣿⢿⣿⣿⣿⣿⣿ ',
-    \' ⣱⣿⣿⡟⡐⣰⣧⡷⣿⣴⣧⣤⣼⣯⢸⡿⠁⣰⠟⢀⣼⠏⣲⠏⢸⣿⡟⣿⣿⣿⣿⣿⣿ ',
-    \' ⣿⣿⡟⠁⠄⠟⣁⠄⢡⣿⣿⣿⣿⣿⣿⣦⣼⢟⢀⡼⠃⡹⠃⡀⢸⡿⢸⣿⣿⣿⣿⣿⡟ ',
-    \' ⣿⣿⠃⠄⢀⣾⠋⠓⢰⣿⣿⣿⣿⣿⣿⠿⣿⣿⣾⣅⢔⣕⡇⡇⡼⢁⣿⣿⣿⣿⣿⣿⢣ ',
-    \' ⣿⡟⠄⠄⣾⣇⠷⣢⣿⣿⣿⣿⣿⣿⣿⣭⣀⡈⠙⢿⣿⣿⡇⡧⢁⣾⣿⣿⣿⣿⣿⢏⣾ ',
-    \' ⣿⡇⠄⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢻⠇⠄⠄⢿⣿⡇⢡⣾⣿⣿⣿⣿⣿⣏⣼⣿ ',
-    \' ⣿⣷⢰⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⢰⣧⣀⡄⢀⠘⡿⣰⣿⣿⣿⣿⣿⣿⠟⣼⣿⣿ ',
-    \' ⢹⣿⢸⣿⣿⠟⠻⢿⣿⣿⣿⣿⣿⣿⣿⣶⣭⣉⣤⣿⢈⣼⣿⣿⣿⣿⣿⣿⠏⣾⣹⣿⣿ ',
-    \' ⢸⠇⡜⣿⡟⠄⠄⠄⠈⠙⣿⣿⣿⣿⣿⣿⣿⣿⠟⣱⣻⣿⣿⣿⣿⣿⠟⠁⢳⠃⣿⣿⣿ ',
-    \'  ⣰⡗⠹⣿⣄⠄⠄⠄⢀⣿⣿⣿⣿⣿⣿⠟⣅⣥⣿⣿⣿⣿⠿⠋  ⣾⡌⢠⣿⡿⠃ ',
-    \' ⠜⠋⢠⣷⢻⣿⣿⣶⣾⣿⣿⣿⣿⠿⣛⣥⣾⣿⠿⠟⠛⠉            ',
-    \'',
-    \'',
-    \]
+            \'',
+            \'',
+            \'        ⢀⣴⡾⠃⠄⠄⠄⠄⠄⠈⠺⠟⠛⠛⠛⠛⠻⢿⣿⣿⣿⣿⣶⣤⡀  ',
+            \'      ⢀⣴⣿⡿⠁⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⠄⣸⣿⣿⣿⣿⣿⣿⣿⣷ ',
+            \'     ⣴⣿⡿⡟⡼⢹⣷⢲⡶⣖⣾⣶⢄⠄⠄⠄⠄⠄⢀⣼⣿⢿⣿⣿⣿⣿⣿⣿⣿ ',
+            \'    ⣾⣿⡟⣾⡸⢠⡿⢳⡿⠍⣼⣿⢏⣿⣷⢄⡀⠄⢠⣾⢻⣿⣸⣿⣿⣿⣿⣿⣿⣿ ',
+            \'  ⣡⣿⣿⡟⡼⡁⠁⣰⠂⡾⠉⢨⣿⠃⣿⡿⠍⣾⣟⢤⣿⢇⣿⢇⣿⣿⢿⣿⣿⣿⣿⣿ ',
+            \' ⣱⣿⣿⡟⡐⣰⣧⡷⣿⣴⣧⣤⣼⣯⢸⡿⠁⣰⠟⢀⣼⠏⣲⠏⢸⣿⡟⣿⣿⣿⣿⣿⣿ ',
+            \' ⣿⣿⡟⠁⠄⠟⣁⠄⢡⣿⣿⣿⣿⣿⣿⣦⣼⢟⢀⡼⠃⡹⠃⡀⢸⡿⢸⣿⣿⣿⣿⣿⡟ ',
+            \' ⣿⣿⠃⠄⢀⣾⠋⠓⢰⣿⣿⣿⣿⣿⣿⠿⣿⣿⣾⣅⢔⣕⡇⡇⡼⢁⣿⣿⣿⣿⣿⣿⢣ ',
+            \' ⣿⡟⠄⠄⣾⣇⠷⣢⣿⣿⣿⣿⣿⣿⣿⣭⣀⡈⠙⢿⣿⣿⡇⡧⢁⣾⣿⣿⣿⣿⣿⢏⣾ ',
+            \' ⣿⡇⠄⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢻⠇⠄⠄⢿⣿⡇⢡⣾⣿⣿⣿⣿⣿⣏⣼⣿ ',
+            \' ⣿⣷⢰⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⢰⣧⣀⡄⢀⠘⡿⣰⣿⣿⣿⣿⣿⣿⠟⣼⣿⣿ ',
+            \' ⢹⣿⢸⣿⣿⠟⠻⢿⣿⣿⣿⣿⣿⣿⣿⣶⣭⣉⣤⣿⢈⣼⣿⣿⣿⣿⣿⣿⠏⣾⣹⣿⣿ ',
+            \' ⢸⠇⡜⣿⡟⠄⠄⠄⠈⠙⣿⣿⣿⣿⣿⣿⣿⣿⠟⣱⣻⣿⣿⣿⣿⣿⠟⠁⢳⠃⣿⣿⣿ ',
+            \'  ⣰⡗⠹⣿⣄⠄⠄⠄⢀⣿⣿⣿⣿⣿⣿⠟⣅⣥⣿⣿⣿⣿⠿⠋  ⣾⡌⢠⣿⡿⠃ ',
+            \' ⠜⠋⢠⣷⢻⣿⣿⣶⣾⣿⣿⣿⣿⠿⣛⣥⣾⣿⠿⠟⠛⠉            ',
+            \'',
+            \'',
+            \]
 
 "--NERDTree----
 nnoremap <leader>n :NERDTreeToggle<CR>
@@ -168,5 +165,65 @@ nnoremap  <Leader>fm :Marks<CR>
 nnoremap  <Leader>fw :Lines<CR>
 nnoremap  <Leader>fb :Buffers<CR>
 
+
+
+""""""" autocomplete pairs
+inoremap <silent>" ""<esc>:call HandlePair(0, "\"")<CR>
+inoremap <silent>' ''<esc>:call HandlePair(0, "\'")<CR>
+inoremap <silent>( ()<esc>:call HandlePair(1, "(")<CR>
+inoremap <silent>[ []<esc>:call HandlePair(1, "[")<CR>
+inoremap <silent>{ {}<esc>:call HandlePair(1, "{")<CR>
+
+" in visual mode surround text with paired characters
+vnoremap <silent><Space>" <esc>:call SurroundText("\"", "\"")<CR>
+vnoremap <silent>' <esc>:call SurroundText("\'", "\'")<CR>
+vnoremap <silent>( <esc>:call SurroundText("(", ")", 1)<CR>
+vnoremap <silent>[ <esc>:call SurroundText("[", "]", 1)<CR>
+vnoremap <silent>{ <esc>:call SurroundText("{", "}", 1)<CR>
+vnoremap <silent>) <esc>:call SurroundText("(", ")", 0)<CR>
+vnoremap <silent>] <esc>:call SurroundText("[", "]", 0)<CR>
+vnoremap <silent>} <esc>:call SurroundText("{", "}", 0)<CR>
+
+" special handling for autocomplete pairs by yours truly
+function! HandlePair(enter, key) abort
+    " handle the next key press
+    let nextChar = nr2char(getchar())
+    if nextChar == "\<CR>" && a:enter
+        :call feedkeys("i\<CR>\<esc>O")
+    elseif nextChar == "\<tab>"
+        if col(".") == col("$") - 1
+            :call feedkeys("xa")
+        else
+            :call feedkeys("xi")
+        endif
+    elseif nextChar == ";"
+        :call feedkeys("A;")
+    elseif nextChar == "{" && a:key == "("
+        :call feedkeys("A{")
+    elseif nextChar == "\<esc>"
+    " do nothing, already in normal mode
+    else
+        :startinsert
+        :call feedkeys(nextChar)
+    endif
+endfunction
+
+function! SurroundText(key, pair, firstOrLast) abort
+    let start      = getpos("'<")
+    let end        = getpos("'>")
+
+    :let @t = a:key
+    :call cursor(start[1],start[2])
+    if start[2] == 1
+        :normal ^
+    endif
+    :normal "tP
+    :let @t = a:pair
+    :call cursor(end[1],end[2]+1)
+    :normal "tp
+    if a:firstOrLast
+        :call cursor(start[1],start[2])
+    endif
+endfunction
 
 
