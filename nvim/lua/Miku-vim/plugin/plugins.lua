@@ -12,7 +12,6 @@ return {
         {
                 "folke/tokyonight.nvim",
                 lazy = false,
-
                 config = function()
                         vim.cmd("colorscheme tokyonight-day")
                 end,
@@ -306,15 +305,38 @@ return {
                 },
                 event = "VeryLazy",
         },
-        --PLUG: neotree
-        -- {
-        --         -- "nvim-neo-tree/neo-tree.nvim",
-        -- branch = "v2.x",
-        -- dependencies = "MunifTanjim/nui.nvim", --for neotree
-        -- config = function()
-        --         require("Miku-vim.plugin.conf.neotree")
-        -- end,
-        -- },
+        --PLUG: Oil
+        {
+                'stevearc/oil.nvim',
+                dependencies = { "nvim-tree/nvim-web-devicons" },
+                opts = {
+                        keymaps = {
+                                ["g?"] = "actions.show_help",
+                                ["<Right>"] = "actions.select",
+                                ["<C-v>"] = "actions.select_vsplit",
+                                ["<C-s>"] = "actions.select_split",
+                                ["<C-t>"] = "actions.select_tab",
+                                ["<M-p>"] = "actions.preview",
+                                ["n"] = "actions.close",
+                                ["q"] = "actions.close",
+                                ["<C-r>"] = "actions.refresh",
+                                ["<Left>"] = "actions.parent",
+                                ["H"] = "actions.open_cwd",
+                                ["-"] = "actions.cd",
+                                ["~"] = "actions.tcd",
+                                ["."] = "actions.toggle_hidden",
+                        },
+                        float = {
+                                padding = 2,
+                                max_width = 0,
+                                max_height = 0,
+                                border = "rounded",
+                                win_options = {
+                                        winblend = 10,
+                                },
+                        },
+                }
+        },
         --PLUG: leetcode
         {
                 "ianding1/leetcode.vim",
@@ -395,41 +417,6 @@ return {
         {
                 "rose-pine/neovim",
                 name = "rose-pine",
-        },
-        {
-                'stevearc/oil.nvim',
-                -- Optional dependencies
-                dependencies = { "nvim-tree/nvim-web-devicons" },
-                config = function()
-                        require("oil").setup({
-                                keymaps = {
-                                        ["g?"] = "actions.show_help",
-                                        ["<Right>"] = "actions.select",
-                                        ["<C-v>"] = "actions.select_vsplit",
-                                        ["<C-s>"] = "actions.select_split",
-                                        ["<C-t>"] = "actions.select_tab",
-                                        ["<M-p>"] = "actions.preview",
-                                        ["n"] = "actions.close",
-                                        ["q"] = "actions.close",
-                                        ["<C-r>"] = "actions.refresh",
-                                        ["<Left>"] = "actions.parent",
-                                        ["H"] = "actions.open_cwd",
-                                        ["-"] = "actions.cd",
-                                        ["~"] = "actions.tcd",
-                                        ["."] = "actions.toggle_hidden",
-                                },
-                                float = {
-                                        -- Padding around the floating window
-                                        padding = 2,
-                                        max_width = 0,
-                                        max_height = 0,
-                                        border = "rounded",
-                                        win_options = {
-                                                winblend = 10,
-                                        },
-                                },
-                        })
-                end
         },
 
 }
