@@ -1,41 +1,9 @@
-local M = {}
 --for Terminal
+local MIKU = {}
 local Terminal = require("toggleterm.terminal").Terminal
 local btop = Terminal:new({ cmd = "btop", hidden = true })
 local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
---for rename
-local Input = require("nui.input")
 
-
--- rename
-local input = Input({
-        relative = "cursor",
-        position = {
-                row = 1,
-                col = 0,
-        },
-        size = 20,
-        border = {
-                style = "rounded",
-                text = {
-                        top = "[New name]",
-                        top_align = "center",
-                },
-        },
-        win_options = {
-                winhighlight = "Normal:Normal,FloatBorder:Normal",
-        },
-}, {
-        prompt = "> ",
-        default_value = "",
-        on_close = function()
-                print("Cancel!")
-        end,
-        on_submit = function(value)
-                vim.lsp.buf.rename(value)
-                print("Renamed to: " .. value)
-        end,
-})
 
 -- for run
 local RUN = {
@@ -68,17 +36,17 @@ local RUN = {
 
 
 --NOTE: btop
-M.btop = function()
+MIKU.btop = function()
         btop:toggle()
 end
 
 --NOTE: lazygit
-M.lazygit = function()
+MIKU.lazygit = function()
         lazygit:toggle()
 end
 
 --NOTE: run
-M.run = function()
+MIKU.run = function()
         --get current buffer filetype
         local ftp = vim.bo.filetype
         --RUN
@@ -88,14 +56,34 @@ M.run = function()
 end
 
 --NOTE: lsp rename
-M.rename = function()
-        input:mount()
-        input:map("i", "<esc>", function()
-                vim.cmd("stopinsert")
-                input:unmount()
-        end, { noremap = true })
+MIKU._lsprename = function(win)
+        local new_name = vim.trim(vim.fn.getline('.'))
+        vim.api.nvim_win_close(win, true)
+        vim.cmd('stopinsert')
+        vim.lsp.buf.rename(new_name)
 end
 
+MIKU.rename = function()
+        local opts = {
+                relative = 'cursor',
+                row = 0,
+                col = 0,
+                width = 20,
+                height = 1,
+                style = 'minimal',
+                border = 'rounded'
+        }
+        local buf = vim.api.nvim_create_buf(false, true)
+        local win = vim.api.nvim_open_win(buf, true, opts)
+        vim.cmd('startinsert')
+        vim.api.nvim_buf_set_lines(buf, 0, -1, false, {})
+        vim.api.nvim_buf_set_keymap(buf, 'i', '<esc>',
+                '<cmd>stopinsert | close<CR>',
+                { silent = true })
+        vim.api.nvim_buf_set_keymap(buf, 'i', '<CR>',
+                string.format('<cmd>lua _MIKU._lsprename(%d)<CR>', win),
+                { silent = true })
+end
 
 
 --
@@ -257,42 +245,50 @@ end
 
 --NOTE: lsp rename
 
--- M._rename = function(win)
---         local new_name = vim.trim(vim.fn.getline('.'))
---         vim.api.nvim_win_close(win, true)
---         vim.cmd('stopinsert')
---         vim.lsp.buf.rename(new_name)
--- end
+
+
+
+
+-- Nui-Rename
+-- local Input = require("nui.input")
+-- local input = Input({
+--         relative = "cursor",
+--         position = {
+--                 row = 1,
+--                 col = 0,
+--         },
+--         size = 20,
+--         border = {
+--                 style = "rounded",
+--                 text = {
+--                         top = "[New name]",
+--                         top_align = "center",
+--                 },
+--         },
+--         win_options = {
+--                 winhighlight = "Normal:Normal,FloatBorder:Normal",
+--         },
+-- }, {
+--         prompt = "> ",
+--         default_value = "",
+--         on_close = function()
+--                 print("Cancel!")
+--         end,
+--         on_submit = function(value)
+--                 vim.lsp.buf.rename(value)
+--                 print("Renamed to: " .. value)
+--         end,
+-- })
 --
 -- M.rename = function()
---         local opts = {
---                 relative = 'cursor',
---                 row = 0,
---                 col = 0,
---                 width = 30,
---                 height = 1,
---                 style = 'minimal',
---                 border = 'rounded'
---         }
---         local buf = vim.api.nvim_create_buf(false, true)
---         local win = vim.api.nvim_open_win(buf, true, opts)
---         vim.cmd('startinsert')
---         vim.api.nvim_buf_set_lines(buf, 0, -1, false, {})
---         vim.api.nvim_buf_set_keymap(buf, 'i', '<esc>',
---                 '<cmd>stopinsert | close<CR>',
---                 { silent = true })
---         vim.api.nvim_buf_set_keymap(buf, 'i', '<CR>',
---                 string.format('<cmd>lua require("Miku-vim.utils.modules")._rename(%d)<CR>', win),
---                 { silent = true })
+--         input:mount()
+--         input:map("i", "<esc>", function()
+--                 vim.cmd("stopinsert")
+--                 input:unmount()
+--         end, { noremap = true })
 -- end
+--
 --
 
 
-
-
-
-
-
-
-
-return M
+_G._MIKU = MIKU
