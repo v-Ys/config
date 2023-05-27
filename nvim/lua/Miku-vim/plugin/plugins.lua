@@ -306,14 +306,14 @@ return {
                 event = "VeryLazy",
         },
         --PLUG: neotree
-        {
-                "nvim-neo-tree/neo-tree.nvim",
-                branch = "v2.x",
-                dependencies = "MunifTanjim/nui.nvim", --for neotree
-                config = function()
-                        require("Miku-vim.plugin.conf.neotree")
-                end,
-        },
+        -- {
+        --         -- "nvim-neo-tree/neo-tree.nvim",
+        -- branch = "v2.x",
+        -- dependencies = "MunifTanjim/nui.nvim", --for neotree
+        -- config = function()
+        --         require("Miku-vim.plugin.conf.neotree")
+        -- end,
+        -- },
         --PLUG: leetcode
         {
                 "ianding1/leetcode.vim",
@@ -397,14 +397,13 @@ return {
         },
         {
                 'stevearc/oil.nvim',
-                opts = {},
                 -- Optional dependencies
                 dependencies = { "nvim-tree/nvim-web-devicons" },
                 config = function()
                         require("oil").setup({
                                 keymaps = {
                                         ["g?"] = "actions.show_help",
-                                        ["l"] = "actions.select",
+                                        ["<Right>"] = "actions.select",
                                         ["<C-v>"] = "actions.select_vsplit",
                                         ["<C-s>"] = "actions.select_split",
                                         ["<C-t>"] = "actions.select_tab",
@@ -412,7 +411,7 @@ return {
                                         ["n"] = "actions.close",
                                         ["q"] = "actions.close",
                                         ["<C-r>"] = "actions.refresh",
-                                        ["h"] = "actions.parent",
+                                        ["<Left>"] = "actions.parent",
                                         ["H"] = "actions.open_cwd",
                                         ["-"] = "actions.cd",
                                         ["~"] = "actions.tcd",
