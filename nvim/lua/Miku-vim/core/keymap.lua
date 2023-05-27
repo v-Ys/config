@@ -28,7 +28,7 @@ local keymaps = {
                 ["<A-s>"] = "<cmd>w<CR>",
         },
         normal_mode = {
-                ["<leader>m"]  = "<cmd>lua require('Miku-vim.utils.modules').run()<cr>",
+                ["<leader>m"]  = "<cmd>lua _MIKU.run()<cr>",
                 -- Resize with arrows
                 ["<A-Up>"]     = ":resize +2<CR>",
                 ["<A-Down>"]   = ":resize -2<CR>",
@@ -109,14 +109,14 @@ local keymaps = {
                 ["gr"]    = "%",
         },
         command_mode = {
-                -- [";;"] = "lua require('Miku-vim.utils.modules').btop()",
+                -- [";;"] = "lua _MIKU.btop()",
         },
 }
 
 --NOTE: user command
 local command = {
         ["FormatJSON"] = "%!python -m json.tool",
-        ["Git"] = "lua require('Miku-vim.utils.modules').lazygit()",
+        ["Git"] = "lua _MIKU.lazygit()",
 }
 
 --NOTE: load
