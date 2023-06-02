@@ -35,6 +35,8 @@ telescope.setup {
                 },
                 find_files = {
                         find_command = { "fd", "-H", },
+                        theme = "ivy",
+                        previewer = false,
                 },
                 colorscheme = {
                         theme = "dropdown",
