@@ -1,6 +1,7 @@
 --NOTE:
 local luasnip = require("luasnip")
 local cmp = require("cmp")
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 require("luasnip/loaders/from_vscode").lazy_load({
         include = { "python", "rust", "cpp", "c", "lua", "typescript", "vue" }
 })
@@ -149,6 +150,7 @@ cmp.setup.cmdline(':', {
 })
 
 
---lsp
--- local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+cmp.event:on(
+        'confirm_done',
+        cmp_autopairs.on_confirm_done()
+)
