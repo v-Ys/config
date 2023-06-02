@@ -80,6 +80,7 @@ MIKU.rename = function()
         vim.api.nvim_buf_set_keymap(buf, 'i', '<esc>',
                 '<cmd>stopinsert | close<CR>',
                 { silent = true })
+        --TODO:callback
         vim.api.nvim_buf_set_keymap(buf, 'i', '<CR>',
                 string.format('<cmd>lua _MIKU._lsprename(%d)<CR>', win),
                 { silent = true })
