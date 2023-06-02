@@ -10,8 +10,9 @@ local options = {
         relativenumber = true,  --相对行数
         signcolumn     = 'yes',
         list           = true,
+        fillchars      = ({ eob = ' ' }), -- hide the "~" at the start of an empty line
         listchars      = ("trail:·,tab:»·"),
-        showtabline    = 0, -- don't showtabline
+        showtabline    = 0,               -- don't showtabline
         -- laststatus     = 3, --always show statusline on the bottom
         -- listchars      = ("eol:↴,tab:»·,trail:·"),
         -- autochdir      = true,
