@@ -11,10 +11,10 @@ return {
 
         {
                 "folke/tokyonight.nvim",
-                lazy = false,
-                config = function()
-                        vim.cmd("colorscheme tokyonight-day")
-                end,
+                -- config = function()
+                --         vim.cmd("colorscheme tokyonight-day")
+                -- end,
+                event = "VeryLazy",
         },
         {
                 "EdenEast/nightfox.nvim",
@@ -24,6 +24,12 @@ return {
                 end,
         },
 
+        {
+                "nordtheme/vim",
+                config = function()
+                        vim.cmd.colorscheme "nord"
+                end,
+        },
         --NOTE: UI
         --
         --icons
@@ -65,16 +71,17 @@ return {
         {
                 "hrsh7th/nvim-cmp",
                 dependencies = {
-                        { "hrsh7th/cmp-nvim-lsp" },
-                        { "hrsh7th/cmp-buffer" },
-                        { "hrsh7th/cmp-path" },
-                        { "hrsh7th/cmp-cmdline" },
+                        "hrsh7th/cmp-nvim-lsp",
+                        "hrsh7th/cmp-buffer",
+                        "hrsh7th/cmp-path",
+                        "hrsh7th/cmp-cmdline",
+                        "windwp/nvim-autopairs",
                         --NOTE: snip,
                         {
                                 "saadparwaiz1/cmp_luasnip",
                                 dependencies = {
-                                        { "L3MON4D3/LuaSnip" },
-                                        { "rafamadriz/friendly-snippets" },
+                                        "L3MON4D3/LuaSnip",
+                                        "rafamadriz/friendly-snippets",
                                 },
                         },
                 },
@@ -101,7 +108,6 @@ return {
                                         },
                                 },
                         },
-                        { "ray-x/lsp_signature.nvim" },
                 },
                 config = function()
                         require("Miku-vim.plugin.conf.lsp")
@@ -205,7 +211,13 @@ return {
         --PLUG: autopairs
         {
                 "windwp/nvim-autopairs",
-                config = true,
+                config = function()
+                        require("nvim-autopairs").setup {
+                                disable_filetype = { "TelescopePrompt" },
+                                enable_check_bracket_line = false
+                        }
+                        require("nvim-autopairs").get_rules("'")[1].not_filetypes = { "scheme", "lisp" }
+                end
         },
         --PLUG: comment
         {
@@ -254,8 +266,7 @@ return {
                         require("leap").opts.safe_labels = {
                                 "f",
                                 "e",
-                                "j",
-                                "k",
+                                "h",
                                 "i",
                                 "n",
                                 "c",
@@ -274,6 +285,7 @@ return {
                                 "x",
                                 "b",
                         }
+                        vim.api.nvim_set_hl(0, 'LeapBackdrop', { fg = '' })
                 end,
                 event = "VeryLazy",
         },
@@ -400,9 +412,6 @@ return {
         --PLUG: colorscheme
         {
                 "Th3Whit3Wolf/one-nvim",
-                event = "VeryLazy",
-        },
-        {
                 "sainnhe/edge",
                 event = "VeryLazy",
         },
@@ -414,9 +423,4 @@ return {
                 -- end,
                 event = "VeryLazy",
         },
-        {
-                "rose-pine/neovim",
-                name = "rose-pine",
-        },
-
 }
