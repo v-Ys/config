@@ -63,6 +63,8 @@ local key2App = {
         u = 'Safari',
         i = 'Alacritty',
         o = 'Craft',
+        l = 'WezTerm',
+        j = 'Google Chrome',
 }
 
 for key, ap in pairs(key2App) do
