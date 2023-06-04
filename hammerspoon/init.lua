@@ -80,11 +80,11 @@ for key, ap in pairs(App) do
         hk.bind(hyper_error, key, function() launch_or_toggle_application(ap) end)
 end
 
-hk.bind(hyper, "d", sizeFocusedWindow("Right_Half"))
-hk.bind(hyper, "w", sizeFocusedWindow("Max"))
-hk.bind(hyper, "a", sizeFocusedWindow("Left_Half"))
-hk.bind(hyper, "s", sizeFocusedWindow("Center"))
-hk.bind(hyper, "q", function()
+hk.bind(hyper, "f", sizeFocusedWindow("Right_Half"))
+hk.bind(hyper, "e", sizeFocusedWindow("Max"))
+hk.bind(hyper, "s", sizeFocusedWindow("Left_Half"))
+hk.bind(hyper, "d", sizeFocusedWindow("Center"))
+hk.bind(hyper, "w", function()
         local win = window.focusedWindow()
         if win ~= nil then
                 win:setFullScreen(not win:isFullScreen())
