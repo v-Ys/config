@@ -1,5 +1,6 @@
 --NOTE:
 local telescope = require("telescope")
+local actions = require "telescope.actions"
 
 telescope.setup {
         defaults = {
@@ -22,10 +23,6 @@ telescope.setup {
                         height = 0.80,
                         preview_cutoff = 120,
                 },
-        },
-
-        mappings = {
-
         },
 
         pickers = {
