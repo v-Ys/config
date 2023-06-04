@@ -22,6 +22,7 @@ if status is-interactive
         #### --?
         set -x EDITOR "nvim"
         set -x DBUS_SESSION_BUS_ADDRESS "unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
+        # set -x XDG_CONFIG_HOME "$HOME/.config"
         #### FZF
         set -x FZF_DEFAULT_COMMAND "fd --hidden --exclude={Applications,Library,.git,.idea,.vscode,.sass-cache,node_modules,build} --type f"
         set -x FZF_DEFAULT_OPTS "--color=bg+:-1,fg+:6,gutter:-1
