@@ -22,11 +22,6 @@
 [mergetool "vimdiff"]
 	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
-[difftool]
-    prompt = true
-[diff]
-    tool = nvimdiff
-
 #NOTE:
 # [url "git@github.com:"]
 #     insteadOf = https://github.com/
