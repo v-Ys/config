@@ -1,34 +1,21 @@
 return {
         --NOTE: theme
         {
-                "projekt0n/github-nvim-theme",
-                -- commit = "79be3b58f9facac10f7d0a2d2fda691424c9e5b3",
-                -- colors = { bg2 = "#1E50A2" },
-                -- config = function()
-                --         vim.cmd("colorscheme github_light")
-                -- end,
-        },
-
-        {
-                "folke/tokyonight.nvim",
-                -- config = function()
-                --         vim.cmd("colorscheme tokyonight-day")
-                -- end,
-                event = "VeryLazy",
-        },
-        {
-                "EdenEast/nightfox.nvim",
-                config = function()
-                        require("nightfox").setup({})
-                        -- vim.cmd("colorscheme nightfox")
-                end,
-        },
-
-        {
                 "nordtheme/vim",
                 config = function()
                         vim.cmd.colorscheme "nord"
                 end,
+        },
+        {
+                "Th3Whit3Wolf/one-nvim",
+                "sainnhe/edge",
+                "EdenEast/nightfox.nvim",
+                "projekt0n/github-nvim-theme",
+                {
+                        "catppuccin/nvim",
+                        name = "catppuccin",
+                },
+                event = "VeryLazy",
         },
         --NOTE: UI
         --
@@ -197,16 +184,7 @@ return {
         {
                 'sindrets/diffview.nvim',
                 dependencies = 'nvim-lua/plenary.nvim',
-        },
-        {
-                'TimUntersberger/neogit',
-                dependencies = 'sindrets/diffview.nvim',
-
-                opts = {
-                        integrations = {
-                                diffview = true
-                        },
-                }
+                cmd = "DiffviewOpen",
         },
         --PLUG: autopairs
         {
@@ -409,18 +387,4 @@ return {
                 ft = "markdown",
         },
 
-        --PLUG: colorscheme
-        {
-                "Th3Whit3Wolf/one-nvim",
-                "sainnhe/edge",
-                event = "VeryLazy",
-        },
-        {
-                "catppuccin/nvim",
-                name = "catppuccin",
-                -- config = function()
-                --         vim.cmd.colorscheme "catppuccin"
-                -- end,
-                event = "VeryLazy",
-        },
 }
