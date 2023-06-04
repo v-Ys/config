@@ -56,7 +56,7 @@ MIKU.run = function()
 end
 
 --NOTE: lsp rename
-MIKU._lsprename = function(win)
+local lsprename = function(win)
         local new_name = vim.trim(vim.fn.getline('.'))
         vim.api.nvim_win_close(win, true)
         vim.cmd('stopinsert')
@@ -86,6 +86,13 @@ MIKU.rename = function()
                 { silent = true })
 end
 
+function MIKU.Edit(fn, line_number)
+        local edit_cmd = string.format(":e %s", fn)
+        if line_number ~= nil then
+                edit_cmd = string.format(":e +%d %s", line_number, fn)
+        end
+        vim.cmd(edit_cmd)
+end
 
 --
 
