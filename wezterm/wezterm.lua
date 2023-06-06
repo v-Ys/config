@@ -39,7 +39,8 @@ return {
                 },
         },
         enable_tab_bar = false,
-        color_scheme = "OneLight (Gogh)",
+        -- color_scheme = "OneLight (Gogh)",
+        color_scheme = "nord",
         -- color_scheme = "TokyoNight (Gogh)",
         -- color_scheme = 'Catppuccin Mocha',
         window_padding = {
