@@ -5,6 +5,7 @@ local servers = {
         "rust_analyzer",
         "lua_ls",
         "pyright",
+        "marksman"
         -- "hls",
         -- "volar",
         -- "tsserver",
