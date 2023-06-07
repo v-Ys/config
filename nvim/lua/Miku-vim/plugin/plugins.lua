@@ -386,5 +386,4 @@ return {
                 },
                 ft = "markdown",
         },
-
 }
