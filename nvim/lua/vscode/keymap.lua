@@ -22,8 +22,8 @@ local keymaps = {
                 ["<leader>fh"] = "<cmd>call VSCodeNotify('workbench.action.openRecent')<CR>",
                 ["<leader>fs"] = "<cmd>call VSCodeNotify('workbench.action.selectTheme')<CR>",
                 ["<leader>fl"] = "<cmd>call VSCodeNotify('workbench.action.terminal.focusFind')<CR>",
-                ["<leader>n"] = "<cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>",
-                ["<leader>m"] = "<cmd>call VSCodeNotify('workbench.action.tasks.runTask','Toggle All Panel')<CR>",
+                ["<leader>n"]  = "<cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>",
+                ["<leader>m"]  = "<cmd>call VSCodeNotify('workbench.action.tasks.runTask','Toggle All Panel')<CR>",
                 --neovim
 
                 -- Move current line / block
@@ -31,23 +31,22 @@ local keymaps = {
                 -- ["<c-->"] = ":m .-2<CR>==",
 
                 -- -- Better move
-                ["K"]         = "4k",
-                ["J"]         = "4j",
-                ["H"]         = "^",
-                ["L"]         = "$",
-                ["<"]         = "<<",
-                [">"]         = ">>",
-                ["<leader>u"] = "J",
+                ["K"]          = "4k",
+                ["J"]          = "4j",
+                ["H"]          = "^",
+                ["L"]          = "$",
+                ["<"]          = "<<",
+                [">"]          = ">>",
+                [";j"]         = "J",
                 --buffers
                 --cancel the highlight
-                ["<leader>q"] = ":nohl<CR>",
+                [";q"]         = ":nohl<CR>",
                 --leap
-                ["f"]         = "<Plug>(leap-forward-to)",
-                ["gf"]        = "<Plug>(leap-backward-to)",
+                ["f"]          = "<Plug>(leap-forward-to)",
+                ["gf"]         = "<Plug>(leap-backward-to)",
 
         },
         visual_mode = {
-
                 ["<"] = "<gv",
                 [">"] = ">gv",
 
@@ -66,22 +65,12 @@ local keymaps = {
         },
 }
 local M = {}
--- local function load_keymap()
---         for mode, map in pairs(keymaps) do
---                 for key, cmd in pairs(map) do
---                         vim.api.nvim_set_keymap(mode_adapters[mode], key, cmd, opts[mode])
---                 end
---         end
--- end
---
 M.load_keymap = function()
-
         for mode, map in pairs(keymaps) do
                 for key, cmd in pairs(map) do
                         vim.api.nvim_set_keymap(mode_adapters[mode], key, cmd, opts[mode])
                 end
         end
-
 end
 
 return M

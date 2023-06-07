@@ -27,32 +27,46 @@ local plugins = {
         {
                 'ggandor/leap.nvim',
                 config = function()
-                        require('leap').opts.safe_labels = { 'f', 'e', 'j', 'k', 'i', 'n', 'c', 'w', 'r', 'o', 'a', 's',
-                                'd', 't', 'g', 'v', 'm',
-                                'l',
-                                'q', 'x', 'b' }
+                        require("leap").opts.safe_labels = {
+                                "f",
+                                "e",
+                                "h",
+                                "i",
+                                "n",
+                                "c",
+                                "w",
+                                "r",
+                                "o",
+                                "a",
+                                "s",
+                                "d",
+                                "t",
+                                "g",
+                                "v",
+                                "m",
+                                "l",
+                                "q",
+                                "x",
+                                "b",
+                        }
+                        vim.api.nvim_set_hl(0, 'LeapBackdrop', { fg = '' })
                 end,
         },
 
         --PLUG: surround
         {
-                'tpope/vim-surround',
-                config = function()
-                end,
-        },
-        --PLUG: enhance '.' for surround
-        {
-                'tpope/vim-repeat',
-                config = function()
-                end,
+                "kylechui/nvim-surround",
+                version = "*",
+                event = "VeryLazy",
+                config = true,
         },
         --PLUG: markdown
         {
                 'ybian/smartim',
-                -- ft = {
-                --         'markdown',
-                --         'latex'
-                -- },
+                ft = {
+                        'markdown',
+                        'latex'
+                },
                 config = function()
                         vim.g.smartim_default = 'com.apple.keylayout.ABC'
                 end
