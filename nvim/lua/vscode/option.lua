@@ -1,6 +1,6 @@
 --NOTE:
 local options = {
-        scrolloff     = 5, --scroll 时留下五行
+        scrolloff     = 5,     --scroll 时留下五行
         wrap          = false, --不要换行
         -- linebreak      = true, --换行显示时不把一个单词拆开，遇到指定的符号（比如空格，连词号和其他标点符号）才换行
         signcolumn    = 'yes',
@@ -9,9 +9,9 @@ local options = {
         --
         -- smartindent = true, --智能缩进-
         autoindent    = true, --回车后下一行自动缩进
-        shiftwidth    = 4, -- the number of spaces inserted for each indentation
+        shiftwidth    = 8,    -- the number of spaces inserted for each indentation
         copyindent    = true, --复制粘贴时保留原有的缩进
-        tabstop       = 4, --一个tab键所占的列数
+        tabstop       = 4,    --一个tab键所占的列数
         expandtab     = true, --自动将tab键输入转化为相应的空格数
         --
         ignorecase    = true, --搜索时忽略大小写

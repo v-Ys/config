@@ -26,7 +26,7 @@ local options = {
         autoindent     = true,                              --回车后下一行自动缩进
         shiftwidth     = 8,                                 -- the number of spaces inserted for each indentation
         copyindent     = true,                              --复制粘贴时保留原有的缩进
-        tabstop        = 4,                                 --一个tab键所占的列数
+        tabstop        = 8,                                 --一个tab键所占的列数
         expandtab      = true,                              --自动将tab键输入转化为相应的空格数
         --
         ignorecase     = true,                              --搜索时忽略大小写
@@ -50,6 +50,7 @@ local options = {
 
 }
 
+vim.g.rust_recommended_style = 0
 
 for k, v in pairs(options) do
         vim.opt[k] = v
