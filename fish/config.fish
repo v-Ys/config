@@ -43,6 +43,10 @@ if status is-interactive
         #### python3
         # set -x PATH /Users/Miku/.pyenv/shims/python3 $PATH
         alias brew="env PATH=(string replace (pyenv root)/shims '' \"\$PATH\") brew" # avoid bug
+        #### llvm
+        set -x PATH /opt/homebrew/opt/llvm/bin $PATH
+        set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"
+        set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
         #### homebrew PATH 
         # set -x PATH /opt/homebrew/sbin $PATH
         # set -x PATH /opt/homebrew/bin $PATH
