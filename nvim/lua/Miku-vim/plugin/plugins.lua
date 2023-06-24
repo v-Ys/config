@@ -1,16 +1,17 @@
 return {
         --NOTE: theme
         {
-                "nordtheme/vim",
+                "projekt0n/github-nvim-theme",
+                opts = {},
                 config = function()
-                        vim.cmd.colorscheme "nord"
+                        vim.cmd.colorscheme "github_light"
                 end,
         },
         {
+                "nordtheme/vim",
                 "Th3Whit3Wolf/one-nvim",
                 "sainnhe/edge",
                 "EdenEast/nightfox.nvim",
-                "projekt0n/github-nvim-theme",
                 {
                         "catppuccin/nvim",
                         name = "catppuccin",
@@ -380,9 +381,7 @@ return {
                                         vim.g.smartim_default = "com.apple.keylayout.ABC"
                                 end,
                         },
-                        {
-                                "dhruvasagar/vim-table-mode",
-                        },
+                        "dhruvasagar/vim-table-mode",
                 },
                 ft = "markdown",
         },
