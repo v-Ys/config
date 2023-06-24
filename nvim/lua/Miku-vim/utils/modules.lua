@@ -8,17 +8,17 @@ local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 -- for run
 local RUN = {
         c = function()
-                vim.cmd("TermExec cmd=\"cd %:p:h && gcc %:t -o %:t:r && ./%:t:r && rm %:t:r\"")
+                vim.cmd("TermExec cmd=\"cd %:p:h && clang %:t -o %:t:r && ./%:t:r && rm %:t:r\"")
         end,
 
         -- cpp = function()
-        --         vim.cmd("TermExec cmd=\"cd %:p:h && g++ %:t -o %:t:r && ./%:t:r && rm %:t:r\"")
+        --         vim.cmd("TermExec cmd=\"cd %:p:h && clang++ %:t -o %:t:r && ./%:t:r && rm %:t:r\"")
         -- end,
 
         --cpp 20
         cpp = function()
                 vim.cmd(
-                        "TermExec cmd=\"cd %:p:h && /opt/homebrew/opt/llvm/bin/clang++ -std=c++20 -fmodules %:t -o %:t:r && ./%:t:r && rm %:t:r\"")
+                        "TermExec cmd=\"cd %:p:h && clang++ -std=c++20 -fmodules %:t -o %:t:r && ./%:t:r && rm %:t:r\"")
         end,
 
         lua = function()
@@ -56,7 +56,7 @@ MIKU.run = function()
 end
 
 --NOTE: lsp rename
-local lsprename = function(win)
+MIKU._lsprename = function(win)
         local new_name = vim.trim(vim.fn.getline('.'))
         vim.api.nvim_win_close(win, true)
         vim.cmd('stopinsert')
