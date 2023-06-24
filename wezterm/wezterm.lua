@@ -1,6 +1,12 @@
 local wezterm = require 'wezterm'
 local MyKey = require('keybinds')
 
+local theme = {
+        "nord",
+        "TokyoNight (Gogh)",
+        'Catppuccin Mocha',
+        "OneLight (Gogh)",
+}
 
 return {
         disable_default_key_bindings = true,
@@ -24,7 +30,7 @@ return {
                         italic = true,
                         font = wezterm.font {
                                 family = 'Iosevka Nerd Font Mono',
-                                weight = 'Bold',
+                                weight = 'ExtraBold',
                                 style = 'Italic',
                         },
                 },
@@ -33,16 +39,13 @@ return {
                         italic = false,
                         font = wezterm.font {
                                 family = 'Iosevka Nerd Font Mono',
-                                weight = 'Bold',
+                                weight = 'ExtraBold',
                                 style = 'Normal',
                         },
                 },
         },
         enable_tab_bar = false,
-        -- color_scheme = "OneLight (Gogh)",
-        color_scheme = "nord",
-        -- color_scheme = "TokyoNight (Gogh)",
-        -- color_scheme = 'Catppuccin Mocha',
+        color_scheme = theme[4],
         window_padding = {
                 left = 0,
                 right = 0,
