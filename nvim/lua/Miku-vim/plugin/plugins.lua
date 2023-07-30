@@ -8,7 +8,6 @@ return {
                 end,
         },
         {
-                "nordtheme/vim",
                 "Th3Whit3Wolf/one-nvim",
                 "sainnhe/edge",
                 "EdenEast/nightfox.nvim",

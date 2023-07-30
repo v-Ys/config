@@ -23,7 +23,7 @@
 	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 #NOTE:
-# [url "git@github.com:"]
+#[url "git@github.com:"]
 #     insteadOf = https://github.com/
-# [http "https://github.com"]
+#[http "https://github.com"]
 #     proxy = socks5://127.0.0.1:7890
