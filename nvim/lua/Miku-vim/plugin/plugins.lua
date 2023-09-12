@@ -372,16 +372,13 @@ return {
         },
         --PLUG: markdown
         {
-                "iamcco/markdown-preview.nvim",
-                dependencies = {
-                        {
-                                "ybian/smartim",
-                                config = function()
-                                        vim.g.smartim_default = "com.apple.keylayout.ABC"
-                                end,
-                        },
-                        "dhruvasagar/vim-table-mode",
+                {
+                        "ybian/smartim",
+                        config = function()
+                                vim.g.smartim_default = "com.apple.keylayout.ABC"
+                        end,
                 },
+                "dhruvasagar/vim-table-mode",
                 ft = "markdown",
         },
         {
