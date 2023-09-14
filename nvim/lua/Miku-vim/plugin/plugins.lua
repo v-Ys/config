@@ -8,7 +8,6 @@ return {
                 end,
         },
         {
-                "Th3Whit3Wolf/one-nvim",
                 "sainnhe/edge",
                 "EdenEast/nightfox.nvim",
                 {
@@ -123,26 +122,91 @@ return {
                         })
                 end,
         },
-        --PLUG: Telescope,
+        --PLUG: FZF
         {
-                "nvim-telescope/telescope.nvim",
-                dependencies = {
-                        { "nvim-lua/plenary.nvim" },
-                        { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-                        { 'nvim-telescope/telescope-ui-select.nvim' },
-                        { 'jvgrootveld/telescope-zoxide' },
-                },
+                "ibhagwan/fzf-lua",
+                dependencies = { "nvim-tree/nvim-web-devicons" },
                 config = function()
-                        require("Miku-vim.plugin.conf.telescope")
-                end,
-        },
-        {
-                "LukasPietzschmann/telescope-tabs",
-                config = function()
-                        require("telescope-tabs").setup({
-                                theme = "ivy",
-                        })
-                end,
+                        local actions = require "fzf-lua.actions"
+                        require 'fzf-lua'.setup {
+                                winopts      = {
+                                        preview = {
+                                                scrollchars = { '', '' }, -- scrollbar chars ({ <full>, <empty> }
+                                        }
+                                },
+                                keymap       = {
+                                        builtin = {
+                                                ["ctrl-j"] = "preview-page-down",
+                                                ["ctrl-k"] = "preview-page-up",
+                                        },
+                                },
+                                files        = {
+
+                                        winopts = {
+
+                                                height  = 0.60,
+                                                width   = 0.45,
+                                                row     = 0.23, -- 0=top, 1=bottom
+                                                col     = 0.5,  -- 0=left, 1=right
+
+                                                preview = {
+                                                        layout   = 'vertical',
+                                                        vertical = 'up:50%',
+                                                }
+                                        }
+                                },
+
+                                oldfiles     = {
+                                        winopts   = {
+                                                height = 0.33, -- window height
+                                                width  = 0.45, -- window width
+                                                row    = 0.43, -- window row position (0=top, 1=bottom)
+                                                col    = 0.5,  -- window col position (0=left, 1=right)
+
+                                        },
+                                        previewer = false,
+                                },
+
+                                colorschemes = {
+                                        live_preview = false,
+                                        winopts      = {
+                                                height = 0.33, -- window height
+                                                width  = 0.45, -- window width
+                                                row    = 0.43, -- window row position (0=top, 1=bottom)
+                                                col    = 0.5,  -- window col position (0=left, 1=right)
+
+                                        },
+                                },
+                                buffers      = {
+                                        previewer = false,
+                                        actions = {
+                                                ["ctrl-d"] = { fn = actions.buf_del, reload = true },
+                                                ["ctrl-x"] = { fn = actions.buf_switch, reload = true },
+                                        },
+                                        winopts = {
+                                                height = 0.33, -- window height
+                                                width  = 0.45, -- window width
+                                                row    = 0.43, -- window row position (0=top, 1=bottom)
+                                                col    = 0.5,  -- window col position (0=left, 1=right)
+
+                                        },
+                                },
+                                tabs         = {
+                                        previewer = false,
+                                        actions = {
+                                                ["ctrl-d"] = { fn = actions.buf_del, reload = true },
+                                                ["ctrl-x"] = { fn = actions.buf_switch, reload = true },
+                                        },
+                                        winopts = {
+                                                height = 0.33, -- window height
+                                                width  = 0.45, -- window width
+                                                row    = 0.43, -- window row position (0=top, 1=bottom)
+                                                col    = 0.5,  -- window col position (0=left, 1=right)
+
+                                        },
+                                },
+                        }
+                end
         },
         --PLUG: treesitter
         {
@@ -372,18 +436,16 @@ return {
         },
         --PLUG: markdown
         {
-                {
-                        "ybian/smartim",
-                        config = function()
-                                vim.g.smartim_default = "com.apple.keylayout.ABC"
-                        end,
-                },
                 "dhruvasagar/vim-table-mode",
                 ft = "markdown",
         },
+
         {
-                "ibhagwan/fzf-lua",
-                -- optional for icon support
-                requires = { "nvim-tree/nvim-web-devicons" }
+                "ybian/smartim",
+                config = function()
+                        vim.g.smartim_default = "com.apple.keylayout.ABC"
+                end,
+                ft = "markdown",
         },
+
 }

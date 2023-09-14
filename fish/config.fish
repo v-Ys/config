@@ -22,16 +22,23 @@ if status is-interactive
         #### --?
         set -x EDITOR "nvim"
         set -x DBUS_SESSION_BUS_ADDRESS "unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET"
-        # set -x XDG_CONFIG_HOME "$HOME/.config"
-        #### FZF
+
+        #### FZF ####################
+        # FZF_DEFAULT_OPTS
+        # bg+: bottom bar color
+        # fg+: selected item color
+        # gutter: sidebar color
+        #############################
         set -x FZF_DEFAULT_COMMAND "fd --hidden --exclude={Applications,Library,.git,.idea,.vscode,.sass-cache,node_modules,build} --type f"
-        set -x FZF_DEFAULT_OPTS "--color=bg+:-1,fg+:6,gutter:-1
+        set -x FZF_DEFAULT_OPTS "--color=bg+:-1,fg+:#BE002F,gutter:-1,border:#C0C0C0
+        --no-separator 
+        --no-scrollbar
         --preview 'if test -d {} 
         exa --all --long {} 
 else 
         bat --color=always --line-range=:500 --theme=OneHalfLight {} 
 end'"
-# bind 'ctrl-o:execute($EDITOR {} &> /dev/tty)'
+
 
 
 #NOTE:" Environment variable
@@ -44,6 +51,8 @@ set -x PATH /Users/Miku/.cargo/bin $PATH
 set -x PATH /opt/homebrew/opt/llvm/bin $PATH
 set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"
 set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
+#### Java
+set -x PATH /opt/homebrew/opt/openjdk/bin $PATH
 #### homebrew PATH 
 # set -x PATH /opt/homebrew/sbin $PATH
 # set -x PATH /opt/homebrew/bin $PATH
@@ -107,7 +116,7 @@ end
 function fish_user_key_bindings
         bind -M default \co '_lfcd; and commandline -f repaint'
         bind -M default \ef '_fzf_search_directory'
-        # bind -M default \cr '_fzf_search_history; and commandline -f repaint'
+        bind -M default \cr '_fzf_search_history; and commandline -f repaint'
 
 end
 

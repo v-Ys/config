@@ -60,17 +60,16 @@ local keymaps = {
                 --save
                 ["<A-s>"]      = "<cmd>w<CR>",
                 -- ["=="]         = "ggvG=<C-r>",
-                --Telescope
-                ["<leader>fh"] = "<cmd>lua require('telescope.builtin').oldfiles()<CR>",
-                ["<leader>ff"] = "<cmd>lua require('telescope.builtin').find_files()<CR>",
-                ["<leader>fw"] = "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>",
-                ["<leader>fl"] = "<cmd>lua require('telescope.builtin').live_grep()<CR>",
-                ["<Leader>fs"] = "<cmd>lua require('telescope.builtin').colorscheme()<CR>",
-                ["<Leader>fp"] = "<cmd>lua require('telescope').extensions.zoxide.list(require('telescope.themes').get_dropdown())<CR>",
-                ["<Leader>fm"] = "<cmd>lua require('telescope.builtin').marks()<CR>",
-                ["<Leader>fM"] = "<cmd>TodoTelescope<CR>",
-                ["<leader>j"]  = "<cmd>lua require('telescope.builtin').buffers()<CR>",
-                ["<Leader>t"]  = "<cmd>lua require('telescope-tabs').list_tabs(require('telescope.themes').get_dropdown({ initial_mode = 'normal'}))<CR>",
+                --FZF
+                ["<leader>fh"] = "<cmd>lua require('fzf-lua').oldfiles()<CR>",
+                ["<leader>ff"] = "<cmd>lua require('fzf-lua').files()<CR>",
+                ["<leader>fw"] = "<cmd>lua require('fzf-lua').blines({winopts = { split = 'belowright new' }})<CR>",
+                ["<leader>fl"] = "<cmd>lua require('fzf-lua').live_grep({winopts = { split = 'belowright new' }})<CR>",
+                ["<Leader>fs"] = "<cmd>lua require('fzf-lua').colorschemes()<CR>",
+                ["<Leader>fp"] = "<cmd>lua _G._MIKU.fzf_zoxide()<CR>",
+                ["<Leader>fm"] = "<cmd>lua require('fzf-lua').marks()<CR>",
+                ["<leader>j"]  = "<cmd>lua require('fzf-lua').buffers()<CR>",
+                ["<leader>t"]  = "<cmd>lua require('fzf-lua').tabs()<CR>",
 
                 --leap
                 ["f"]          = "<Plug>(leap-forward-to)",

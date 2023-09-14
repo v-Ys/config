@@ -86,172 +86,117 @@ MIKU.rename = function()
                 { silent = true })
 end
 
-function MIKU.Edit(fn, line_number)
-        local edit_cmd = string.format(":e %s", fn)
-        if line_number ~= nil then
-                edit_cmd = string.format(":e +%d %s", line_number, fn)
-        end
-        vim.cmd(edit_cmd)
+--NOTE: FZF zoxide
+MIKU.fzf_zoxide = function()
+        require 'fzf-lua'.fzf_exec("fd --type d | zoxide query -l", {
+                actions = {
+                        -- Use fzf-lua builtin actions or your own handler
+                        ['default'] = function(selected)
+                                vim.cmd("cd " .. selected[1])
+                        end
+
+                },
+                winopts = {
+                        height = 0.33, -- window height
+                        width  = 0.45, -- window width
+                        row    = 0.43, -- window row position (0=top, 1=bottom)
+                        col    = 0.5,  -- window col position (0=left, 1=right)
+
+                },
+        })
 end
 
---
+--NOTE: lsp fzf_list or jump
+MIKU.list_or_jump = function(action, opts)
+        local params = vim.lsp.util.make_position_params(opts.winnr)
+        local fzf_method = {
+                ["textDocument/definition"] = function()
+                        require('fzf-lua').lsp_definitions({ winopts = { split = 'belowright new' } })
+                end,
 
---   kind = {
---     Array = "",
---     Boolean = "",
---     Class = "",
---     Color = "",
---     Constant = "",
---     Constructor = "",
---     Enum = "",
---     EnumMember = "",
---     Event = "",
---     Field = "",
---     File = "",
---     Folder = "",
---     Function = "",
---     Interface = "",
---     Key = "",
---     Keyword = "",
---     Method = "",
---     Module = "",
---     Namespace = "",
---     Null = "ﳠ",
---     Number = "",
---     Object = "",
---     Operator = "",
---     Package = "",
---     Property = "",
---     Reference = "",
---     Snippet = "",
---     String = "",
---     Struct = "",
---     Text = "",
---     TypeParameter = "",
---     Unit = "",
---     Value = "",
---     Variable = "",
---   },
---   git = {
---     LineAdded = "",
---     LineModified = "",
---     LineRemoved = "",
---     FileDeleted = "",
---     FileIgnored = "◌",
---     FileRenamed = "",
---     FileStaged = "S",
---     FileUnmerged = "",
---     FileUnstaged = "",
---     FileUntracked = "U",
---     Diff = "",
---     Repo = "",
---     Octoface = "",
---     Branch = "",
---   },
---   ui = {
---     ArrowCircleDown = "",
---     ArrowCircleLeft = "",
---     ArrowCircleRight = "",
---     ArrowCircleUp = "",
---     BoldArrowDown = "",
---     BoldArrowLeft = "",
---     BoldArrowRight = "",
---     BoldArrowUp = "",
---     BoldClose = "",
---     BoldDividerLeft = "",
---     BoldDividerRight = "",
---     BoldLineLeft = "▎",
---     BookMark = "",
---     BoxChecked = "",
---     Bug = "",
---     Stacks = "",
---     Scopes = "",
---     Watches = "",
---     DebugConsole = "",
---     Calendar = "",
---     Check = "",
---     ChevronRight = ">",
---     ChevronShortDown = "",
---     ChevronShortLeft = "",
---     ChevronShortRight = "",
---     ChevronShortUp = "",
---     Circle = "",
---     Close = "",
---     CloudDownload = "",
---     Code = "",
---     Comment = "",
---     Dashboard = "",
---     DividerLeft = "",
---     DividerRight = "",
---     DoubleChevronRight = "»",
---     Ellipsis = "",
---     EmptyFolder = "",
---     EmptyFolderOpen = "",
---     File = "",
---     FileSymlink = "",
---     Files = "",
---     FindFile = "",
---     FindText = "",
---     Fire = "",
---     Folder = "",
---     FolderOpen = "",
---     FolderSymlink = "",
---     Forward = "",
---     Gear = "",
---     History = "",
---     Lightbulb = "",
---     LineLeft = "▏",
---     LineMiddle = "│",
---     List = "",
---     Lock = "",
---     NewFile = "",
---     Note = "",
---     Package = "",
---     Pencil = "",
---     Plus = "",
---     Project = "",
---     Search = "",
---     SignIn = "",
---     SignOut = "",
---     Tab = "",
---     Table = "",
---     Target = "󰀘",
---     Telescope = "",
---     Text = "",
---     Tree = "",
---     Triangle = "契",
---     TriangleShortArrowDown = "",
---     TriangleShortArrowLeft = "",
---     TriangleShortArrowRight = "",
---     TriangleShortArrowUp = "",
---   },
---   diagnostics = {
---     BoldError = "",
---     Error = "",
---     BoldWarning = "",
---     Warning = "",
---     BoldInformation = "",
---     Information = "",
---     BoldQuestion = "",
---     Question = "",
---     BoldHint = "",
---     Hint = "",
---     Debug = "",
---     Trace = "✎",
---   },
---   misc = {
---     Robot = "ﮧ",
---     Squirrel = "",
---     Tag = "",
---     Watch = "",
---     Smiley = "",
---     Package = "",
---     CircuitBoard = "",
---   },
--- }
+                ["textDocument/typeDefinition"] = function()
+                        require('fzf-lua').lsp_typedefs({ winopts = { split = 'belowright new' } })
+                end,
+
+                ["textDocument/implementation"] = function()
+                        require('fzf-lua').lsp_implementations({ winopts = { split = 'belowright new' } })
+                end,
+        }
+        vim.lsp.buf_request(opts.bufnr, action, params, function(err, result, ctx, _)
+                if err then
+                        vim.api.nvim_err_writeln("Error when executing " .. action .. " : " .. err.message)
+                        return
+                end
+                local flattened_results = {}
+                if result then
+                        -- textDocument/definition can return Location or Location[]
+                        if not vim.tbl_islist(result) then
+                                flattened_results = { result }
+                        end
+
+                        vim.list_extend(flattened_results, result)
+                end
+
+                local offset_encoding = vim.lsp.get_client_by_id(ctx.client_id).offset_encoding
+
+                if #flattened_results == 0 then
+                        return
+                elseif #flattened_results == 1 and opts.jump_type ~= "never" then
+                        local uri = params.textDocument.uri
+                        if uri ~= flattened_results[1].uri and uri ~= flattened_results[1].targetUri then
+                                if opts.jump_type == "tab" then
+                                        vim.cmd "tabedit"
+                                elseif opts.jump_type == "split" then
+                                        vim.cmd "new"
+                                elseif opts.jump_type == "vsplit" then
+                                        vim.cmd "vnew"
+                                end
+                        end
+
+                        vim.lsp.util.jump_to_location(flattened_results[1], offset_encoding, opts.reuse_win)
+                else
+                        fzf_method[action]()
+                end
+        end)
+end
 
 
---NOTE: lsp rename
+
+_G._MIKU = MIKU
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -297,6 +242,3 @@ end
 -- end
 --
 --
-
-
-_G._MIKU = MIKU
