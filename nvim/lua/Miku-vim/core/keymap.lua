@@ -63,8 +63,8 @@ local keymaps = {
                 --FZF
                 ["<leader>fh"] = "<cmd>lua require('fzf-lua').oldfiles()<CR>",
                 ["<leader>ff"] = "<cmd>lua require('fzf-lua').files()<CR>",
-                ["<leader>fw"] = "<cmd>lua require('fzf-lua').blines({winopts = { split = 'belowright new' }})<CR>",
-                ["<leader>fl"] = "<cmd>lua require('fzf-lua').live_grep({winopts = { split = 'belowright new' }})<CR>",
+                ["<leader>fw"] = "<cmd>lua require('fzf-lua').blines({winopts = { split = 'belowright new' ,border  = 'none'}})<CR>",
+                ["<leader>fl"] = "<cmd>lua require('fzf-lua').live_grep({winopts = { split = 'belowright new' ,border  = 'none'}})<CR>",
                 ["<Leader>fs"] = "<cmd>lua require('fzf-lua').colorschemes()<CR>",
                 ["<Leader>fp"] = "<cmd>lua _G._MIKU.fzf_zoxide()<CR>",
                 ["<Leader>fm"] = "<cmd>lua require('fzf-lua').marks()<CR>",

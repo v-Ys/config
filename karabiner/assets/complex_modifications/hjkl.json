@@ -83,7 +83,7 @@
             ]
         },
         {
-            "description": "Map j / ` plus Left_Control to ESC",
+            "description": "Map '[' and '`' plus Left_Control to ESC",
             "manipulators": [
                 {
                     "type": "basic",

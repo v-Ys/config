@@ -73,7 +73,8 @@ local function lsp_keymaps(bufnr)
                 opts)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "gn", "<cmd>lua _MIKU.rename()<CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "gh",
-                "<cmd>lua require('fzf-lua').lsp_references({winopts = { split = 'belowright new' }})<CR>", opts)
+                "<cmd>lua require('fzf-lua').lsp_references({winopts = { split = 'belowright new' ,border  = 'none'}})<CR>",
+                opts)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "ga", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
         vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>',
                 opts)

@@ -14,7 +14,7 @@
 
     ~/.config/git: git
     ~/.config/nvim: nvim
-    ~/.config/fish: fish
+    ~/.config/fish/config.fish: fish_config.fish
     ~/.config/helix: helix
     ~/.config/btop: btop
     ~/.config/wezterm: wezterm

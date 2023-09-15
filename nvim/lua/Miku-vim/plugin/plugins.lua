@@ -130,14 +130,15 @@ return {
                         local actions = require "fzf-lua.actions"
                         require 'fzf-lua'.setup {
                                 winopts      = {
+                                        border  = 'single',
                                         preview = {
                                                 scrollchars = { '', '' }, -- scrollbar chars ({ <full>, <empty> }
                                         }
                                 },
                                 keymap       = {
                                         builtin = {
-                                                ["ctrl-j"] = "preview-page-down",
-                                                ["ctrl-k"] = "preview-page-up",
+                                                ["ctrl-;"] = "preview-page-down",
+                                                ["ctrl-'"] = "preview-page-up",
                                         },
                                 },
                                 files        = {
@@ -148,12 +149,11 @@ return {
                                                 width   = 0.45,
                                                 row     = 0.23, -- 0=top, 1=bottom
                                                 col     = 0.5,  -- 0=left, 1=right
-
                                                 preview = {
                                                         layout   = 'vertical',
                                                         vertical = 'up:50%',
                                                 }
-                                        }
+                                        },
                                 },
 
                                 oldfiles     = {

@@ -106,20 +106,38 @@ MIKU.fzf_zoxide = function()
         })
 end
 
+
+----------------------------------------------------------------------------
+-- Parameters: ~
+--     {opts} (table)  options to pass to the picker
+--
+-- Options: ~
+--     {jump_type}     (string)   how to goto definition if there is only one
+--                                and the definition file is different from
+--                                the current file, values: "tab", "split",
+--                                "vsplit", "never"
+--     {fname_width}   (number)   defines the width of the filename section
+--                                (default: 30)
+--     {show_line}     (boolean)  show results text (default: true)
+--     {trim_text}     (boolean)  trim results text (default: false)
+--     {reuse_win}     (boolean)  jump to existing window if buffer is
+--                                already opened (default: false)
+--     {file_encoding} (string)   file encoding for the previewer
+----------------------------------------------------------------------------
 --NOTE: lsp fzf_list or jump
 MIKU.list_or_jump = function(action, opts)
         local params = vim.lsp.util.make_position_params(opts.winnr)
         local fzf_method = {
                 ["textDocument/definition"] = function()
-                        require('fzf-lua').lsp_definitions({ winopts = { split = 'belowright new' } })
+                        require('fzf-lua').lsp_definitions({ winopts = { split = 'belowright new', border = 'none' } })
                 end,
 
                 ["textDocument/typeDefinition"] = function()
-                        require('fzf-lua').lsp_typedefs({ winopts = { split = 'belowright new' } })
+                        require('fzf-lua').lsp_typedefs({ winopts = { split = 'belowright new', border = 'none' } })
                 end,
 
                 ["textDocument/implementation"] = function()
-                        require('fzf-lua').lsp_implementations({ winopts = { split = 'belowright new' } })
+                        require('fzf-lua').lsp_implementations({ winopts = { split = 'belowright new', border = 'none' } })
                 end,
         }
         vim.lsp.buf_request(opts.bufnr, action, params, function(err, result, ctx, _)
