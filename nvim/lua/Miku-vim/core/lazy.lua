@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
         spec = {
-                { import = "Miku-vim.plugin.plugins" },
+                { import = "Miku-vim.plugin" },
         },
         ui = {
                 size = { width = 0.8, height = 0.8 },
