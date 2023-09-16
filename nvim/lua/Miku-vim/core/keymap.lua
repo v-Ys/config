@@ -17,6 +17,7 @@ local mode_adapters = {
         command_mode = "c",
 }
 
+local a = require('Miku-vim.utils.modules')
 
 
 
@@ -28,7 +29,7 @@ local keymaps = {
                 ["<A-s>"] = "<cmd>w<CR>",
         },
         normal_mode = {
-                ["<leader>m"]  = "<cmd>lua _MIKU.run()<cr>",
+                ["<leader>m"]  = "<cmd>lua require('Miku-vim.utils.modules').run()<CR>",
                 -- Resize with arrows
                 ["<A-Up>"]     = ":resize +2<CR>",
                 ["<A-Down>"]   = ":resize -2<CR>",
@@ -66,7 +67,7 @@ local keymaps = {
                 ["<leader>fw"] = "<cmd>lua require('fzf-lua').blines({winopts = { split = 'belowright new' ,border  = 'none'}})<CR>",
                 ["<leader>fl"] = "<cmd>lua require('fzf-lua').live_grep({winopts = { split = 'belowright new' ,border  = 'none'}})<CR>",
                 ["<Leader>fs"] = "<cmd>lua require('fzf-lua').colorschemes()<CR>",
-                ["<Leader>fp"] = "<cmd>lua _G._MIKU.fzf_zoxide()<CR>",
+                ["<Leader>fp"] = "<cmd>lua require('Miku-vim.utils.modules').fzf_zoxide()<CR>",
                 ["<Leader>fm"] = "<cmd>lua require('fzf-lua').marks()<CR>",
                 ["<leader>j"]  = "<cmd>lua require('fzf-lua').buffers()<CR>",
                 ["<leader>t"]  = "<cmd>lua require('fzf-lua').tabs()<CR>",
@@ -109,14 +110,14 @@ local keymaps = {
                 ["gr"]    = "%",
         },
         command_mode = {
-                -- [";;"] = "lua _MIKU.btop()",
+                -- [";;"] = "lua require('Miku-vim.utils.modules').btop()",
         },
 }
 
 --NOTE: user command
 local command = {
         ["FormatJSON"] = "%!python -m json.tool",
-        ["Git"] = "lua _MIKU.lazygit()",
+        ["Git"] = "lua require('Miku-vim.utils.modules').lazygit()",
 }
 
 --NOTE: load
