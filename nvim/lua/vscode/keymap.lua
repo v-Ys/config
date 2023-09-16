@@ -64,13 +64,9 @@ local keymaps = {
                 ["L"] = "$",
         },
 }
-local M = {}
-M.load_keymap = function()
-        for mode, map in pairs(keymaps) do
-                for key, cmd in pairs(map) do
-                        vim.api.nvim_set_keymap(mode_adapters[mode], key, cmd, opts[mode])
-                end
+
+for mode, map in pairs(keymaps) do
+        for key, cmd in pairs(map) do
+                vim.api.nvim_set_keymap(mode_adapters[mode], key, cmd, opts[mode])
         end
 end
-
-return M
