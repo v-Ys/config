@@ -56,13 +56,6 @@ MIKU.run = function()
 end
 
 --NOTE: lsp rename
-MIKU._lsprename = function(win)
-        local new_name = vim.trim(vim.fn.getline('.'))
-        vim.api.nvim_win_close(win, true)
-        vim.cmd('stopinsert')
-        vim.lsp.buf.rename(new_name)
-end
-
 MIKU.rename = function()
         local opts = {
                 relative = 'cursor',
@@ -77,13 +70,15 @@ MIKU.rename = function()
         local win = vim.api.nvim_open_win(buf, true, opts)
         vim.cmd('startinsert')
         vim.api.nvim_buf_set_lines(buf, 0, -1, false, {})
-        vim.api.nvim_buf_set_keymap(buf, 'i', '<esc>',
+        vim.keymap.set('i', '<esc>',
                 '<cmd>stopinsert | close<CR>',
-                { silent = true })
-        --TODO:callback
-        vim.api.nvim_buf_set_keymap(buf, 'i', '<CR>',
-                string.format('<cmd>lua _MIKU._lsprename(%d)<CR>', win),
-                { silent = true })
+                { silent = true, buffer = true })
+        vim.keymap.set("i", "<CR>", function()
+                local new_name = vim.trim(vim.fn.getline('.'))
+                vim.api.nvim_win_close(0, true)
+                vim.cmd('stopinsert')
+                vim.lsp.buf.rename(new_name)
+        end, { buffer = true })
 end
 
 --NOTE: FZF zoxide
@@ -451,3 +446,10 @@ return MIKU
 --'',
 --
 --
+--
+-- MIKU._lsprename = function(win)
+--         local new_name = vim.trim(vim.fn.getline('.'))
+--         vim.api.nvim_win_close(win, true)
+--         vim.cmd('stopinsert')
+--         vim.lsp.buf.rename(new_name)
+-- end
