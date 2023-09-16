@@ -70,6 +70,7 @@ local keymaps = {
                 ["<Leader>fm"] = "<cmd>lua require('fzf-lua').marks()<CR>",
                 ["<leader>j"]  = "<cmd>lua require('fzf-lua').buffers()<CR>",
                 ["<leader>t"]  = "<cmd>lua require('fzf-lua').tabs()<CR>",
+                ["<leader>fr"] = "<cmd>lua require('fzf-lua').builtin()<CR>",
 
                 --leap
                 ["f"]          = "<Plug>(leap-forward-to)",
