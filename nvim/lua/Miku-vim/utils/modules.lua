@@ -180,7 +180,10 @@ end
 
 
 
+
 _G._MIKU = MIKU
+
+return MIKU
 
 
 
