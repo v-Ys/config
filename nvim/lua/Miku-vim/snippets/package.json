@@ -11,7 +11,12 @@
             },
             {
                 "language": "tex",
-                "path": "./tex.json" }
+                "path": "./tex.json"
+            },
+            {
+                "language": "markdown",
+                "path": "./markdown.json"
+            }
         ]
     }
 }

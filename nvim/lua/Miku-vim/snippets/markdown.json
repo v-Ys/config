@@ -1,0 +1,292 @@
+{
+    "title1": {
+        "prefix": [
+            ";1",
+            "\uff1b1"
+        ],
+        "body": [
+            "# "
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "autotrigger": true,
+            "wordTrig": false
+        }
+    },
+    "title2": {
+        "prefix": [
+            ";2",
+            "\uff1b2"
+        ],
+        "body": [
+            "## "
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "autotrigger": true,
+            "wordTrig": false
+        }
+    },
+    "title3": {
+        "prefix": [
+            ";3",
+            "\uff1b3"
+        ],
+        "body": [
+            "### "
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "autotrigger": true,
+            "wordTrig": false
+        }
+    },
+    "title4": {
+        "prefix": [
+            ";4",
+            "\uff1b4"
+        ],
+        "body": [
+            "#### "
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "autotrigger": true,
+            "wordTrig": false
+        }
+    },
+    "title5": {
+        "prefix": [
+            ";5",
+            "\uff1b5"
+        ],
+        "body": [
+            "##### "
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "autotrigger": true,
+            "wordTrig": false
+        }
+    },
+    "dot1": {
+        "prefix": "1\u3002",
+        "body": [
+            "1."
+        ],
+        "luasnip": {
+            "wordTrig": false,
+            "priority": 2000,
+            "autotrigger": true
+        }
+    },
+    "dot2": {
+        "prefix": "2\u3002",
+        "body": [
+            "2."
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "wordTrig": false,
+            "autotrigger": true
+        }
+    },
+    "dot3": {
+        "prefix": "3\u3002",
+        "body": [
+            "3."
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "wordTrig": false,
+            "autotrigger": true
+        }
+    },
+    "dot4": {
+        "prefix": "4\u3002",
+        "body": [
+            "4."
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "wordTrig": false,
+            "autotrigger": true
+        }
+    },
+    "dot5": {
+        "prefix": "5\u3002",
+        "body": [
+            "5."
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "wordTrig": false,
+            "autotrigger": true
+        }
+    },
+    "dot6": {
+        "prefix": "6\u3002",
+        "body": [
+            "6."
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "wordTrig": false,
+            "autotrigger": true
+        }
+    },
+    "dot7": {
+        "prefix": "7\u3002",
+        "body": [
+            "7."
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "wordTrig": false,
+            "autotrigger": true
+        }
+    },
+    "dot8": {
+        "prefix": "8\u3002",
+        "body": [
+            "8."
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "wordTrig": false,
+            "autotrigger": true
+        }
+    },
+    "dot9": {
+        "prefix": "9\u3002",
+        "body": [
+            "9."
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "wordTrig": false,
+            "autotrigger": true
+        }
+    },
+    "dot10": {
+        "prefix": "10\u3002",
+        "body": [
+            "10."
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "wordTrig": false,
+            "autotrigger": true
+        }
+    },
+    "dot11": {
+        "prefix": "11\u3002",
+        "body": [
+            "11."
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "wordTrig": false,
+            "autotrigger": true
+        }
+    },
+    "dot12": {
+        "prefix": "12\u3002",
+        "body": [
+            "12."
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "wordTrig": false,
+            "autotrigger": true
+        }
+    },
+    "dot13": {
+        "prefix": "13\u3002",
+        "body": [
+            "13."
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "wordTrig": false,
+            "autotrigger": true
+        }
+    },
+    "dot14": {
+        "prefix": "14\u3002",
+        "body": [
+            "14."
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "wordTrig": false,
+            "autotrigger": true
+        }
+    },
+    "dot15": {
+        "prefix": "15\u3002",
+        "body": [
+            "15."
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "wordTrig": false,
+            "autotrigger": true
+        }
+    },
+    "dot16": {
+        "prefix": "16\u3002",
+        "body": [
+            "16."
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "wordTrig": false,
+            "autotrigger": true
+        }
+    },
+    "dot17": {
+        "prefix": "17\u3002",
+        "body": [
+            "17."
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "wordTrig": false,
+            "autotrigger": true
+        }
+    },
+    "dot18": {
+        "prefix": "18\u3002",
+        "body": [
+            "18."
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "wordTrig": false,
+            "autotrigger": true
+        }
+    },
+    "dot19": {
+        "prefix": "19\u3002",
+        "body": [
+            "19."
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "wordTrig": false,
+            "autotrigger": true
+        }
+    },
+    "dot20": {
+        "prefix": "20\u3002",
+        "body": [
+            "20."
+        ],
+        "luasnip": {
+            "wordTrig": false,
+            "priority": 2000,
+            "autotrigger": true
+        }
+    }
+}
