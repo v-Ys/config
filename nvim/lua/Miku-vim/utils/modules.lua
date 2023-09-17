@@ -31,6 +31,9 @@ local RUN = {
 
         rust = function()
                 vim.cmd("TermExec cmd=\"cd %:p:h && cargo run\"")
+        end,
+        markdown = function()
+                vim.cmd("silent! !open %:p")
         end
 }
 
