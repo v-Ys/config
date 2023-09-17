@@ -21,8 +21,11 @@ return {
                         local luasnip = require("luasnip")
                         local cmp = require("cmp")
                         local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+                        luasnip.config.set_config({
+                                enable_autosnippets = true
+                        })
                         require("luasnip/loaders/from_vscode").lazy_load({
-                                include = { "python", "rust", "cpp", "c", "lua", "typescript", "vue" }
+                                include = { "python", "rust", "cpp", "c", "lua", "markdown" }
                         })
                         require("luasnip.loaders.from_vscode").lazy_load({
                                 paths = {
@@ -35,7 +38,6 @@ return {
                                 return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
                         end
 
-                        --         "",
 
                         local kind_icons = {
                                 Array = "",
