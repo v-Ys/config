@@ -29,6 +29,7 @@ M[#M + 1] =
                         NOTE = { icon = " ", color = "#10B981", alt = { "INFO" } },
                 },
         },
+        event = "VeryLazy",
 }
 
 --PLUG: toggleterm
