@@ -11,6 +11,7 @@
     ~/.zshrc: zshrc
     ~/.tmux.conf: tmux.conf
     ~/.vim/vimrc: vimrc
+    ~/.condarc: condarc
 
     ~/.config/git: git
     ~/.config/nvim: nvim
