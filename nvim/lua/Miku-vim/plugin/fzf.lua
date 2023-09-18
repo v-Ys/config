@@ -81,6 +81,8 @@ return {
                                 },
                         },
                 }
+                require('fzf-lua').register_ui_select({
+                        winopts = { height = 0.33, width = 0.45, row = 0.43, col = 0.5 } })
         end
 
 }
