@@ -11,7 +11,6 @@ if status is-interactive
         alias  ea="exa -a"
         alias  el="exa -l"
         alias  ela="exa -l -a"
-        alias  rf="rm -r -f"
         alias  python="python3"
 
 
