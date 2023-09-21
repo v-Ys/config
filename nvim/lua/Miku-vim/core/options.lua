@@ -51,6 +51,11 @@ local options = {
 }
 
 vim.g.rust_recommended_style = 0
+vim.filetype.add({
+        pattern = {
+                [".*.typ"] = 'typst',
+        },
+})
 
 for k, v in pairs(options) do
         vim.opt[k] = v
