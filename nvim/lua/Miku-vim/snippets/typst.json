@@ -1,0 +1,90 @@
+{
+    "red_rect": {
+        "prefix": [
+            ";3",
+            "\uff1b3"
+        ],
+        "body": [
+            "#red_rect(name: \"${name}\")[",
+            "${body}]"
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "autotrigger": true,
+            "wordTrig": false
+        }
+    },
+    "blue_rect": {
+        "prefix": [
+            ";4",
+            "\uff1b4"
+        ],
+        "body": [
+            "#blue_rect(name: \"${name}\")[",
+            "${body}]"
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "autotrigger": true,
+            "wordTrig": false
+        }
+    },
+    "red_note": {
+        "prefix": [
+            ";1",
+            "\uff1b1"
+        ],
+        "body": [
+            "#red_note[",
+            "${body}]"
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "autotrigger": true,
+            "wordTrig": false
+        }
+    },
+    "blue_note": {
+        "prefix": [
+            ";2",
+            "\uff1b2"
+        ],
+        "body": [
+            "#blue_note[",
+            "${body}]"
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "autotrigger": true,
+            "wordTrig": false
+        }
+    },
+    "red": {
+        "prefix": [
+            ";5",
+            "\uff1b5"
+        ],
+        "body": [
+            "#red[${body}]"
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "autotrigger": true,
+            "wordTrig": false
+        }
+    },
+    "blue": {
+        "prefix": [
+            ";6",
+            "\uff1b6"
+        ],
+        "body": [
+            "#blue[${body}]"
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "autotrigger": true,
+            "wordTrig": false
+        }
+    }
+}
