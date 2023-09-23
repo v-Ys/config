@@ -1,4 +1,23 @@
 {
+    "page": {
+        "prefix": [
+            ";=",
+            "\uff1b="
+        ],
+        "body": [
+            "#import \"template.typ\": *",
+            "#show: note.with(",
+            "title: \"${Title}\",",
+            "author: \" _Vv & Mys\",",
+            "logo: \"a.png\",",
+            ")"
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "autotrigger": true,
+            "wordTrig": false
+        }
+    },
     "red_rect": {
         "prefix": [
             ";3",
