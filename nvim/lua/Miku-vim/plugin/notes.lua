@@ -47,5 +47,4 @@ return {
                 end,
                 ft = { "markdown", "typst" },
         },
-
 }

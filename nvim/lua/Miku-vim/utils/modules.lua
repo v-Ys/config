@@ -33,7 +33,10 @@ local RUN = {
                 vim.cmd("TermExec cmd=\"cd %:p:h && cargo run\"")
         end,
         markdown = function()
-                vim.cmd("silent! !open %:p")
+                vim.cmd("silent! !open %")
+        end,
+        typst = function()
+                vim.cmd("silent! !open -a Skim.app %:p:r.pdf")
         end
 }
 

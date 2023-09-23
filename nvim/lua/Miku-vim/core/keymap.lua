@@ -120,6 +120,7 @@ local command = {
         ["Git"] = "lua require('Miku-vim.utils.modules').lazygit()",
 }
 
+
 --NOTE: load
 for user_command, fun in pairs(command) do
         vim.api.nvim_create_user_command(user_command, fun, {})

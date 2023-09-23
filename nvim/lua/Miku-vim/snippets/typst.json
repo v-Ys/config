@@ -1,4 +1,19 @@
 {
+
+    "indent": {
+        "prefix": [
+            ";in",
+            "\uff1bin"
+        ],
+        "body": [
+            "#indent()"
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "autotrigger": true,
+            "wordTrig": false
+        }
+    },
     "figure": {
         "prefix": [
             ";8",
@@ -53,7 +68,7 @@
             "\uff1b4"
         ],
         "body": [
-            "#blue_rect(name: \"${name}\")[",
+            "#blue_rect(name: ${none})[",
             "${body}]"
         ],
         "luasnip": {
