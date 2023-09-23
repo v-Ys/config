@@ -23,6 +23,7 @@ font:
   normal:
     family: Iosevka Nerd Font Mono # Iosevka 2
     # family: Maple Mono NF
+    # style: Medium
   size: 16
   offset:
     x: 0
