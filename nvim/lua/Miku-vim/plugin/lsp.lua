@@ -76,16 +76,16 @@ M[#M + 1] = {
                         vim.api.nvim_buf_set_keymap(bufnr, "n", "gt", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
                         vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
                         vim.api.nvim_buf_set_keymap(bufnr, "n", "gd",
-                                "<cmd>lua require('Miku-vim.utils.modules').list_or_jump('textDocument/definition',{})<CR>",
+                                "<cmd>lua require('telescope.builtin').lsp_definitions()<CR>",
                                 opts)
                         vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
                         vim.api.nvim_buf_set_keymap(bufnr, "n", "go",
-                                "<cmd>lua require('Miku-vim.utils.modules').list_or_jump('textDocument/implementation',{})<CR>",
+                                "<cmd>lua require('telescope.builtin').lsp_implementations()<CR>",
                                 opts)
                         vim.api.nvim_buf_set_keymap(bufnr, "n", "gn",
                                 "<cmd>lua require('Miku-vim.utils.modules').rename()<CR>", opts)
                         vim.api.nvim_buf_set_keymap(bufnr, "n", "gh",
-                                "<cmd>lua require('fzf-lua').lsp_references({winopts = { split = 'belowright new' ,border  = 'none'}})<CR>",
+                                "<cmd>lua require('telescope.builtin').lsp_references()<CR>",
                                 opts)
                         vim.api.nvim_buf_set_keymap(bufnr, "n", "ga", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
                         vim.api.nvim_buf_set_keymap(bufnr, "n", "[d",

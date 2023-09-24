@@ -45,7 +45,7 @@ local keymaps = {
                 ["H"]          = "^",
                 ["L"]          = "$",
                 ["gr"]         = "%",
-                ["zp"]         = "\"0p",
+                ["zp"]         = "\"1p",
                 ["zP"]         = "\"2p",
                 ["<"]          = "<<",
                 [">"]          = ">>",
@@ -61,23 +61,23 @@ local keymaps = {
                 --save
                 ["<A-s>"]      = "<cmd>w<CR>",
                 -- ["=="]         = "ggvG=<C-r>",
-                --FZF
-                ["<leader>fh"] = "<cmd>lua require('fzf-lua').oldfiles()<CR>",
-                ["<leader>ff"] = "<cmd>lua require('fzf-lua').files()<CR>",
-                ["<leader>fw"] = "<cmd>lua require('fzf-lua').blines({winopts = { split = 'belowright new' ,border  = 'none'}})<CR>",
-                ["<leader>fl"] = "<cmd>lua require('fzf-lua').live_grep({winopts = { split = 'belowright new' ,border  = 'none'}})<CR>",
-                ["<Leader>fs"] = "<cmd>lua require('fzf-lua').colorschemes()<CR>",
-                ["<Leader>fp"] = "<cmd>lua require('Miku-vim.utils.modules').fzf_zoxide()<CR>",
-                ["<Leader>fm"] = "<cmd>lua require('fzf-lua').marks()<CR>",
-                ["<leader>j"]  = "<cmd>lua require('fzf-lua').buffers()<CR>",
-                ["<leader>t"]  = "<cmd>lua require('fzf-lua').tabs()<CR>",
-                ["<leader>fr"] = "<cmd>lua require('fzf-lua').builtin()<CR>",
+                -- Telescope
+                ["<leader>fh"] = "<cmd>lua require('telescope.builtin').oldfiles()<CR>",
+                ["<leader>ff"] = "<cmd>lua require('telescope.builtin').find_files()<CR>",
+                ["<leader>fw"] = "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>",
+                ["<leader>fl"] = "<cmd>lua require('telescope.builtin').live_grep()<CR>",
+                ["<Leader>fs"] = "<cmd>lua require('telescope.builtin').colorscheme()<CR>",
+                ["<Leader>fm"] = "<cmd>lua require('telescope.builtin').marks()<CR>",
+                ["<leader>j"]  = "<cmd>lua require('telescope.builtin').buffers()<CR>",
+                ["<leader>fr"] = "<cmd>lua require('telescope.builtin').builtin()<CR>",
+                ["<leader>fp"] = "<cmd>lua require('Miku-vim.utils.telescope_tools').zoxide()<CR>",
+
 
                 --leap
-                ["f"]          = "<Plug>(leap-forward-to)",
-                ["gf"]         = "<Plug>(leap-backward-to)",
+                ["f"]         = "<Plug>(leap-forward-to)",
+                ["gf"]        = "<Plug>(leap-backward-to)",
                 --n vim tree
-                ["<leader>n"]  = "<cmd>lua require('oil').open()<CR>",
+                ["<leader>n"] = "<cmd>lua require('oil').open()<CR>",
                 -- ["<leader>n"]  = "<cmd>NeoTreeFloatToggle<CR>",
         },
         term_mode = {
