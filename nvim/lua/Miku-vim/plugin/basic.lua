@@ -70,6 +70,12 @@ M[#M + 1] = {
                 lastplace_open_folds = true,
         },
 }
+M[#M + 1] =
+{
+        'nvim-telescope/telescope.nvim',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+}
+
 
 
 return M
