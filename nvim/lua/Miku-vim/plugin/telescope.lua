@@ -8,8 +8,8 @@ local M = {
                         build =
                         'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
                 },
-                'jvgrootveld/telescope-zoxide',
-        }
+        },
+        event = "VeryLazy",
 }
 
 
@@ -98,9 +98,6 @@ function M.config()
                         ["ui-select"] = {
                                 require("telescope.themes").get_dropdown(tools.theme.single_dropdown({})),
                         },
-                        zoxide = {
-                                theme = "dropdown",
-                        }
                 }
 
 
@@ -109,7 +106,6 @@ function M.config()
 
         telescope.load_extension('fzf')
         telescope.load_extension('ui-select')
-        telescope.load_extension('zoxide')
 end
 
 return M
