@@ -1,5 +1,31 @@
 {
-
+    "pagebreak": {
+        "prefix": [
+            ";pa",
+            "\uff1bpa"
+        ],
+        "body": [
+            "pagebreak()"
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "autotrigger": true,
+            "wordTrig": false
+        }
+    },
+    "new_line": {
+        "prefix": [
+            "\u3001\u3001"
+        ],
+        "body": [
+            "\\"
+        ],
+        "luasnip": {
+            "priority": 2000,
+            "autotrigger": true,
+            "wordTrig": false
+        }
+    },
     "indent": {
         "prefix": [
             ";in",
@@ -54,7 +80,8 @@
         ],
         "body": [
             "#red_rect(name: \"${name}\")[",
-            "${body}]"
+            "${body}",
+            "]"
         ],
         "luasnip": {
             "priority": 2000,
@@ -69,7 +96,8 @@
         ],
         "body": [
             "#blue_rect(name: ${none})[",
-            "${body}]"
+            "${body}",
+           "]"
         ],
         "luasnip": {
             "priority": 2000,
@@ -84,7 +112,8 @@
         ],
         "body": [
             "#red_note[",
-            "${body}]"
+            "${body}",
+            "]"
         ],
         "luasnip": {
             "priority": 2000,
