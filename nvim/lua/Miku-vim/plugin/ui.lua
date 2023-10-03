@@ -46,19 +46,30 @@ M[#M + 1] = {
 --PLUG: indentline
 M[#M + 1] = {
         "lukas-reineke/indent-blankline.nvim",
-        config = function()
-                require("indent_blankline").setup({
-                        show_end_of_line = true,
-                })
-                vim.g.indent_blankline_buftype_exclude = { "terminal", "nofile", "neo-tree" }
-                vim.g.indent_blankline_filetype_exclude = {
-                        "help",
-                        "packer",
-                        "neogitstatus",
-                        "neo-tree",
-                        "Trouble",
+        main = "ibl",
+        opts = {
+                scope = {
+                        enabled = false,
+                },
+                indent = {
+                        char = "│",
+                        tab_char = "│",
+                },
+                exclude = {
+                        filetypes = {
+                                "help",
+                                "packer",
+                                "neogitstatus",
+                                "neo-tree",
+                                "Trouble",
+                        },
+                        buftypes = {
+                                "terminal",
+                                "nofile",
+                                "neo-tree"
+                        }
                 }
-        end,
+        },
 }
 --PLUG: lualine
 M[#M + 1] = {
@@ -102,8 +113,8 @@ M[#M + 1] = {
                                         -- return '▊'
                                         return ' '
                                 end,
-                                color = { fg = colors.purple },            -- Sets highlighting of component
-                                padding = { left = 0, right = 1 },         -- We don't need space before this
+                                color = { fg = colors.purple },    -- Sets highlighting of component
+                                padding = { left = 0, right = 1 }, -- We don't need space before this
                         },
                         --NOTE: mode component
                         {
@@ -186,7 +197,7 @@ M[#M + 1] = {
                         --NOTE: filetype
                         {
                                 'filetype',
-                                icons_enabled = true,         -- I think icons are cool but Eviline doesn't have them. sigh
+                                icons_enabled = true, -- I think icons are cool but Eviline doesn't have them. sigh
                                 color = { fg = colors.green, gui = 'bold' },
                         },
                         --NOTE: branch
