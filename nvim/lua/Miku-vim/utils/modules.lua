@@ -21,6 +21,10 @@ local RUN = {
                         "TermExec cmd=\"cd %:p:h && clang++ -std=c++20 -fmodules %:t -o %:t:r && ./%:t:r && rm %:t:r\"")
         end,
 
+        go = function()
+                vim.cmd(
+                        "TermExec cmd=\"cd %:p:h && go run %:t\"")
+        end,
         python = function()
                 vim.cmd("TermExec cmd=\"cd %:p:h && python3 %:t\"")
         end,
