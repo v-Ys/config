@@ -22,6 +22,10 @@ local options = {
         errorbells     = false, --关闭错误信息响铃
         fileencodings  = 'utf-8',
         --
+
+        autowrite      = true, -- Enable auto write
+        grepprg        = 'rg --vimgrep',
+        --
         smartindent    = true,                              --智能缩进-
         autoindent     = true,                              --回车后下一行自动缩进
         shiftwidth     = 8,                                 -- the number of spaces inserted for each indentation
@@ -49,11 +53,7 @@ local options = {
         bg             = 'light',
 
 }
-local opt = vim.opt
-
 vim.g.rust_recommended_style = 0
-opt.autowrite = true -- Enable auto write
-opt.grepprg = "rg --vimgrep"
 vim.filetype.add({
         pattern = {
                 [".*.typ"] = 'typst',
