@@ -56,7 +56,9 @@ M[#M + 1] = {
                         "rust_analyzer",
                         "lua_ls",
                         "pyright",
-                        "marksman"
+                        "gopls",
+
+                        -- "marksman",
                         -- "hls",
                         -- "volar",
                         -- "tsserver",
