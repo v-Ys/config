@@ -73,7 +73,8 @@ for key, ap in pairs(key2App) do
 end
 
 local App = {
-        down = 'Google Chrome',
+        -- down = 'Google Chrome',
+        down = 'Arc.app',
         right = 'WezTerm',
 }
 

@@ -1,20 +1,20 @@
 --NOTE:
 local options = {
-        termguicolors  = true,  --真彩模式
-        scrolloff      = 5,     --scroll 时留下五行
-        cursorline     = true,  --编辑行下划线
-        wrap           = false, --不要换行
-        -- linebreak      = true, --换行显示时不把一个单词拆开，遇到指定的符号（比如空格，连词号和其他标点符号）才换行
-        numberwidth    = 3,     --行号宽度
-        number         = true,  --显示行号
-        relativenumber = true,  --相对行数
+        termguicolors  = true,            --真彩模式
+        scrolloff      = 5,               --scroll 时留下五行
+        cursorline     = true,            --编辑行下划线
+        wrap           = false,           --不要换行
+        linebreak      = true,            --换行显示时不把一个单词拆开，遇到指定的符号（比如空格，连词号和其他标点符号）才换行
+        numberwidth    = 3,               --行号宽度
+        number         = true,            --显示行号
+        relativenumber = true,            --相对行数
         signcolumn     = 'yes',
-        list           = true,
+        list           = true,            -- 显示空白的符号
         fillchars      = ({ eob = ' ' }), -- hide the "~" at the start of an empty line
         listchars      = ("trail:·,tab:»·"),
-        showtabline    = 0,               -- don't showtabline
-        -- laststatus     = 3, --always show statusline on the bottom
         -- listchars      = ("eol:↴,tab:»·,trail:·"),
+        showtabline    = 0, -- don't showtabline
+        -- laststatus     = 3, --always show statusline on the bottom
         -- autochdir      = true,
         --
         backup         = false, --禁止生成临时文件
@@ -22,7 +22,7 @@ local options = {
         errorbells     = false, --关闭错误信息响铃
         fileencodings  = 'utf-8',
         --
-        -- smartindent    = true,                              --智能缩进-
+        smartindent    = true,                              --智能缩进-
         autoindent     = true,                              --回车后下一行自动缩进
         shiftwidth     = 8,                                 -- the number of spaces inserted for each indentation
         copyindent     = true,                              --复制粘贴时保留原有的缩进
@@ -49,8 +49,11 @@ local options = {
         bg             = 'light',
 
 }
+local opt = vim.opt
 
 vim.g.rust_recommended_style = 0
+opt.autowrite = true -- Enable auto write
+opt.grepprg = "rg --vimgrep"
 vim.filetype.add({
         pattern = {
                 [".*.typ"] = 'typst',

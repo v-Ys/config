@@ -21,15 +21,19 @@ scrolling:
 #NOTE: Font configuration
 font:
   normal:
-    family: Iosevka Nerd Font Mono # Iosevka 2
-    # family: Maple Mono NF
-    # style: Medium
+    family: Iosevka Nerd Font Mono 
+    style: Regular
+  bold:
+    family: Iosevka Nerd Font Mono 
+    style: Bold
+  italic:
+    family: Iosevka Nerd Font Mono 
+    style: Italic
+
   size: 16
   offset:
     x: 0
-    y: 2   
-
-
+    y: 0
 
 #NOTE: colors
 # Thin stroke font rendering (macOS only)

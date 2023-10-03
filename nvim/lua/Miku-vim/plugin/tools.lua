@@ -101,5 +101,4 @@ M[#M + 1] = {
         cmd = "DiffviewOpen",
 }
 
-
 return M
