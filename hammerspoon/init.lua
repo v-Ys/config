@@ -64,7 +64,8 @@ local key2App = {
         i = 'Alacritty',
         o = 'Craft',
         l = 'WezTerm',
-        j = 'Google Chrome',
+        -- j = 'Google Chrome',
+        j = 'Arc.app',
 }
 
 for key, ap in pairs(key2App) do
@@ -72,7 +73,8 @@ for key, ap in pairs(key2App) do
 end
 
 local App = {
-        down = 'Google Chrome',
+        -- down = 'Google Chrome',
+        down = 'Arc.app',
         right = 'WezTerm',
 }
 
