@@ -11,7 +11,7 @@ local options = {
         signcolumn     = 'yes',
         list           = true,            -- 显示空白的符号
         fillchars      = ({ eob = ' ' }), -- hide the "~" at the start of an empty line
-        listchars      = ("trail:·,tab:»·"),
+        listchars      = ("trail:·,tab:  "),
         -- listchars      = ("eol:↴,tab:»·,trail:·"),
         showtabline    = 0, -- don't showtabline
         -- laststatus     = 3, --always show statusline on the bottom
