@@ -39,6 +39,9 @@ local RUN = {
 
         typst = function()
                 vim.cmd("silent! !open -a Skim.app %:p:r.pdf")
+        end,
+        scheme = function()
+                vim.cmd("TermExec cmd=\"cd %:p:h && racket -I r5rs -r %:t\"")
         end
 }
 
