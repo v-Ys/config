@@ -46,7 +46,7 @@
             "\uff1b8"
         ],
         "body": [
-            "#figure(image(\"${path}\",height:20%))"
+            "#figure(image(\"figures/${path}\",height:20%))"
         ],
         "luasnip": {
             "priority": 2000,
@@ -64,7 +64,7 @@
             "#show: note.with(",
             "title: \"${Title}\",",
             "author: \" _Vv & Mys\",",
-            "logo: \"a.png\",",
+            "logo: \"figures/a.png\",",
             ")"
         ],
         "luasnip": {

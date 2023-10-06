@@ -100,5 +100,9 @@ M[#M + 1] = {
         dependencies = 'nvim-lua/plenary.nvim',
         cmd = "DiffviewOpen",
 }
+-- M[#M + 1] = {
+--         "folke/trouble.nvim",
+--         dependencies = { "nvim-tree/nvim-web-devicons" },
+-- }
 
 return M

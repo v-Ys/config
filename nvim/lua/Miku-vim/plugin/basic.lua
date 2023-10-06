@@ -44,6 +44,7 @@ M[#M + 1] = {
                         enable_check_bracket_line = false
                 }
                 require("nvim-autopairs").get_rules("'")[1].not_filetypes = { "scheme", "lisp" }
+                require("nvim-autopairs").get_rules("`")[1].not_filetypes = { "typst" }
         end
 }
 
