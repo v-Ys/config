@@ -17,13 +17,16 @@
 	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-core
 	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-services
 
+[diff]
+        external = difft
 [merge]
 	tool = vimdiff
-        conflictstyle = diff3
 [mergetool]
 	keepBackup = false
+	conflictstyle = diff3 # diff style
 [mergetool "vimdiff"]
 	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
 
 
 #NOTE:
