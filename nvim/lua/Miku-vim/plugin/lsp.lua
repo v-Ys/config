@@ -86,7 +86,7 @@ M[#M + 1] = {
                                 opts)
                         vim.api.nvim_buf_set_keymap(bufnr, "n", "gn",
                                 "<cmd>lua require('Miku-vim.utils.modules').rename()<CR>", opts)
-                        vim.api.nvim_buf_set_keymap(bufnr, "n", "gh",
+                        vim.api.nvim_buf_set_keymap(bufnr, "n", "gr",
                                 "<cmd>lua require('telescope.builtin').lsp_references()<CR>",
                                 opts)
                         vim.api.nvim_buf_set_keymap(bufnr, "n", "ga", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
