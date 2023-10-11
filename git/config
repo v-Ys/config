@@ -1,15 +1,17 @@
 
 [user] 
-    name = Vv-ys
+        name = Vv-ys
 	email = vincent.vv.mys@gmail.com 
-[credential]
-	helper = store
 [core]
 	excludesfile = /Users/Miku/.config/git/gitignore
 	editor = nvim
+[credential]
+	helper = store
+
 [http]
 	version = HTTP/1.1
-[https]
+#[https]
+
 [safe]
 	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-cask
 	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-core
@@ -17,10 +19,12 @@
 
 [merge]
 	tool = vimdiff
+        conflictstyle = diff3
 [mergetool]
 	keepBackup = false
 [mergetool "vimdiff"]
 	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
 
 #NOTE:
 #[url "git@github.com:"]
