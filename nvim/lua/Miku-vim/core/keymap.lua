@@ -42,9 +42,10 @@ local keymaps = {
                 -- -- Better move
                 ["K"]          = "3k",
                 ["J"]          = "3j",
-                ["H"]          = "^",
+                ["H"]          = "0",
+                ["0"]          = "^",
                 ["L"]          = "$",
-                ["gr"]         = "%",
+                [";;"]         = "%",
                 ["zp"]         = "\"1p",
                 ["zP"]         = "\"2p",
                 ["<"]          = "<<",
@@ -96,8 +97,8 @@ local keymaps = {
                 ["K"]     = "3k",
                 ["J"]     = "3j",
                 ["H"]     = "^",
-                ["L"]     = "$",
-                ["gr"]    = "%",
+                ["L"]     = "$h",
+                [";;"]    = "%",
         },
         visual_block_mode = {
                 -- Move current line / block with Alt-j/k ala vscode.
@@ -106,8 +107,8 @@ local keymaps = {
                 ["k"]     = "3k",
                 ["J"]     = "3j",
                 ["H"]     = "^",
-                ["L"]     = "$",
-                ["gr"]    = "%",
+                ["L"]     = "$h",
+                [";;"]    = "%",
         },
         command_mode = {
                 -- [";;"] = "lua require('Miku-vim.utils.modules').btop()",
