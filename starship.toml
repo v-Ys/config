@@ -2,8 +2,8 @@
 command_timeout = 999999
 
 [character] 
-    success_symbol = "[➜](bold green)" 
-    error_symbol = "[➜](bold red)"
-     # » "[≡ ❯ 󰁕  ➜](italic green)"  [≡❯](bold green)[❯](bold magenta)
+    success_symbol = "[](bold green)" 
+    error_symbol = "[](bold red)"
+     #  "[» ≡ ❯ 󰅂 󰁕  ➜  ]"  [≡](bold green)[❯](bold magenta)
 
 
