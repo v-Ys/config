@@ -48,8 +48,6 @@ local options = {
         foldenable     = true,
         foldmethod     = 'expr',
         foldexpr       = 'nvim_treesitter#foldexpr()',
-        --
-        -- bg             = 'light',
 
 }
 vim.g.rust_recommended_style = 0
