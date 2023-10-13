@@ -173,6 +173,7 @@ return {
                         'confirm_done',
                         cmp_autopairs.on_confirm_done()
                 )
-        end
+        end,
+        event = "VeryLazy",
 
 }

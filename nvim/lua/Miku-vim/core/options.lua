@@ -49,8 +49,7 @@ local options = {
         foldmethod     = 'expr',
         foldexpr       = 'nvim_treesitter#foldexpr()',
         --
-        -- bg             = 'dark'
-        bg             = 'light',
+        -- bg             = 'light',
 
 }
 vim.g.rust_recommended_style = 0
