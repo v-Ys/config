@@ -1,19 +1,32 @@
-local M = {
-        'nvim-telescope/telescope.nvim',
-        dependencies = {
-                'nvim-lua/plenary.nvim',
-                'nvim-telescope/telescope-ui-select.nvim',
-                {
-                        'nvim-telescope/telescope-fzf-native.nvim',
-                        build =
-                        'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
-                },
-        },
-        event = "VeryLazy",
+local theme = {
+        single_dropdown = function(opts)
+                opts.theme = "dropdown"
+                opts.borderchars = {
+                        prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
+                        results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+                        preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+                }
+                return opts
+        end,
+
+        simple_ivy = function(opts)
+                opts.theme = "ivy"
+                opts.borderchars = {
+                        prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
+                        results = { " " },
+                        preview = { "", "", "", " ", "", "", "", "" },
+                }
+                opts.layout_config = {
+                        height = 22,
+                        preview_width = 0.60,
+                }
+                opts.results_title = ""
+                opts.preview_title = ""
+                return opts
+        end,
 }
 
-
-function M.config()
+local config = function()
         local telescope = require("telescope")
         local actions = require "telescope.actions"
         local tools = require("Miku-vim.utils.telescope_tools")
@@ -49,26 +62,26 @@ function M.config()
 
 
                 pickers = {
-                        oldfiles = tools.theme.single_dropdown({
+                        oldfiles = theme.single_dropdown({
                                 previewer = false,
                         }),
-                        find_files = tools.theme.single_dropdown({
+                        find_files = theme.single_dropdown({
                                 find_command = { "fd", "-H", }
                         }),
-                        colorscheme = tools.theme.single_dropdown({
+                        colorscheme = theme.single_dropdown({
                                 previewer = false,
                         }),
-                        builtin = tools.theme.single_dropdown({
+                        builtin = theme.single_dropdown({
                         }),
 
 
-                        lsp_references = tools.theme.simple_ivy({}),
-                        lsp_definitions = tools.theme.simple_ivy({}),
+                        lsp_references = theme.simple_ivy({}),
+                        lsp_definitions = theme.simple_ivy({}),
 
-                        live_grep = tools.theme.simple_ivy({
+                        live_grep = theme.simple_ivy({
                                 find_command = { "rg" },
                         }),
-                        current_buffer_fuzzy_find = tools.theme.simple_ivy({
+                        current_buffer_fuzzy_find = theme.simple_ivy({
                                 find_command = { "rg" },
                         }),
                         buffers = {
@@ -96,7 +109,7 @@ function M.config()
                                 override_file_sorter = true,
                         },
                         ["ui-select"] = {
-                                require("telescope.themes").get_dropdown(tools.theme.single_dropdown({})),
+                                require("telescope.themes").get_dropdown(theme.single_dropdown({})),
                         },
                 }
 
@@ -107,5 +120,22 @@ function M.config()
         telescope.load_extension('fzf')
         telescope.load_extension('ui-select')
 end
+
+--PLUG:
+local M = {
+        'nvim-telescope/telescope.nvim',
+        dependencies = {
+                'nvim-lua/plenary.nvim',
+                'nvim-telescope/telescope-ui-select.nvim',
+                {
+                        'nvim-telescope/telescope-fzf-native.nvim',
+                        build =
+                        'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+                },
+        },
+        event = "VeryLazy",
+        config = config,
+}
+
 
 return M

@@ -45,21 +45,23 @@ M[#M + 1] = {
                 }
                 require("nvim-autopairs").get_rules("'")[1].not_filetypes = { "scheme", "lisp" }
                 require("nvim-autopairs").get_rules("`")[1].not_filetypes = { "typst" }
-        end
+        end,
+        event = "VeryLazy",
 }
 
 -- PLUG: comment
 M[#M + 1] = {
         "numToStr/Comment.nvim",
         config = true,
+        event = "VeryLazy",
 }
 
 -- PLUG: surround
 M[#M + 1] = {
         "kylechui/nvim-surround",
         version = "*",
-        event = "VeryLazy",
         config = true,
+        event = "VeryLazy",
 }
 
 -- PLUG: lastplac
@@ -70,6 +72,7 @@ M[#M + 1] = {
                 lastplace_ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit" },
                 lastplace_open_folds = true,
         },
+        event = "VeryLazy",
 }
 
 

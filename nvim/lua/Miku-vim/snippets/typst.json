@@ -60,7 +60,7 @@
             "\uff1b="
         ],
         "body": [
-            "#import \"template.typ\": *",
+            "#import \"@local/templates:1.0.0\": *",
             "#show: note.with(",
             "title: \"${Title}\",",
             "author: \" _Vv & Mys\",",

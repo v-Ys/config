@@ -26,7 +26,7 @@ M[#M + 1] =
                         HACK = { icon = " ", color = "#7C3AED" },
                         WARN = { icon = " ", color = "#E74C3C", alt = { "WARNING", "XXX" } },
                         PERF = { icon = " ", color = "#5DADE2", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-                        NOTE = { icon = " ", color = "#10B981", alt = { "INFO" } },
+                        NOTE = { icon = "󰎞", color = "#10B981", alt = { "INFO" } },
                 },
         },
         event = "VeryLazy",
@@ -51,7 +51,7 @@ M[#M + 1] =
                 close_on_exit = true,
                 shell = vim.o.shell,
                 float_opts = {
-                        border = "curved",
+                        border = "single",
                         winblend = 0,
                         highlights = {
                                 border = "Normal",
@@ -70,7 +70,6 @@ M[#M + 1] =
                 require("leap").opts.safe_labels = {
                         "f",
                         "e",
-                        "h",
                         "i",
                         "n",
                         "c",
@@ -84,7 +83,6 @@ M[#M + 1] =
                         "g",
                         "v",
                         "m",
-                        "l",
                         "q",
                         "x",
                         "b",

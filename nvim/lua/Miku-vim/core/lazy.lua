@@ -22,10 +22,10 @@ require("lazy").setup({
         ui = {
                 size = { width = 0.8, height = 0.8 },
                 wrap = true, -- wrap the lines in the ui
-                border = "rounded",
+                border = "single",
         },
         install = {
-                colorscheme = { 'github_light', 'nightfox', },
+                colorscheme = { 'github_light', },
         },
         performance = {
                 rtp = {

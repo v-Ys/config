@@ -1,34 +1,5 @@
 local M = {}
 
---NOTE: telescope theme
-M.theme = {
-        single_dropdown = function(opts)
-                opts.theme = "dropdown"
-                opts.borderchars = {
-                        prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
-                        results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
-                        preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
-                }
-
-                return opts
-        end,
-
-        simple_ivy = function(opts)
-                opts.theme = "ivy"
-                opts.borderchars = {
-                        prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
-                        results = { " " },
-                        preview = { "", "", "", " ", "", "", "", "" },
-                }
-                opts.layout_config = {
-                        height = 22,
-                        preview_width = 0.60,
-                }
-                opts.results_title = ""
-                opts.preview_title = ""
-                return opts
-        end,
-}
 --NOTE: Zoxide opts
 
 local zoxide_opts = {
