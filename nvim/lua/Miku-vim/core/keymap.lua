@@ -76,7 +76,8 @@ local keymaps = {
 
                 --leap
                 ["f"]         = "<Plug>(leap-forward-to)",
-                ["gf"]        = "<Plug>(leap-backward-to)",
+                ["t"]         = "<Plug>(leap-backward-to)",
+                ["T"]         = "f",
                 --n vim tree
                 ["<leader>n"] = "<cmd>lua require('oil').open()<CR>",
                 -- ["<leader>n"]  = "<cmd>NeoTreeFloatToggle<CR>",
