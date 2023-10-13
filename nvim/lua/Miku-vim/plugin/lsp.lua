@@ -40,11 +40,11 @@ local lsp_config = function()
                         "<cmd>lua require('telescope.builtin').lsp_references()<CR>",
                         opts)
                 vim.api.nvim_buf_set_keymap(bufnr, "n", "ga", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-                vim.api.nvim_buf_set_keymap(bufnr, "n", "[d",
-                        '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>',
+                vim.api.nvim_buf_set_keymap(bufnr, "n", ";p",
+                        '<cmd>lua vim.diagnostic.goto_prev({ border = "single" })<CR>',
                         opts)
-                vim.api.nvim_buf_set_keymap(bufnr, "n", "]d",
-                        '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>',
+                vim.api.nvim_buf_set_keymap(bufnr, "n", ";n",
+                        '<cmd>lua vim.diagnostic.goto_next({ border = "single" })<CR>',
                         opts)
                 vim.api.nvim_create_user_command('Format', 'lua vim.lsp.buf.format{async=true}', {})
         end
@@ -105,7 +105,7 @@ local lsp_config = function()
                 float = {
                         focusable = false,
                         style = "minimal",
-                        border = "rounded",
+                        border = "single",
                         source = "always",
                         header = "",
                         prefix = "",
@@ -113,10 +113,10 @@ local lsp_config = function()
         })
 
         vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-                border = "rounded",
+                border = "single",
         })
         vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-                border = "rounded",
+                border = "single",
         })
 end
 

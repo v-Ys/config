@@ -227,7 +227,7 @@ M[#M + 1] = {
         end,
 }
 
---PLUG: indentline
+--PLUG: indentline ###colorbug load after colorscheme###
 M[#M + 1] = {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
@@ -254,6 +254,8 @@ M[#M + 1] = {
                         }
                 }
         },
+        event = "VeryLazy",
+
 }
 
 --PLUG: lualine

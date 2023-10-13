@@ -17,7 +17,6 @@ local mode_adapters = {
         command_mode = "c",
 }
 
-local a = require('Miku-vim.utils.modules')
 
 
 

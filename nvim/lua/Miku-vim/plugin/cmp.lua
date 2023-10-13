@@ -74,16 +74,25 @@ return {
                         Variable = "",
                 }
 
-
                 cmp.setup({
+
                         snippet = {
                                 expand = function(args)
                                         luasnip.lsp_expand(args.body) -- load snippets
                                 end,
                         },
                         window = {
-                                completion = cmp.config.window.bordered(),
-                                documentation = cmp.config.window.bordered(),
+                                completion = cmp.config.window.bordered(
+                                        {
+                                                border = 'single',
+                                                scrollbar = false,
+                                        }
+
+                                ),
+                                documentation = cmp.config.window.bordered(
+                                        { border = 'single', }
+
+                                ),
                         },
                         formatting = {
                                 fields = { "kind", "abbr", "menu" },
