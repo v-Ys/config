@@ -164,7 +164,7 @@ nnoremap  <Leader>fs :Colors<CR>
 nnoremap  <Leader>fl :Rg<CR>
 nnoremap  <Leader>fm :Marks<CR>
 nnoremap  <Leader>fw :Lines<CR>
-nnoremap  <Leader>fb :Buffers<CR>
+nnoremap  <Leader>j :Buffers<CR>
 
 
 
@@ -175,15 +175,6 @@ inoremap <silent>( ()<esc>:call HandlePair(1, "(")<CR>
 inoremap <silent>[ []<esc>:call HandlePair(1, "[")<CR>
 inoremap <silent>{ {}<esc>:call HandlePair(1, "{")<CR>
 
-" in visual mode surround text with paired characters
-vnoremap <silent><Space>" <esc>:call SurroundText("\"", "\"")<CR>
-vnoremap <silent>' <esc>:call SurroundText("\'", "\'")<CR>
-vnoremap <silent>( <esc>:call SurroundText("(", ")", 1)<CR>
-vnoremap <silent>[ <esc>:call SurroundText("[", "]", 1)<CR>
-vnoremap <silent>{ <esc>:call SurroundText("{", "}", 1)<CR>
-vnoremap <silent>) <esc>:call SurroundText("(", ")", 0)<CR>
-vnoremap <silent>] <esc>:call SurroundText("[", "]", 0)<CR>
-vnoremap <silent>} <esc>:call SurroundText("{", "}", 0)<CR>
 
 " special handling for autocomplete pairs by yours truly
 function! HandlePair(enter, key) abort
@@ -209,22 +200,5 @@ function! HandlePair(enter, key) abort
     endif
 endfunction
 
-function! SurroundText(key, pair, firstOrLast) abort
-    let start      = getpos("'<")
-    let end        = getpos("'>")
-
-    :let @t = a:key
-    :call cursor(start[1],start[2])
-    if start[2] == 1
-        :normal ^
-    endif
-    :normal "tP
-    :let @t = a:pair
-    :call cursor(end[1],end[2]+1)
-    :normal "tp
-    if a:firstOrLast
-        :call cursor(start[1],start[2])
-    endif
-endfunction
 
 
