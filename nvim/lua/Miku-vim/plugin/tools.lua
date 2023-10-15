@@ -62,34 +62,38 @@ M[#M + 1] =
         event = "VeryLazy",
 }
 
---PLUG: easy motion
-M[#M + 1] =
-{
-        "ggandor/leap.nvim",
-        config = function()
-                require("leap").opts.safe_labels = {
-                        "f",
-                        "e",
-                        "i",
-                        "n",
-                        "c",
-                        "w",
-                        "r",
-                        "o",
-                        "a",
-                        "s",
-                        "d",
-                        "t",
-                        "g",
-                        "v",
-                        "m",
-                        "q",
-                        "x",
-                        "b",
-                }
-                vim.api.nvim_set_hl(0, 'LeapBackdrop', { fg = '' })
-        end,
+--PLUG:  motion
+M[#M + 1] = {
+        "folke/flash.nvim",
         event = "VeryLazy",
+        opts = {
+                modes = {
+
+                        char = {
+                                enabled = false,
+                        },
+                        search = {
+                                enabled = false,
+                        },
+                },
+                highlight = {
+                        backdrop = false,
+                },
+                jump = {
+                        forward = true,
+                        wrap = true,
+                },
+        },
+        keys = {
+                {
+                        "f",
+                        mode = { "n", },
+                        function()
+                                require("flash").jump()
+                        end,
+                        desc = "Flash"
+                },
+        },
 }
 
 --PLUG: deffview
@@ -98,9 +102,25 @@ M[#M + 1] = {
         dependencies = 'nvim-lua/plenary.nvim',
         cmd = "DiffviewOpen",
 }
--- M[#M + 1] = {
---         "folke/trouble.nvim",
---         dependencies = { "nvim-tree/nvim-web-devicons" },
--- }
+M[#M + 1] = {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        keys = {
+                {
+                        "<leader>tj",
+                        mode = { "n", },
+                        function()
+                                require("trouble").next({ skip_groups = true, jump = true });
+                        end,
+                },
+                {
+                        "<leader>tk",
+                        mode = { "n", },
+                        function()
+                                require("trouble").next({ skip_groups = true, jump = true });
+                        end,
+                },
+        },
+}
 
 return M

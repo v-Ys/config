@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -19,40 +20,42 @@ local plugins = {
         --PLUG: comment
         {
                 'numToStr/Comment.nvim',
-                config = function()
-                        require("Comment").setup()
-                end,
+                config = true,
         },
         --PLUG: leap
-        {
-                'ggandor/leap.nvim',
-                config = function()
-                        require("leap").opts.safe_labels = {
-                                "f",
-                                "e",
-                                "h",
-                                "i",
-                                "n",
-                                "c",
-                                "w",
-                                "r",
-                                "o",
-                                "a",
-                                "s",
-                                "d",
-                                "t",
-                                "g",
-                                "v",
-                                "m",
-                                "l",
-                                "q",
-                                "x",
-                                "b",
-                        }
-                        vim.api.nvim_set_hl(0, 'LeapBackdrop', { fg = '' })
-                end,
-        },
 
+        {
+                "folke/flash.nvim",
+                event = "VeryLazy",
+                opts = {
+                        modes = {
+
+                                char = {
+                                        enabled = false,
+                                },
+                                search = {
+                                        enabled = false,
+                                },
+                        },
+                        highlight = {
+                                backdrop = false,
+                        },
+                        jump = {
+                                forward = true,
+                                wrap = true,
+                        },
+                },
+                keys = {
+                        {
+                                "f",
+                                mode = { "n", },
+                                function()
+                                        require("flash").jump()
+                                end,
+                                desc = "Flash"
+                        },
+                },
+        },
         --PLUG: surround
         {
                 "kylechui/nvim-surround",
@@ -72,6 +75,7 @@ local plugins = {
                 end
         },
 }
+
 local options = {
         performance = {
                 rtp = {

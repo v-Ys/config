@@ -1,119 +1,71 @@
---NOTE:
-local opts = {
-        insert_mode = { noremap = true, silent = true },
-        normal_mode = { noremap = true, silent = true },
-        visual_mode = { noremap = true, silent = true },
-        visual_block_mode = { noremap = true, silent = true },
-        command_mode = { expr = true, noremap = true },
-        term_mode = { silent = true },
+--NOTE: keymap
+-- insert_mode       = "i",
+-- normal_mode       = "n",
+-- term_mode         = "t",
+-- visual_mode       = "v",
+-- visual_block_mode = "x",
+-- command_modei     = "c",
+
+local opts = { noremap = true, silent = true }
+local mykeymaps = {
+        -- -- Better motion
+        { { "n", "v", "x", },          "K",         "5k",                      opts },
+        { { "n", "v", "x", },          "J",         "5j",                      opts },
+        { { "n", "v", "x", },          "H",         "^",                       opts },
+        { { "n", "v", "x", },          "L",         "$",                       opts },
+        { { "n" },                     "T",         "J",                       opts },
+        { { "n" },                     ";;",        "%",                       opts },
+        { { "n" },                     ";u",        "<cmd>nohl<CR>",           opts },
+        --buffers
+        { { 'n', 'i', 'v', 'x', },     "<A-]>",     "<cmd>bn<cr>",             opts },
+        { { 'n', 'i', 'v', 'x', },     "<A-[>",     "<cmd>bp<cr>",             opts },
+        { { 'n', 'i', 'v', 'x', },     "<C-]>",     "<cmd>bd<cr>",             opts },
+        --save file
+        { { 'n', 'i', 'v', 'x', 't' }, '<A-s>',     '<cmd>w<CR>',              opts },
+        -- Resize with arrows
+        { { "n", "v", "x", },          "<A-Up>",    ":resize +2<CR>",          opts },
+        { { "n", "v", "x", },          "<A-Down>",  ":resize -2<CR>",          opts },
+        { { "n", "v", "x", },          "<A-Left>",  ":vertical resize -2<CR>", opts },
+        { { "n", "v", "x", },          "<A-Right>", ":vertical resize +2<CR>", opts },
+        -- Move current line / block
+        { { "n", },                    "<A-->",     "<cmd>m .+1<CR>==",        opts },
+        { { "n", },                    "<A-=>",     "<cmd>m .-2<CR>==",        opts },
+        { { "v", },                    "<A-->",     ":m '>+1<cr>gv=gv",        opts },
+        { { "v", },                    "<A-=>",     ":m '<-2<cr>gv=gv",        opts },
+        { { "n" },                     "<",         "<<",                      opts },
+        { { "n" },                     ">",         ">>",                      opts },
+        { { "v", "x", },               "<",         "<gv",                     opts },
+        { { "v", "x", },               ">",         ">gv",                     opts },
+
+        -- Terminal
+        { { "t", },                    "<C-\\>",    "<C-\\><C-N>",             opts },
+
+        --code runner
+        {
+                { "n" }, "<leader>m",
+                function()
+                        require('Miku-vim.utils.modules').run()
+                end,
+                opts
+        },
+
+
+        -- Terminal window navigation
+        -- { { "t", }, "<C-h>",  "<C-\\><C-N><C-w>h", opts },
+        -- { { "t", }, "<C-j>",  "<C-\\><C-N><C-w>j", opts },
+        -- { { "t", }, "<C-k>",  "<C-\\><C-N><C-w>k", opts },
+        -- { { "t", }, "<C-l>",  "<C-\\><C-N><C-w>l", opts },
+
+
 }
 
-local mode_adapters = {
-        insert_mode = "i",
-        normal_mode = "n",
-        term_mode = "t",
-        visual_mode = "v",
-        visual_block_mode = "x",
-        command_mode = "c",
-}
+
+for _, v in pairs(mykeymaps) do
+        vim.keymap.set(v[1], v[2], v[3], v[4])
+end
 
 
 
-
-
---NOTE: user keymaps
-local keymaps = {
-        insert_mode = {
-
-                ["<A-s>"] = "<cmd>w<CR>",
-        },
-        normal_mode = {
-                ["<leader>m"]  = "<cmd>lua require('Miku-vim.utils.modules').run()<CR>",
-                -- Resize with arrows
-                ["<A-Up>"]     = ":resize +2<CR>",
-                ["<A-Down>"]   = ":resize -2<CR>",
-                ["<A-Left>"]   = ":vertical resize -2<CR>",
-                ["<A-Right>"]  = ":vertical resize +2<CR>",
-                -- Move current line / block
-                -- ["<c-=>"] = ":m .+1<CR>==",
-                -- ["<c-->"] = ":m .-2<CR>==",
-
-                -- -- Better move
-                ["K"]          = "3k",
-                ["J"]          = "3j",
-                ["H"]          = "0",
-                ["0"]          = "^",
-                ["L"]          = "$",
-                [";;"]         = "%",
-                ["zp"]         = "\"1p",
-                ["zP"]         = "\"2p",
-                ["<"]          = "<<",
-                [">"]          = ">>",
-                [";j"]         = "J",
-                --buffers
-                -- ["<A-]>"]      = ":BufferLineCycleNext<CR>",
-                -- ["<A-[>"]      = ":BufferLineCyclePre<CR>",
-                ["<A-]>"]      = ":bn<CR>",
-                ["<A-[>"]      = ":bp<CR>",
-                ["<c-]>"]      = ":bd<CR>",
-                --cancel the highlight
-                [";u"]         = ":nohl<CR>",
-                --save
-                ["<A-s>"]      = "<cmd>w<CR>",
-                -- ["=="]         = "ggvG=<C-r>",
-                -- Telescope
-                ["<leader>fh"] = "<cmd>lua require('telescope.builtin').oldfiles()<CR>",
-                ["<leader>ff"] = "<cmd>lua require('telescope.builtin').find_files()<CR>",
-                ["<leader>fw"] = "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>",
-                ["<leader>fl"] = "<cmd>lua require('telescope.builtin').live_grep()<CR>",
-                ["<Leader>fs"] = "<cmd>lua require('telescope.builtin').colorscheme()<CR>",
-                ["<Leader>fm"] = "<cmd>lua require('telescope.builtin').marks()<CR>",
-                ["<leader>j"]  = "<cmd>lua require('telescope.builtin').buffers()<CR>",
-                ["<leader>fr"] = "<cmd>lua require('telescope.builtin').builtin()<CR>",
-                ["<leader>fp"] = "<cmd>lua require('Miku-vim.utils.telescope_tools').zoxide()<CR>",
-
-
-                --leap
-                ["f"]         = "<Plug>(leap-forward-to)",
-                ["t"]         = "<Plug>(leap-backward-to)",
-                ["T"]         = "f",
-                --n vim tree
-                ["<leader>n"] = "<cmd>lua require('oil').open()<CR>",
-                -- ["<leader>n"]  = "<cmd>NeoTreeFloatToggle<CR>",
-        },
-        term_mode = {
-                -- Terminal window navigation
-                -- ["<C-h>"] = "<C-\\><C-N><C-w>h",
-                -- ["<C-j>"] = "<C-\\><C-N><C-w>j",
-                -- ["<C-k>" = "<C-\\><C-N><C-w>k",
-                -- ["<C-l>"] = "<C-\\><C-N><C-w>l",
-                ["<C-\\>"] = "<C-\\><C-N>",
-        },
-        visual_mode = {
-                ["<A-s>"] = "<cmd>w<CR>",
-                -- Better indenting
-                ["<"]     = "<gv",
-                [">"]     = ">gv",
-                ["K"]     = "3k",
-                ["J"]     = "3j",
-                ["H"]     = "^",
-                ["L"]     = "$h",
-                [";;"]    = "%",
-        },
-        visual_block_mode = {
-                -- Move current line / block with Alt-j/k ala vscode.
-                ["<A-s>"] = ":m '>+1<CR>gv-gv",
-                ["<A-w>"] = ":m '<-2<CR>gv-gv",
-                ["k"]     = "3k",
-                ["J"]     = "3j",
-                ["H"]     = "^",
-                ["L"]     = "$h",
-                [";;"]    = "%",
-        },
-        command_mode = {
-                -- [";;"] = "lua require('Miku-vim.utils.modules').btop()",
-        },
-}
 
 --NOTE: user command
 local command = {
@@ -121,15 +73,6 @@ local command = {
         ["Git"] = "lua require('Miku-vim.utils.modules').lazygit()",
 }
 
-
---NOTE: load
 for user_command, fun in pairs(command) do
         vim.api.nvim_create_user_command(user_command, fun, {})
-end
-
---load keymaps
-for mode, map in pairs(keymaps) do
-        for key, cmd in pairs(map) do
-                vim.api.nvim_set_keymap(mode_adapters[mode], key, cmd, opts[mode])
-        end
 end
