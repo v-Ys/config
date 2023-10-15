@@ -29,7 +29,7 @@ local theme = {
 local config = function()
         local telescope = require("telescope")
         local actions = require "telescope.actions"
-        local tools = require("Miku-vim.utils.telescope_tools")
+        local trouble = require("trouble.providers.telescope")
 
         telescope.setup {
                 defaults = {
@@ -55,8 +55,10 @@ local config = function()
                         },
                         mappings = {
                                 i = {
-                                        ["<C-[>"] = actions.close,
+                                        ["<C-c>"] = actions.close,
+                                        ["<c-t>"] = trouble.open_with_trouble
                                 },
+                                n = { ["<c-t>"] = trouble.open_with_trouble },
                         }
                 },
 
@@ -121,6 +123,66 @@ local config = function()
         telescope.load_extension('ui-select')
 end
 
+local keymap = {
+        {
+                "<leader>fh",
+                function()
+                        require('telescope.builtin').oldfiles()
+                end,
+        },
+
+        {
+                "<leader>ff",
+                function()
+                        require('telescope.builtin').find_files()
+                end,
+        },
+        {
+                "<leader>fw",
+                function()
+                        require('telescope.builtin').current_buffer_fuzzy_find()
+                end,
+
+        },
+        {
+                "<leader>fl",
+                function()
+                        require('telescope.builtin').live_grep()
+                end,
+        },
+        {
+                "<Leader>fs",
+                function()
+                        require('telescope.builtin').colorscheme()
+                end,
+        },
+        {
+                "<Leader>fm",
+                function()
+                        require('telescope.builtin').marks()
+                end,
+        },
+        {
+                "<leader>j",
+                function()
+                        require('telescope.builtin').buffers()
+                end,
+        },
+        {
+                "<leader>fr",
+                function()
+                        require('telescope.builtin').builtin()
+                end,
+        },
+        {
+                "<leader>fp",
+                function()
+                        require('Miku-vim.utils.telescope_tools').zoxide()
+                end,
+        },
+
+}
+
 --PLUG:
 local M = {
         'nvim-telescope/telescope.nvim',
@@ -135,6 +197,7 @@ local M = {
         },
         event = "VeryLazy",
         config = config,
+        keys = keymap,
 }
 
 

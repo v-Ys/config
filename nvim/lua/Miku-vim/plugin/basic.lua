@@ -32,6 +32,14 @@ M[#M + 1] = {
                                 winblend = 10,
                         },
                 },
+        },
+        keys = {
+                {
+                        "<leader>n",
+                        function()
+                                require('oil').open()
+                        end
+                },
         }
 }
 
