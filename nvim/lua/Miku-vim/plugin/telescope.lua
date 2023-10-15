@@ -58,7 +58,10 @@ local config = function()
                                         ["<C-c>"] = actions.close,
                                         ["<c-t>"] = trouble.open_with_trouble
                                 },
-                                n = { ["<c-t>"] = trouble.open_with_trouble },
+                                n = {
+                                        ["<c-t>"] = trouble.open_with_trouble,
+                                        ["<C-c>"] = actions.close,
+                                },
                         }
                 },
 
