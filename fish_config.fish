@@ -62,11 +62,6 @@ set -x PATH /Users/Miku/.cargo/bin $PATH
 set -x PATH /opt/homebrew/opt/llvm/bin $PATH
 set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"
 set -gx CPPFLAGS "-I/opt/homebrew/opt/llvm/include"
-#### Java
-set -x PATH /opt/homebrew/opt/openjdk/bin $PATH
-#### homebrew PATH 
-# set -x PATH /opt/homebrew/sbin $PATH
-# set -x PATH /opt/homebrew/bin $PATH
 
 
 #NOTE: clashx
