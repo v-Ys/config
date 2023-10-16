@@ -13,7 +13,7 @@ local mykeymaps = {
         { { "n", "v", "x", },          "J",         "5j",                      opts },
         { { "n", "v", "x", },          "H",         "^",                       opts },
         { { "n", "v", "x", },          "L",         "$",                       opts },
-        { { "n" },                     "T",         "J",                       opts },
+        { { "n" },                     ";z",        "J",                       opts },
         { { "n" },                     ";;",        "%",                       opts },
         { { "n" },                     ";u",        "<cmd>nohl<CR>",           opts },
         --buffers

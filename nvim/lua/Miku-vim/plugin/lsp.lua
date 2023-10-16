@@ -174,6 +174,6 @@ M[#M + 1] = {
                 "hrsh7th/cmp-nvim-lsp",
         },
         config = lsp_config,
-        event = "VeryLazy",
+        event = { "BufReadPre", "BufNewFile" }
 }
 return M

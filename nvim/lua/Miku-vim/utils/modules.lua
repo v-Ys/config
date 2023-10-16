@@ -75,7 +75,7 @@ MIKU.rename = function()
                 width = 20,
                 height = 1,
                 style = 'minimal',
-                border = 'rounded'
+                border = 'single'
         }
         local buf = vim.api.nvim_create_buf(false, true)
         local win = vim.api.nvim_open_win(buf, true, opts)
