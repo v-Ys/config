@@ -64,7 +64,7 @@
             "#show: note.with(",
             "title: \"${Title}\",",
             "author: \" _Vv & Mys\",",
-            "logo: \"figures/a.png\",",
+            "logo: \"Cover/a.png\",",
             ")"
         ],
         "luasnip": {
@@ -97,7 +97,7 @@
         "body": [
             "#blue_rect(name: ${none})[",
             "${body}",
-           "]"
+            "]"
         ],
         "luasnip": {
             "priority": 2000,

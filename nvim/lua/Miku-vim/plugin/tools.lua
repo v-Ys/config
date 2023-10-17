@@ -83,6 +83,9 @@ M[#M + 1] = {
                         forward = true,
                         wrap = true,
                 },
+                prompt = {
+                        enabled = false,
+                },
         },
         keys = {
                 {
