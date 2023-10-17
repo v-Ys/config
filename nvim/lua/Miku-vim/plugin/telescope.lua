@@ -30,7 +30,6 @@ local config = function()
         local telescope = require("telescope")
         local actions = require "telescope.actions"
         local trouble = require("trouble.providers.telescope")
-
         telescope.setup {
                 defaults = {
                         prompt_prefix = " ",
@@ -55,54 +54,106 @@ local config = function()
                         mappings = {
                                 i = {
                                         ["<C-c>"] = actions.close,
-                                        ["<c-t>"] = trouble.open_with_trouble
                                 },
                                 n = {
-                                        ["<c-t>"] = trouble.open_with_trouble,
                                         ["<C-c>"] = actions.close,
                                 },
                         }
                 },
 
-
                 pickers = {
                         oldfiles = theme.single_dropdown({
                                 previewer = false,
+                                mappings = {
+                                        i = {
+                                                ["<c-t>"] = trouble.open_with_trouble,
+                                        },
+                                        n = {
+                                                ["<c-t>"] = trouble.open_with_trouble,
+                                        },
+                                }
                         }),
+
                         find_files = theme.single_dropdown({
-                                find_command = { "fd", "-H", }
+                                find_command = { "fd", "-H", },
+                                mappings = {
+                                        i = {
+                                                ["<c-t>"] = trouble.open_with_trouble,
+                                        },
+                                        n = {
+                                                ["<c-t>"] = trouble.open_with_trouble,
+                                        },
+                                }
+
                         }),
+
                         colorscheme = theme.single_dropdown({
                                 previewer = false,
                         }),
-                        builtin = theme.single_dropdown({
+
+                        builtin = theme.single_dropdown({}),
+
+                        lsp_references = theme.simple_ivy({
+                                mappings = {
+                                        i = {
+                                                ["<c-t>"] = trouble.open_with_trouble,
+                                        },
+                                        n = {
+                                                ["<c-t>"] = trouble.open_with_trouble,
+                                        },
+                                }
                         }),
 
-
-                        lsp_references = theme.simple_ivy({}),
-                        lsp_definitions = theme.simple_ivy({}),
+                        lsp_definitions = theme.simple_ivy({
+                                mappings = {
+                                        i = {
+                                                ["<c-t>"] = trouble.open_with_trouble,
+                                        },
+                                        n = {
+                                                ["<c-t>"] = trouble.open_with_trouble,
+                                        },
+                                }
+                        }),
 
                         live_grep = theme.simple_ivy({
                                 find_command = { "rg" },
+                                mappings = {
+                                        i = {
+                                                ["<c-t>"] = trouble.open_with_trouble,
+                                        },
+                                        n = {
+                                                ["<c-t>"] = trouble.open_with_trouble,
+                                        },
+                                }
                         }),
+
                         current_buffer_fuzzy_find = theme.simple_ivy({
                                 find_command = { "rg" },
+                                mappings = {
+                                        i = {
+                                                ["<c-t>"] = trouble.open_with_trouble,
+                                        },
+                                        n = {
+                                                ["<c-t>"] = trouble.open_with_trouble,
+                                        },
+                                }
                         }),
+
                         buffers = {
                                 initial_mode = "normal",
                                 theme = "dropdown",
                                 mappings = {
+                                        i = {
+                                                ["<c-t>"] = trouble.open_with_trouble,
+                                        },
                                         n = {
-                                                ["d"] = "delete_buffer"
+                                                ["<c-t>"] = trouble.open_with_trouble,
+                                                ["d"] = "delete_buffer",
                                         },
                                 },
                                 path_display = { "tail" },
 
                         },
-                        list_tabs = {
-                                theme = "dropdown",
-                        },
-
                 },
 
 
@@ -201,6 +252,5 @@ local M = {
         config = config,
         keys = keymap,
 }
-
 
 return M
