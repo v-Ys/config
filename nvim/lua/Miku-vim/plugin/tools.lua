@@ -67,6 +67,7 @@ M[#M + 1] = {
         "folke/flash.nvim",
         event = "VeryLazy",
         opts = {
+                labels = "asdfghjkl;weruiopzxcvnm",
                 modes = {
 
                         char = {
