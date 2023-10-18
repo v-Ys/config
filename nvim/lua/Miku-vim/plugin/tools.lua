@@ -67,6 +67,7 @@ M[#M + 1] = {
         "folke/flash.nvim",
         event = "VeryLazy",
         opts = {
+                labels = "asdfghjkl;weruiopzxcvnm",
                 modes = {
 
                         char = {
@@ -82,6 +83,9 @@ M[#M + 1] = {
                 jump = {
                         forward = true,
                         wrap = true,
+                },
+                prompt = {
+                        enabled = false,
                 },
         },
         keys = {

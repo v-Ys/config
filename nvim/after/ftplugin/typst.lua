@@ -1,3 +1,3 @@
-vim.api.nvim_create_user_command("TypstInit",
+vim.api.nvim_create_user_command("TypstFigures",
         "silent !mkdir figures",
         {})
