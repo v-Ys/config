@@ -138,33 +138,52 @@ key_bindings:
   - { key: Key8, mods: Alt, chars: "\e8" }
   - { key: Key9, mods: Alt, chars: "\e9" }
   - { key: Key0, mods: Alt, chars: "\e0" }
-  - { key: Key3, mods: Alt|Shift, chars: "\e#"      } #Alt + #
-
-  - { key: Space, mods: Control, chars: "\0"        } # Ctrl + Space
-  - { key: Grave, mods: Alt, chars: "\e`"           } # Alt + `
-  - { key: Minus, mods: Alt, chars: "\e-"           } # Alt + -
-  - { key: Equals, mods: Alt, chars: "\e="          } # Alt + =
-  - { key: LBracket, mods: Alt, chars: "\e["        } # Alt + [
-  - { key: RBracket, mods: Alt, chars: "\e]" } # Alt + ]
-  - { key: Semicolon, mods: Alt, chars: "\e;"       } # Alt + ;
-  - { key: Period, mods: Alt, chars: "\e."          } # Alt + .
-
-
-  - { key: Grave, mods: Alt|Shift, chars: "\e~"     } # Alt + ~
-  - { key: Minus, mods: Alt|Shift, chars: "\e_"     } # Alt + _
-  - { key: Equals, mods: Alt|Shift, chars: "\e+"    } # Alt + +
-  - { key: Period, mods: Alt, chars: "\e."          } # Alt + .
-  - { key: Period, mods: Alt|Shift, chars: "\e>"    } # Alt + >
-  - { key: Key9, mods: Alt|Shift, chars: "\e("      } # Alt + (
-  - { key: Semicolon, mods: Alt|Shift, chars: "\e:" } # Alt + :
-  - { key: Key8, mods: Alt|Shift, chars: "\e*"      } # Alt + *
-  - { key: Comma, mods: Alt|Shift, chars: "\e<"     } # Alt + <
-  - { key: Key5, mods: Alt|Shift, chars: "\e%"      } # Alt + %
-  - { key: Key6, mods: Alt|Shift, chars: "\e^"      } # Alt + ^
-  - { key: Backslash, mods: Alt, chars: "\e\\"      } # Alt + \
-  - { key: Backslash, mods: Alt|Shift, chars: "\e|" } # Alt + |
-  - { key: Slash, mods: Control, chars: "\x1f"      } # Alt + /
-
+  - { key: Key3, mods: Alt|Shift, chars: "\e#" }
+  #Alt + #
+  - { key: Space, mods: Control, chars: "\0" }
+  # Ctrl + Space
+  - { key: Grave, mods: Alt, chars: "\e`" }
+  # Alt + `
+  - { key: Minus, mods: Alt, chars: "\e-" }
+  # Alt + -
+  - { key: Equals, mods: Alt, chars: "\e=" }
+  # Alt + =
+  - { key: LBracket, mods: Alt, chars: "\e[" }
+  # Alt + [
+  - { key: RBracket, mods: Alt, chars: "\e]" }
+  # Alt + ]
+  - { key: Semicolon, mods: Alt, chars: "\e;" }
+  # Alt + ;
+  - { key: Period, mods: Alt, chars: "\e." }
+  # Alt + .
+  - { key: Grave, mods: Alt|Shift, chars: "\e~" }
+  # Alt + ~
+  - { key: Minus, mods: Alt|Shift, chars: "\e_" }
+  # Alt + _
+  - { key: Equals, mods: Alt|Shift, chars: "\e+" }
+  # Alt + +
+  - { key: Period, mods: Alt, chars: "\e." }
+  # Alt + .
+  - { key: Period, mods: Alt|Shift, chars: "\e>" }
+  # Alt + >
+  - { key: Key9, mods: Alt|Shift, chars: "\e(" }
+  # Alt + (
+  - { key: Semicolon, mods: Alt|Shift, chars: "\e:" }
+  # Alt + :
+  - { key: Key8, mods: Alt|Shift, chars: "\e*" }
+  # Alt + *
+  - { key: Comma, mods: Alt|Shift, chars: "\e<" }
+  # Alt + <
+  - { key: Key5, mods: Alt|Shift, chars: "\e%" }
+  # Alt + %
+  - { key: Key6, mods: Alt|Shift, chars: "\e^" }
+  # Alt + ^
+  - { key: Backslash, mods: Alt, chars: "\e\\" }
+  # Alt + \
+  - { key: Backslash, mods: Alt|Shift, chars: "\e|" }
+  # Alt + |
+  - { key: Slash, mods: Control, chars: "\x1f" }
+  # Alt + /
 
 #   - { key: Space,     mods: Control,   chars: "\x00"                        } # Ctrl + Space
 #   - { key: Grave,     mods: Alt,       chars: "\x1b`"                       } # Alt + `
