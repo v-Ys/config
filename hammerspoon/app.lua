@@ -16,7 +16,7 @@ end
 local function sleep(appName)
         local appToSleep = {
                 ["Alacritty"] = "0.5",
-                ["WezTerm"] = "0.3",
+                ["WezTerm"] = "0.5",
                 ["Visual Studio Code"] = "0.6",
         }
         if appToSleep[appName] == nil then
