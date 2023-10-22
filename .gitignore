@@ -3,4 +3,5 @@ raycast/config.json
 raycast/extensions/*
 nvim/package-lock.json
 karabiner/automatic_backups
+hammerspoon/Spoons
 
