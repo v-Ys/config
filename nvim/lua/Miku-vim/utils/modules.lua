@@ -81,7 +81,7 @@ MIKU.rename = function()
         local win = vim.api.nvim_open_win(buf, true, opts)
         vim.cmd('startinsert')
         vim.api.nvim_buf_set_lines(buf, 0, -1, false, {})
-        vim.keymap.set('i', '<esc>',
+        vim.keymap.set({ 'i', 'n' }, '<esc>',
                 '<cmd>stopinsert | close<CR>',
                 { silent = true, buffer = true })
         vim.keymap.set("i", "<CR>", function()
