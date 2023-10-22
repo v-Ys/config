@@ -25,6 +25,58 @@ local function sleep(appName)
         os.execute("sleep " .. appToSleep[appName])
 end
 
+local function launchAndFullscreen(appName, appBundleID)
+        local runApp = application.launchOrFocusByBundleID(appBundleID)
+        if runApp == false then
+                alert('Failed to launch app: ' .. appName)
+        else
+                -- for fullScreen when first lanuch
+                local checkTimerTimeoutCounter = 0
+                CheckTimer = timer.new(0.1, function()
+                        if checkTimerTimeoutCounter == 500 then
+                                CheckTimer:stop()
+                                checkTimerTimeoutCounter = 0
+                                return
+                        end
+
+                        local appsFirstLanuch = application.applicationsForBundleID(appBundleID)
+                        local appFirstLanuch = appsFirstLanuch and appsFirstLanuch[1]
+                        if appFirstLanuch then
+                                sleep(appName)
+                                if appFirstLanuch:activate() then
+                                        local focusedWindow = appFirstLanuch:focusedWindow()
+                                        if focusedWindow then
+                                                focusedWindow:setFullScreen(true)
+                                                CheckTimer:stop()
+                                                checkTimerTimeoutCounter = 0
+                                                return
+                                        end
+                                end
+                        end
+                        checkTimerTimeoutCounter = checkTimerTimeoutCounter + 1
+                end)
+                CheckTimer:start()
+                return
+        end
+end
+
+local function focusApp(app, appBundleID)
+        local MainWin = app:mainWindow()
+        if MainWin then
+                if MainWin:isFullScreen() == true then
+                        MainWin:application():activate(true)
+                        MainWin:focus()
+                elseif app:isFrontmost() == true then
+                        MainWin:application():hide()
+                else
+                        MainWin:application():activate(true)
+                        MainWin:application():unhide()
+                        MainWin:focus()
+                end
+        else
+                application.launchOrFocusByBundleID(appBundleID)
+        end
+end
 
 
 
@@ -38,58 +90,13 @@ M.lanuchOrFocusApp = function(appName)
                 local appsIsRunning = application.applicationsForBundleID(appBundleID)
                 local appIsRunning = appsIsRunning and appsIsRunning[1]
 
-                -- lanuch app and set full screen
+                -- If app is not open, then open it and go fullscreen
                 if not appIsRunning then
-                        local runApp = application.launchOrFocusByBundleID(appBundleID)
-                        if runApp == false then
-                                alert('Failed to launch app: ' .. appName)
-                        else
-                                -- for fullScreen when first lanuch
-                                local checkTimerTimeoutCounter = 0
-                                CheckTimer = timer.new(0.1, function()
-                                        if checkTimerTimeoutCounter == 500 then
-                                                CheckTimer:stop()
-                                                checkTimerTimeoutCounter = 0
-                                                return
-                                        end
-
-                                        local appsFirstLanuch = application.applicationsForBundleID(appBundleID)
-                                        local appFirstLanuch = appsFirstLanuch and appsFirstLanuch[1]
-                                        if appFirstLanuch then
-                                                sleep(appName)
-                                                if appFirstLanuch:activate() then
-                                                        local focusedWindow = appFirstLanuch:focusedWindow()
-                                                        if focusedWindow then
-                                                                focusedWindow:setFullScreen(true)
-                                                                CheckTimer:stop()
-                                                                checkTimerTimeoutCounter = 0
-                                                                return
-                                                        end
-                                                end
-                                        end
-                                        checkTimerTimeoutCounter = checkTimerTimeoutCounter + 1
-                                end)
-                                CheckTimer:start()
-                                return
-                        end
+                        launchAndFullscreen(appName, appBundleID)
                 end
 
-                -- focus app
-                local MainWin = appIsRunning:mainWindow()
-                if MainWin then
-                        if MainWin:isFullScreen() == true then
-                                MainWin:application():activate(true)
-                                MainWin:focus()
-                        elseif appIsRunning:isFrontmost() == true then
-                                MainWin:application():hide()
-                        else
-                                MainWin:application():activate(true)
-                                MainWin:application():unhide()
-                                MainWin:focus()
-                        end
-                else
-                        application.launchOrFocusByBundleID(appBundleID)
-                end
+                -- or focus app
+                focusApp(appIsRunning, appBundleID)
         end
 end
 
