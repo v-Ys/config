@@ -85,7 +85,9 @@ noremap K 5k
 noremap J 5j
 noremap L $
 noremap H ^
-noremap gr %
+noremap ;z J
+noremap ;; %
+noremap ;u :nohl<CR>
 
 nnoremap <c-]> :bn<CR>
 nnoremap <Esc>s :w<CR>
