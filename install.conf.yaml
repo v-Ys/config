@@ -9,6 +9,7 @@
     ~/.ideavimrc: ideavimrc
     ~/.fdignore: fdignore
     ~/.zshrc: zshrc
+    ~/.bashrc: bashrc
     ~/.tmux.conf: tmux.conf
     ~/.vim/vimrc: vimrc
     ~/.condarc: condarc
