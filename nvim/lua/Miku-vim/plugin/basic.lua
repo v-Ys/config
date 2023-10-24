@@ -2,8 +2,6 @@ local M = {}
 
 -- PLUG: oil
 M[#M + 1] = {
-
-
         'stevearc/oil.nvim',
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {
@@ -22,15 +20,6 @@ M[#M + 1] = {
                         ["-"] = "actions.cd",
                         ["~"] = "actions.tcd",
                         ["."] = "actions.toggle_hidden",
-                },
-                float = {
-                        padding = 2,
-                        max_width = 0,
-                        max_height = 0,
-                        border = "rounded",
-                        win_options = {
-                                winblend = 10,
-                        },
                 },
         },
         keys = {
