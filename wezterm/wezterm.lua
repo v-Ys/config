@@ -16,7 +16,7 @@ return {
         font = wezterm.font_with_fallback {
                 {
                         family = 'Iosevka Nerd Font Mono',
-                        weight = 'Medium',
+                        weight = 590,
                         italic = false,
                 },
                 {
@@ -30,8 +30,8 @@ return {
                         italic = true,
                         font = wezterm.font {
                                 family = 'Iosevka Nerd Font Mono',
-                                -- weight = 'ExtraBold',
-                                weight = 'Bold',
+                                weight = 'ExtraBold',
+                                -- weight = 'Bold',
                                 style = 'Italic',
                         },
                 },
@@ -40,8 +40,8 @@ return {
                         italic = false,
                         font = wezterm.font {
                                 family = 'Iosevka Nerd Font Mono',
-                                -- weight = 'ExtraBold',
-                                weight = 'Bold',
+                                weight = 'ExtraBold',
+                                -- weight = 'Bold',
                                 style = 'Normal',
                         },
                 },

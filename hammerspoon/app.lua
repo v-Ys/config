@@ -15,8 +15,8 @@ end
 
 local function sleep(appName)
         local appToSleep = {
-                ["Alacritty"] = "0.5",
-                ["WezTerm"] = "0.5",
+                -- ["Alacritty"] = "0.5",
+                -- ["WezTerm"] = "0.5",
                 ["Visual Studio Code"] = "0.6",
         }
         if appToSleep[appName] == nil then
@@ -42,6 +42,7 @@ local function launchAndFullscreen(appName, appBundleID)
                         local appsFirstLanuch = application.applicationsForBundleID(appBundleID)
                         local appFirstLanuch = appsFirstLanuch and appsFirstLanuch[1]
                         if appFirstLanuch then
+                                os.execute("sleep 0.5")
                                 sleep(appName)
                                 if appFirstLanuch:activate() then
                                         local focusedWindow = appFirstLanuch:focusedWindow()
