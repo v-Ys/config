@@ -4,17 +4,20 @@
 -- term_mode         = "t",
 -- visual_mode       = "v",
 -- visual_block_mode = "x",
--- command_modei     = "c",
+-- command_mode      = "c",
+-- operator_mode     = "o",
+-- select_mode       = "s"
 
 local opts = { noremap = true, silent = true }
 local mykeymaps = {
         -- -- Better motion
-        { { "n", "v", "x", },          "K",         "5k",                      opts },
-        { { "n", "v", "x", },          "J",         "5j",                      opts },
-        { { "n", "v", "x", },          "H",         "^",                       opts },
-        { { "n", "v", "x", },          "L",         "$",                       opts },
-        { { "n" },                     ";z",        "J",                       opts },
-        { { "n" },                     ";;",        "%",                       opts },
+        { { "n", "v", "x", "o" },      "K",         "5k",                      opts },
+        { { "n", "v", "x", "o" },      "J",         "5j",                      opts },
+        { { "n", "v", "x", "o" },      "H",         "^",                       opts },
+        { { "n", "o" },                "L",         "$",                       opts },
+        { { "v", "x" },                "L",         "$h",                      opts },
+        { { "n", "v", "x", "o" },      ";;",        "%",                       opts },
+        { { "n", "v", "x", "o" },      ";z",        "J",                       opts },
         { { "n" },                     ";u",        "<cmd>nohl<CR>",           opts },
         --buffers
         { { 'n', 'i', 'v', 'x', },     "<A-]>",     "<cmd>bn<cr>",             opts },
@@ -45,6 +48,14 @@ local mykeymaps = {
                 { "n" }, "<leader>m",
                 function()
                         require('Miku-vim.utils.modules').run()
+                end,
+                opts
+        },
+
+        {
+                { "n", "v", "x" }, "<leader>n",
+                function()
+                        require('oil').open()
                 end,
                 opts
         },

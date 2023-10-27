@@ -2,8 +2,6 @@ local M = {}
 
 -- PLUG: oil
 M[#M + 1] = {
-
-
         'stevearc/oil.nvim',
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {
@@ -31,14 +29,6 @@ M[#M + 1] = {
                         win_options = {
                                 winblend = 10,
                         },
-                },
-        },
-        keys = {
-                {
-                        "<leader>n",
-                        function()
-                                require('oil').open()
-                        end
                 },
         }
 }
