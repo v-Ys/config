@@ -13,6 +13,17 @@ local function getBundleID(appName)
         end
 end
 
+local function notFullScreenApp(appName)
+        local appNotFullScreen = {
+                ["Preview"] = true
+        }
+        if appNotFullScreen[appName] ~= nil then
+                return true
+        else
+                return false
+        end
+end
+
 local function sleep(appName)
         local appToSleep = {
                 -- ["Alacritty"] = "0.5",
@@ -25,10 +36,13 @@ local function sleep(appName)
         os.execute("sleep " .. appToSleep[appName])
 end
 
-local function launchAndFullscreen(appName, appBundleID)
+local function launchApp(appName, appBundleID)
         local runApp = application.launchOrFocusByBundleID(appBundleID)
+
         if runApp == false then
                 alert('Failed to launch app: ' .. appName)
+        elseif notFullScreenApp(appName) then
+                return
         else
                 -- for fullScreen when first lanuch
                 local checkTimerTimeoutCounter = 0
@@ -93,7 +107,7 @@ M.lanuchOrFocusApp = function(appName)
 
                 -- If app is not open, then open it and go fullscreen
                 if not appIsRunning then
-                        launchAndFullscreen(appName, appBundleID)
+                        launchApp(appName, appBundleID)
                 end
 
                 -- or focus app

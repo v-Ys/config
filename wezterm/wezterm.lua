@@ -46,7 +46,6 @@ return {
                         },
                 },
         },
-        enable_tab_bar = false,
         color_scheme = theme[4],
         window_padding = {
                 left = 0,
@@ -62,4 +61,6 @@ return {
         window_decorations = "RESIZE",
         -- default_prog = { '/opt/homebrew/bin/zsh', '-l' },
         keys = MyKey,
+
+        enable_tab_bar = false,
 }

@@ -21,14 +21,6 @@ M[#M + 1] = {
                         ["~"] = "actions.tcd",
                         ["."] = "actions.toggle_hidden",
                 },
-        },
-        keys = {
-                {
-                        "<leader>n",
-                        function()
-                                require('oil').open()
-                        end
-                },
         }
 }
 

@@ -4,17 +4,21 @@
 -- term_mode         = "t",
 -- visual_mode       = "v",
 -- visual_block_mode = "x",
--- command_modei     = "c",
+-- command_mode      = "c",
+-- operator_mode     = "o",
+-- select_mode       = "s"
 
 local opts = { noremap = true, silent = true }
+
 local mykeymaps = {
         -- -- Better motion
-        { { "n", "v", "x", },          "K",         "5k",                      opts },
-        { { "n", "v", "x", },          "J",         "5j",                      opts },
-        { { "n", "v", "x", },          "H",         "^",                       opts },
-        { { "n", "v", "x", },          "L",         "$",                       opts },
-        { { "n" },                     ";z",        "J",                       opts },
-        { { "n" },                     ";;",        "%",                       opts },
+        { { "n", "v", "x", "o" },      "K",         "5k",                      opts },
+        { { "n", "v", "x", "o" },      "J",         "5j",                      opts },
+        { { "n", "v", "x", "o" },      "H",         "^",                       opts },
+        { { "n", "o" },                "L",         "$",                       opts },
+        { { "v", "x" },                "L",         "$h",                      opts },
+        { { "n", "v", "x", "o" },      ";;",        "%",                       opts },
+        { { "n", "v", "x", "o" },      ";z",        "J",                       opts },
         { { "n" },                     ";u",        "<cmd>nohl<CR>",           opts },
         --buffers
         { { 'n', 'i', 'v', 'x', },     "<A-]>",     "<cmd>bn<cr>",             opts },
@@ -41,13 +45,55 @@ local mykeymaps = {
         { { "t", },                    "<C-\\>",    "<C-\\><C-N>",             opts },
 
         --code runner
-        {
-                { "n" }, "<leader>m",
+        { { "n" }, "<leader>m",
                 function()
                         require('Miku-vim.utils.modules').run()
-                end,
-                opts
-        },
+                end, opts },
+
+        { { "n", "v", "x" }, "<leader>n",
+                function()
+                        require('oil').open()
+                end, opts },
+
+        { { "n" }, "<leader>fh",
+                function()
+                        require('telescope.builtin').oldfiles()
+                end, opts },
+
+        { { "n" }, "<leader>ff",
+                function()
+                        require('telescope.builtin').find_files()
+                end, opts },
+        { { "n" }, "<leader>fw",
+                function()
+                        require('telescope.builtin').current_buffer_fuzzy_find()
+                end, opts },
+        { { "n" }, "<leader>fl",
+                function()
+                        require('telescope.builtin').live_grep()
+                end, opts },
+        { { "n" }, "<Leader>fs",
+                function()
+                        require('telescope.builtin').colorscheme()
+                end, opts },
+        { { "n" }, "<Leader>fm",
+                function()
+                        require('telescope.builtin').marks()
+                end, opts },
+        { { "n" }, "<leader>j",
+                function()
+                        require('telescope.builtin').buffers()
+                end, opts },
+        { { "n" }, "<leader>fr",
+                function()
+                        require('telescope.builtin').builtin()
+                end, opts },
+        { { "n" },
+                "<leader>fp",
+                function()
+                        require('Miku-vim.utils.telescope_tools').zoxide()
+                end, opts },
+
 
 
         -- Terminal window navigation
