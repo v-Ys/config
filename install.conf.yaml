@@ -14,9 +14,10 @@
     ~/.vim/vimrc: vimrc
     ~/.condarc: condarc
 
+    ~/.config/fish/config.fish: fish/fish_config.fish
+    ~/.config/fish/Miku_func: fish/functions
     ~/.config/git: git
     ~/.config/nvim: nvim
-    ~/.config/fish/config.fish: fish_config.fish
     ~/.config/helix: helix
     ~/.config/btop: btop
     ~/.config/wezterm: wezterm

@@ -16,7 +16,7 @@ return {
         font = wezterm.font_with_fallback {
                 {
                         family = 'Iosevka Nerd Font Mono',
-                        weight = 'Medium',
+                        weight = 590,
                         italic = false,
                 },
                 {
@@ -30,8 +30,8 @@ return {
                         italic = true,
                         font = wezterm.font {
                                 family = 'Iosevka Nerd Font Mono',
-                                -- weight = 'ExtraBold',
-                                weight = 'Bold',
+                                weight = 'ExtraBold',
+                                -- weight = 'Bold',
                                 style = 'Italic',
                         },
                 },
@@ -40,13 +40,12 @@ return {
                         italic = false,
                         font = wezterm.font {
                                 family = 'Iosevka Nerd Font Mono',
-                                -- weight = 'ExtraBold',
-                                weight = 'Bold',
+                                weight = 'ExtraBold',
+                                -- weight = 'Bold',
                                 style = 'Normal',
                         },
                 },
         },
-        enable_tab_bar = false,
         color_scheme = theme[4],
         window_padding = {
                 left = 0,
@@ -62,4 +61,6 @@ return {
         window_decorations = "RESIZE",
         -- default_prog = { '/opt/homebrew/bin/zsh', '-l' },
         keys = MyKey,
+
+        enable_tab_bar = false,
 }
