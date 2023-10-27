@@ -2,7 +2,8 @@ if status is-interactive
         source ~/.config/fish/Miku_func/__lfcd.fish
         source ~/.config/fish/Miku_func/__fzf_search_history.fish
         source ~/.config/fish/Miku_func/__fzf_search_directory.fish
-        source ~/.config/fish/Miku_func/conda_init.fish
+        source ~/.config/fish/Miku_func/condaInit.fish
+        source ~/.config/fish/Miku_func/toggleProxy.fish
 
         #NOTE: alias
         alias  nv="nvim"
