@@ -117,6 +117,7 @@ end
 local command = {
         ["FormatJSON"] = "%!python -m json.tool",
         ["Git"] = "lua require('Miku-vim.utils.modules').lazygit()",
+        ["BufferPwd"] = "lua require('Miku-vim.utils.modules').BufferPwd()",
 }
 
 for user_command, fun in pairs(command) do

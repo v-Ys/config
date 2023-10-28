@@ -92,5 +92,9 @@ MIKU.rename = function()
         end, { buffer = true })
 end
 
+MIKU.BufferPwd = function()
+        print(vim.fn.expand('%:p'))
+end
+
 
 return MIKU
