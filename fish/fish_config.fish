@@ -24,8 +24,7 @@ if status is-interactive
         set -x fish_greeting "Miku! Miku!"
         set -x EDITOR "nvim"
         set -x DBUS_SESSION_BUS_ADDRESS "unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET" #???
-        # nvm.fish (plug) PATH 
-        set -x PATH /Users/Miku/.local/share/nvm/v19.6.0/bin $PATH
+        set -x PATH /Users/Miku/.local/share/nvm/v19.6.0/bin $PATH # nvm.fish (plug) PATH
         # FZF_OPTS: bg+: bottom bar color, fg+: selected item color ,gutter: sidebar color
         set -x FZF_DEFAULT_OPTS "--color=bg+:-1,fg+:#BE002F,gutter:-1,border:#C0C0C0 \
                                  --no-separator \
