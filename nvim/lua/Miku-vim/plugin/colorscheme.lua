@@ -41,5 +41,9 @@ return {
                 name = "catppuccin",
                 event = "VeryLazy",
         },
+        {
+                'rose-pine/neovim',
+                name = 'rose-pine'
+        },
         theme.light,
 }

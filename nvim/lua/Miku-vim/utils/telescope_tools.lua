@@ -24,6 +24,7 @@ local zoxide_opts = {
                 default = {
                         action = function(selection)
                                 vim.cmd.cd(selection.path)
+                                print(selection.path)
                         end,
                 },
                 ["<C-f>"] = {

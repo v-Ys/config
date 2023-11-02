@@ -78,8 +78,10 @@ MIKU.rename = function()
                 border = 'single'
         }
         local buf = vim.api.nvim_create_buf(false, true)
-        local win = vim.api.nvim_open_win(buf, true, opts)
-        vim.cmd('startinsert')
+        -- local win = vim.api.nvim_open_win(buf, true, opts)
+        vim.api.nvim_open_win(buf, true, opts)
+        -- vim.cmd('startinsert')
+        vim.api.nvim_input('a')
         vim.api.nvim_buf_set_lines(buf, 0, -1, false, {})
         vim.keymap.set({ 'i', 'n' }, '<esc>',
                 '<cmd>stopinsert | close<CR>',
@@ -88,6 +90,7 @@ MIKU.rename = function()
                 local new_name = vim.trim(vim.fn.getline('.'))
                 vim.api.nvim_win_close(0, true)
                 vim.cmd('stopinsert')
+                vim.fn.cursor(vim.fn.line('.'), vim.fn.col('.') + 1)
                 vim.lsp.buf.rename(new_name)
         end, { buffer = true })
 end

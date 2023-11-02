@@ -25,7 +25,7 @@ return {
                         enable_autosnippets = true
                 })
                 require("luasnip/loaders/from_vscode").lazy_load({
-                        include = { "python", "rust", "cpp", "c", "lua", "markdown" }
+                        include = { "python", "rust", "cpp", "c", "lua", "racket", }
                 })
                 require("luasnip.loaders.from_vscode").lazy_load({
                         paths = {
