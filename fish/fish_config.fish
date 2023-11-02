@@ -8,12 +8,12 @@ if status is-interactive
         #NOTE: alias
         alias  nv="nvim"
         alias  c="cd"
-        alias  e="exa"
-        alias  et="exa -T"
-        alias  etl="exa -T -L"
-        alias  ea="exa -a"
-        alias  el="exa -l"
-        alias  ela="exa -l -a"
+        alias  e="exa --icons"
+        alias  et="exa --icons -T"
+        alias  etl="exa  --icons -T -L"
+        alias  ea="exa  --icons -a"
+        alias  el="exa --icons -l"
+        alias  ela="exa --icons -l -a"
         alias  python="python3"
 
         starship init fish | source
