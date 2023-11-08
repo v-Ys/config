@@ -15,7 +15,8 @@ end
 
 local function notFullScreenApp(appName)
         local appNotFullScreen = {
-                ["Preview"] = true
+                ["Preview"] = true,
+                ["Alacritty"] = true,
         }
         if appNotFullScreen[appName] ~= nil then
                 return true
@@ -26,9 +27,8 @@ end
 
 local function sleep(appName)
         local appToSleep = {
-                -- ["Alacritty"] = "0.5",
-                -- ["WezTerm"] = "0.5",
-                ["Visual Studio Code"] = "0.6",
+                ["Visual Studio Code"] = "0.3",
+                ["Notes"] = "0.3",
         }
         if appToSleep[appName] == nil then
                 return
@@ -112,6 +112,14 @@ M.lanuchOrFocusApp = function(appName)
 
                 -- or focus app
                 focusApp(appIsRunning, appBundleID)
+        end
+end
+
+M.FocusDesktop = function()
+        return function()
+                local desktop = require("hs.window").desktop()
+                desktop:application():activate(true)
+                desktop:focus()
         end
 end
 

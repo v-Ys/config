@@ -1,19 +1,23 @@
 local hk = require "hs.hotkey"
 local lanuchOrFocusApp = require("app").lanuchOrFocusApp
 local windowManager = require('window').windowManager
+local FocusDesktop = require('app').FocusDesktop
 
 
 -- window manager
 hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "q", windowManager("fullScreen"))
-hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "d", windowManager("right"))
-hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "a", windowManager("left"))
-hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "w", windowManager("top"))
-hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "s", windowManager("bottom"))
+hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "m", windowManager("right"))
+hk.bind({ 'ctrl', 'cmd', 'alt', 'shift' }, "n", windowManager("left"))
+hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "p", windowManager("top"))
+hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "o", windowManager("bottom"))
 
 -- lanuch or focue app
 hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "u", lanuchOrFocusApp("Safari"))
 hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "i", lanuchOrFocusApp("Alacritty"))
-hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "o", lanuchOrFocusApp("Craft"))
+hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "x", lanuchOrFocusApp("Craft"))
 hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "z", lanuchOrFocusApp("Preview"))
-hk.bind({ 'ctrl', 'cmd', 'shift' }, "right", lanuchOrFocusApp("WezTerm"))
-hk.bind({ 'ctrl', 'cmd', 'shift' }, "down", lanuchOrFocusApp("Arc"))
+hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "f", lanuchOrFocusApp("Arc"))
+hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "d", lanuchOrFocusApp("WezTerm"))
+hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "r", FocusDesktop())
+hk.bind({ 'ctrl', 'cmd', 'shift' }, "down", lanuchOrFocusApp("Reminders"))
+hk.bind({ 'ctrl', 'cmd', 'shift' }, "up", lanuchOrFocusApp("Notes"))
