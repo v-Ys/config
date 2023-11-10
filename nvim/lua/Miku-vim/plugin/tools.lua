@@ -91,7 +91,7 @@ M[#M + 1] = {
         keys = {
                 {
                         "f",
-                        mode = { "n", },
+                        mode = { "n", "v" },
                         function()
                                 require("flash").jump()
                         end,

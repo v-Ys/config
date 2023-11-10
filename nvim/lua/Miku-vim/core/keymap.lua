@@ -8,7 +8,7 @@
 -- operator_mode     = "o",
 -- select_mode       = "s"
 
--- -- Better motion
+-- Better motion
 vim.keymap.set({ "n", "v", "x", "o" }, "K", "5k", { noremap = true, silent = true })
 vim.keymap.set({ "n", "v", "x", "o" }, "J", "5j", { noremap = true, silent = true })
 vim.keymap.set({ "n", "v", "x", "o" }, "H", "^", { noremap = true, silent = true })
@@ -37,14 +37,8 @@ vim.keymap.set({ "n" }, "<", "<<", { noremap = true, silent = true })
 vim.keymap.set({ "n" }, ">", ">>", { noremap = true, silent = true })
 vim.keymap.set({ "v", "x", }, "<", "<gv", { noremap = true, silent = true })
 vim.keymap.set({ "v", "x", }, ">", ">gv", { noremap = true, silent = true })
--- Terminal
-vim.keymap.set({ "t", }, "<C-\\>", "<C-\\><C-N>", { noremap = true, silent = true })
--- run code
-vim.keymap.set({ "n" }, "<leader>m", require('Miku-vim.utils.modules').run,
-        { noremap = true, silent = true })
 --Plugin
--- vim.keymap.set({ "n", "v", "x" }, "<leader>n",  require('oil').open    , { noremap = true, silent = true })
-vim.keymap.set({ "n", "v", "x" }, "<leader>n", ":NvimTreeOpen<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v", "x" }, "<leader>n", require('nvim-tree.api').tree.open, { noremap = true, silent = true })
 vim.keymap.set({ "n" }, "<Leader>fm", require('telescope.builtin').marks, { noremap = true, silent = true })
 vim.keymap.set({ "n" }, "<leader>j", require('telescope.builtin').buffers, { noremap = true, silent = true })
 vim.keymap.set({ "n" }, "<leader>fr", require('telescope.builtin').builtin, { noremap = true, silent = true })
@@ -55,13 +49,16 @@ vim.keymap.set({ "n" }, "<Leader>fs", require('telescope.builtin').colorscheme, 
 vim.keymap.set({ "n" }, "<leader>fp", require('Miku-vim.utils.telescope_tools').zoxide, { noremap = true, silent = true })
 vim.keymap.set({ "n" }, "<leader>fw", require('telescope.builtin').current_buffer_fuzzy_find,
         { noremap = true, silent = true })
+-- Terminal
+vim.keymap.set({ "t", }, "<C-\\>", "<C-\\><C-N>", { noremap = true, silent = true })
+-- run code
+vim.keymap.set({ "n" }, "<leader>m", require('Miku-vim.utils.modules').run,
+        { noremap = true, silent = true })
 
 --NOTE: user command
 vim.api.nvim_create_user_command("FormatJSON", "%!python -m json.tool", {})
 vim.api.nvim_create_user_command("Git", "lua require('Miku-vim.utils.modules').lazygit  ", {})
 vim.api.nvim_create_user_command("BufferPwd", "lua require('Miku-vim.utils.modules').BufferPwd  ", {})
-
-
 
 
 
