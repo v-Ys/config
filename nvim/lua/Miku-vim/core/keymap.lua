@@ -40,36 +40,37 @@ vim.keymap.set({ "v", "x", }, ">", ">gv", { noremap = true, silent = true })
 -- Terminal
 vim.keymap.set({ "t", }, "<C-\\>", "<C-\\><C-N>", { noremap = true, silent = true })
 -- run code
-vim.keymap.set({ "n" }, "<leader>m", function() require('Miku-vim.utils.modules').run() end,
+vim.keymap.set({ "n" }, "<leader>m", require('Miku-vim.utils.modules').run,
         { noremap = true, silent = true })
 --Plugin
-vim.keymap.set({ "n", "v", "x" }, "<leader>n", function() require('oil').open() end, { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "<leader>fh", function() require('telescope.builtin').oldfiles() end,
+-- vim.keymap.set({ "n", "v", "x" }, "<leader>n",  require('oil').open    , { noremap = true, silent = true })
+vim.keymap.set({ "n", "v", "x" }, "<leader>n", ":NvimTreeOpen<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n" }, "<Leader>fm", require('telescope.builtin').marks, { noremap = true, silent = true })
+vim.keymap.set({ "n" }, "<leader>j", require('telescope.builtin').buffers, { noremap = true, silent = true })
+vim.keymap.set({ "n" }, "<leader>fr", require('telescope.builtin').builtin, { noremap = true, silent = true })
+vim.keymap.set({ "n" }, "<leader>fh", require('telescope.builtin').oldfiles, { noremap = true, silent = true })
+vim.keymap.set({ "n" }, "<leader>fl", require('telescope.builtin').live_grep, { noremap = true, silent = true })
+vim.keymap.set({ "n" }, "<leader>ff", require('telescope.builtin').find_files, { noremap = true, silent = true })
+vim.keymap.set({ "n" }, "<Leader>fs", require('telescope.builtin').colorscheme, { noremap = true, silent = true })
+vim.keymap.set({ "n" }, "<leader>fp", require('Miku-vim.utils.telescope_tools').zoxide, { noremap = true, silent = true })
+vim.keymap.set({ "n" }, "<leader>fw", require('telescope.builtin').current_buffer_fuzzy_find,
         { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "<leader>ff", function() require('telescope.builtin').find_files() end,
-        { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "<leader>fw", function() require('telescope.builtin').current_buffer_fuzzy_find() end,
-        { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "<leader>fl", function() require('telescope.builtin').live_grep() end,
-        { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "<Leader>fs", function() require('telescope.builtin').colorscheme() end,
-        { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "<Leader>fm", function() require('telescope.builtin').marks() end,
-        { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "<leader>j", function() require('telescope.builtin').buffers() end,
-        { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "<leader>fr", function() require('telescope.builtin').builtin() end,
-        { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "<leader>fp", function() require('Miku-vim.utils.telescope_tools').zoxide() end,
-        { noremap = true, silent = true })
+
+--NOTE: user command
+vim.api.nvim_create_user_command("FormatJSON", "%!python -m json.tool", {})
+vim.api.nvim_create_user_command("Git", "lua require('Miku-vim.utils.modules').lazygit  ", {})
+vim.api.nvim_create_user_command("BufferPwd", "lua require('Miku-vim.utils.modules').BufferPwd  ", {})
+
+
+
+
+
+
+
+
 
 -- Terminal window navigation
 -- { { "t", }, "<C-h>",  "<C-\\><C-N><C-w>h", opts },
 -- { { "t", }, "<C-j>",  "<C-\\><C-N><C-w>j", opts },
 -- { { "t", }, "<C-k>",  "<C-\\><C-N><C-w>k", opts },
 -- { { "t", }, "<C-l>",  "<C-\\><C-N><C-w>l", opts },
-
---NOTE: user command
-vim.api.nvim_create_user_command("FormatJSON", "%!python -m json.tool", {})
-vim.api.nvim_create_user_command("Git", "lua require('Miku-vim.utils.modules').lazygit()", {})
-vim.api.nvim_create_user_command("BufferPwd", "lua require('Miku-vim.utils.modules').BufferPwd()", {})
