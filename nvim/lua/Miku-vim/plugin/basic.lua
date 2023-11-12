@@ -113,6 +113,9 @@ M[#M + 1] = {
                                 },
                         }
                 },
+                filters = {
+                        dotfiles = true,
+                },
         },
 }
 
