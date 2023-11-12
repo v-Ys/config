@@ -58,11 +58,6 @@ local keybinds = {
                 action = act { ActivateTab = 4 },
         },
         {
-                key    = 'f',
-                mods   = 'SUPER',
-                action = act { Search = { CaseSensitiveString = "" } }
-        },
-        {
                 key    = 'v',
                 mods   = 'CTRL|ALT',
                 action = act.SplitPane {
@@ -72,7 +67,7 @@ local keybinds = {
         },
         {
                 key    = 'w',
-                mods   = 'CTRL|ALT',
+                mods   = 'ALT',
                 action = act.ActivatePaneDirection 'Next',
         },
         {
