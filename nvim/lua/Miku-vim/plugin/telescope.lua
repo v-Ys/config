@@ -146,10 +146,12 @@ local config = function()
                                 mappings = {
                                         i = {
                                                 ["<c-t>"] = trouble.open_with_trouble,
+                                                ["<c-d>"] = "delete_buffer",
                                         },
                                         n = {
                                                 ["<c-t>"] = trouble.open_with_trouble,
                                                 ["d"] = "delete_buffer",
+                                                ["<c-d>"] = "delete_buffer",
                                         },
                                 },
                                 path_display = { "tail" },
