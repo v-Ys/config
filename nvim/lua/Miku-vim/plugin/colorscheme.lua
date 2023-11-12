@@ -26,7 +26,7 @@ local theme = {
 
                         "projekt0n/github-nvim-theme",
                         event = "VeryLazy",
-                }
+                },
         }
 }
 
