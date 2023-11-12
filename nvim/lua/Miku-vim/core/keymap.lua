@@ -24,15 +24,15 @@ vim.keymap.set({ 'n', 'i', 'v', 'x', }, "<C-]>", "<cmd>bd<cr>", { noremap = true
 --save file
 vim.keymap.set({ 'n', 'i', 'v', 'x', 't' }, '<A-s>', '<cmd>w<CR>', { noremap = true, silent = true })
 -- Resize with arrows
-vim.keymap.set({ "n", "v", "x", }, "<A-Up>", ":resize +2<CR>", { noremap = true, silent = true })
-vim.keymap.set({ "n", "v", "x", }, "<A-Down>", ":resize -2<CR>", { noremap = true, silent = true })
-vim.keymap.set({ "n", "v", "x", }, "<A-Left>", ":vertical resize -2<CR>", { noremap = true, silent = true })
-vim.keymap.set({ "n", "v", "x", }, "<A-Right>", ":vertical resize +2<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v", "x", }, "<A-Up>", "<cmd>resize +2<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v", "x", }, "<A-Down>", "<cmd>resize -2<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v", "x", }, "<A-Left>", "<cmd>vertical resize -2<CR>", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v", "x", }, "<A-Right>", "<cmd>vertical resize +2<CR>", { noremap = true, silent = true })
 -- Move current line / block
 vim.keymap.set({ "n" }, "<A-->", "<cmd>m .+1<CR>==", { noremap = true, silent = true })
 vim.keymap.set({ "n", }, "<A-=>", "<cmd>m .-2<CR>==", { noremap = true, silent = true })
-vim.keymap.set({ "v", }, "<A-->", ":m '>+1<cr>gv=gv", { noremap = true, silent = true })
-vim.keymap.set({ "v", }, "<A-=>", ":m '<-2<cr>gv=gv", { noremap = true, silent = true })
+vim.keymap.set({ "v", }, "<A-->", "<cmd>m '>+1<cr>gv=gv", { noremap = true, silent = true })
+vim.keymap.set({ "v", }, "<A-=>", "<cmd>m '<-2<cr>gv=gv", { noremap = true, silent = true })
 vim.keymap.set({ "n" }, "<", "<<", { noremap = true, silent = true })
 vim.keymap.set({ "n" }, ">", ">>", { noremap = true, silent = true })
 vim.keymap.set({ "v", "x", }, "<", "<gv", { noremap = true, silent = true })
@@ -57,8 +57,8 @@ vim.keymap.set({ "n" }, "<leader>m", require('Miku-vim.utils.modules').run,
 
 --NOTE: user command
 vim.api.nvim_create_user_command("FormatJSON", "%!python -m json.tool", {})
-vim.api.nvim_create_user_command("Git", "lua require('Miku-vim.utils.modules').lazygit  ", {})
-vim.api.nvim_create_user_command("BufferPwd", "lua require('Miku-vim.utils.modules').BufferPwd  ", {})
+vim.api.nvim_create_user_command("Git", "lua require('Miku-vim.utils.modules').lazygit()<CR>", {})
+vim.api.nvim_create_user_command("BufferPwd", "lua require('Miku-vim.utils.modules').BufferPwd()<CR>", {})
 
 
 
