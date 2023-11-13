@@ -83,11 +83,6 @@ local keybinds = {
 
         },
         {
-                key    = "s",
-                mods   = "SUPER",
-                action = act { SendString = "\x1bs" },
-        },
-        {
                 key = "c",
                 mods = "SUPER",
                 action = act { CopyTo = "Clipboard" },
@@ -116,6 +111,16 @@ local keybinds = {
                 key    = '0',
                 mods   = 'SUPER',
                 action = act.ResetFontSize
+        },
+        {
+                key    = "s",
+                mods   = "SUPER",
+                action = act { SendString = "\x1bs" },
+        },
+        {
+                key    = "Enter",
+                mods   = "CTRL",
+                action = act { SendString = "\x1b^" },
         },
 }
 

@@ -184,6 +184,7 @@ key_bindings:
   # Alt + |
   - { key: Slash, mods: Control, chars: "\x1f" }
   # Alt + /
+  - { key: Return, mods: Control, chars: "\e^" }
 
 #   - { key: Space,     mods: Control,   chars: "\x00"                        } # Ctrl + Space
 #   - { key: Grave,     mods: Alt,       chars: "\x1b`"                       } # Alt + `
