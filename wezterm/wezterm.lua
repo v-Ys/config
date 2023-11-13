@@ -55,8 +55,8 @@ return {
         },
         colors = {
                 compose_cursor = 'orange',
-                cursor_bg = '#52ad70',
-                cursor_fg = 'black',
+                cursor_bg = 'gray',
+                cursor_fg = 'white',
         },
         window_decorations = "RESIZE",
         -- default_prog = { '/opt/homebrew/bin/zsh', '-l' },
