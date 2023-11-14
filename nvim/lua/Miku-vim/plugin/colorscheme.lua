@@ -1,11 +1,13 @@
 return {
         {
-                "sainnhe/edge",
+
+                'maxmx03/solarized.nvim',
                 event = "VeryLazy",
         },
         {
                 "rose-pine/neovim",
-                name = 'rose-pine'
+                name = 'rose-pine',
+                event = "VeryLazy",
         },
         {
 
