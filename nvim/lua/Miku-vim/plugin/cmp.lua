@@ -82,17 +82,15 @@ return {
                                 end,
                         },
                         window = {
-                                completion = cmp.config.window.bordered(
-                                        {
-                                                border = 'single',
-                                                scrollbar = false,
-                                        }
+                                completion = {
+                                        scrollbar = false,
+                                        border = 'single',
+                                },
+                                documentation = {
+                                        scrollbar = false,
+                                        border = 'single',
+                                },
 
-                                ),
-                                documentation = cmp.config.window.bordered(
-                                        { border = 'single', }
-
-                                ),
                         },
                         formatting = {
                                 fields = { "kind", "abbr", "menu" },
@@ -148,10 +146,10 @@ return {
 
                         },
                         sources = {
-                                { name = "nvim_lsp" },
-                                { name = "luasnip" },
-                                { name = "buffer" },
-                                { name = "path" },
+                                { name = "nvim_lsp", max_item_count = 5 },
+                                { name = "luasnip",  max_item_count = 5 },
+                                { name = "buffer",   max_item_count = 5 },
+                                { name = "path",     max_item_count = 5 },
                         },
                 })
 
@@ -159,22 +157,22 @@ return {
                 cmp.setup.cmdline('/', {
                         mapping = cmp.mapping.preset.cmdline(),
                         sources = {
-                                { name = 'buffer' }
+                                { name = 'buffer', max_item_count = 5 }
                         }
                 })
                 cmp.setup.cmdline('?', {
                         mapping = cmp.mapping.preset.cmdline(),
                         sources = {
-                                { name = 'buffer' }
+                                { name = 'buffer', max_item_count = 5 }
                         }
                 })
                 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
                 cmp.setup.cmdline(':', {
                         mapping = cmp.mapping.preset.cmdline(),
                         sources = cmp.config.sources({
-                                { name = 'path' }
+                                { name = 'path', max_item_count = 7 }
                         }, {
-                                { name = 'cmdline' }
+                                { name = 'cmdline', max_item_count = 7 }
                         }),
                 })
 

@@ -21,7 +21,7 @@ require("lazy").setup({
         },
         ui = {
                 size = { width = 0.8, height = 0.8 },
-                wrap = true, -- wrap the lines in the ui
+                wrap = true,
                 border = "single",
         },
         install = {

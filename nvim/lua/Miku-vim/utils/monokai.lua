@@ -71,9 +71,14 @@ local load_syntax = function(palette)
                 NormalFloat = {
                         bg = palette.base1,
                 },
+                FloatBorder = {
+                        fg = palette.base5,
+                        bg = palette.base5,
+
+                },
                 Pmenu = {
-                        fg = palette.white,
-                        bg = palette.base3,
+                        fg = palette.base5,
+                        bg = palette.base5,
                 },
                 PmenuSel = {
                         fg = palette.base4,
@@ -104,7 +109,7 @@ local load_syntax = function(palette)
                         fg = palette.base5,
                 },
                 Visual = {
-                        bg = palette.base4,
+                        bg = palette.base5,
                 },
                 VisualNOS = {
                         bg = palette.base3,
@@ -123,7 +128,7 @@ local load_syntax = function(palette)
                 },
                 MatchParen = {
                         fg = palette.black,
-                        bg = palette.pink,
+                        bg = palette.base6,
                 },
                 Question = {
                         fg = palette.yellow,
@@ -294,7 +299,6 @@ local load_syntax = function(palette)
                 },
                 SpecialComment = {
                         fg = palette.grey,
-                        italic = true
                 },
                 Tag = {
                         fg = palette.orange,
@@ -304,7 +308,6 @@ local load_syntax = function(palette)
                 },
                 Comment = {
                         fg = palette.base6,
-                        italic = true
                 },
                 Underlined = {
                         undercurl = true,
@@ -384,7 +387,6 @@ local load_syntax = function(palette)
                 },
                 ["@comment"] = {
                         fg = palette.base6,
-                        italic = true,
                 },
                 ["@conceal"] = {
                         fg = palette.grey,
@@ -728,11 +730,12 @@ local load_syntax = function(palette)
 
                 -- Telescope
                 TelescopeBorder = {
-                        fg = palette.base7,
+                        fg = palette.base4,
+                        bg = palette.base5,
                 },
                 TelescopeNormal = {
                         fg = palette.base8,
-                        bg = palette.base0,
+                        bg = palette.base5,
                 },
                 TelescopeSelection = {
                         fg = palette.red,
@@ -745,44 +748,26 @@ local load_syntax = function(palette)
                         fg = palette.pink,
                 },
                 TelescopeMatching = {
-                        fg = palette.aqua,
+                        fg = palette.pink,
                 },
 
                 -- hrsh7th/nvim-cmp
-                CmpDocumentation = { fg = palette.white, bg = palette.base1 },
-                CmpDocumentationBorder = { fg = palette.white, bg = palette.base1 },
-
+                CmpDocumentation = { fg = palette.base5, bg = palette.base5 },
+                CmpDocumentationBorder = { fg = palette.base5, bg = palette.base5 },
                 CmpItemAbbr = { fg = palette.white },
-                CmpItemAbbrMatch = { fg = palette.aqua },
-                CmpItemAbbrMatchFuzzy = { fg = palette.aqua },
-
-                CmpItemKindDefault = { fg = palette.white },
-                CmpItemMenu = { fg = palette.base6 },
-
-                CmpItemKindKeyword = { fg = palette.pink },
-                CmpItemKindVariable = { fg = palette.pink },
-                CmpItemKindConstant = { fg = palette.pink },
-                CmpItemKindReference = { fg = palette.pink },
-                CmpItemKindValue = { fg = palette.pink },
-
-                CmpItemKindFunction = { fg = palette.aqua },
-                CmpItemKindMethod = { fg = palette.aqua },
-                CmpItemKindConstructor = { fg = palette.aqua },
-
-                CmpItemKindClass = { fg = palette.orange },
-                CmpItemKindInterface = { fg = palette.orange },
-                CmpItemKindStruct = { fg = palette.orange },
-                CmpItemKindEvent = { fg = palette.orange },
-                CmpItemKindEnum = { fg = palette.orange },
-                CmpItemKindUnit = { fg = palette.orange },
-
-                CmpItemKindModule = { fg = palette.yellow },
-
-                CmpItemKindProperty = { fg = palette.green },
-                CmpItemKindField = { fg = palette.green },
-                CmpItemKindTypeParameter = { fg = palette.green },
-                CmpItemKindEnumMember = { fg = palette.green },
-                CmpItemKindOperator = { fg = palette.green },
+                CmpItemAbbrMatch = { fg = palette.red },
+                CmpItemAbbrMatchFuzzy = { fg = palette.red },
+                CmpItemMenu = { fg = "#C792EA", bg = "NONE", },
+                -- gray
+                CmpItemAbbrDeprecated = { bg = 'NONE', strikethrough = true, fg = '#808080' },
+                CmpItemKindVariable = { bg = 'NONE', fg = '#9CDCFE' },
+                CmpItemKindInterface = { link = 'CmpItemKindVariable' },
+                CmpItemKindText = { link = 'CmpItemKindVariable' },
+                CmpItemKindFunction = { bg = 'NONE', fg = '#C586C0' },
+                CmpItemKindMethod = { link = 'CmpItemKindFunction' },
+                CmpItemKindKeyword = { bg = 'NONE', fg = '#D4D4D4' },
+                CmpItemKindProperty = { link = 'CmpItemKindKeyword' },
+                CmpItemKindUnit = { link = 'CmpItemKindKeyword' },
 
                 -- ray-x/lsp_signature.nvim
                 LspSignatureActiveParameter = { fg = palette.orange },
@@ -802,6 +787,7 @@ M.setup = function(config)
 
         api.nvim_command('hi clear')
         opt.termguicolors = true
+        opt.background = 'dark'
         g.colors_name = used_palette.name
 
         local syntax = load_syntax(used_palette)
@@ -810,5 +796,4 @@ M.setup = function(config)
         end
 end
 
--- M.setup()
 return M
