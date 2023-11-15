@@ -7,7 +7,7 @@ return {
                         ensure_installed = { "rust", "c", "cpp", "lua" },
                         sync_install = false,
                         highlight = {
-                                enable = false,
+                                enable = true,
                                 -- additional_vim_regex_highlighting = true,
                         },
                         indent = {
