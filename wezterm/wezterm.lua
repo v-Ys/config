@@ -3,7 +3,6 @@ local MyKey = require('keybinds')
 
 local theme = {
         "nord",
-        "TokyoNight (Gogh)",
         'Catppuccin Mocha',
         "OneLight (Gogh)",
 }
@@ -46,7 +45,7 @@ return {
                         },
                 },
         },
-        color_scheme = theme[4],
+        color_scheme = theme[1],
         window_padding = {
                 left = 0,
                 right = 0,
