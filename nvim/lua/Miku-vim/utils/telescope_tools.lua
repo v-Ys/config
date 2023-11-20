@@ -83,9 +83,13 @@ function M.zoxide(opts)
         local cmd = { vim.o.shell, "-c", "zoxide query -ls" }
         if opts.borderchars == nil then
                 opts.borderchars = {
-                        prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
-                        results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
-                        preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+
+                        prompt = { " ", "", "", " ", "", "", "", "" },
+                        results = { "─", "", "─", "", "", "", "", "" },
+                        preview = { "─", "", "", "", "", "", "", "" },
+                        -- prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
+                        -- results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+                        -- preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
 
                 }
         end
