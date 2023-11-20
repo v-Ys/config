@@ -1,6 +1,3 @@
-"NOTE: install vim-plug
-"curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-"    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 
 set completeopt=preview,menu                 "代码补全
@@ -35,7 +32,7 @@ set expandtab                                "自动将tab键输入转化为相�
 
 set relativenumber                           "相对行数
 
-set cursorline                               "编辑行下划线
+" set cursorline                               "编辑行下划线
 
 set linebreak                                "换行显示时不把一个单词拆开，遇到指定的符号（比如空格，连词号和其他标点符号）才换行
 
@@ -56,6 +53,8 @@ set ignorecase                               "搜索时忽略大小写
 set smartcase                                "智能搜索
 
 set autoread                                 "设置当文件被改动时自动载入
+
+set fillchars=eob:\ "                        " hide the ~ at the start of an empty line
 
 set listchars=tab:»·,trail:·                 "将tab键和多余的空格显示出来
 set list
@@ -94,42 +93,43 @@ nnoremap <Esc>s :w<CR>
 nnoremap <Esc>n :bn<CR>
 nnoremap <Esc>p :bp<CR>
 
+
 "#######################################################################
 "  Plug
 "#######################################################################
-
+"NOTE: install vim-plug
+"curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin()
 
-"UI
-Plug 'arzg/vim-colors-xcode'
+" Plug 'arzg/vim-colors-xcode'
 Plug 'mhinz/vim-startify'
 Plug 'itchyny/lightline.vim'
-"Files
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'preservim/nerdtree'
-"edit
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 
-
 call plug#end()
+
+
 
 "#######################################################################
 "  Plugconfig
 "#######################################################################
 "--vim-lightline themes----
 let g:lightline = {
-            \ 'colorscheme': 'rosepine',
+            \ 'colorscheme': 'PaperColor',
             \ }
 " \ 'colorscheme': 'PaperColor',
+" \ 'colorscheme': 'rosepine',
 
 "--theme----
-" colorscheme xcodewwdc
-" set bg=dark
-colorscheme xcodelight
-set bg=light
+"dark default slate xcodewwdc light:delek xcodelight
+colorscheme default
+set bg=light 
 
 "--Startify-----
 let g:startify_files_number = 5
@@ -168,39 +168,9 @@ nnoremap  <Leader>fm :Marks<CR>
 nnoremap  <Leader>fw :Lines<CR>
 nnoremap  <Leader>j :Buffers<CR>
 
-
-
-""""""" autocomplete pairs
-inoremap <silent>" ""<esc>:call HandlePair(0, "\"")<CR>
-inoremap <silent>' ''<esc>:call HandlePair(0, "\'")<CR>
-inoremap <silent>( ()<esc>:call HandlePair(1, "(")<CR>
-inoremap <silent>[ []<esc>:call HandlePair(1, "[")<CR>
-inoremap <silent>{ {}<esc>:call HandlePair(1, "{")<CR>
-
-
-" special handling for autocomplete pairs by yours truly
-function! HandlePair(enter, key) abort
-    " handle the next key press
-    let nextChar = nr2char(getchar())
-    if nextChar == "\<CR>" && a:enter
-        :call feedkeys("i\<CR>\<esc>O")
-    elseif nextChar == "\<tab>"
-        if col(".") == col("$") - 1
-            :call feedkeys("xa")
-        else
-            :call feedkeys("xi")
-        endif
-    elseif nextChar == ";"
-        :call feedkeys("A;")
-    elseif nextChar == "{" && a:key == "("
-        :call feedkeys("A{")
-    elseif nextChar == "\<esc>"
-    " do nothing, already in normal mode
-    else
-        :startinsert
-        :call feedkeys(nextChar)
-    endif
-endfunction
-
-
-
+" autocomplete pairs
+inoremap <silent>" ""<esc>i
+inoremap <silent>' ''<esc>i
+inoremap <silent>( ()<esc>i
+inoremap <silent>[ []<esc>i
+inoremap <silent>{ {}<esc>i
