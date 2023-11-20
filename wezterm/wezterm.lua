@@ -9,13 +9,18 @@ local theme = {
 
 return {
         disable_default_key_bindings = true,
-        font_size = 16,
+        -- iosevka 16 1 98
+        font_size = 14.9,
         cell_width = 1,
-        line_height = 0.98,
+        line_height = 1,
         font = wezterm.font_with_fallback {
                 {
+                        family = 'SF Mono',
+                        weight = 540,
+                },
+                {
                         family = 'Iosevka Nerd Font Mono',
-                        weight = 590,
+                        weight = 580,
                         italic = false,
                 },
                 {
@@ -23,29 +28,32 @@ return {
 
                 }
         },
-        font_rules = {
-                {
-                        intensity = 'Bold',
-                        italic = true,
-                        font = wezterm.font {
-                                family = 'Iosevka Nerd Font Mono',
-                                weight = 'ExtraBold',
-                                -- weight = 'Bold',
-                                style = 'Italic',
-                        },
-                },
-                {
-                        intensity = 'Bold',
-                        italic = false,
-                        font = wezterm.font {
-                                family = 'Iosevka Nerd Font Mono',
-                                weight = 'ExtraBold',
-                                -- weight = 'Bold',
-                                style = 'Normal',
-                        },
-                },
-        },
-        color_scheme = theme[1],
+        -- font_rules = {
+        --         {
+        --                 intensity = 'Bold',
+        --                 italic = true,
+        --                 font = wezterm.font {
+        --                         -- family = 'Iosevka Nerd Font Mono',
+        --                         family = 'SF Mono',
+        --                         -- weight = 'ExtraBold',
+        --                         weight = 'Bold',
+        --                         style = 'Italic',
+        --                 },
+        --         },
+        --         {
+        --                 intensity = 'Bold',
+        --                 italic = false,
+        --                 font = wezterm.font {
+        --                         -- family = 'Iosevka Nerd Font Mono',
+        --                         family = 'SF Mono',
+        --                         -- weight = 'ExtraBold',
+        --                         weight = 'Bold',
+        --                         style = 'Normal',
+        --                 },
+        --         },
+        -- },
+        color_scheme = theme[3],
+
         window_padding = {
                 left = 0,
                 right = 0,
@@ -54,8 +62,8 @@ return {
         },
         colors = {
                 compose_cursor = 'orange',
-                cursor_bg = 'gray',
-                cursor_fg = 'white',
+                cursor_bg = '#CCCCCC',
+                cursor_fg = '#000000',
         },
         window_decorations = "RESIZE",
         -- default_prog = { '/opt/homebrew/bin/zsh', '-l' },
