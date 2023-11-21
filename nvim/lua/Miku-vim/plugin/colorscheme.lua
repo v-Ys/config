@@ -10,7 +10,8 @@ return {
                         --         },
                         -- },
                 })
-                vim.cmd.colorscheme "github_light"
+                -- vim.cmd.colorscheme "github_light"
+                vim.cmd.colorscheme "darkplus"
                 -- vim.cmd.colorscheme "github_dark"
-        end,
+        end
 }
