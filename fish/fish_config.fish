@@ -29,10 +29,10 @@ if status is-interactive
         set -x FZF_DEFAULT_OPTS "--color=bg+:-1,fg+:#BE002F,gutter:-1,border:#C0C0C0 \
                                  --no-separator \
                                  --no-scrollbar \
-                                 --preview 'if test -d {}  
-                                                  exa --all --long {} 
+                                 --preview 'if test -d {}
+                                                  exa --all --long {}
                                             else  
-                                                  bat --color=always --line-range=:500 --theme=OneHalfLight {}  
+                                                  bat --color=always --line-range=:500 --theme=OneHalfLight {}
                                             end'" 
 
         set -x FZF_DEFAULT_COMMAND "fd --hidden --exclude={Applications,Library,.git,.idea,.vscode,.sass-cache,node_modules,build} --type f"

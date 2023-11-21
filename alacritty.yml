@@ -23,14 +23,13 @@ font:
   normal:
     family: Iosevka Nerd Font Mono
     # family: SFMono Nerd Font Mono
-    
+
   # bold:
   #   family: Iosevka Nerd Font Mono
   #   style: Bold
   # italic:
   #   family: Iosevka Nerd Font Mono
   #   style: Italic
-
   size: 16
   offset:
     x: 0
@@ -43,6 +42,42 @@ draw_bold_text_with_bright_colors: true
 # cursor:
 #   text: '#FFFFFF'
 #   cursor: '#808080'
+
+# colors:
+#   cursor:
+#     text: '#000000'
+#     cursor: '#CCCCCC'
+#   # Default colors
+#   primary:
+#     background: '0x22272e'
+#     foreground: '0x768390'
+#
+#   # Normal colors
+#   normal:
+#     black: '0x22272e'
+#     red: '0xff938a'
+#     green: '0x6bc46d'
+#     yellow: '0xc69026'
+#     blue: '0x6cb6ff'
+#     magenta: '0xb083f0'
+#     cyan: '0x56d4dd'
+#     white: '0x768390'
+#
+#   # Bright colors
+#   bright:
+#     black: '0x636e7b'
+#     red: '0xff938a'
+#     green: '0x6bc46d'
+#     yellow: '0xdaaa3f'
+#     blue: '0x6cb6ff'
+#     magenta: '0xdcbdfb'
+#     cyan: '0x56d4dd'
+#     white: '0x768390'
+#
+#   indexed_colors:
+#     - { index: 16, color: '0xd18616' }
+#     - { index: 17, color: '0xff938a' }
+# theme: github_dimmed
 
 colors:
   cursor:

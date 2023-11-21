@@ -52,7 +52,7 @@ return {
         --                 },
         --         },
         -- },
-        color_scheme = theme[3],
+        color_scheme = theme[2],
 
         window_padding = {
                 left = 0,
