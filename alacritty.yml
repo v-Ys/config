@@ -21,7 +21,7 @@ scrolling:
 #NOTE: Font configuration
 font:
   normal:
-    family: Iosevka Nerd Font Mono
+    family: Iosevka NFM
     # family: SFMono Nerd Font Mono
 
   # bold:

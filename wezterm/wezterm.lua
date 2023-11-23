@@ -19,7 +19,7 @@ return {
                         weight = 540,
                 },
                 {
-                        family = 'Iosevka Nerd Font Mono',
+                        family = 'Iosevka NFM',
                         weight = 580,
                         italic = false,
                 },
