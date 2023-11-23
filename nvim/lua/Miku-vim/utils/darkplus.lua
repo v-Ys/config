@@ -135,7 +135,7 @@ local theme = {
         VertSplit = { fg = c.bg, bg = c.dark },
         Visual = { bg = c.ui_blue },
         VisualNOS = { bg = c.dark },
-        WarningMsg = { fg = c.error_red, bg = c.bg },
+        WarningMsg = { fg = c.yellow, bg = c.bg },
         Whitespace = { fg = c.gray },
         WildMenu = { fg = c.dark, bg = c.blue },
         lCursor = { fg = c.cursor_fg, bg = c.cursor_bg },
