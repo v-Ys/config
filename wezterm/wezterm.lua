@@ -10,14 +10,16 @@ local theme = {
 return {
         disable_default_key_bindings = true,
         -- iosevka 16 1 98
-        font_size = 14.9,
+        -- SF Mono 14.9 1 1
+        font_size = 16,
         cell_width = 1,
-        line_height = 1,
+        line_height = 0.98,
+        harfbuzz_features = { 'calt=0' },
         font = wezterm.font_with_fallback {
-                {
-                        family = 'SF Mono',
-                        weight = 540,
-                },
+                -- {
+                --         family = 'SF Mono',
+                --         weight = 540,
+                -- },
                 {
                         family = 'Iosevka NFM',
                         weight = 580,

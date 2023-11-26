@@ -16,7 +16,7 @@ end
 local function notFullScreenApp(appName)
         local appNotFullScreen = {
                 ["Preview"] = true,
-                ["Alacritty"] = true,
+                ["WezTerm"] = true,
         }
         if appNotFullScreen[appName] ~= nil then
                 return true
