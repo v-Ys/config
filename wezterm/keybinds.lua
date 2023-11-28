@@ -120,7 +120,7 @@ local keybinds = {
         {
                 key    = "Enter",
                 mods   = "CTRL",
-                action = act { SendString = "\x1b^" },
+                action = act { SendString = "\x0A" },
         },
 }
 

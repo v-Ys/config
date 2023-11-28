@@ -186,7 +186,7 @@ return {
                         },
                 },
         },
-        config = false,
+        config = config,
         event = "VeryLazy",
 
 }

@@ -8,57 +8,59 @@
 -- operator_mode     = "o",
 -- select_mode       = "s"
 
+local set = vim.keymap.set
+local cmd = vim.api.nvim_create_user_command
 -- Better motion
-vim.keymap.set({ "n", "v", "x", "o" }, "K", "5k", { noremap = true, silent = true })
-vim.keymap.set({ "n", "v", "x", "o" }, "J", "5j", { noremap = true, silent = true })
-vim.keymap.set({ "n", "v", "x", "o" }, "H", "^", { noremap = true, silent = true })
-vim.keymap.set({ "n", "o" }, "L", "$", { noremap = true, silent = true })
-vim.keymap.set({ "v", "x" }, "L", "$h", { noremap = true, silent = true })
-vim.keymap.set({ "n", "v", "x", "o" }, ";;", "%", { noremap = true, silent = true })
-vim.keymap.set({ "n", "v", "x", "o" }, ";z", "J", { noremap = true, silent = true })
-vim.keymap.set({ "n" }, ";u", "<cmd>nohl<CR>", { noremap = true, silent = true })
+set({ "n", "v", "x", "o" }, "K", "5k", { noremap = true, silent = true })
+set({ "n", "v", "x", "o" }, "J", "5j", { noremap = true, silent = true })
+set({ "n", "v", "x", "o" }, "H", "^", { noremap = true, silent = true })
+set({ "n", "o" }, "L", "$", { noremap = true, silent = true })
+set({ "v", "x" }, "L", "$h", { noremap = true, silent = true })
+set({ "n", "v", "x", "o" }, ";;", "%", { noremap = true, silent = true })
+set({ "n", "v", "x", "o" }, ";z", "J", { noremap = true, silent = true })
+set({ "n" }, ";u", "<cmd>nohl<CR>", { noremap = true, silent = true })
 --buffers
-vim.keymap.set({ 'n', 'i', 'v', 'x', }, "<A-]>", "<cmd>bn<cr>", { noremap = true, silent = true })
-vim.keymap.set({ 'n', 'i', 'v', 'x', }, "<A-[>", "<cmd>bp<cr>", { noremap = true, silent = true })
-vim.keymap.set({ 'n', 'i', 'v', 'x', }, "<C-]>", "<cmd>bd<cr>", { noremap = true, silent = true })
+set({ 'n', 'i', 'v', 'x', }, "<A-]>", "<cmd>bn<cr>", { noremap = true, silent = true })
+set({ 'n', 'i', 'v', 'x', }, "<A-[>", "<cmd>bp<cr>", { noremap = true, silent = true })
+set({ 'n', 'i', 'v', 'x', }, "<C-]>", "<cmd>bd<cr>", { noremap = true, silent = true })
 --save file
-vim.keymap.set({ 'n', 'i', 'v', 'x', 't' }, '<A-s>', '<cmd>w<CR>', { noremap = true, silent = true })
+set({ 'n', 'i', 'v', 'x', 't' }, '<A-s>', '<cmd>w<CR>', { noremap = true, silent = true })
 -- Resize with arrows
-vim.keymap.set({ "n", "v", "x", }, "<A-Up>", "<cmd>resize +2<CR>", { noremap = true, silent = true })
-vim.keymap.set({ "n", "v", "x", }, "<A-Down>", "<cmd>resize -2<CR>", { noremap = true, silent = true })
-vim.keymap.set({ "n", "v", "x", }, "<A-Left>", "<cmd>vertical resize -2<CR>", { noremap = true, silent = true })
-vim.keymap.set({ "n", "v", "x", }, "<A-Right>", "<cmd>vertical resize +2<CR>", { noremap = true, silent = true })
+set({ "n", "v", "x", }, "<A-Up>", "<cmd>resize +2<CR>", { noremap = true, silent = true })
+set({ "n", "v", "x", }, "<A-Down>", "<cmd>resize -2<CR>", { noremap = true, silent = true })
+set({ "n", "v", "x", }, "<A-Left>", "<cmd>vertical resize -2<CR>", { noremap = true, silent = true })
+set({ "n", "v", "x", }, "<A-Right>", "<cmd>vertical resize +2<CR>", { noremap = true, silent = true })
 -- Move current line / block
-vim.keymap.set({ "n" }, "<A-->", "<cmd>m .+1<CR>==", { noremap = true, silent = true })
-vim.keymap.set({ "n", }, "<A-=>", "<cmd>m .-2<CR>==", { noremap = true, silent = true })
-vim.keymap.set({ "v", }, "<A-->", "<cmd>m '>+1<cr>gv=gv", { noremap = true, silent = true })
-vim.keymap.set({ "v", }, "<A-=>", "<cmd>m '<-2<cr>gv=gv", { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "<", "<<", { noremap = true, silent = true })
-vim.keymap.set({ "n" }, ">", ">>", { noremap = true, silent = true })
-vim.keymap.set({ "v", "x", }, "<", "<gv", { noremap = true, silent = true })
-vim.keymap.set({ "v", "x", }, ">", ">gv", { noremap = true, silent = true })
+set({ "n" }, "<A-->", "<cmd>m .+1<CR>==", { noremap = true, silent = true })
+set({ "n", }, "<A-=>", "<cmd>m .-2<CR>==", { noremap = true, silent = true })
+set({ "v", }, "<A-->", "<cmd>m '>+1<cr>gv=gv", { noremap = true, silent = true })
+set({ "v", }, "<A-=>", "<cmd>m '<-2<cr>gv=gv", { noremap = true, silent = true })
+set({ "n" }, "<", "<<", { noremap = true, silent = true })
+set({ "n" }, ">", ">>", { noremap = true, silent = true })
+set({ "v", "x", }, "<", "<gv", { noremap = true, silent = true })
+set({ "v", "x", }, ">", ">gv", { noremap = true, silent = true })
 --Plugin
-vim.keymap.set({ "n", "v", "x" }, "<leader>n", require('nvim-tree.api').tree.open, { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "<Leader>fm", require('telescope.builtin').marks, { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "<leader>j", require('telescope.builtin').buffers, { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "<leader>fr", require('telescope.builtin').builtin, { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "<leader>fh", require('telescope.builtin').oldfiles, { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "<leader>fl", require('telescope.builtin').live_grep, { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "<leader>ff", require('telescope.builtin').find_files, { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "<Leader>fs", require('telescope.builtin').colorscheme, { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "<leader>fp", require('Miku-vim.utils.telescope_tools').zoxide, { noremap = true, silent = true })
-vim.keymap.set({ "n" }, "<leader>fw", require('telescope.builtin').current_buffer_fuzzy_find,
+set({ "n", "v", "x" }, "<leader>n", require('nvim-tree.api').tree.open, { noremap = true, silent = true })
+set({ "n" }, "<Leader>fm", require('telescope.builtin').marks, { noremap = true, silent = true })
+set({ "n" }, "<leader>j", require('telescope.builtin').buffers, { noremap = true, silent = true })
+set({ "n" }, "<leader>fr", require('telescope.builtin').builtin, { noremap = true, silent = true })
+set({ "n" }, "<leader>fh", require('telescope.builtin').oldfiles, { noremap = true, silent = true })
+set({ "n" }, "<leader>fl", require('telescope.builtin').live_grep, { noremap = true, silent = true })
+set({ "n" }, "<leader>ff", require('telescope.builtin').find_files, { noremap = true, silent = true })
+set({ "n" }, "<Leader>fs", require('telescope.builtin').colorscheme, { noremap = true, silent = true })
+set({ "n" }, "<leader>fp", require('Miku-vim.utils.telescope_tools').zoxide, { noremap = true, silent = true })
+set({ "n" }, "<leader>fw", require('telescope.builtin').current_buffer_fuzzy_find,
         { noremap = true, silent = true })
 -- Terminal
-vim.keymap.set({ "t", }, "<C-\\>", "<C-\\><C-N>", { noremap = true, silent = true })
+set({ "t", }, "<C-\\>", "<C-\\><C-N>", { noremap = true, silent = true })
 -- run code
-vim.keymap.set({ "n" }, "<leader>m", require('Miku-vim.utils.modules').run,
+set({ "n" }, "<leader>m", require('Miku-vim.utils.modules').run,
         { noremap = true, silent = true })
 
 --NOTE: user command
-vim.api.nvim_create_user_command("FormatJSON", "%!python -m json.tool", {})
-vim.api.nvim_create_user_command("Git", "lua require('Miku-vim.utils.modules').lazygit()<CR>", {})
-vim.api.nvim_create_user_command("BufferPwd", "lua require('Miku-vim.utils.modules').BufferPwd()<CR>", {})
+cmd("FormatJSON", "%!python -m json.tool", {})
+cmd("Git", "lua require('Miku-vim.utils.modules').lazygit()<CR>", {})
+cmd("BufferPwd", "lua require('Miku-vim.utils.modules').BufferPwd()<CR>", {})
 
 
 

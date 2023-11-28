@@ -43,12 +43,13 @@ opt.showcmd        = true                              --显示输入命令
 opt.wildmenu       = true                              --在命令模式下，按下 tab 键可以自动补全命令
 opt.wildmode       = 'longest:list,full'
 --set fold
---opt.foldcolumn = 1 --show fold in line number
-opt.foldlevel      = 99 -- Using ufo provider need a large value, feel free to decrease the value
+opt.foldcolumn     = '0' --show fold in line number
+opt.foldlevel      = 99  -- Using ufo provider need a large value, feel free to decrease the value
 opt.foldlevelstart = 99
 opt.foldenable     = true
-opt.foldmethod     = 'expr'
-opt.foldexpr       = 'nvim_treesitter#foldexpr()'
+--fold by nvim_treesitter
+-- opt.foldmethod     = 'expr'
+-- opt.foldexpr       = 'nvim_treesitter#foldexpr()'
 
 
 vim.g.rust_recommended_style = 0
@@ -56,4 +57,44 @@ vim.filetype.add({
         pattern = {
                 [".*.typ"] = 'typst',
         },
+})
+
+
+-- diagnostic ocnfig
+local signs = {
+        { name = "DiagnosticSignError", text = "▎" },
+        { name = "DiagnosticSignWarn", text = "▎" },
+        { name = "DiagnosticSignHint", text = "▎" },
+        { name = "DiagnosticSignInfo", text = "▎" },
+        -- -   󰌕      ✎      ▎ ▏ │          
+}
+for _, sign in ipairs(signs) do
+        vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+end
+
+vim.diagnostic.config({
+        -- disable virtual text
+        virtual_text = false,
+        -- show signs
+        signs = {
+                active = signs,
+        },
+        update_in_insert = true,
+        underline = true,
+        severity_sort = true,
+        float = {
+                focusable = false,
+                style = "minimal",
+                border = "single",
+                source = "always",
+                header = "",
+                prefix = "",
+        },
+})
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+        border = "single",
+})
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+        border = "single",
 })

@@ -118,7 +118,7 @@ local theme = {
         StatusLineTerm = { fg = c.dark },
         StatusLineTermNC = { fg = c.dark },
         StorageClass = { fg = c.fg },
-        String = { fg = c.orange },
+        String = { fg = c.green },
         Structure = { fg = c.purple },
         Substitute = { fg = c.light_gray, bg = c.search_orange },
         TabLine = { fg = c.light_gray, bg = c.dark },
