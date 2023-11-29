@@ -18,7 +18,7 @@ M[#M + 1] = {
                                 val = require('Miku-vim.utils.header').c,
                                 opts = {
                                         position = "center",
-                                        -- hl = "NvimInvalid",
+                                        hl = "KeyWord",
                                         -- hl = "DashboardHeader",
                                 },
 

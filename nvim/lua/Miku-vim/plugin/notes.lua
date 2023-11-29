@@ -14,9 +14,9 @@ return {
                         vim.g.vimtex_imaps_enabled = 0
                         -- auto open quickfix on compile erros
                         vim.g.vimtex_quickfix_mode = 0
-                        -- vim.g.vimtex_view_method = 'skim'
+                        vim.g.vimtex_view_method = 'skim'
 
-                        vim.g.vimtex_view_method = "sioyek"
+                        -- vim.g.vimtex_view_method = "sioyek"
 
                         vim.g.vimtex_compiler_latexmk_engines = {
                                 _ = "-lualatex",

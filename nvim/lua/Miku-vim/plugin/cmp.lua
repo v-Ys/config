@@ -1,4 +1,4 @@
-local config = function()
+local cmp_config = function()
         local luasnip = require("luasnip")
         local cmp = require("cmp")
         local cmp_autopairs = require('nvim-autopairs.completion.cmp')
@@ -186,7 +186,7 @@ return {
                         },
                 },
         },
-        config = config,
+        config = cmp_config,
         event = "VeryLazy",
 
 }
