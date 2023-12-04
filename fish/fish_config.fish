@@ -6,6 +6,11 @@ if status is-interactive
         source ~/.config/fish/Miku_func/toggleProxy.fish
 
         #NOTE: alias
+        alias  ls="exa"
+        alias  lt="exa -T"
+        alias  ltl="exa -T -L"
+        alias  ll="exa -l"
+
         alias  nv="nvim"
         alias  c="cd"
         alias  e="exa"
@@ -15,6 +20,7 @@ if status is-interactive
         alias  el="exa -l"
         alias  ela="exa -l -a"
         alias  python="python3"
+
 
         starship init fish | source
         zoxide init fish | source

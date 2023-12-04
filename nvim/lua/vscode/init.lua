@@ -1,3 +1,3 @@
 require "vscode.lazy"
-require "vscode.option"
+require "vscode.options"
 require "vscode.keymap"

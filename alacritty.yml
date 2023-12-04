@@ -22,7 +22,7 @@ scrolling:
 font:
   normal:
     family: Iosevka NFM
-    # family: SFMono Nerd Font Mono
+    # family: GoMono Nerd Font Mono #15.9
 
   # bold:
   #   family: Iosevka Nerd Font Mono
@@ -239,3 +239,6 @@ key_bindings:
 #   - { key: Backslash, mods: Alt|Shift, chars: "\x1b|"                       } # Alt + 
 # ckslash, mods: Alt,       chars: "\x1b\\"                      } # Alt + \
 #   - { key: Backslash, mods: Alt|Shift, chars: "\x1b|"                       } # Alt + 
+
+
+#note
