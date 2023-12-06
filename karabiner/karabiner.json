@@ -120,7 +120,7 @@
                         ]
                     },
                     {
-                        "description": "Map j / ` plus Left_Control to ESC",
+                        "description": "Map '[' and '`' plus Left_Control to ESC",
                         "manipulators": [
                             {
                                 "from": {
@@ -447,7 +447,7 @@
                             },
                             "to": [
                                 {
-                                    "key_code": "right_command"
+                                    "key_code": "right_control"
                                 }
                             ]
                         }

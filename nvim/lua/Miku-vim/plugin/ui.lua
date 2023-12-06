@@ -12,7 +12,7 @@ M[#M + 1] = {
         "goolord/alpha-nvim",
         opts = {
                 layout = {
-                        { type = "padding", val = 3 },
+                        { type = "padding", val = 2 },
                         {
                                 type = "text",
                                 val = require('Miku-vim.utils.header').c,

@@ -143,7 +143,7 @@ local config = function()
                                 }
                         }),
 
-                        buffers = {
+                        buffers = theme.simple_ivy({
                                 initial_mode = "normal",
                                 theme = "dropdown",
                                 mappings = {
@@ -158,8 +158,8 @@ local config = function()
                                         },
                                 },
                                 path_display = { "tail" },
+                        }),
 
-                        },
                 },
 
 

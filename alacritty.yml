@@ -1,3 +1,7 @@
+# cursor:
+#   text: '#FFFFFF'
+#   cursor: '#808080'
+
 env:
   TERM: xterm-256color
 
@@ -15,21 +19,15 @@ window:
   class:
     instance: Alacritty
     general: Alacritty
+
 scrolling:
   history: 5000
 
-#NOTE: Font configuration
 font:
   normal:
-    family: Iosevka NFM
-    # family: GoMono Nerd Font Mono #15.9
+    # family: JetBrainsMono Nerd Font Mono
+    family: Iosevka NFM 
 
-  # bold:
-  #   family: Iosevka Nerd Font Mono
-  #   style: Bold
-  # italic:
-  #   family: Iosevka Nerd Font Mono
-  #   style: Italic
   size: 16
   offset:
     x: 0
@@ -38,9 +36,7 @@ font:
 # Thin stroke font rendering (macOS only)
 draw_bold_text_with_bright_colors: true
 
-# cursor:
-#   text: '#FFFFFF'
-#   cursor: '#808080'
+
 #NOTE: Nord
 #
 colors:
@@ -112,6 +108,7 @@ theme: Nord
 #     - { index: 16, color: '0xd18616' }
 #     - { index: 17, color: '0xcd3131' }
 # theme: github_light
+
 #NOTE: key bindings
 key_bindings:
   - { key: A, mods: Alt, chars: "\ea" }
@@ -239,6 +236,3 @@ key_bindings:
 #   - { key: Backslash, mods: Alt|Shift, chars: "\x1b|"                       } # Alt + 
 # ckslash, mods: Alt,       chars: "\x1b\\"                      } # Alt + \
 #   - { key: Backslash, mods: Alt|Shift, chars: "\x1b|"                       } # Alt + 
-
-
-#note

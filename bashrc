@@ -32,24 +32,29 @@ export all_proxy="socks5://127.0.0.1:7890"
 
 ############################################ 
 ### alias ################################## 
-alias nv="nvim" 
-alias c="cd" 
-alias e="exa" 
-alias et="exa -T" 
-alias etl="exa -T -L" 
-alias ea="exa -a" 
-alias el="exa -l" 
-alias ela="exa -l -a" 
+alias  ls="exa"
+alias  lt="exa -T"
+alias  ltl="exa -T -L"
+alias  ll="exa -l"
 
+alias  nv="nvim"
+alias  c="cd"
+alias  e="exa"
+alias  et="exa -T"
+alias  etl="exa -T -L"
+alias  ea="exa -a"
+alias  el="exa -l"
+alias  ela="exa -l -a"
+alias  python="python3"
 
 ############################################
 ### myfun ##################################
-lfcd () {
-        tmp="$(mktemp)"
-        lf -last-dir-path="$tmp" "$@"
-        if [ -f "$tmp" ]; then
-                dir="$(cat "$tmp")"
-                rm -f "$tmp"
-                [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-        fi
+function __yazicd() {
+	tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+	yazi --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
 }
+

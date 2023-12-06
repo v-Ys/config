@@ -1,5 +1,5 @@
 if status is-interactive
-        source ~/.config/fish/Miku_func/__lfcd.fish
+        source ~/.config/fish/Miku_func/__yazicd.fish
         source ~/.config/fish/Miku_func/__fzf_search_history.fish
         source ~/.config/fish/Miku_func/__fzf_search_directory.fish
         source ~/.config/fish/Miku_func/condaInit.fish
@@ -10,6 +10,7 @@ if status is-interactive
         alias  lt="exa -T"
         alias  ltl="exa -T -L"
         alias  ll="exa -l"
+        alias  zl="yazi"
 
         alias  nv="nvim"
         alias  c="cd"
@@ -29,7 +30,8 @@ if status is-interactive
         #NOTE:" Environment variable
         set -x fish_greeting "Miku! Miku!"
         set -x EDITOR "nvim"
-        set -x DBUS_SESSION_BUS_ADDRESS "unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET" #???
+        # set -x DBUS_SESSION_BUS_ADDRESS "unix:path=$DBUS_LAUNCHD_SESSION_BUS_SOCKET" #???
+
         set -x PATH /Users/Miku/.local/share/nvm/v19.6.0/bin $PATH # nvm.fish (plug) PATH
         # FZF_OPTS: bg+: bottom bar color, fg+: selected item color ,gutter: sidebar color
         set -x FZF_DEFAULT_OPTS "--color=bg+:-1,fg+:#BE002F,gutter:-1,border:#C0C0C0 \
@@ -56,7 +58,7 @@ if status is-interactive
 
         # NOTE: key binding
         function fish_user_key_bindings
-                bind -M default \co '__lfcd; and commandline -f repaint'
+                bind -M default \co '__yazicd; and commandline -f repaint'
                 bind -M default \ef '__fzf_search_directory'
                 bind -M default \cr '__fzf_search_history; and commandline -f repaint'
         end
