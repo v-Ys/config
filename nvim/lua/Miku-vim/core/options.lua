@@ -23,6 +23,10 @@ opt.swapfile       = false
 opt.errorbells     = false --关闭错误信息响铃
 opt.fileencodings  = 'utf-8'
 --
+--timeout
+opt.ttm            = 0
+opt.tm             = 0
+opt.to             = false
 
 opt.autowrite      = true                              --Enable auto write
 opt.grepprg        = 'rg --vimgrep'                    --use rg
@@ -73,9 +77,7 @@ for _, sign in ipairs(signs) do
 end
 
 vim.diagnostic.config({
-        -- disable virtual text
         virtual_text = false,
-        -- show signs
         signs = {
                 active = signs,
         },

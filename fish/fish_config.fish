@@ -13,6 +13,7 @@ if status is-interactive
         alias  zl="yazi"
 
         alias  nv="nvim"
+        alias  v="nvim"
         alias  c="cd"
         alias  e="exa"
         alias  et="exa -T"
@@ -59,7 +60,7 @@ if status is-interactive
         # NOTE: key binding
         function fish_user_key_bindings
                 bind -M default \co '__yazicd; and commandline -f repaint'
-                bind -M default \ef '__fzf_search_directory'
+                # bind -M default \ef '__fzf_search_directory'
                 bind -M default \cr '__fzf_search_history; and commandline -f repaint'
         end
 

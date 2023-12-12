@@ -59,6 +59,7 @@ local lsp_config = function()
                 if client.name == "tsserver" then
                         client.server_capabilities.document_formatting = false
                 end
+                client.server_capabilities.semanticTokensProvider = nil
                 lsp_keymaps(bufnr)
         end
         -- capabilities cmp

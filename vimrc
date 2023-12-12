@@ -1,4 +1,3 @@
-" set completeopt=preview,menu                 "代码补全
 set wildmenu                                 "在命令模式下，按下 tab 键可以自动补全命令
 set wildmode=longest:list,full
 set showcmd                                  "显示输入命令
@@ -23,7 +22,6 @@ set scrolloff=5                              "将光标位置设置为第 5 行
 set laststatus=2                             "显示状态栏（默认值为1，表示无法显示状态栏）
 set ruler                                    "在状态栏显示光标当前位置，哪一行哪一列
 set showmode                                 "左下角显示当前 vim 模式
-" set cursorline                               "编辑行下划线
 
 set fillchars=eob:\ "                        " hide the ~ at the start of an empty line
 set listchars=tab:»·,trail:·                 "将tab键和多余的空格显示出来
@@ -73,9 +71,9 @@ inoremap <silent>[ []<esc>i
 inoremap <silent>{ {}<esc>i
 
 "--theme----
-"dark default slate xcodewwdc light:delek  default
+"dark default habamax light:delek 
 set bg=dark 
-" colorscheme default
+colorscheme habamax
 
 "#######################################################################
 "  Plug
@@ -84,7 +82,6 @@ set bg=dark
 "curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 "    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin()
-Plug 'tomasiser/vim-code-dark'
 Plug 'mhinz/vim-startify'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
@@ -92,11 +89,6 @@ Plug 'tpope/vim-repeat'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 call plug#end()
-"#######################################################################
-"  Plugconfig
-"#######################################################################
-
-colorscheme codedark
 
 "--Startify-----
 let g:startify_files_number = 5
@@ -122,7 +114,6 @@ let g:startify_custom_header = [
             \'',
             \'',
             \]
-
 "--fzf----
 nnoremap  <Leader>fh :History<CR>
 nnoremap  <Leader>ff :Files<CR>
