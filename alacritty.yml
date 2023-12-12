@@ -39,10 +39,13 @@ font:
 draw_bold_text_with_bright_colors: true
 
 #NOTE: VSCode
-#
+
 colors:
   name: vscode (dark)
   author: senpai-10
+  cursor:
+    text: '#000000'
+    cursor: '#D4D4D4'
   primary:
     background: "#1E1E1E"
     foreground: "#D4D4D4"
@@ -54,18 +57,18 @@ colors:
     red: "#cd3131"
     green: "#0dbc79"
     yellow: "#e5e510"
-    blue: "#2472c8"
+    blue: "#569CD6"
     magenta: "#bc3fbc"
-    cyan: "#11a8cd"
+    cyan: "#9CDCFE"
     white: "#e5e5e5"
   bright:
     black: "#666666"
     red: "#f14c4c"
     green: "#23d18b"
     yellow: "#f5f543"
-    blue: "#3b8eea"
+    blue: "#569CD6"
     magenta: "#d670d6"
-    cyan: "#29b8db"
+    cyan: "#9CDCFE"
     white: "#e5e5e5"
 theme: vscode.dark
 
@@ -241,3 +244,6 @@ key_bindings:
 #   - { key: Backslash, mods: Alt|Shift, chars: "\x1b|"                       } # Alt + 
 # ckslash, mods: Alt,       chars: "\x1b\\"                      } # Alt + \
 #   - { key: Backslash, mods: Alt|Shift, chars: "\x1b|"                       } # Alt + 
+
+# import:
+#   - ~/.config/alacritty/themes/themes/monokai_pro.yaml
