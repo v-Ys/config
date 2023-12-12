@@ -1,4 +1,6 @@
 # cursor:
+#   text: '#000000'
+#   cursor: '#D4D4D4'
 #   text: '#FFFFFF'
 #   cursor: '#808080'
 
@@ -36,8 +38,37 @@ font:
 # Thin stroke font rendering (macOS only)
 draw_bold_text_with_bright_colors: true
 
-#NOTE: Nord
+#NOTE: VSCode
 #
+colors:
+  name: vscode (dark)
+  author: senpai-10
+  primary:
+    background: "#1E1E1E"
+    foreground: "#D4D4D4"
+  cursor:
+    text: '#000000'
+    cursor: '#D4D4D4'
+  normal:
+    black: "#000000"
+    red: "#cd3131"
+    green: "#0dbc79"
+    yellow: "#e5e510"
+    blue: "#2472c8"
+    magenta: "#bc3fbc"
+    cyan: "#11a8cd"
+    white: "#e5e5e5"
+  bright:
+    black: "#666666"
+    red: "#f14c4c"
+    green: "#23d18b"
+    yellow: "#f5f543"
+    blue: "#3b8eea"
+    magenta: "#d670d6"
+    cyan: "#29b8db"
+    white: "#e5e5e5"
+theme: vscode.dark
+
 #NOTE: github light
 #
 # colors:
@@ -186,34 +217,7 @@ key_bindings:
   - { key: Slash, mods: Control, chars: "\x1f" }
   # Alt + /
   - { key: Return, mods: Control, chars: "\n" }
-colors:
-  name: vscode (dark)
-  author: senpai-10
-  primary:
-    background: "#1E1E1E"
-    foreground: "#D4D4D4"
-  cursor:
-    text: '#000000'
-    cursor: '#D4D4D4'
-  normal:
-    black: "#000000"
-    red: "#cd3131"
-    green: "#0dbc79"
-    yellow: "#e5e510"
-    blue: "#2472c8"
-    magenta: "#bc3fbc"
-    cyan: "#11a8cd"
-    white: "#e5e5e5"
-  bright:
-    black: "#666666"
-    red: "#f14c4c"
-    green: "#23d18b"
-    yellow: "#f5f543"
-    blue: "#3b8eea"
-    magenta: "#d670d6"
-    cyan: "#29b8db"
-    white: "#e5e5e5"
-theme: vscode.dark
+
 
 #   - { key: Space,     mods: Control,   chars: "\x00"                        } # Ctrl + Space
 #   - { key: Grave,     mods: Alt,       chars: "\x1b`"                       } # Alt + `
