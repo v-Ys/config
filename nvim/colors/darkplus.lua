@@ -1,1 +1,1 @@
-require('Miku-vim.utils.darkplus').load()
+require('Miku-vim.utils.darkplus').setup()

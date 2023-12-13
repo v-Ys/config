@@ -134,7 +134,7 @@ local theme = {
         Type                     = { fg = c.blue }, --bold = false
         Typedef                  = { fg = c.purple },
         Variable                 = { fg = c.fg },
-        VertSplit                = { fg = c.bg, bg = c.dark },
+        VertSplit                = { fg = c.gray, },
         Visual                   = { bg = c.ui_blue },
         VisualNOS                = { bg = c.dark },
         WarningMsg               = { fg = c.yellow, bg = c.bg },
@@ -153,15 +153,6 @@ local theme = {
         CmpItemKind              = { fg = c.blue, bg = c.none },
         CmpItemMenu              = { fg = c.light_gray, bg = c.none },
         DashboardHeader          = { fg = c.blue },
-        -- -- Diffview
-        -- DiffViewNormal             = { fg = c.gray, bg = c.dark },
-        -- DiffviewFilePanelDeletion  = { fg = c.diff_delete },
-        -- DiffviewFilePanelInsertion = { fg = c.diff_add },
-        -- DiffviewStatusAdded        = { fg = c.diff_add },
-        -- DiffviewStatusDeleted      = { fg = c.diff_delete },
-        -- DiffviewStatusModified     = { fg = c.diff_change },
-        -- DiffviewStatusRenamed      = { fg = c.diff_change },
-        -- DiffviewVertSplit          = { bg = c.bg },
         -- Lsp
         DiagnosticFloatingError  = { fg = c.error_red },
         DiagnosticFloatingHint   = { fg = c.hint_blue },
@@ -180,16 +171,13 @@ local theme = {
         TelescopeMatching        = { fg = c.orange, },
         TelescopePromptPrefix    = { fg = c.purple },
         TelescopeSelection       = { fg = c.purple },
-        -- Treesitter
         -- Flash
         FlashLabel               = { fg = "#000000", bg = c.purple },
-        -- Indent-blankline
-        -- Whitespace                 = { fg = c.red },
 
 }
 
 
-M.load = function()
+M.setup = function()
         api.nvim_command('hi clear')
         opt.termguicolors = true
         opt.background = 'dark'
