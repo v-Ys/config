@@ -19,6 +19,7 @@ set({ "v", "x" }, "L", "$h", { noremap = true, silent = true })
 set({ "n", "v", "x", "o" }, ";;", "%", { noremap = true, silent = true })
 set({ "n", "v", "x", "o" }, ";z", "J", { noremap = true, silent = true })
 set({ "n" }, ";u", "<cmd>nohl<CR>", { noremap = true, silent = true })
+set({ "n", "v", "x", "o" }, "*", ":let @/ = expand('<cword>') | set hlsearch<cr>", { noremap = true, silent = true })
 --buffers
 set({ 'n', 'i', 'v', 'x', }, "<A-]>", "<cmd>bn<cr>", { noremap = true, silent = true })
 set({ 'n', 'i', 'v', 'x', }, "<A-[>", "<cmd>bp<cr>", { noremap = true, silent = true })

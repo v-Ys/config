@@ -55,8 +55,9 @@ local theme = {
         NonText                    = { fg = palette.base5, }, -- used for "eol", "extends" and "precedes" in listchars
         Visual                     = { bg = palette.vi_blue, },
         VisualNOS                  = { bg = palette.base3, },
-        Search                     = { fg = palette.base2, bg = palette.yellow, },
-        IncSearch                  = { fg = palette.base2, bg = palette.orange, },
+        Search                     = { fg = palette.base0, bg = palette.yellow, },
+        IncSearch                  = { fg = palette.base0, bg = palette.pink, },
+        CurSearch                  = { link = 'IncSearch' },
         CursorLineNr               = { fg = palette.orange, bg = palette.base2, },
         MatchParen                 = { fg = palette.pink, },
         Question                   = { fg = palette.yellow, },

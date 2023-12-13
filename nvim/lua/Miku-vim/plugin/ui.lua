@@ -31,7 +31,7 @@ M[#M + 1] = {
 }
 
 
---PLUG: indentline ###bug: load after colorscheme###
+--PLUG:
 M[#M + 1] = {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
