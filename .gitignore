@@ -4,4 +4,5 @@ raycast/extensions/*
 nvim/package-lock.json
 karabiner/automatic_backups
 hammerspoon/Spoons
+btop/btop.log
 
