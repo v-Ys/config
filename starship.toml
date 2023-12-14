@@ -5,6 +5,5 @@ command_timeout = 9999
     error_symbol = "[󰅂](bold red)"
      #  "[» ≡ ❯ 󰅂 󰁕  ➜  ]"  [≡](bold green)[❯](bold magenta)
 [c]
-    # disabled=true
-    commands=[[ 'clang', '--version' ] ]
+    disabled=true
 
