@@ -1,33 +1,31 @@
 --NOTE:
 local opt          = vim.opt
 
-opt.termguicolors  = true            --true color
-opt.scrolloff      = 5               --scroll 时留下五行
-opt.cursorline     = false           --编辑行下划线
-opt.wrap           = false           --no wrap
-opt.linebreak      = true            --换行显示时不把一个单词拆开，遇到指定的符号（比如空格，连词号和其他标点符号）才换行
-opt.numberwidth    = 3               --行号宽度
-opt.number         = true            --显示行号
-opt.relativenumber = true            --相对行数
-opt.signcolumn     = 'yes'           -- sign colume
-opt.list           = true            -- 显示空白的符号
-opt.fillchars      = ({ eob = ' ' }) -- hide the "~" at the start of an empty line
-opt.listchars      = ("trail:·,tab:  ")
--- opt.listchars      = ("eol:↴,tab:»·,trail:·")
-opt.showtabline    = 0 -- don't showtabline
 -- opt.laststatus     = 3 --always show statusline on the bottom
 -- opt.autochdir      = true
+-- opt.listchars      = ("eol:↴,tab:»·,trail:·")
+opt.termguicolors  = true          --true color
+opt.scrolloff      = 5             --scroll 时留下五行
+opt.cursorline     = false         --编辑行下划线
+opt.wrap           = false         --no wrap
+opt.linebreak      = true          --换行显示时不把一个单词拆开，遇到指定的符号（比如空格，连词号和其他标点符号）才换行
+opt.numberwidth    = 3             --行号宽度
+opt.number         = true          --显示行号
+opt.relativenumber = true          --相对行数
+opt.showtabline    = 0             -- don't showtabline
+opt.signcolumn     = 'yes'         -- sign colume
+opt.list           = true          -- 显示空白的符号
+opt.fillchars      = { eob = " " } -- hide the "~" at the start of an empty line
+opt.listchars      = { tab = '  ', extends = '⟩', precedes = '⟨', trail = '·' }
 --
-opt.backup         = false --禁止生成临时文件
+opt.backup         = false -- bak file
 opt.swapfile       = false
-opt.errorbells     = false --关闭错误信息响铃
-opt.fileencodings  = 'utf-8'
---
+opt.errorbells     = false -- bells
 --timeout
 opt.ttm            = 0
 opt.tm             = 0
 opt.to             = false
-
+--
 opt.autowrite      = true                              --Enable auto write
 opt.grepprg        = 'rg --vimgrep'                    --use rg
 --
@@ -64,7 +62,7 @@ vim.filetype.add({
 })
 
 
--- diagnostic ocnfig
+-- diagnostic config
 local signs = {
         { name = "DiagnosticSignError", text = "▎" },
         { name = "DiagnosticSignWarn", text = "▎" },

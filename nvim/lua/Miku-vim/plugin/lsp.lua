@@ -21,33 +21,17 @@ local function lsp_keymaps(bufnr)
         --  vim.lsp.diagnostic.show_line_diagnostics({ border = "rounded" })
         --  vim.diagnostic.setloclist()
 
-        vim.keymap.set("n", "gt", function() vim.lsp.buf.signature_help() end,
-                { noremap = true, silent = true, buffer = bufnr, desc = "signature help" })
-        vim.keymap.set("n", "gD", function() vim.lsp.buf.declaration() end,
-                { noremap = true, silent = true, buffer = bufnr })
-        vim.keymap.set("n", "gd",
-                function() require('telescope.builtin').lsp_definitions() end,
-                { noremap = true, silent = true, buffer = bufnr })
-        vim.keymap.set("n", "gl", function() vim.lsp.buf.hover() end,
-                { noremap = true, silent = true, buffer = bufnr })
-        vim.keymap.set("n", "go",
-                function() require('telescope.builtin').lsp_implementations() end,
-                { noremap = true, silent = true, buffer = bufnr })
-        vim.keymap.set("n", "gn",
-                function() require('Miku-vim.utils.modules').rename() end,
-                { noremap = true, silent = true, buffer = bufnr })
-        vim.keymap.set("n", "gr",
-                function() require('telescope.builtin').lsp_references() end,
-                { noremap = true, silent = true, buffer = bufnr })
-        vim.keymap.set("n", "ga", function() vim.diagnostic.open_float() end,
-                { noremap = true, silent = true, buffer = bufnr })
-        vim.keymap.set("n", ";p",
-                function() vim.diagnostic.goto_prev({ border = "single" }) end,
-                { noremap = true, silent = true, buffer = bufnr })
-        vim.keymap.set("n", ";n",
-                function() vim.diagnostic.goto_next({ border = "single" }) end,
-                { noremap = true, silent = true, buffer = bufnr })
-
+        local opts = { noremap = true, silent = true, buffer = bufnr, }
+        vim.keymap.set("n", "gt", vim.lsp.buf.signature_help, opts)
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+        vim.keymap.set("n", "gd", require('telescope.builtin').lsp_definitions, opts)
+        vim.keymap.set("n", "gl", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "go", require('telescope.builtin').lsp_implementations, opts)
+        vim.keymap.set("n", "gn", require('Miku-vim.utils.modules').rename, opts)
+        vim.keymap.set("n", "gr", require('telescope.builtin').lsp_references, opts)
+        vim.keymap.set("n", "ga", vim.diagnostic.open_float, opts)
+        vim.keymap.set("n", ";p", function() vim.diagnostic.goto_prev({ border = "single" }) end, opts)
+        vim.keymap.set("n", ";n", function() vim.diagnostic.goto_next({ border = "single" }) end, opts)
         vim.api.nvim_create_user_command('Format', 'lua vim.lsp.buf.format{async=true}', {})
 end
 

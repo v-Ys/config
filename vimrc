@@ -55,13 +55,15 @@ noremap L $
 noremap H ^
 noremap ;z J
 noremap ;; %
-noremap ;u :nohl<CR>
+noremap ;k :nohl<CR>
+nnoremap ;j :let @/ = '<c-r><c-w>' \| set hlsearch<cr>
 
 nnoremap <c-]> :bn<CR>
 nnoremap <Esc>s :w<CR>
 nnoremap <Esc>n :bn<CR>
 nnoremap <Esc>p :bp<CR>
 nnoremap <leader>n :Ntree<CR>
+
 
 " autocomplete pairs
 inoremap <silent>" ""<esc>i

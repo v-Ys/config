@@ -186,7 +186,7 @@ return {
                         },
                 },
         },
-        config = false,
+        config = cmp_config,
         event = "VeryLazy",
 
 }

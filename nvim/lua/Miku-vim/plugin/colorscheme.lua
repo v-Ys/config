@@ -11,8 +11,8 @@ return {
                         },
                 })
                 -- vim.cmd.colorscheme "github_light"
-                -- vim.cmd.colorscheme "github_dark"
-                vim.cmd.colorscheme "darkplus"
+                vim.cmd.colorscheme "github_dark"
+                -- vim.cmd.colorscheme "darkplus"
                 -- vim.cmd.colorscheme "monokai"
         end
 
