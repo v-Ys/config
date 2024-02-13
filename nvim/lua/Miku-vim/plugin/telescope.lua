@@ -51,7 +51,7 @@ local config = function()
                                 vertical = {
                                         mirror = false,
                                 },
-                                width = 0.87,
+                                -- width = 0.87,
                                 height = 0.80,
                                 preview_cutoff = 120,
                         },
@@ -66,7 +66,7 @@ local config = function()
                 },
 
                 pickers = {
-                        oldfiles = theme.single_dropdown({
+                        oldfiles = theme.simple_ivy({
                                 previewer = false,
                                 mappings = {
                                         i = {
@@ -78,7 +78,8 @@ local config = function()
                                 }
                         }),
 
-                        find_files = theme.single_dropdown({
+                        find_files = theme.simple_ivy({
+                                previewer = false,
                                 find_command = { "fd", "-H", },
                                 mappings = {
                                         i = {
@@ -91,11 +92,11 @@ local config = function()
 
                         }),
 
-                        colorscheme = theme.single_dropdown({
+                        colorscheme = theme.simple_ivy({
                                 previewer = false,
                         }),
 
-                        builtin = theme.single_dropdown({}),
+                        builtin = theme.simple_ivy({}),
 
                         lsp_references = theme.simple_ivy({
                                 mappings = {

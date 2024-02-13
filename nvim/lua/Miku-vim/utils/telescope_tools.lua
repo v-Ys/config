@@ -83,17 +83,19 @@ function M.zoxide(opts)
         local cmd = { vim.o.shell, "-c", "zoxide query -ls" }
         if opts.borderchars == nil then
                 opts.borderchars = {
-
-                        prompt = { " ", "", "", " ", "", "", "", "" },
-                        results = { "─", "", "─", "", "", "", "", "" },
-                        preview = { "─", "", "", "", "", "", "", "" },
-                        -- prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
-                        -- results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
-                        -- preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+                        prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
+                        results = { " " },
+                        preview = { "", "", "", " ", "", "", "", "" },
 
                 }
+                opts.layout_config = {
+                        height = 22,
+                        preview_width = 0.60,
+                }
+                opts.results_title = ""
+                opts.preview_title = ""
         end
-        local theme = require('telescope.themes').get_dropdown(opts)
+        local theme = require('telescope.themes').get_ivy(opts)
         pickers.new(theme, {
                 prompt_title = "Zoxide",
                 finder = finders.new_table {

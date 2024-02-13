@@ -5,6 +5,7 @@ local servers = {
         "pyright",
         "gopls",
         "racket_langserver",
+        "typst_lsp",
 
         -- "marksman",
         -- "hls",
@@ -43,7 +44,9 @@ local lsp_config = function()
                 if client.name == "tsserver" then
                         client.server_capabilities.document_formatting = false
                 end
-                client.server_capabilities.semanticTokensProvider = nil
+                if client.name ~= "typst_lsp" then
+                        client.server_capabilities.semanticTokensProvider = nil
+                end
                 lsp_keymaps(bufnr)
         end
         -- capabilities cmp
@@ -106,7 +109,7 @@ return {
                 event = { "BufReadPre", "BufNewFile" }
         },
         {
-                "jose-elias-alvarez/null-ls.nvim",
+                "nvimtools/none-ls.nvim",
                 config = nullls_config,
                 event = "VeryLazy",
         },

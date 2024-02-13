@@ -40,7 +40,7 @@ local left = {
         -- mode component
         {
                 function()
-                        return ''
+                        return 'MIKU'
                 end,
                 color = function()
                         -- auto change color according to neovims mode

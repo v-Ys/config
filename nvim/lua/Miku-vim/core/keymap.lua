@@ -26,7 +26,7 @@ set({ 'n', 'i', 'v', 'x', }, "<A-]>", "<cmd>bn<cr>", opts)
 set({ 'n', 'i', 'v', 'x', }, "<A-[>", "<cmd>bp<cr>", opts)
 set({ 'n', 'i', 'v', 'x', }, "<C-]>", "<cmd>bd<cr>", opts)
 --save file
-set({ 'n', 'i', 'v', 'x', 't' }, '<A-s>', '<cmd>w<CR>', opts)
+-- set({ 'n', 'i', 'v', 'x', 't' }, '<A-s>', '<cmd>w<CR>', opts)
 -- Resize with arrows
 set({ "n", "v", "x", }, "<A-Up>", "<cmd>resize +2<CR>", opts)
 set({ "n", "v", "x", }, "<A-Down>", "<cmd>resize -2<CR>", opts)
