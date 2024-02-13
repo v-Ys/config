@@ -6,21 +6,16 @@ if status is-interactive
         source ~/.config/fish/Miku_func/toggleProxy.fish
 
         #NOTE: alias
+        alias  v="nvim"
         alias  ls="exa"
+        alias  la="exa -a"
         alias  lt="exa -T"
         alias  ltl="exa -T -L"
         alias  ll="exa -l"
+        alias  lla="exa -l -a"
         alias  zl="yazi"
 
-        alias  nv="nvim"
-        alias  v="nvim"
-        alias  c="cd"
-        alias  e="exa"
-        alias  et="exa -T"
-        alias  etl="exa -T -L"
-        alias  ea="exa -a"
-        alias  el="exa -l"
-        alias  ela="exa -l -a"
+
         alias  python="python3"
 
 

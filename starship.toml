@@ -1,9 +1,7 @@
 command_timeout = 9999
 
-[character] 
-    success_symbol = "[󰅂](bold green)" 
-    error_symbol = "[󰅂](bold red)"
-     #  "[» ≡ ❯ 󰅂 󰁕  ➜  ]"  [≡](bold green)[❯](bold magenta)
-[c]
-    disabled=true
+# 󰅂  ➜  󰁕
+[character]
+success_symbol = "[󰅂](bold green)" 
+error_symbol = "[󰅂](bold red)"
 
