@@ -18,6 +18,7 @@ return {
         },
         {
 
-                "LunarVim/darkplus.nvim"
+                "LunarVim/darkplus.nvim",
+                "lunacookies/vim-colors-xcode"
         }
 }

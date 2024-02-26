@@ -22,7 +22,7 @@
     ~/.config/btop: btop
     ~/.config/wezterm: wezterm
     ~/.config/starship.toml: starship.toml
-    ~/.config/alacritty/alacritty.yml: alacritty.yml 
+    ~/.config/alacritty/alacritty.toml: alacritty.toml 
 
     ~/.clang-format: fmtstyle/clang-format
     ~/.clangd: clangd
