@@ -36,14 +36,15 @@ export all_proxy="socks5://127.0.0.1:7890"
 
 ############################################ 
 ### alias ################################## 
-alias nv="nvim" 
-alias c="cd" 
-alias e="exa" 
-alias et="exa -T" 
-alias etl="exa -T -L" 
-alias ea="exa -a" 
-alias el="exa -l" 
-alias ela="exa -l -a" 
+alias  v="nvim"
+alias  ls="exa"
+alias  la="exa -a"
+alias  lt="exa -T"
+alias  ltl="exa -T -L"
+alias  ll="exa -l"
+alias  lla="exa -l -a"
+alias  zl="yazi"
+alias  python="python3"
 
 
 ############################################

@@ -18,7 +18,6 @@
     ~/.config/fish/Miku_func: fish/functions
     ~/.config/git: git
     ~/.config/nvim: nvim
-    ~/.config/helix: helix
     ~/.config/btop: btop
     ~/.config/wezterm: wezterm
     ~/.config/starship.toml: starship.toml
