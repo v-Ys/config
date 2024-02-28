@@ -50,3 +50,70 @@ local nv = {
                 }
         }
 }
+
+local term = {
+        "akinsho/toggleterm.nvim",
+        version = "*",
+        opts = {
+                size = 20,
+                open_mapping = [[<A-m>]],
+                hide_numbers = true,
+                shade_filetypes = {},
+                shade_terminals = true,
+                shading_factor = 2,
+                start_in_insert = true,
+                insert_mappings = true,
+                persist_size = true,
+                direction = "float",
+                close_on_exit = true,
+                shell = vim.o.shell,
+                float_opts = {
+                        border = "single",
+                        winblend = 0,
+                        highlights = {
+                                border = "Normal",
+                                background = "Normal",
+                        },
+                },
+        },
+        event = "VeryLazy",
+}
+
+local runCode = {
+        c = function()
+                vim.cmd("TermExec cmd=\"cd %:p:h && clang %:t -o %:t:r && ./%:t:r && rm %:t:r\"")
+        end,
+
+        -- cpp = function()
+        --         vim.cmd("TermExec cmd=\"cd %:p:h && clang++ %:t -o %:t:r && ./%:t:r && rm %:t:r\"")
+        -- end,
+
+        --cpp 20
+        cpp = function()
+                vim.cmd(
+                        "TermExec cmd=\"cd %:p:h && clang++ -std=c++20 -fmodules %:t -o %:t:r && ./%:t:r && rm %:t:r\"")
+        end,
+
+        go = function()
+                vim.cmd(
+                        "TermExec cmd=\"cd %:p:h && go run %:t\"")
+        end,
+        python = function()
+                vim.cmd("TermExec cmd=\"cd %:p:h && python3 %:t\"")
+        end,
+
+        rust = function()
+                vim.cmd("TermExec cmd=\"cd %:p:h && cargo run\"")
+        end,
+
+        markdown = function()
+                vim.cmd("silent! !open %")
+        end,
+
+        typst = function()
+                vim.cmd("silent! !open -a Skim.app %:p:r.pdf")
+        end,
+        scheme = function()
+                vim.cmd("TermExec cmd=\"cd %:p:h && racket %:t\"")
+        end
+}

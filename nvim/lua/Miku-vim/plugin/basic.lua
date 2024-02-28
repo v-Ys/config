@@ -182,4 +182,18 @@ M[#M + 1] = {
         },
 }
 
+--PLUG: markdown table
+M[#M + 1] = {
+        "dhruvasagar/vim-table-mode",
+        ft = "markdown",
+}
+
+--PLUG: smart insert
+M[#M + 1] = {
+        "ybian/smartim",
+        config = function()
+                vim.g.smartim_default = "com.apple.keylayout.ABC"
+        end,
+        ft = { "markdown", "typst", "tex" },
+}
 return M
