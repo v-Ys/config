@@ -1,7 +1,7 @@
 local vimtex = {
         "lervag/vimtex",
         config = function()
-                vim.g.tex_flavor = "latex"         -- Default tex file format
+                vim.g.tex_flavor = "latex" -- Default tex file format
 
                 -- vim.g.vimtex_indent_bib_enabled = 0
                 -- vim.g.vimtex_indent_enabled = 0
@@ -30,4 +30,23 @@ local vimtex = {
                 end,
         },
         ft = "tex",
+}
+local lt = {
+        "ianding1/leetcode.vim",
+        config = function()
+                vim.g.leetcode_browser = "chrome"
+                vim.g.leetcode_solution_filetype = "rust"
+        end,
+        cmd = "LeetCodeList",
+}
+
+local nv = {
+        'NvChad/nvim-colorizer.lua',
+        opts = {
+                user_default_options = {
+                        RGB = true,    -- #RGB hex codes
+                        RRGGBB = true, -- #RRGGBB hex codes
+                        names = false,
+                }
+        }
 }

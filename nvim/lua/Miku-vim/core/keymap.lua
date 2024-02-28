@@ -52,6 +52,9 @@ set({ "n" }, "<leader>ff", require('telescope.builtin').find_files, opts)
 set({ "n" }, "<Leader>fs", require('telescope.builtin').colorscheme, opts)
 set({ "n" }, "<leader>fp", require('Miku-vim.utils.telescope_tools').zoxide, opts)
 set({ "n" }, "<leader>fw", require('telescope.builtin').current_buffer_fuzzy_find, opts)
+set({ "n", "v", "x", }, "f", require("flash").jump, opts)
+set({ "n", }, "tj", function() require("trouble").next({ skip_groups = true, jump = true }); end, opts)
+set({ "n", }, "tk", function() require("trouble").next({ skip_groups = true, jump = true }); end, opts)
 -- Terminal
 set({ "t", }, "<C-\\>", "<C-\\><C-N>", opts)
 -- run code
@@ -61,10 +64,6 @@ set({ "n" }, "<leader>m", require('Miku-vim.utils.modules').run, opts)
 cmd("FormatJSON", "%!python -m json.tool", {})
 cmd("Git", "lua require('Miku-vim.utils.modules').lazygit()<CR>", {})
 cmd("BufferPwd", "lua require('Miku-vim.utils.modules').BufferPwd()<CR>", {})
-
-
-
-
 
 
 
