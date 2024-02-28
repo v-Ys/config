@@ -28,6 +28,10 @@ local conditions = {
         end,
 }
 
+local function wordcount()
+        return tostring(vim.fn.wordcount().chars)
+end
+
 local left = {
 
         -- '▊'
@@ -66,7 +70,7 @@ local left = {
                                 ['!'] = colors.red,
                                 t = colors.red,
                         }
-                        return { fg = mode_color[vim.fn.mode()] }
+                        return { fg = mode_color[vim.fn.mode()], gui = 'bold' }
                 end,
                 padding = { right = 1 },
         },
@@ -84,14 +88,20 @@ local left = {
         },
         -- filesize component
         {
-                'filesize',
+                wordcount,
                 cond = conditions.buffer_not_empty,
                 color = { fg = colors.gray, gui = 'bold' }
         },
         -- location
-        { 'location', color = { fg = colors.gray, gui = 'bold' } },
+        {
+                'location',
+                color = { fg = colors.gray, gui = 'bold' }
+        },
         -- progress
-        { 'progress', color = { fg = colors.gray, gui = 'bold' } },
+        {
+                'progress',
+                color = { fg = colors.gray, gui = 'bold' }
+        },
         -- diagnostics
         {
                 'diagnostics',
@@ -129,7 +139,7 @@ local right = {
         {
                 'diff',
                 -- Is it me or the symbol for modified us really weird
-                symbols = { added = ' ', modified = ' ', removed = ' ' },
+                symbols = { added = ' ', modified = ' ', removed = ' ' },
                 diff_color = {
                         added = { fg = colors.green },
                         modified = { fg = colors.orange },
