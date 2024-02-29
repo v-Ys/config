@@ -196,4 +196,5 @@ M[#M + 1] = {
         end,
         ft = { "markdown", "typst", "tex" },
 }
+
 return M
