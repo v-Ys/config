@@ -247,4 +247,31 @@ colors:
     magenta:    "#d2a8ff"
     cyan:       "#a5d6ff"
     white:      "#b1bac4"
+
+
+# #NOTE: darkplus
+# [colors.normal]
+# black      = "#000000"
+# red        = "#CD3131"
+# green      = "#0DBC79"
+# yellow     = "#FFFF2B"
+# blue       = "#9CDCFE"
+# magenta    = "#C586C0"
+# cyan       = "#9CDCFE"
+# white      = "#E5E5E5"
+# [colors.bright]
+# black      = "#000000"
+# red        = "#F14C4C"
+# green      = "#23D18B"
+# yellow     = "#FFFF2B"
+# blue       = "#9CDCFE"
+# magenta    = "#C586C0"
+# cyan       = "#9CDCFE"
+# white=       "#E5E5E5"
+# [colors.cursor]
+# text       = "#000000"
+# cursor     = "#D4D4D4"
+# [colors.primary]
+# background = "#1E1E1E"
+# foreground = "#D4D4D4"
   theme: github_dark

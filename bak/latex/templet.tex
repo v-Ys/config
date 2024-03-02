@@ -1,0 +1,76 @@
+% !TEX program = xelatex
+\documentclass[UTF8]{ctexart}
+\usepackage{ctex}
+\usepackage{color,xcolor}
+\usepackage{listings} % code
+% \usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{subfigure}
+%
+\usepackage{fancyhdr}
+\usepackage[margin=1in]{geometry}
+% \usepackage{amsfonts,amsmath,amssymb}
+\usepackage[none]{hyphenat}
+%
+% Font
+\setCJKmainfont{Songti SC}
+\setmainfont{Adobe Garamond Pro}
+\setmonofont{SF Mono}
+% start page
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[L]{\slshape \MakeUppercase{Page header left}}
+% \fancyhead[R]{\slshape page header right}
+\fancyfoot[C]{\thepage}
+% \fancyfoot[C]{foot}
+\renewcommand{\footrulewidth}{0pt}
+%\parindent 0ex
+\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.5}
+%%%%%%%%%%%%%
+\begin{document}
+% Title
+\begin{titlepage}
+\begin{center}
+\vspace*{1cm}
+\Large{\textbf{School}}\\
+\Large{\textbf{Major}}\\
+\vfill
+\line(1,0){400}\\[1mm]
+\huge{\textbf{Tittle}}\\[3mm]
+\Large{\textbf{Subtittle}}\\[1mm]
+\line(1,0){400}\\
+%%%%
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{实验类型：}XX\\
+\emph{年级：}20XX级\\
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{实验学时：}X\\
+\emph{专业：}XX\\
+\end{flushright}
+\end{minipage}\\[3cm]
+\vfill
+\textbf{成绩：}\\
+姓名： XXX\ \  学号：20XXX\\
+指导教师：XX \\
+\today \\
+\end{center}
+\end{titlepage}
+%%%%%
+\tableofcontents
+\thispagestyle{empty}
+\clearpage
+%%%%%
+\setcounter{page}{1}
+\section{section1}
+\subsection{subsection1}
+\subsection{subsection2}
+\subsection{subsection3}
+\end{document}

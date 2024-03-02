@@ -95,20 +95,21 @@ local nullls_config = function()
 end
 
 return {
+        "neovim/nvim-lspconfig",
+        dependencies =
         {
-                "williamboman/mason.nvim",
-                opts = mason_config,
-                event = "VeryLazy",
+                "hrsh7th/cmp-nvim-lsp",
+                {
+                        "williamboman/mason.nvim",
+                        opts = mason_config,
+                },
+                {
+                        "nvimtools/none-ls.nvim",
+                        config = nullls_config,
+                        event = "VeryLazy",
+                },
+
         },
-        {
-                "neovim/nvim-lspconfig",
-                dependencies = "hrsh7th/cmp-nvim-lsp",
-                config = lsp_config,
-                event = { "BufReadPre", "BufNewFile" }
-        },
-        {
-                "nvimtools/none-ls.nvim",
-                config = nullls_config,
-                event = "VeryLazy",
-        },
+        config = lsp_config,
+        event = { "BufReadPre", "BufNewFile" }
 }

@@ -77,10 +77,19 @@ M[#M + 1] = {
                                 },
                         },
                 })
-                vim.cmd.colorscheme "github_light"
-                -- vim.cmd.colorscheme "github_dark"
-                -- vim.cmd.colorscheme "darkplus"
+                -- vim.cmd.colorscheme "github_light"
+                vim.cmd.colorscheme "github_dark"
         end
 }
-
+M[#M + 1] = {
+        "rose-pine/neovim",
+        config = function()
+                require("rose-pine").setup({
+                        styles = {
+                                italic = false,
+                        },
+                })
+        end,
+        event = "VeryLazy",
+}
 return M

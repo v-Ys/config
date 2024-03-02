@@ -19,6 +19,7 @@
     ~/.config/git: git
     ~/.config/nvim: nvim
     ~/.config/btop: btop
+    ~/.config/yazi/theme.toml: yazi/theme.toml
     ~/.config/wezterm: wezterm
     ~/.config/starship.toml: starship.toml
     ~/.config/alacritty/alacritty.toml: alacritty.toml 
