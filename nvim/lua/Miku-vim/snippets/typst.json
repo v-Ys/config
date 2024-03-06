@@ -5,7 +5,7 @@
             "\uff1bpa"
         ],
         "body": [
-            "pagebreak()"
+            "#pagebreak()"
         ],
         "luasnip": {
             "priority": 2000,

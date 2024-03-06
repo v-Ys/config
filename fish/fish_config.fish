@@ -41,9 +41,13 @@ if status is-interactive
 
         set -x FZF_DEFAULT_COMMAND "fd --hidden --exclude={Applications,Library,.git,.idea,.vscode,.sass-cache,node_modules,build} --type f"
         # clashx 
-        set -x https_proxy http://127.0.0.1:7890 
-        set -x http_proxy http://127.0.0.1:7890 
-        set -x all_proxy socks5://127.0.0.1:7890
+        # set -x https_proxy http://127.0.0.1:7890 
+        # set -x http_proxy http://127.0.0.1:7890 
+        # set -x all_proxy socks5://127.0.0.1:7890
+        # clashx 
+        set -x https_proxy http://127.0.0.1:20171 
+        set -x http_proxy http://127.0.0.1:20171 
+        set -x all_proxy socks5://127.0.0.1:20170
         # llvm
         set -x PATH /opt/homebrew/opt/llvm/bin $PATH
         set -gx LDFLAGS "-L/opt/homebrew/opt/llvm/lib"

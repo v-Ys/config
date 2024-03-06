@@ -77,8 +77,8 @@ M[#M + 1] = {
                                 },
                         },
                 })
-                -- vim.cmd.colorscheme "github_light"
-                vim.cmd.colorscheme "github_dark"
+                vim.cmd.colorscheme "github_light"
+                -- vim.cmd.colorscheme "github_dark"
         end
 }
 M[#M + 1] = {
