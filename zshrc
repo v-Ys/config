@@ -15,11 +15,13 @@ export FZF_DEFAULT_COMMAND="fd --hidden --exclude={Applications,Library,.git,.id
 export FZF_DEFAULT_OPTS="--color=bg+:-1,fg+:#BE002F,gutter:-1,border:#C0C0C0 \
         --no-separator \
         --no-scrollbar \
-        --preview 'if test -d {}  
-        exa --all --long {} 
-else  
-        bat --color=always --line-range=:500 --theme=OneHalfLight {}  
-end'" 
+        --preview 'if [ -d {} ]; then
+              eza --all --long {}
+          else
+              bat --color=always --line-range=:500 --theme=base16 {}  
+          fi'"
+
+        # bat --color=always --line-range=:500 --theme=OneHalfLight {}  
 # editor 
 export EDITOR="nvim"
 #Rust 
@@ -29,20 +31,20 @@ export PATH=/opt/homebrew/opt/llvm/bin:$PATH
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 #clash
-export https_proxy="http://127.0.0.1:7890"
-export http_proxy="http://127.0.0.1:7890"
-export all_proxy="socks5://127.0.0.1:7890"
+export https_proxy="http://127.0.0.1:20171"
+export http_proxy="http://127.0.0.1:20171"
+export all_proxy="socks5://127.0.0.1:20170"
 
 
 ############################################ 
 ### alias ################################## 
 alias  v="nvim"
-alias  ls="exa"
-alias  la="exa -a"
-alias  lt="exa -T"
-alias  ltl="exa -T -L"
-alias  ll="exa -l"
-alias  lla="exa -l -a"
+alias  ls="eza"
+alias  la="eza -a"
+alias  lt="eza -T"
+alias  ltl="eza -T -L"
+alias  ll="eza -l"
+alias  lla="eza -l -a"
 alias  zl="yazi"
 alias  python="python3"
 
@@ -63,29 +65,29 @@ bindkey -s '^o' '__yazicd\n'
 
 ############################################
 ### Added by Zinit's installer #############
-if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
-        print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-        command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
-        command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
-                print -P "%F{33} %F{34}Installation successful.%f%b" || \
-                print -P "%F{160} The clone has failed.%f%b"
-fi
-source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-# (this is currently required for annexes)
-zinit light-mode for \
-        zdharma-continuum/zinit-annex-as-monitor \
-        zdharma-continuum/zinit-annex-bin-gem-node \
-        zdharma-continuum/zinit-annex-patch-dl \
-        zdharma-continuum/zinit-annex-rust
-############################################
-### Plug ###################################
-
-autoload -Uz compinit && compinit # for fzf-tab
-zinit light Aloxaf/fzf-tab
-zinit light zsh-users/zsh-autosuggestions
-zinit light zdharma-continuum/fast-syntax-highlighting
+# if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+#         print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+#         command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+#         command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+#                 print -P "%F{33} %F{34}Installation successful.%f%b" || \
+#                 print -P "%F{160} The clone has failed.%f%b"
+# fi
+# source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+# autoload -Uz _zinit
+# (( ${+_comps} )) && _comps[zinit]=_zinit
+# # (this is currently required for annexes)
+# zinit light-mode for \
+#         zdharma-continuum/zinit-annex-as-monitor \
+#         zdharma-continuum/zinit-annex-bin-gem-node \
+#         zdharma-continuum/zinit-annex-patch-dl \
+#         zdharma-continuum/zinit-annex-rust
+# ############################################
+# ### Plug ###################################
+#
+# autoload -Uz compinit && compinit # for fzf-tab
+# zinit light Aloxaf/fzf-tab
+# zinit light zsh-users/zsh-autosuggestions
+# zinit light zdharma-continuum/fast-syntax-highlighting
 
 
 

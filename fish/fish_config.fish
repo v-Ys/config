@@ -7,12 +7,12 @@ if status is-interactive
 
         #NOTE: alias
         alias  v="nvim"
-        alias  ls="exa"
-        alias  la="exa -a"
-        alias  lt="exa -T"
-        alias  ltl="exa -T -L"
-        alias  ll="exa -l"
-        alias  lla="exa -l -a"
+        alias  ls="eza"
+        alias  la="eza -a"
+        alias  lt="eza -T"
+        alias  ltl="eza -T -L"
+        alias  ll="eza -l"
+        alias  lla="eza -l -a"
         alias  zl="yazi"
 
 
@@ -34,9 +34,9 @@ if status is-interactive
                                  --no-separator \
                                  --no-scrollbar \
                                  --preview 'if test -d {}
-                                                  exa --all --long {}
+                                                  eza --all --long {}
                                             else  
-                                                  bat --color=always --line-range=:500 --theme=OneHalfLight {}
+                                                  bat --color=always --line-range=:500 --theme=bash16 {}
                                             end'" 
 
         set -x FZF_DEFAULT_COMMAND "fd --hidden --exclude={Applications,Library,.git,.idea,.vscode,.sass-cache,node_modules,build} --type f"

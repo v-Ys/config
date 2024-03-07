@@ -6,10 +6,10 @@
 - clean: ['~', '~/.config']
 
 - link:
-    ~/.ideavimrc: ideavimrc
+    #~/.ideavimrc: ideavimrc
     ~/.fdignore: fdignore
     ~/.zshrc: zshrc
-    ~/.bashrc: bashrc
+    #~/.bashrc: bashrc
     ~/.tmux.conf: tmux.conf
     ~/.vim/vimrc: vimrc
     ~/.condarc: condarc
@@ -18,10 +18,11 @@
     ~/.config/fish/Miku_func: fish/functions
     ~/.config/git: git
     ~/.config/nvim: nvim
-    ~/.config/btop: btop
+    #~/.config/btop: btop
     ~/.config/yazi/theme.toml: yazi/theme.toml
     ~/.config/wezterm: wezterm
     ~/.config/starship.toml: starship.toml
+    ~/.config/bat/config: bat.config
     ~/.config/alacritty/alacritty.toml: alacritty.toml 
 
     ~/.clang-format: fmtstyle/clang-format

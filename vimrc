@@ -1,3 +1,5 @@
+"     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 set wildmenu                                 "在命令模式下，按下 tab 键可以自动补全命令
 set wildmode=longest:list,full
 set showcmd                                  "显示输入命令
