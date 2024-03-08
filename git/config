@@ -3,7 +3,7 @@
         name = Vv-ys
 	email = vincent.vv.mys@gmail.com 
 [core]
-	excludesfile = /Users/Miku/.config/git/gitignore
+	excludesfile = ~/.config/git/gitignore
 	editor = nvim
 [credential]
 	helper = store
