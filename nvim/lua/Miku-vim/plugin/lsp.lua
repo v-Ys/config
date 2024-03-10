@@ -4,7 +4,6 @@ local servers = {
         "lua_ls",
         "pyright",
         "gopls",
-        "racket_langserver",
         "typst_lsp",
 
         -- "marksman",
@@ -12,6 +11,7 @@ local servers = {
         -- "volar",
         -- "tsserver",
         -- "html",
+        -- "racket_langserver",
 }
 
 local function lsp_keymaps(bufnr)
@@ -111,5 +111,4 @@ return {
 
         },
         config = lsp_config,
-        event = { "BufReadPre", "BufNewFile" }
 }

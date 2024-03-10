@@ -3,10 +3,8 @@
 setopt AUTO_CD
 set -o emacs
 unsetopt BEEP
-
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-
 
 ############################################
 ### ENV ####################################
@@ -20,21 +18,16 @@ export FZF_DEFAULT_OPTS="--color=bg+:-1,fg+:#BE002F,gutter:-1,border:#C0C0C0 \
           else
               bat --color=always --line-range=:500 --theme=base16 {}  
           fi'"
-
 # editor 
 export EDITOR="nvim"
-#Rust 
-export PATH=/Users/Miku/.cargo/bin:$PATH
 #### llvm
 export PATH=/opt/homebrew/opt/llvm/bin:$PATH
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
-#clash
+# vpn
 export https_proxy="http://127.0.0.1:20171"
 export http_proxy="http://127.0.0.1:20171"
 export all_proxy="socks5://127.0.0.1:20170"
-
-
 ############################################ 
 ### alias ################################## 
 alias  v="nvim"
@@ -46,7 +39,6 @@ alias  ll="eza -l"
 alias  lla="eza -l -a"
 alias  zl="yazi"
 alias  python="python3"
-
 
 ############################################
 ### myfun ##################################

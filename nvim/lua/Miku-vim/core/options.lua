@@ -1,7 +1,6 @@
 --NOTE:
 local opt          = vim.opt
 
--- opt.laststatus     = 3 --always show statusline on the bottom
 -- opt.autochdir      = true      -- auto cd
 opt.termguicolors  = true --true color
 opt.scrolloff      = 5 --scroll 时留下五行
