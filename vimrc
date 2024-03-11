@@ -48,6 +48,8 @@ let &t_EI = "\e[2 q"
 set ttimeout
 set ttimeoutlen=1
 set ttyfast
+"fzf
+set rtp+=/opt/homebrew/opt/fzf
 
 "Keyboard Map
 let mapleader = "\<Space>"
@@ -77,20 +79,16 @@ inoremap <silent>{ {}<esc>i
 "--theme----
 "dark default habamax light:delek 
 set bg=dark 
-colorscheme habamax
+colorscheme delek
 
 "#######################################################################
 "  Plug
 "#######################################################################
-"NOTE: install vim-plug
-"curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-"    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin()
 Plug 'mhinz/vim-startify'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
