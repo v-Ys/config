@@ -1,36 +1,30 @@
+import = [ "~/.config/alacritty/themes/github_light.toml" ]
+
 [mouse]
 hide_when_typing = true
-
 [scrolling]
 history = 5000
-
 [window]
 decorations = "buttonless"
 dynamic_padding = false
 title = "Miku"
 option_as_alt = "Both"
-
 [window.class]
 general = "Alacritty"
 instance = "Alacritty"
-
 [window.padding]
 x = 0
 y = 0
-
 [window.position]
 x = 650
 y = 250
-
 [env]
 TERM = "xterm-256color"
 
 [font]
 size = 16
-
 [font.normal]
 family = "Iosevka Nerd Font Mono"
-
 [font.offset]
 x = 0
 y = 0
@@ -39,83 +33,3 @@ y = 0
 chars = "\n"
 key = "Return"
 mods = "Control"
-
-import = [ "~/.config/alacritty/themes/themes/monokai.toml" ]
-
-# #NOTE: github dark
-# [colors.bright]
-# black      = "#484f58"
-# blue       = "#79c0ff"
-# cyan       = "#a5d6ff"
-# green      = "#23D18B"
-# magenta    = "#d2a8ff"
-# red        = "#ffa198"
-# white      = "#b1bac4"
-# yellow     = "#e3b341"
-# [colors.normal]
-# black      = "#272822"
-# blue       = "#79c0ff"
-# cyan       = "#a5d6ff"
-# green      = "#0DBC79"
-# magenta    = "#d2a8ff"
-# red        = "#ff7b72"
-# white      = "#b1bac4"
-# yellow     = "#d29922"
-# [colors.primary]
-# background = "#30363d"
-# foreground = "#e6edf3"
-# [colors.cursor]
-# cursor     = "#CCCCCC"
-# text       = "#000000"
-
-#NOTE: github light
-# [colors.normal]
-# black      = "#000000"
-# red        = "#D03D3D"
-# green      = "#009966"
-# yellow     = "#E2E213"
-# blue       = "#0451A5"
-# magenta    = "#6639BA"
-# cyan       = "#0598BC"
-# white      = "#586069"
-# [colors.bright]
-# black      = "#000000"
-# red        = "#CD3131"
-# green      = "#0DBC79"
-# yellow     = "#E2E213"
-# blue       = "#0451A5"
-# magenta    = "#6639BA"
-# cyan       = "#0598BC"
-# white      = "#586069"
-# [colors.cursor]
-# text       = "#000000"
-# cursor     = "#CCCCCC"
-# [colors.primary]
-# background = "#FFFFFF"
-# foreground = "#586069"
-
-#NOTE: monokai
-# [colors.normal]
-# black      = "#272822"
-# red        = "#F92672"
-# green      = "#0DBC79"
-# yellow     = "#F5F543"
-# blue       = "#66D9EF"
-# magenta    = "#AE81FF"
-# cyan       = "#66D9EF"
-# white      = "#F8F8F2"
-# [colors.bright]
-# black      = "#272822"
-# red        = "#F92672"
-# green      = "#23D18B"
-# yellow     = "#F5F543"
-# blue       = "#66D9EF"
-# magenta    = "#AE81FF"
-# cyan       = "#66D9EF"
-# white      = "#F9F8F5"
-# [colors.primary]
-# background = "#26292C"
-# foreground = "#F8F8F0"
-# [colors.cursor]
-# text       = "#000000"
-# cursor     = "#D4D4D4"
