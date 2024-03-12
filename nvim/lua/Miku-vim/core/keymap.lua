@@ -54,7 +54,7 @@ set({ "n" }, "<leader>fp", require('Miku-vim.utils.telescope_tools').zoxide, opt
 set({ "n" }, "<leader>fw", require('telescope.builtin').current_buffer_fuzzy_find, opts)
 set({ "n", "v", "x", }, "f", require("flash").jump, opts)
 set({ "n", }, "tj", function() require("trouble").next({ skip_groups = true, jump = true }); end, opts)
-set({ "n", }, "tk", function() require("trouble").next({ skip_groups = true, jump = true }); end, opts)
+set({ "n", }, "tk", function() require("trouble").previous({ skip_groups = true, jump = true }); end, opts)
 -- Terminal
 set({ "t", }, "<C-\\>", "<C-\\><C-N>", opts)
 -- run code
