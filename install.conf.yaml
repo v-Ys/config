@@ -23,7 +23,7 @@
     ~/.config/wezterm: wezterm
     ~/.config/starship.toml: starship.toml
     ~/.config/bat/config: bat.config
-    ~/.config/alacritty/alacritty.toml: alacritty.toml 
+    ~/.config/alacritty/: alacritty
 
     ~/.clang-format: fmtstyle/clang-format
     ~/.clangd: clangd

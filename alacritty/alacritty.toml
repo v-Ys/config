@@ -40,6 +40,8 @@ chars = "\n"
 key = "Return"
 mods = "Control"
 
+import = [ "~/.config/alacritty/themes/themes/monokai.toml" ]
+
 # #NOTE: github dark
 # [colors.bright]
 # black      = "#484f58"
@@ -67,30 +69,30 @@ mods = "Control"
 # text       = "#000000"
 
 #NOTE: github light
-[colors.normal]
-black      = "#000000"
-red        = "#D03D3D"
-green      = "#009966"
-yellow     = "#E2E213"
-blue       = "#0451A5"
-magenta    = "#6639BA"
-cyan       = "#0598BC"
-white      = "#586069"
-[colors.bright]
-black      = "#000000"
-red        = "#CD3131"
-green      = "#0DBC79"
-yellow     = "#E2E213"
-blue       = "#0451A5"
-magenta    = "#6639BA"
-cyan       = "#0598BC"
-white      = "#586069"
-[colors.cursor]
-text       = "#000000"
-cursor     = "#CCCCCC"
-[colors.primary]
-background = "#FFFFFF"
-foreground = "#586069"
+# [colors.normal]
+# black      = "#000000"
+# red        = "#D03D3D"
+# green      = "#009966"
+# yellow     = "#E2E213"
+# blue       = "#0451A5"
+# magenta    = "#6639BA"
+# cyan       = "#0598BC"
+# white      = "#586069"
+# [colors.bright]
+# black      = "#000000"
+# red        = "#CD3131"
+# green      = "#0DBC79"
+# yellow     = "#E2E213"
+# blue       = "#0451A5"
+# magenta    = "#6639BA"
+# cyan       = "#0598BC"
+# white      = "#586069"
+# [colors.cursor]
+# text       = "#000000"
+# cursor     = "#CCCCCC"
+# [colors.primary]
+# background = "#FFFFFF"
+# foreground = "#586069"
 
 #NOTE: monokai
 # [colors.normal]

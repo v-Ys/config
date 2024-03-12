@@ -46,19 +46,16 @@ M[#M + 1] = {
                 exclude = {
                         filetypes = {
                                 "help",
-                                "packer",
-                                "neogitstatus",
-                                "neo-tree",
                                 "Trouble",
                                 "alpha"
                         },
                         buftypes = {
                                 "terminal",
                                 "nofile",
-                                "neo-tree"
                         }
                 }
         },
+        event = "VeryLazy",
 
 }
 
