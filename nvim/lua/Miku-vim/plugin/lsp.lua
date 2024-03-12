@@ -1,17 +1,15 @@
 local servers = {
         "clangd",
         "rust_analyzer",
-        "lua_ls",
-        "pyright",
         "gopls",
-        "typst_lsp",
+        "pyright",
+        "lua_ls",
 
-        -- "marksman",
         -- "hls",
+        -- "racket_langserver",
         -- "volar",
         -- "tsserver",
         -- "html",
-        -- "racket_langserver",
 }
 
 local function lsp_keymaps(bufnr)
@@ -44,9 +42,7 @@ local lsp_config = function()
                 if client.name == "tsserver" then
                         client.server_capabilities.document_formatting = false
                 end
-                if client.name ~= "typst_lsp" then
-                        client.server_capabilities.semanticTokensProvider = nil
-                end
+                client.server_capabilities.semanticTokensProvider = nil
                 lsp_keymaps(bufnr)
         end
         -- capabilities cmp
@@ -106,7 +102,6 @@ return {
                 {
                         "nvimtools/none-ls.nvim",
                         config = nullls_config,
-                        event = "VeryLazy",
                 },
 
         },

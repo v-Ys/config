@@ -22,6 +22,7 @@ export FZF_DEFAULT_OPTS="--color=bg+:-1,fg+:#BE002F,gutter:-1,border:#C0C0C0 \
 export EDITOR="nvim"
 #### llvm
 export PATH=/opt/homebrew/opt/llvm/bin:$PATH
+export PATH=/opt/homebrew/opt/node@20/bin:$PATH
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 # vpn
@@ -38,7 +39,6 @@ alias  ltl="eza -T -L"
 alias  ll="eza -l"
 alias  lla="eza -l -a"
 alias  zl="yazi"
-alias  python="python3"
 
 ############################################
 ### myfun ##################################
@@ -51,24 +51,12 @@ function __yazicd() {
 	rm -f -- "$tmp"
 }
 
+pyenv() {
+    if [ -z "$1" ]; then
+        echo "Error"
+        return 1
+    fi
+    source ~/.vPyEnv/"$1"/bin/activate
+}
+
 bindkey -s '^o' '__yazicd\n'
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -12,7 +12,7 @@
     #~/.bashrc: bashrc
     ~/.tmux.conf: tmux.conf
     ~/.vim/vimrc: vimrc
-    ~/.condarc: condarc
+    # ~/.condarc: condarc
 
     ~/.config/fish/config.fish: fish/fish_config.fish
     ~/.config/fish/Miku_func: fish/functions

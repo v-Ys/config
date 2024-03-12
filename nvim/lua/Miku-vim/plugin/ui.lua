@@ -59,7 +59,6 @@ M[#M + 1] = {
                         }
                 }
         },
-        event = "VeryLazy",
 
 }
 
