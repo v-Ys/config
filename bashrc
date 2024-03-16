@@ -1,50 +1,43 @@
 ############################################
 ### option #################################
-eval "$(zoxide init bash)"
-eval "$(starship init bash)"
 set bell-style none
 set -o emacs
+eval "$(zoxide init bash)"
+eval "$(starship init bash)"
 
 ############################################
 ### ENV ####################################
 # FZF 
-export FZF_DEFAULT_COMMAND="fd --hidden --exclude={Applications,Library,.git,.idea,.vscode,.sass-cache,node_modules,build} --type f"
-export FZF_DEFAULT_OPTS="--color=bg+:-1,fg+:#BE002F,gutter:-1,border:#C0C0C0 \
-        --no-separator \
-        --no-scrollbar \
-        --preview 'if test -d {}  
-        exa --all --long {} 
-else  
-        bat --color=always --line-range=:500 --theme=OneHalfLight {}  
-end'" 
+export FZF_DEFAULT_OPTS="--color=bg+:-1,fg+:#BE002F,gutter:-1,border:#C0C0C0,hl+:#0DBC79,hl:#0DBC79 
+                         --no-separator --no-scrollbar --reverse --height 40%
+                         --bind 'ctrl-y:execute-silent(echo -n {1..} | pbcopy)+abort,ctrl-r:toggle-sort'"
+export FZF_DEFAULT_COMMAND="fd --hidden"
 # editor 
 export EDITOR="nvim"
-#Rust 
-export PATH=/Users/Miku/.cargo/bin:$PATH
 #### llvm
 export PATH=/opt/homebrew/opt/llvm/bin:$PATH
+export PATH=/opt/homebrew/opt/node@20/bin:$PATH
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
-#clash
-export https_proxy="http://127.0.0.1:7890"
-export http_proxy="http://127.0.0.1:7890"
-export all_proxy="socks5://127.0.0.1:7890"
+# vpn
+export https_proxy="http://127.0.0.1:20171"
+export http_proxy="http://127.0.0.1:20171"
+export all_proxy="socks5://127.0.0.1:20170"
 
 ############################################ 
 ### alias ################################## 
 alias  v="nvim"
-alias  ls="exa"
-alias  la="exa -a"
-alias  lt="exa -T"
-alias  ltl="exa -T -L"
-alias  ll="exa -l"
-alias  lla="exa -l -a"
-alias  zl="yazi"
-alias  python="python3"
+alias  ls="eza"
+alias  la="eza -a"
+alias  lt="eza -T"
+alias  ltl="eza -T -L"
+alias  ll="eza -l"
+alias  lla="eza -l -a"
+alias  yz="yazi"
 
 ############################################
 ### myfun ##################################
-function __yazicd() {
+function yy() {
 	tmp="$(mktemp -t "yazi-cwd.XXXXX")"
 	yazi --cwd-file="$tmp"
 	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
@@ -52,4 +45,38 @@ function __yazicd() {
 	fi
 	rm -f -- "$tmp"
 }
+venv() {
+    if [ -z "$1" ]; then
+        echo "Error"
+        return 1
+    fi
+    source ~/.vPyEnv/"$1"/bin/activate
+}
+
+
+__fzf_history__() {
+    local output opts script n x y z d
+    opts="${FZF_DEFAULT_OPTS-} --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort' --reverse -n2..,.. +m --read0 "
+    [[ $(HISTTIMEFORMAT='' builtin history 1) =~ [[:digit:]]+ ]]  
+    script='function P(b) { ++n; sub(/^[ *]/, "", b); if (!seen[b]++) { printf "%d\t%s%c", '$((BASH_REMATCH + 1))' - n, b, 0 } }
+            NR==1 { b = substr($0, 2); next }
+            /^\t/ { P(b); b = substr($0, 2); next }
+            { b = b RS $0 }
+            END { if (NR) P(b) }'
+    output=$(
+        set +o pipefail
+        builtin fc -lnr -2147483648 2> /dev/null |   
+        command awk "$script"           |   
+        FZF_DEFAULT_OPTS="$opts" fzf --query "$READLINE_LINE"
+    ) || return
+    READLINE_LINE=${output#*$'\t'}
+    if [[ -z "$READLINE_POINT" ]]; then
+        echo "$READLINE_LINE"
+    else
+        READLINE_POINT=0x7fffffff
+    fi
+}
+
+bind -m emacs-standard '"\er": redraw-current-line'
+bind -m emacs-standard '"\C-r": "\C-e \C-u\C-y\ey\C-u`__fzf_history__`\e\C-e\er"'
 

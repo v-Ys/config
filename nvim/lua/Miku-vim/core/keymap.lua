@@ -61,8 +61,7 @@ set({ "t", }, "<C-\\>", "<C-\\><C-N>", opts)
 set({ "n" }, "<leader>m", require('Miku-vim.utils.modules').run, opts)
 
 --NOTE: user command
-cmd("FormatJSON", "%!python -m json.tool", {})
-cmd("Git", "lua require('Miku-vim.utils.modules').lazygit()<CR>", {})
+cmd("FormatJSON", "%!python3 -m json.tool", {})
 cmd("BufferPwd", "lua require('Miku-vim.utils.modules').BufferPwd()<CR>", {})
 
 

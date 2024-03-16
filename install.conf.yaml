@@ -6,29 +6,30 @@
 - clean: ['~', '~/.config']
 
 - link:
+    # ~/.config/fish/config.fish: fish/fish_config.fish
+    # ~/.config/fish/Miku_func: fish/functions
+    # ~/.config/pycodestyle: fmtstyle/pycodestyle
     #~/.ideavimrc: ideavimrc
-    ~/.fdignore: fdignore
-    ~/.zshrc: zshrc
-    #~/.bashrc: bashrc
-    ~/.tmux.conf: tmux.conf
-    ~/.vim/vimrc: vimrc
-    # ~/.condarc: condarc
-
-    ~/.config/fish/config.fish: fish/fish_config.fish
-    ~/.config/fish/Miku_func: fish/functions
-    ~/.config/git: git
-    ~/.config/nvim: nvim
     #~/.config/btop: btop
+    # ~/.condarc: condarc
+    #
+    ~/.bashrc: bashrc
+    ~/.config/git: git
+    ~/.tmux.conf: tmux.conf
+    ~/.config/fd/ignore: fdignore
+    ~/.config/nvim: nvim
+    ~/.config/alacritty/: alacritty
+
     ~/.config/yazi/theme.toml: yazi/theme.toml
     ~/.config/wezterm: wezterm
     ~/.config/starship.toml: starship.toml
     ~/.config/bat/config: bat.config
-    ~/.config/alacritty/: alacritty
+    ~/.vim/vimrc: vimrc
+    ~/.zshrc: zshrc
 
     ~/.clang-format: fmtstyle/clang-format
     ~/.clangd: clangd
     ~/.rustfmt.toml: fmtstyle/rustfmt.toml
-    # ~/.config/pycodestyle: fmtstyle/pycodestyle
   
     ~/.hammerspoon:  hammerspoon
     ~/.config/karabiner: karabiner

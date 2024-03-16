@@ -3,6 +3,7 @@
 /Library
 /Music
 /Movies
+/dotbot
 .git
 .idea
 .vscode
@@ -10,4 +11,4 @@
 node_modules
 build
 .DS_Store
-
+*.pdf
