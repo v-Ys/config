@@ -76,7 +76,6 @@ __fzf_history__() {
         READLINE_POINT=0x7fffffff
     fi
 }
-
 bind -m emacs-standard '"\er": redraw-current-line'
 bind -m emacs-standard '"\C-r": "\C-e \C-u\C-y\ey\C-u`__fzf_history__`\e\C-e\er"'
 

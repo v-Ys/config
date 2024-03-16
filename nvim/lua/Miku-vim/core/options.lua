@@ -28,7 +28,7 @@ opt.to             = false
 opt.autowrite      = true                              --Enable auto write
 opt.grepprg        = 'rg --vimgrep'                    --use rg
 --
-opt.shiftwidth     = 4                                 -- the number of spaces inserted for each indentation
+opt.shiftwidth     = 8                                 -- the number of spaces inserted for each indentation
 opt.tabstop        = 8                                 --一个tab键所占的列数
 opt.expandtab      = true                              --自动将tab键输入转化为相应的空格数
 opt.smartindent    = true                              --智能缩进-
@@ -55,45 +55,45 @@ opt.foldenable     = true
 
 vim.g.rust_recommended_style = 0
 vim.filetype.add({
-    pattern = {
-        [".*.typ"] = 'typst',
-    },
+        pattern = {
+                [".*.typ"] = 'typst',
+        },
 })
 
 
 -- diagnostic config
 local signs = {
-    { name = "DiagnosticSignError", text = "▎" },
-    { name = "DiagnosticSignWarn", text = "▎" },
-    { name = "DiagnosticSignHint", text = "▎" },
-    { name = "DiagnosticSignInfo", text = "▎" },
-    -- -   󰌕      ✎      ▎ ▏ │          
+        { name = "DiagnosticSignError", text = "▎" },
+        { name = "DiagnosticSignWarn", text = "▎" },
+        { name = "DiagnosticSignHint", text = "▎" },
+        { name = "DiagnosticSignInfo", text = "▎" },
+        --   󰌕      ✎   ▎ ▏ │     
 }
 for _, sign in ipairs(signs) do
-    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
+        vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 end
 
 vim.diagnostic.config({
-    virtual_text = false,
-    signs = {
-        active = signs,
-    },
-    update_in_insert = true,
-    underline = true,
-    severity_sort = true,
-    float = {
-        focusable = false,
-        style = "minimal",
-        border = "single",
-        source = "always",
-        header = "",
-        prefix = "",
-    },
+        virtual_text = false,
+        signs = {
+                active = signs,
+        },
+        update_in_insert = true,
+        underline = true,
+        severity_sort = true,
+        float = {
+                focusable = false,
+                style = "minimal",
+                border = "single",
+                source = "always",
+                header = "",
+                prefix = "",
+        },
 })
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "single",
+        border = "single",
 })
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "single",
+        border = "single",
 })

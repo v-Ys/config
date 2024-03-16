@@ -1,6 +1,6 @@
 local ts_config = function()
         require("nvim-treesitter.configs").setup({
-                ensure_installed = { "rust", "c", "cpp", "lua" },
+                ensure_installed = { "lua", "cpp", "c", "rust", "go" },
                 sync_install = false,
                 highlight = {
                         enable = true,

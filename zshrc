@@ -71,6 +71,5 @@ __fzf_history__() {
     zle reset-prompt
     return $ret
 }
-
 zle     -N            __fzf_history__
 bindkey -M emacs '^R' __fzf_history__
