@@ -1,14 +1,18 @@
 local wezterm = require 'wezterm'
 local MyKey = require('keybinds')
 
+wezterm.on("gui-startup", function(cmd)
+        local tab, pane, window = wezterm.mux.spawn_window(cmd or {
+                position = { x = 750, y = 400, },
+        })
+end)
+
 local theme = {
         "nord",
         'Catppuccin Mocha',
         "OneLight (Gogh)",
 }
-
 return {
-        disable_default_key_bindings = true,
         -- iosevka 16 1 98
         -- SF Mono 14.9 1 1
         font_size = 14.9,
@@ -30,31 +34,6 @@ return {
 
                 }
         },
-        -- font_rules = {
-        --         {
-        --                 intensity = 'Bold',
-        --                 italic = true,
-        --                 font = wezterm.font {
-        --                         -- family = 'Iosevka Nerd Font Mono',
-        --                         family = 'SF Mono',
-        --                         -- weight = 'ExtraBold',
-        --                         weight = 'Bold',
-        --                         style = 'Italic',
-        --                 },
-        --         },
-        --         {
-        --                 intensity = 'Bold',
-        --                 italic = false,
-        --                 font = wezterm.font {
-        --                         -- family = 'Iosevka Nerd Font Mono',
-        --                         family = 'SF Mono',
-        --                         -- weight = 'ExtraBold',
-        --                         weight = 'Bold',
-        --                         style = 'Normal',
-        --                 },
-        --         },
-        -- },
-        color_scheme = theme[3],
 
         window_padding = {
                 left = 0,
@@ -62,14 +41,17 @@ return {
                 top = 0,
                 bottom = 0,
         },
+        window_decorations = "RESIZE",
+        enable_tab_bar = false,
+
+        color_scheme = theme[3],
         colors = {
                 compose_cursor = 'orange',
                 cursor_bg = '#CCCCCC',
                 cursor_fg = '#000000',
         },
-        window_decorations = "RESIZE",
-        -- default_prog = { '/opt/homebrew/bin/zsh', '-l' },
+
+        disable_default_key_bindings = true,
         keys = MyKey,
 
-        enable_tab_bar = false,
 }

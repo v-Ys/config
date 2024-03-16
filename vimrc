@@ -50,6 +50,7 @@ set ttimeoutlen=1
 set ttyfast
 "fzf
 set rtp+=/opt/homebrew/opt/fzf
+let $FZF_DEFAULT_OPTS .= '  --layout=default'
 
 "Keyboard Map
 let mapleader = "\<Space>"
@@ -63,18 +64,9 @@ noremap ;k :nohl<CR>
 nnoremap ;j :let @/ = '<c-r><c-w>' \| set hlsearch<cr>
 
 nnoremap <c-]> :bn<CR>
-nnoremap <Esc>s :w<CR>
 nnoremap <Esc>n :bn<CR>
 nnoremap <Esc>p :bp<CR>
-nnoremap <leader>n :Ntree<CR>
-
-
-" autocomplete pairs
-inoremap <silent>" ""<esc>i
-inoremap <silent>' ''<esc>i
-inoremap <silent>( ()<esc>i
-inoremap <silent>[ []<esc>i
-inoremap <silent>{ {}<esc>i
+nnoremap <leader>n :NERDTree<CR>
 
 "--theme----
 "dark default habamax light:delek 
@@ -90,6 +82,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree'
 call plug#end()
 
 "--Startify-----
