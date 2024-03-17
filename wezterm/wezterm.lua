@@ -2,8 +2,8 @@ local wezterm = require 'wezterm'
 local MyKey = require('keybinds')
 
 wezterm.on("gui-startup", function(cmd)
-        local tab, pane, window = wezterm.mux.spawn_window(cmd or {
-                position = { x = 750, y = 400, },
+        wezterm.mux.spawn_window(cmd or {
+                position = { x = 750, y = 350, },
         })
 end)
 
@@ -13,6 +13,9 @@ local theme = {
         "OneLight (Gogh)",
 }
 return {
+        disable_default_key_bindings = true,
+        keys = MyKey,
+
         -- iosevka 16 1 98
         -- SF Mono 14.9 1 1
         font_size = 14.9,
@@ -44,14 +47,11 @@ return {
         window_decorations = "RESIZE",
         enable_tab_bar = false,
 
-        color_scheme = theme[3],
         colors = {
                 compose_cursor = 'orange',
                 cursor_bg = '#CCCCCC',
                 cursor_fg = '#000000',
         },
-
-        disable_default_key_bindings = true,
-        keys = MyKey,
+        color_scheme = theme[3],
 
 }
