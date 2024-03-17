@@ -117,11 +117,6 @@ local keybinds = {
                 mods   = "SUPER",
                 action = act { SendString = "\x1bs" },
         },
-        {
-                key    = "Enter",
-                mods   = "CTRL",
-                action = act { SendString = "\x0A" },
-        },
 }
 
 
