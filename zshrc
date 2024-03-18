@@ -19,9 +19,12 @@ export PATH=/opt/homebrew/opt/node@20/bin:$PATH
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 # vpn
-export https_proxy="http://127.0.0.1:20171"
-export http_proxy="http://127.0.0.1:20171"
-export all_proxy="socks5://127.0.0.1:20170"
+# export https_proxy="http://127.0.0.1:20171"
+# export http_proxy="http://127.0.0.1:20171"
+# export all_proxy="socks5://127.0.0.1:20170"
+export https_proxy=http://127.0.0.1:7897
+export http_proxy=http://127.0.0.1:7897 
+export all_proxy=socks5://127.0.0.1:7897
 
 ############################################ 
 ### alias ################################## 
