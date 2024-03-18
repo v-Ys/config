@@ -2,7 +2,7 @@ local nv = {
         'NvChad/nvim-colorizer.lua',
         opts = {
                 user_default_options = {
-                        RGB = true, -- #RGB hex codes
+                        RGB = true,    -- #RGB hex codes
                         RRGGBB = true, -- #RRGGBB hex codes
                         names = false,
                 }
@@ -138,3 +138,8 @@ local nullls_config = function()
                 },
         })
 end
+
+-- telescope theme
+-- prompt = { "─", "│", " ", "│", "┌", "┐", "│", "│" },
+-- results = { "─", "│", "─", "│", "├", "┤", "┘", "└" },
+-- preview = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
