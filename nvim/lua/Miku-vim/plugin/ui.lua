@@ -78,4 +78,7 @@ M[#M + 1] = {
                 vim.cmd.colorscheme "github_dark"
         end
 }
+M[#M + 1] = {
+        "ellisonleao/gruvbox.nvim",
+}
 return M

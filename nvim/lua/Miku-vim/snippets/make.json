@@ -1,0 +1,27 @@
+{
+    "root_dir_cmake": {
+        "prefix": "make",
+        "body": [
+            "CC = clang",
+            "CFLAGS = -Wall",
+            "TARGET = main",
+            "SRCS := $(wildcard *.c)",
+            "",
+            "all: $(TARGET)",
+            "",
+            "$(TARGET): $(SRCS)",
+            "\t@$(CC) $(CFLAGS) $^ -o $@",
+            "\t@./$@",
+            "",
+            "clean:",
+            "\trm -f $(TARGET)"
+        ],
+        "description": "basic Makefile",
+        "luasnip": {
+            "priority": 2000,
+            "autotrigger": true,
+            "wordTrig": false
+        }
+
+    }
+}

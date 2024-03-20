@@ -12,13 +12,15 @@
     #~/.ideavimrc: ideavimrc
     #~/.config/btop: btop
     # ~/.condarc: condarc
-    #
+    
     ~/.bashrc: bashrc
     ~/.config/git: git
     ~/.tmux.conf: tmux.conf
     ~/.config/fd/ignore: fdignore
     ~/.config/nvim: nvim
     ~/.config/alacritty/: alacritty
+    ~/.config/ripgreprc: ripgrep/ripgreprc
+    ~/.rgignore: ripgrep/rgignore
 
     ~/.config/yazi/theme.toml: yazi/theme.toml
     ~/.config/wezterm: wezterm

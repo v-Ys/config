@@ -13,6 +13,7 @@ export FZF_DEFAULT_OPTS="--color=bg+:-1,fg+:#BE002F,gutter:-1,border:#C0C0C0,hl+
                          --bind 'ctrl-y:execute-silent(echo -n {1..} | pbcopy)+abort,ctrl-r:toggle-sort'
                          --no-separator --no-scrollbar --reverse --height 40%"
 export FZF_DEFAULT_COMMAND="fd --hidden"
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
 #### llvm
 export PATH=/opt/homebrew/opt/llvm/bin:$PATH
 export PATH=/opt/homebrew/opt/node@20/bin:$PATH

@@ -16,6 +16,10 @@
             {
                 "language": "typst",
                 "path": "./typst.json"
+            },
+            {
+                "language": "make",
+                "path": "./make.json"
             }
         ]
     }
