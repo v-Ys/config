@@ -12,10 +12,12 @@ M[#M + 1] = {
         "goolord/alpha-nvim",
         opts = {
                 layout = {
-                        { type = "padding", val = 2 },
+
+                        --val c:2 a:9
+                        { type = "padding", val = 9 },
                         {
                                 type = "text",
-                                val = require('Miku-vim.utils.header').c,
+                                val = require('Miku-vim.utils.header').b,
                                 opts = {
                                         position = "center",
                                         hl = "KeyWord",
@@ -78,7 +80,5 @@ M[#M + 1] = {
                 vim.cmd.colorscheme "github_dark"
         end
 }
-M[#M + 1] = {
-        "ellisonleao/gruvbox.nvim",
-}
+
 return M
