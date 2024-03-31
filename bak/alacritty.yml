@@ -21,8 +21,7 @@ scrolling:
 
 font:
   normal:
-    # family: JetBrainsMono Nerd Font Mono
-    family: Iosevka NFM
+    family: IosevkaTerm Nerd Font Mono
 
   size: 16
   offset:

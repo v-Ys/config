@@ -4,6 +4,7 @@ local servers = {
         "gopls",
         "pyright",
         "lua_ls",
+        "marksman",
 
         -- "hls",
         -- "racket_langserver",
@@ -42,7 +43,7 @@ local lsp_config = function()
                 if client.name == "tsserver" then
                         client.server_capabilities.document_formatting = false
                 end
-                client.server_capabilities.semanticTokensProvider = nil
+                -- client.server_capabilities.semanticTokensProvider = nil
                 lsp_keymaps(bufnr)
         end
         -- capabilities cmp

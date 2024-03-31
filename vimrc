@@ -13,9 +13,9 @@ set ttimeout ttyfast ttimeoutlen=1
 "cursor
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
-"dark:default habamax desert,light:delek 
+"dark:default slate,light:delek 
 set bg=dark 
-colorscheme delek
+colorscheme slate
 
 let mapleader = "\<Space>"
 noremap K 5k

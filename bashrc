@@ -7,22 +7,20 @@ eval "$(starship init bash)"
 
 ############################################
 ### ENV ####################################
-# FZF 
-export FZF_DEFAULT_OPTS="--color=bg+:-1,fg+:#BE002F,gutter:-1,border:#C0C0C0,hl+:#0DBC79,hl:#0DBC79 
-                         --no-separator --no-scrollbar --reverse --height 40%
-                         --bind 'ctrl-y:execute-silent(echo -n {1..} | pbcopy)+abort,ctrl-r:toggle-sort'"
-export FZF_DEFAULT_COMMAND="fd --hidden"
-# editor 
 export EDITOR="nvim"
-#### llvm
-export PATH=/opt/homebrew/opt/llvm/bin:$PATH
-export PATH=/opt/homebrew/opt/node@20/bin:$PATH
+export FZF_DEFAULT_OPTS="--color=bg+:-1,fg+:#BE002F,gutter:-1,border:#C0C0C0,hl+:#0DBC79,hl:#0DBC79 
+                         --bind 'ctrl-y:execute-silent(echo -n {1..} | pbcopy)+abort,ctrl-r:toggle-sort'
+                         --no-separator --no-scrollbar --reverse --height 40%"
+export FZF_DEFAULT_COMMAND="fd --hidden"
+#llvm
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export PATH=/opt/homebrew/opt/llvm/bin:$PATH
+export PATH=/opt/homebrew/opt/node@20/bin:$PATH
 # vpn
-export https_proxy="http://127.0.0.1:20171"
-export http_proxy="http://127.0.0.1:20171"
-export all_proxy="socks5://127.0.0.1:20170"
+export https_proxy=http://127.0.0.1:7890
+export http_proxy=http://127.0.0.1:7890 
+export all_proxy=socks5://127.0.0.1:7890
 
 ############################################ 
 ### alias ################################## 

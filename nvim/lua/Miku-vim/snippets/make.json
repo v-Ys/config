@@ -14,7 +14,7 @@
             "\t@./$@",
             "",
             "clean:",
-            "\trm -f $(TARGET)"
+            "\t@rm -f $(TARGET)"
         ],
         "description": "basic Makefile",
         "luasnip": {
