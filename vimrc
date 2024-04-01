@@ -1,11 +1,11 @@
 syntax  on
 filetype indent on
 set hlsearch incsearch ignorecase smartcase
-set nowrap linebreak scrolloff=5 laststatus=2
-set list listchars=tab:»·,trail:· fillchars=eob:\  
+set list listchars=tab:»·,trail:· fillchars=eob:\ 
 set nocompatible wildmenu wildmode=longest:list,full
 set nobackup noswapfile noerrorbells vb t_vb=  mouse=a
 set foldmethod=manual encoding=utf-8 fileencodings=utf-8 autoread
+set splitright splitbelow nowrap linebreak scrolloff=5 laststatus=2
 set cursorline number relativenumber ruler showcmd showmode showmatch
 set autoindent smartindent copyindent expandtab tabstop=4 shiftwidth=4
 "fix delay
@@ -18,13 +18,18 @@ set bg=dark
 colorscheme slate
 
 let mapleader = "\<Space>"
-noremap K 5k
-noremap J 5j
-noremap L $
-noremap H ^
-noremap ;z J
-noremap ;; %
-noremap ;k :nohl<CR>
+nnoremap K 5k
+nnoremap J 5j
+nnoremap L $
+nnoremap H ^
+nnoremap > >>
+nnoremap < <<
+vnoremap > >gv
+vnoremap < <gv
+nnoremap ;z J
+nnoremap ;; %
+nnoremap ;; %
+nnoremap ;k :nohl<CR>
 nnoremap ;j :let @/ = '<c-r><c-w>' \| set hlsearch<cr>
 nnoremap <c-]> :bd<CR>
 nnoremap <leader>n :NTree<CR>
@@ -72,3 +77,4 @@ nnoremap  <Leader>fl :Rg<CR>
 nnoremap  <Leader>fm :Marks<CR>
 nnoremap  <Leader>fw :Lines<CR>
 nnoremap  <Leader>j :Buffers<CR>
+

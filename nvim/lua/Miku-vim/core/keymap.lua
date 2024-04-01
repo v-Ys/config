@@ -1,4 +1,4 @@
---NOTE: keymap
+--NOTE: mode
 -- insert_mode       = "i",
 -- normal_mode       = "n",
 -- term_mode         = "t",
@@ -25,8 +25,6 @@ set({ "n", "v", "x", "o" }, ";j", ":let @/ = expand('<cword>') | set hlsearch<cr
 set({ 'n', 'i', 'v', 'x', }, "<A-]>", "<cmd>bn<cr>", opts)
 set({ 'n', 'i', 'v', 'x', }, "<A-[>", "<cmd>bp<cr>", opts)
 set({ 'n', 'i', 'v', 'x', }, "<C-]>", "<cmd>bd<cr>", opts)
---save file
--- set({ 'n', 'i', 'v', 'x', 't' }, '<A-s>', '<cmd>w<CR>', opts)
 -- Resize with arrows
 set({ "n", "v", "x", }, "<A-Up>", "<cmd>resize +2<CR>", opts)
 set({ "n", "v", "x", }, "<A-Down>", "<cmd>resize -2<CR>", opts)
@@ -35,8 +33,8 @@ set({ "n", "v", "x", }, "<A-Right>", "<cmd>vertical resize +2<CR>", opts)
 -- Move  line / code block
 set({ "n" }, "<A-->", "<cmd>m .+1<CR>==", opts)
 set({ "n", }, "<A-=>", "<cmd>m .-2<CR>==", opts)
-set({ "v", }, "<A-->", "<cmd>m '>+1<cr>gv=gv", opts)
-set({ "v", }, "<A-=>", "<cmd>m '<-2<cr>gv=gv", opts)
+set({ "v", }, "<A-->", ":m '>+1<cr>gv=gv", opts)
+set({ "v", }, "<A-=>", ":m '<-2<cr>gv=gv", opts)
 set({ "n" }, "<", "<<", opts)
 set({ "n" }, ">", ">>", opts)
 set({ "v", "x", }, "<", "<gv", opts)
@@ -63,8 +61,6 @@ set({ "n" }, "<leader>m", require('Miku-vim.utils.modules').run, opts)
 --NOTE: user command
 cmd("FormatJSON", "%!python3 -m json.tool", {})
 cmd("BufferPwd", "lua require('Miku-vim.utils.modules').BufferPwd()<CR>", {})
-
-
 
 -- Terminal window navigation
 -- { { "t", }, "<C-h>",  "<C-\\><C-N><C-w>h", opts },

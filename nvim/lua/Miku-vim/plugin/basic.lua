@@ -118,8 +118,7 @@ M[#M + 1] = {
 }
 
 --PLUG: todo
-M[#M + 1] =
-{
+M[#M + 1] = {
         "folke/todo-comments.nvim",
         opts = {
                 keywords = {
@@ -140,7 +139,7 @@ M[#M + 1] =
 }
 --PLUG: deffview
 M[#M + 1] = {
-        'sindrets/diffview.nvim',
+        "sindrets/diffview.nvim",
         dependencies = 'nvim-lua/plenary.nvim',
         cmd = "DiffviewOpen",
 }
@@ -196,7 +195,7 @@ M[#M + 1] = {
 }
 
 M[#M + 1] = {
-        'NvChad/nvim-colorizer.lua',
+        "NvChad/nvim-colorizer.lua",
         opts = {
                 user_default_options = {
                         RGB = true,    -- #RGB hex codes
@@ -205,4 +204,5 @@ M[#M + 1] = {
                 }
         }
 }
+
 return M

@@ -2,14 +2,13 @@ local M = {}
 
 
 --PLUG: icons
-M[#M + 1] = {
-
-        "nvim-tree/nvim-web-devicons"
+M[#M+1] = {
+    "nvim-tree/nvim-web-devicons"
 }
 
 --PLUG: alpha
-M[#M + 1] = {
-        "goolord/alpha-nvim",
+M[#M+1] = {
+"goolord/alpha-nvim",
         opts = {
                 layout = {
 
@@ -34,8 +33,8 @@ M[#M + 1] = {
 
 
 --PLUG:
-M[#M + 1] = {
-        "lukas-reineke/indent-blankline.nvim",
+M[#M+1] = {
+"lukas-reineke/indent-blankline.nvim",
         main = "ibl",
         opts = {
                 scope = {
@@ -63,8 +62,8 @@ M[#M + 1] = {
 
 --PLUG:
 
-M[#M + 1] = {
-        "projekt0n/github-nvim-theme",
+M[#M+1] = {
+"projekt0n/github-nvim-theme",
         config = function()
                 require('github-theme').setup({
                         groups = {

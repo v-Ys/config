@@ -15,6 +15,8 @@ opt.signcolumn               = 'yes' -- sign colume
 opt.list                     = true -- 显示空白的符号
 opt.fillchars                = { eob = " " } -- hide  "~"
 opt.listchars                = { tab = '  ', extends = '⟩', precedes = '⟨', trail = '·' } --("eol:↴,tab:»·,trail:·")
+opt.splitright               = true
+opt.splitbelow               = true
 
 --
 opt.backup                   = false -- bak file
@@ -25,27 +27,27 @@ opt.ttm                      = 0
 opt.tm                       = 0
 opt.to                       = false
 --
-opt.autowrite                = true                    --Enable auto write
-opt.grepprg                  = 'rg --vimgrep'          --use rg
+opt.autowrite                = true                              --Enable auto write
+opt.grepprg                  = 'rg --vimgrep'                    --use rg
 --
-opt.shiftwidth               = 8                       -- the number of spaces inserted for each indentation
-opt.tabstop                  = 8                       --一个tab键所占的列数
-opt.expandtab                = true                    --自动将tab键输入转化为相应的空格数
-opt.smartindent              = true                    --智能缩进-
-opt.autoindent               = true                    --回车后下一行自动缩进
-opt.copyindent               = true                    --复制粘贴时保留原有的缩进
+opt.shiftwidth               = 8                                 -- the number of spaces inserted for each indentation
+opt.tabstop                  = 8                                 --一个tab键所占的列数
+opt.expandtab                = true                              --自动将tab键输入转化为相应的空格数
+opt.smartindent              = true                              --智能缩进-
+opt.autoindent               = true                              --回车后下一行自动缩进
+opt.copyindent               = true                              --复制粘贴时保留原有的缩进
 --
-opt.ignorecase               = true                    --搜索时忽略大小写
-opt.hlsearch                 = true                    --高亮显示搜索的匹配结果，输入结束时才显示
-opt.incsearch                = false                   --高亮显示搜索的匹配过程，每输入一个字符，就自动跳到第一个匹配的结果：
-opt.smartcase                = true                    --智能搜索
+opt.ignorecase               = true                              --搜索时忽略大小写
+opt.hlsearch                 = true                              --高亮显示搜索的匹配结果，输入结束时才显示
+opt.incsearch                = false                             --高亮显示搜索的匹配过程，每输入一个字符，就自动跳到第一个匹配的结果：
+opt.smartcase                = true                              --智能搜索
 opt.completeopt              = { 'menu', 'menuone', 'noselect' } --for cmp
-opt.showcmd                  = true                    --显示输入命令
-opt.wildmenu                 = true                    --在命令模式下，按下 tab 键可以自动补全命令
+opt.showcmd                  = true                              --显示输入命令
+opt.wildmenu                 = true                              --在命令模式下，按下 tab 键可以自动补全命令
 opt.wildmode                 = 'longest:list,full'
 --set fold
 opt.foldcolumn               = '0' --show fold in line number
-opt.foldlevel                = 99 -- Using ufo provider need a large value, feel free to decrease the value
+opt.foldlevel                = 99  -- Using ufo provider need a large value, feel free to decrease the value
 opt.foldlevelstart           = 99
 opt.foldenable               = true
 
