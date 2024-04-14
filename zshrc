@@ -23,6 +23,9 @@ export PATH=/opt/homebrew/opt/node@20/bin:$PATH
 export https_proxy=http://127.0.0.1:7890
 export http_proxy=http://127.0.0.1:7890 
 export all_proxy=socks5://127.0.0.1:7890
+# go path
+export GOPATH=$HOME/.go
+export GO111MODULE=on
 
 ############################################ 
 ### alias ################################## 

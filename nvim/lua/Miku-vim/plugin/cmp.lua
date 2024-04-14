@@ -8,7 +8,7 @@ local cmp_config = function()
                 enable_autosnippets = true
         })
         require("luasnip/loaders/from_vscode").lazy_load({
-                include = { "python", "rust", "cpp", "c", "lua", "racket", }
+                include = { "lua", "cpp", "c", "rust", "go", "python", "typescriptreact" }
         })
         require("luasnip.loaders.from_vscode").lazy_load({
                 paths = {
@@ -186,8 +186,7 @@ return {
                         },
                 },
         },
-        -- config = cmp_config,
-        config = false,
+        config = cmp_config,
         Event = "VeryLazy"
 
 }

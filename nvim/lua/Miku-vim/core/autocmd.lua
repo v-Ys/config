@@ -1,10 +1,12 @@
-local lang = "*.h," ..
+local lang =
+    "*.lua," ..
+    "*.h," ..
     "*.c," ..
     "*.cpp," ..
     "*.rs," ..
     "*.go," ..
     "*.py," ..
-    "*.lua,"
+    "*.tsx,"
 
 local Format = vim.api.nvim_create_augroup("_format", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {

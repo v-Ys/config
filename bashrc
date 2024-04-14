@@ -12,6 +12,7 @@ export FZF_DEFAULT_OPTS="--color=bg+:-1,fg+:#BE002F,gutter:-1,border:#C0C0C0,hl+
                          --bind 'ctrl-y:execute-silent(echo -n {1..} | pbcopy)+abort,ctrl-r:toggle-sort'
                          --no-separator --no-scrollbar --reverse --height 40%"
 export FZF_DEFAULT_COMMAND="fd --hidden"
+export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
 #llvm
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
@@ -21,6 +22,9 @@ export PATH=/opt/homebrew/opt/node@20/bin:$PATH
 export https_proxy=http://127.0.0.1:7890
 export http_proxy=http://127.0.0.1:7890 
 export all_proxy=socks5://127.0.0.1:7890
+# go path
+export GOPATH=$HOME/.go
+export GO111MODULE=on
 
 ############################################ 
 ### alias ################################## 

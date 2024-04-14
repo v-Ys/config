@@ -75,6 +75,10 @@ M[#M + 1] = {
                 },
                 filters = {
                         dotfiles = false,
+                        custom = {
+                                ".git",
+                                ".DS_Store"
+                        }
                 },
         }
 }
@@ -191,7 +195,7 @@ M[#M + 1] = {
         config = function()
                 vim.g.smartim_default = "com.apple.keylayout.ABC"
         end,
-        ft = { "markdown", "typst", "tex" },
+        ft = { "typst", "tex", "markdown" },
 }
 
 M[#M + 1] = {

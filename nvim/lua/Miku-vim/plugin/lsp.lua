@@ -1,16 +1,12 @@
 local servers = {
+        "lua_ls",
         "clangd",
         "rust_analyzer",
         "gopls",
         "pyright",
-        "lua_ls",
-        "marksman",
 
-        -- "hls",
         -- "racket_langserver",
-        -- "volar",
         -- "tsserver",
-        -- "html",
 }
 
 local function lsp_keymaps(bufnr)
@@ -40,10 +36,10 @@ local lsp_config = function()
         local lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
         local on_attach = function(client, bufnr)
-                if client.name == "tsserver" then
-                        client.server_capabilities.document_formatting = false
+                if client.name == "marksman" then
+                        client.server_capabilities.semanticTokensProvider = nil
+                        -- client.server_capabilities.document_formatting = false
                 end
-                -- client.server_capabilities.semanticTokensProvider = nil
                 lsp_keymaps(bufnr)
         end
         -- capabilities cmp
