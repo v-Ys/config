@@ -22,3 +22,6 @@ cursor     = "#CCCCCC"
 [colors.primary]
 background = "#FFFFFF"
 foreground = "#586069"
+[colors.selection]
+background = "#dae9f9"
+text = "CellForeground"

@@ -18,17 +18,16 @@ set bg=dark
 colorscheme slate
 
 let mapleader = "\<Space>"
-nnoremap K 5k
-nnoremap J 5j
-nnoremap L $
-nnoremap H ^
+map K 5k
+map J 5j
+map L $
+map H ^
+map ;; %
+nnoremap ;z J
 nnoremap > >>
 nnoremap < <<
 vnoremap > >gv
 vnoremap < <gv
-nnoremap ;z J
-nnoremap ;; %
-nnoremap ;; %
 nnoremap ;k :nohl<CR>
 nnoremap ;j :let @/ = '<c-r><c-w>' \| set hlsearch<cr>
 nnoremap <c-]> :bd<CR>

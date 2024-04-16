@@ -1,1 +1,1 @@
-require 'Miku-vim'
+require 'core'

@@ -12,7 +12,7 @@ local cmp_config = function()
         })
         require("luasnip.loaders.from_vscode").lazy_load({
                 paths = {
-                        vim.fn.stdpath("config") .. "/lua/Miku-vim/snippets"
+                        vim.fn.stdpath("config") .. "/lua/snippets"
                 }
         })
 

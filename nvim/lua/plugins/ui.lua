@@ -16,7 +16,7 @@ M[#M + 1] = {
                         { type = "padding", val = 9 },
                         {
                                 type = "text",
-                                val = require('Miku-vim.utils.header').b,
+                                val = require('utils.header').b,
                                 opts = {
                                         position = "center",
                                         hl = "KeyWord",
@@ -61,7 +61,32 @@ M[#M + 1] = {
 }
 
 --PLUG:
+M[#M + 1] = {
+        "nvim-lualine/lualine.nvim",
+        opts = function()
+                local statusline = require("utils.statusline")
+                return {
+                        options = {
+                                component_separators = '',
+                                section_separators = '',
+                                theme = 'auto',
+                                globalstatus = true,
+                        },
+                        sections = {
+                                lualine_a = {},
+                                lualine_b = {},
+                                lualine_y = {},
+                                lualine_z = {},
+                                lualine_c = statusline.left,
+                                lualine_x = statusline.right,
+                        },
+                        inactive_sections = {},
+                }
+        end,
+        dependencies = 'nvim-tree/nvim-web-devicons',
+}
 
+--PLUG:
 M[#M + 1] = {
         "projekt0n/github-nvim-theme",
         config = function()

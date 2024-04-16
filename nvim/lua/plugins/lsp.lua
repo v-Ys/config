@@ -23,7 +23,7 @@ local function lsp_keymaps(bufnr)
         vim.keymap.set("n", "gd", require('telescope.builtin').lsp_definitions, opts)
         vim.keymap.set("n", "gl", vim.lsp.buf.hover, opts)
         vim.keymap.set("n", "go", require('telescope.builtin').lsp_implementations, opts)
-        vim.keymap.set("n", "gn", require('Miku-vim.utils.modules').rename, opts)
+        vim.keymap.set("n", "gn", require('utils.modules').rename, opts)
         vim.keymap.set("n", "gr", require('telescope.builtin').lsp_references, opts)
         vim.keymap.set("n", "ga", vim.diagnostic.open_float, opts)
         vim.keymap.set("n", ";p", function() vim.diagnostic.goto_prev({ border = "single" }) end, opts)
@@ -53,7 +53,7 @@ local lsp_config = function()
                 }
 
                 local has_custom_opts, server_custom_opts = pcall(require,
-                        "Miku-vim.utils.lsp_settings." .. server)
+                        "utils.lsp_settings." .. server)
                 if has_custom_opts then
                         opts = vim.tbl_deep_extend("force", opts, server_custom_opts)
                 end

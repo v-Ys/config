@@ -1,3 +1,5 @@
+local M = {}
+
 local colors = {
         bg       = '#202328',
         fg       = '#bbc2cf',
@@ -31,9 +33,34 @@ local conditions = {
 local function wordcount()
         return tostring(vim.fn.wordcount().chars)
 end
+local function m_color()
+        -- auto change color according to neovims mode
+        local mode_color = {
+                n = colors.red,
+                i = colors.green,
+                v = colors.blue,
+                [''] = colors.blue,
+                V = colors.blue,
+                c = colors.magenta,
+                no = colors.red,
+                s = colors.orange,
+                S = colors.orange,
+                [''] = colors.orange,
+                ic = colors.yellow,
+                R = colors.violet,
+                Rv = colors.violet,
+                cv = colors.red,
+                ce = colors.red,
+                r = colors.cyan,
+                rm = colors.cyan,
+                ['r?'] = colors.cyan,
+                ['!'] = colors.red,
+                t = colors.red,
+        }
+        return { fg = mode_color[vim.fn.mode()], gui = 'bold' }
+end
 
-local left = {
-
+M.left = {
         -- '▊'
         {
                 function()
@@ -46,32 +73,7 @@ local left = {
                 function()
                         return 'MIKU'
                 end,
-                color = function()
-                        -- auto change color according to neovims mode
-                        local mode_color = {
-                                n = colors.red,
-                                i = colors.green,
-                                v = colors.blue,
-                                [''] = colors.blue,
-                                V = colors.blue,
-                                c = colors.magenta,
-                                no = colors.red,
-                                s = colors.orange,
-                                S = colors.orange,
-                                [''] = colors.orange,
-                                ic = colors.yellow,
-                                R = colors.violet,
-                                Rv = colors.violet,
-                                cv = colors.red,
-                                ce = colors.red,
-                                r = colors.cyan,
-                                rm = colors.cyan,
-                                ['r?'] = colors.cyan,
-                                ['!'] = colors.red,
-                                t = colors.red,
-                        }
-                        return { fg = mode_color[vim.fn.mode()], gui = 'bold' }
-                end,
+                color = m_color,
                 padding = { right = 1 },
         },
         -- filename
@@ -80,13 +82,13 @@ local left = {
                 cond = conditions.buffer_not_empty,
                 color = { fg = colors.magenta, gui = 'bold' },
                 symbols = {
-                        newfile = '', -- Text to show for new created file before first writting
-                        modified = '', -- Text to show when the file is modified.
-                        readonly = '', -- Text to show when the file is non-modifiable or readonly.
-                        unnamed = '', -- Text to show for unnamed buffers.
+                        newfile = '',
+                        modified = '',
+                        readonly = '',
+                        unnamed = '',
                 }
         },
-        -- filesize component
+        -- wordcount
         {
                 wordcount,
                 cond = conditions.buffer_not_empty,
@@ -122,7 +124,7 @@ local left = {
 
 }
 
-local right = {
+M.right = {
         -- filetype
         {
                 'filetype',
@@ -159,38 +161,4 @@ local right = {
 
 }
 
-local lualine_config = {
-        options = {
-                -- Disable sections and component separators
-                component_separators = '',
-                section_separators = '',
-                theme = 'auto',
-                globalstatus = true,
-        },
-        sections = {
-                -- these are to remove the defaults
-                lualine_a = {},
-                lualine_b = {},
-                lualine_y = {},
-                lualine_z = {},
-                -- These will be filled later
-                lualine_c = left,
-                lualine_x = right,
-        },
-        inactive_sections = {
-                -- these are to remove the defaults
-                lualine_a = {},
-                lualine_b = {},
-                lualine_y = {},
-                lualine_z = {},
-                lualine_c = {},
-                lualine_x = {},
-        },
-}
-
-
-return {
-        "nvim-lualine/lualine.nvim",
-        config = lualine_config,
-        dependencies = 'nvim-tree/nvim-web-devicons',
-}
+return M
