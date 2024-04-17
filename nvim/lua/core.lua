@@ -192,7 +192,7 @@ set({ "n", "v", "x", "o" }, "J", "5j", opts)
 set({ "n", "v", "x", "o" }, "H", "^", opts)
 set({ "n", "v", "x", "o" }, ";;", "%", opts)
 set({ "n", "v", "x", "o" }, ";z", "J", opts)
-set({ "n", "v", "x", "o" }, ";j", ":let @/ = expand('<cword>') | set hlsearch<cr>", opts)
+set({ "n", "v", "x", "o" }, ";j", require("utils.M").highlightCword, opts)
 --buffers
 set({ 'n', 'i', 'v', 'x', }, "<A-]>", "<cmd>bn<cr>", opts)
 set({ 'n', 'i', 'v', 'x', }, "<A-[>", "<cmd>bp<cr>", opts)
@@ -228,7 +228,7 @@ set({ "n", }, "tk", function() require("trouble").previous({ skip_groups = true,
 -- Terminal
 set({ "t", }, "<C-\\>", "<C-\\><C-N>", opts)
 -- run code
-set({ "n" }, "<leader>m", require('utils.modules').run, opts)
+set({ "n" }, "<leader>m", require('utils.M').run, opts)
 
 
 
@@ -236,7 +236,7 @@ set({ "n" }, "<leader>m", require('utils.modules').run, opts)
 --NOTE: user command
 local cmd = vim.api.nvim_create_user_command
 cmd("FormatJSON", "%!python3 -m json.tool", {})
-cmd("BufferPwd", "lua require('utils.modules').BufferPwd()<CR>", {})
+cmd("BufferPwd", "lua require('utils.M').BufferPwd()<CR>", {})
 
 
 

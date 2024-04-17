@@ -103,8 +103,8 @@ M[#M + 1] = {
 
                 })
                 -- vim.cmd.colorscheme "github_light"
-                -- vim.cmd.colorscheme "github_dark"
-                vim.cmd.colorscheme "github_dark_default"
+                vim.cmd.colorscheme "github_dark"
+                -- vim.cmd.colorscheme "github_dark_default"
         end
 }
 
