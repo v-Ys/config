@@ -1,4 +1,4 @@
-local nv = {
+local color = {
         'NvChad/nvim-colorizer.lua',
         opts = {
                 user_default_options = {

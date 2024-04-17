@@ -251,5 +251,43 @@ M[#M + 1] = {
         config = ts_config
 }
 
+M[#M + 1] = {
+
+        'Vonr/align.nvim',
+        branch = "v2",
+        lazy = true,
+        init = function()
+                local NS = { noremap = true, silent = true }
+
+
+
+                -- Aligns to a string with previews
+                vim.keymap.set(
+                        'x',
+                        ';a',
+                        function()
+                                require 'align'.align_to_string({
+                                        preview = true,
+                                        regex = false,
+                                })
+                        end,
+                        NS
+                )
+
+
+
+                -- Example gaaip to align a paragraph to 1 character
+                vim.keymap.set(
+                        'n',
+                        ';a',
+                        function()
+                                local a = require 'align'
+                                a.operator(a.align_to_char)
+                        end,
+                        NS
+                )
+        end
+
+}
 
 return M

@@ -48,7 +48,9 @@ M[#M + 1] = {
                         filetypes = {
                                 "help",
                                 "Trouble",
-                                "alpha"
+                                "alpha",
+                                "typst",
+                                "markdown",
                         },
                         buftypes = {
                                 "terminal",
@@ -100,8 +102,9 @@ M[#M + 1] = {
                         }
 
                 })
-                vim.cmd.colorscheme "github_light"
+                -- vim.cmd.colorscheme "github_light"
                 -- vim.cmd.colorscheme "github_dark"
+                vim.cmd.colorscheme "github_dark_default"
         end
 }
 
