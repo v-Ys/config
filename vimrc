@@ -1,21 +1,16 @@
 syntax  on
 filetype indent on
-set hlsearch incsearch ignorecase smartcase
-set list listchars=tab:»·,trail:· fillchars=eob:\ 
-set nocompatible wildmenu wildmode=longest:list,full
-set nobackup noswapfile noerrorbells vb t_vb=  mouse=a
-set foldmethod=manual encoding=utf-8 fileencodings=utf-8 autoread
-set splitright splitbelow nowrap linebreak scrolloff=5 laststatus=2
-set cursorline number relativenumber ruler showcmd showmode showmatch
-set autoindent smartindent copyindent expandtab tabstop=4 shiftwidth=4
-"fix delay
-set ttimeout ttyfast ttimeoutlen=1
+set ttimeout ttyfast ttimeoutlen=1 "fix delay
+set hlsearch incsearch ignorecase smartcase list listchars=tab:<_,trail:~ fillchars=eob:\ 
+set nocompatible wildmenu wildmode=longest:list,full nobackup noswapfile noerrorbells vb t_vb=  mouse=a
+set foldmethod=manual encoding=utf-8 fileencodings=utf-8 autoread splitright splitbelow nowrap linebreak scrolloff=5 laststatus=2
+set cursorline number relativenumber ruler showcmd showmode showmatch autoindent smartindent copyindent expandtab tabstop=4 shiftwidth=4
 "cursor
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
-"dark:default slate,light:delek 
-set bg=dark 
-colorscheme slate
+"dark:default koehler slate,light:delek
+set bg=dark
+colorscheme koehler
 
 let mapleader = "\<Space>"
 map K 5k
@@ -23,6 +18,7 @@ map J 5j
 map L $
 map H ^
 map ;; %
+vmap L $h
 nnoremap ;z J
 nnoremap > >>
 nnoremap < <<
@@ -76,4 +72,5 @@ nnoremap  <Leader>fl :Rg<CR>
 nnoremap  <Leader>fm :Marks<CR>
 nnoremap  <Leader>fw :Lines<CR>
 nnoremap  <Leader>j :Buffers<CR>
+
 

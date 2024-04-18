@@ -143,7 +143,6 @@ local function nvim_tree_on_attach(bufnr)
         vim.keymap.set("n", "l", api.tree.change_root_to_node, opts "next")
         vim.keymap.set("n", "i", api.node.navigate.parent, opts "parent")
         vim.keymap.set("n", "h", my_h, opts "pre")
-        vim.keymap.set("n", "n", api.tree.close, opts "Close")
         vim.keymap.set("n", "yy", api.fs.copy.node, opts "copy")
         vim.keymap.set("n", "dd", api.fs.remove, opts "delete")
         vim.keymap.set("n", "cc", api.fs.cut, opts "delete")
@@ -252,42 +251,15 @@ M[#M + 1] = {
 }
 
 M[#M + 1] = {
-
-        'Vonr/align.nvim',
-        branch = "v2",
-        lazy = true,
-        init = function()
-                local NS = { noremap = true, silent = true }
-
-
-
-                -- Aligns to a string with previews
-                vim.keymap.set(
-                        'x',
-                        ';a',
-                        function()
-                                require 'align'.align_to_string({
-                                        preview = true,
-                                        regex = false,
-                                })
-                        end,
-                        NS
-                )
-
-
-
-                -- Example gaaip to align a paragraph to 1 character
-                vim.keymap.set(
-                        'n',
-                        ';a',
-                        function()
-                                local a = require 'align'
-                                a.operator(a.align_to_char)
-                        end,
-                        NS
-                )
-        end
-
+        'echasnovski/mini.align',
+        version = '*',
+        config = {
+                mappings = {
+                        start = ';a',
+                        start_with_preview = '',
+                },
+                silent = true,
+        }
 }
 
 return M

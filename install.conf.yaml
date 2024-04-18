@@ -12,8 +12,11 @@
     #~/.ideavimrc: ideavimrc
     #~/.config/btop: btop
     # ~/.condarc: condarc
+    # ~/.zshrc: zshrc
     
-    ~/.bashrc: bashrc
+    ~/.bashrc: sh/bashrc
+    ~/.profile: sh/profile
+    ~/.bash_profile: sh/bash_profile
     ~/.config/git: git
     ~/.tmux.conf: tmux.conf
     ~/.config/fd/ignore: fdignore
@@ -27,7 +30,6 @@
     ~/.config/starship.toml: starship.toml
     ~/.config/bat/config: bat.config
     ~/.vim/vimrc: vimrc
-    ~/.zshrc: zshrc
 
     ~/.clang-format: fmtstyle/clang-format
     ~/.clangd: clangd
