@@ -6,12 +6,12 @@ eval "$(zoxide init bash)"
 eval "$(starship init bash)"
 
 function yy() {
-	tmp="$(mktemp -t "yazi-cwd.XXXXX")"
-	yazi --cwd-file="$tmp"
-	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-		cd -- "$cwd"
-	fi
-	rm -f -- "$tmp"
+    tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+    yazi --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
 }
 
 venv() {
@@ -25,7 +25,7 @@ venv() {
 __fzf_history__() {
     local output opts script n x y z d
     opts="${FZF_DEFAULT_OPTS-} -n2..,.. +m --read0 "
-    [[ $(HISTTIMEFORMAT='' builtin history 1) =~ [[:digit:]]+ ]]  
+    [[ $(HISTTIMEFORMAT='' builtin history 1) =~ [[:digit:]]+ ]]
     script='function P(b) { ++n; sub(/^[ *]/, "", b); if (!seen[b]++) { printf "%d\t%s%c", '$((BASH_REMATCH + 1))' - n, b, 0 } }
             NR==1 { b = substr($0, 2); next }
             /^\t/ { P(b); b = substr($0, 2); next }
@@ -33,8 +33,8 @@ __fzf_history__() {
             END { if (NR) P(b) }'
     output=$(
         set +o pipefail
-        builtin fc -lnr -2147483648 2> /dev/null |   
-        command awk "$script"           |   
+        builtin fc -lnr -2147483648 2> /dev/null |
+        command awk "$script"           |
         FZF_DEFAULT_OPTS="$opts" fzf --query "$READLINE_LINE"
     ) || return
     READLINE_LINE=${output#*$'\t'}
