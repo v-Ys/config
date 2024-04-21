@@ -1,4 +1,5 @@
 set bell-style none
+shopt -s autocd
 set -o emacs
 
 eval "$(zoxide init bash)"

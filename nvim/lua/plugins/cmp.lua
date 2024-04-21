@@ -67,11 +67,11 @@ local cmp_config = function()
                 window = {
                         completion = {
                                 scrollbar = false,
-                                border = 'single',
+                                border = { " ", " ", " ", " ", " ", " ", " ", " ", },
                         },
                         documentation = {
                                 scrollbar = false,
-                                border = 'single',
+                                border = { " ", " ", " ", " ", " ", " ", " ", " ", },
                         },
 
                 },
@@ -90,6 +90,9 @@ local cmp_config = function()
                                 return vim_item
                         end,
                 },
+                experimental = {
+                        ghost_text = true
+                },
                 mapping = cmp.mapping.preset.insert {
                         ["<A-e>"] = cmp.mapping {
                                 i = cmp.mapping.abort(),
@@ -97,7 +100,10 @@ local cmp_config = function()
                         },
                         ["<C-k>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
                         ["<C-j>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-                        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                        ['<CR>'] = cmp.mapping.confirm({
+                                behavior = cmp.ConfirmBehavior.Replace,
+                                select = true
+                        }),
                         ["<Tab>"] = cmp.mapping(function(fallback)
                                 if cmp.visible() then
                                         cmp.select_next_item()
@@ -136,7 +142,6 @@ local cmp_config = function()
                 },
         })
 
-        -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
         cmp.setup.cmdline('/', {
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = {
@@ -149,7 +154,6 @@ local cmp_config = function()
                         { name = 'buffer', max_item_count = 5 }
                 }
         })
-        -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
         cmp.setup.cmdline(':', {
                 mapping = cmp.mapping.preset.cmdline(),
                 sources = cmp.config.sources({
@@ -158,8 +162,7 @@ local cmp_config = function()
                         { name = 'cmdline', max_item_count = 7 }
                 }),
         })
-
-        cmp.event:on(
+        cmp.event:on( -- insert `(` after select function or method item
                 'confirm_done',
                 cmp_autopairs.on_confirm_done()
         )

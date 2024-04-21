@@ -71,7 +71,7 @@ local signs = {
         { name = "DiagnosticSignWarn", text = "▎" },
         { name = "DiagnosticSignHint", text = "▎" },
         { name = "DiagnosticSignInfo", text = "▎" },
-        --   󰌕      ✎   ▎ ▏ │     
+        --   󰌕   ✎   ▎ ▏ │             
 }
 for _, sign in ipairs(signs) do
         vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
@@ -242,19 +242,11 @@ cmd("BufferPwd", "lua require('utils.M').BufferPwd()<CR>", {})
 
 
 --NOTE: autocmd
-local lang =
-    "*.lua," ..
-    "*.h," ..
-    "*.c," ..
-    "*.cpp," ..
-    "*.rs," ..
-    "*.go," ..
-    "*.py," ..
-    "*.tsx,"
+--
 local Format = vim.api.nvim_create_augroup("_format", { clear = true })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-        pattern = lang,
+        pattern = { "*.lua", "*.h", "*.c", "*.cpp", "*.rs", "*.go", "*.py", },
         command = "lua vim.lsp.buf.format{sync=true}",
         group = Format,
 })

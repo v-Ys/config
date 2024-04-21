@@ -1,6 +1,6 @@
 command_timeout = 9999
 
 # 󰅂  ➜ 󰁕 
-[character]
-success_symbol = "[󰅂](bold green)" 
-error_symbol = "[󰅂](bold red)"
+# [character]
+# success_symbol = "[󰅂](bold green)" 
+# error_symbol = "[󰅂](bold red)"

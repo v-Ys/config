@@ -1,25 +1,44 @@
-###########################################
-## Added by Zinit's installer #############
-if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
-        print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-        command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
-        command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
-                print -P "%F{33} %F{34}Installation successful.%f%b" || \
-                print -P "%F{160} The clone has failed.%f%b"
-fi
-source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-# (this is currently required for annexes)
-zinit light-mode for \
-        zdharma-continuum/zinit-annex-as-monitor \
-        zdharma-continuum/zinit-annex-bin-gem-node \
-        zdharma-continuum/zinit-annex-patch-dl \
-        zdharma-continuum/zinit-annex-rust
-############################################
-### Plug ###################################
+setopt AUTO_CD
+set -o emacs
+unsetopt BEEP
 
-autoload -Uz compinit && compinit # for fzf-tab
-zinit light Aloxaf/fzf-tab
-zinit light zsh-users/zsh-autosuggestions
-zinit light zdharma-continuum/fast-syntax-highlighting
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+yy() {
+    tmp="$(mktemp -t "yazi-cwd.XXXXX")"
+    yazi --cwd-file="$tmp"
+    if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        cd -- "$cwd"
+    fi
+    rm -f -- "$tmp"
+}
+
+venv() {
+    if [ -z "$1" ]; then
+        echo "Error"
+        return 1
+    fi
+    source ~/.vPyEnv/"$1"/bin/activate
+}
+
+__fzf_history__() {
+    local selected num
+    setopt localoptions noglobsubst noposixbuiltins pipefail no_aliases 2> /dev/null
+    selected="$(fc -rl 1 | awk '{ cmd=$0; sub(/^[ \t]*[0-9]+\**[ \t]+/, "", cmd); if (!seen[cmd]++) print $0 }' |
+                FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS-} -n2..,.. --query=${(qqq)LBUFFER} +m
+                --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'" fzf)"
+    local ret=$?
+    if [ -n "$selected" ]; then
+        num=$(awk '{print $1}' <<< "$selected")
+        if [[ "$num" =~ '^[1-9][0-9]*\*?$' ]]; then
+            zle vi-fetch-history -n ${num%\*}
+        else # selected is a custom query, not from history
+            LBUFFER="$selected"
+        fi
+    fi
+    zle reset-prompt
+    return $ret
+}
+zle     -N            __fzf_history__
+bindkey -M emacs '^R' __fzf_history__

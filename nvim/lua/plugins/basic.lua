@@ -251,15 +251,11 @@ M[#M + 1] = {
 }
 
 M[#M + 1] = {
-        'echasnovski/mini.align',
-        version = '*',
-        config = {
-                mappings = {
-                        start = ';a',
-                        start_with_preview = '',
-                },
-                silent = true,
-        }
+        "junegunn/vim-easy-align",
+        config = function()
+                local set = vim.keymap.set
+                set({ "n", "v" }, ";a", "<Plug>(EasyAlign)", { noremap = true, silent = true })
+        end
 }
 
 return M
