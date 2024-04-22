@@ -15,3 +15,8 @@ italic = { style = "Italic"}
 bold = { style = "Bold"}
 bold_italic = { style = "Bold Italic"}
 offset={ x = 0, y = 0}
+
+[keyboard]  # chars :Unicode
+bindings = [
+{ key = "【", mods = "Control", chars = "\u001B" },
+]

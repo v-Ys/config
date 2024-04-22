@@ -239,8 +239,6 @@ cmd("FormatJSON", "%!python3 -m json.tool", {})
 cmd("BufferPwd", "lua require('utils.M').BufferPwd()<CR>", {})
 
 
-
-
 --NOTE: autocmd
 --
 local Format = vim.api.nvim_create_augroup("_format", { clear = true })
@@ -249,4 +247,21 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         pattern = { "*.lua", "*.h", "*.c", "*.cpp", "*.rs", "*.go", "*.py", },
         command = "lua vim.lsp.buf.format{sync=true}",
         group = Format,
+})
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile', 'FileType' }, {
+        pattern = { 'markdown', 'typst', },
+        callback = function()
+                vim.opt_local.tabstop     = 4
+                vim.opt_local.shiftwidth  = 4
+                vim.opt_local.softtabstop = 4
+                vim.opt_local.wrap        = true
+
+                vim.keymap.set({ 'n' }, 'j',
+                        'gj',
+                        { silent = true, buffer = true })
+                vim.keymap.set({ 'n' }, 'k',
+                        'gk',
+                        { silent = true, buffer = true })
+        end,
 })
