@@ -8,10 +8,11 @@ set cursorline number relativenumber ruler showcmd showmode showmatch autoindent
 "cursor
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
-"dark:default koehler slate,light:delek
+"dark:retrobox koehler light:delek
 set bg=dark
 colorscheme koehler
 
+   
 let mapleader = "\<Space>"
 map K 5k
 map J 5j
