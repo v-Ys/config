@@ -136,7 +136,6 @@ return {
         font_size = 14.9,
         cell_width = 1,
         line_height = 1,
-        harfbuzz_features = { 'calt=0' },
         font = wezterm.font_with_fallback {
                 {
                         family = 'SF Mono',

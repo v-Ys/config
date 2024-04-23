@@ -1,5 +1,8 @@
 --NOTE: options
 local opt          = vim.opt
+local keymap       = vim.keymap.set
+local cmd          = vim.api.nvim_create_user_command
+local key_opts     = { noremap = true, silent = true }
 
 -- opt.autochdir      = true      -- auto cd
 opt.termguicolors  = true  --true color
@@ -108,7 +111,7 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
 --NOTE: lazy
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.keymap.set("", "<Space>", "<Nop>", { noremap = true, silent = true })
+keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -181,60 +184,56 @@ require("lazy").setup({
 -- operator_mode     = "o",
 -- select_mode       = "s"
 
-local set = vim.keymap.set
-local opts = { noremap = true, silent = true }
--- Better motion
-set({ "n" }, ";k", "<cmd>nohl<CR>", opts)
-set({ "n", "o" }, "L", "$", opts)
-set({ "v", "x" }, "L", "$h", opts)
-set({ "n", "v", "x", "o" }, "K", "5k", opts)
-set({ "n", "v", "x", "o" }, "J", "5j", opts)
-set({ "n", "v", "x", "o" }, "H", "^", opts)
-set({ "n", "v", "x", "o" }, ";;", "%", opts)
-set({ "n", "v", "x", "o" }, ";z", "J", opts)
-set({ "n", "v", "x", "o" }, ";j", require("utils.M").highlightCword, opts)
+keymap({ "n" }, ";k", "<cmd>nohl<CR>", key_opts)
+keymap({ "n", "o", }, "L", "$", key_opts)
+keymap({ "x" }, "L", "$h", key_opts)
+keymap("", "K", "5k", key_opts)
+keymap("", "J", "5j", key_opts)
+keymap("", "H", "^", key_opts)
+keymap("", ";;", "%", key_opts)
+keymap("", ";z", "J", key_opts)
+keymap("n", ";j", require("utils.M").highlightCword, key_opts)
 --buffers
-set({ 'n', 'i', 'v', 'x', }, "<A-]>", "<cmd>bn<cr>", opts)
-set({ 'n', 'i', 'v', 'x', }, "<A-[>", "<cmd>bp<cr>", opts)
-set({ 'n', 'i', 'v', 'x', }, "<C-]>", "<cmd>bd<cr>", opts)
+keymap({ 'n', 'i', 'x', }, "<A-]>", "<cmd>bn<cr>", key_opts)
+keymap({ 'n', 'i', 'x', }, "<A-[>", "<cmd>bp<cr>", key_opts)
+keymap({ 'n', 'i', 'x', }, "<C-]>", "<cmd>bd<cr>", key_opts)
 -- Resize with arrows
-set({ "n", "v", "x", }, "<A-Up>", "<cmd>resize +2<CR>", opts)
-set({ "n", "v", "x", }, "<A-Down>", "<cmd>resize -2<CR>", opts)
-set({ "n", "v", "x", }, "<A-Left>", "<cmd>vertical resize -2<CR>", opts)
-set({ "n", "v", "x", }, "<A-Right>", "<cmd>vertical resize +2<CR>", opts)
+keymap({ "n", "x", }, "<A-Up>", "<cmd>resize +2<CR>", key_opts)
+keymap({ "n", "x", }, "<A-Down>", "<cmd>resize -2<CR>", key_opts)
+keymap({ "n", "x", }, "<A-Left>", "<cmd>vertical resize -2<CR>", key_opts)
+keymap({ "n", "x", }, "<A-Right>", "<cmd>vertical resize +2<CR>", key_opts)
 -- Move  line / code block
-set({ "n" }, "<A-->", "<cmd>m .+1<CR>==", opts)
-set({ "n", }, "<A-=>", "<cmd>m .-2<CR>==", opts)
-set({ "v", }, "<A-->", ":m '>+1<cr>gv=gv", opts)
-set({ "v", }, "<A-=>", ":m '<-2<cr>gv=gv", opts)
-set({ "n" }, "<", "<<", opts)
-set({ "n" }, ">", ">>", opts)
-set({ "v", "x", }, "<", "<gv", opts)
-set({ "v", "x", }, ">", ">gv", opts)
+keymap({ "n" }, "<A-->", "<cmd>m .+1<CR>==", key_opts)
+keymap({ "n", }, "<A-=>", "<cmd>m .-2<CR>==", key_opts)
+keymap({ "x", }, "<A-->", ":m '>+1<cr>gv=gv", key_opts)
+keymap({ "x", }, "<A-=>", ":m '<-2<cr>gv=gv", key_opts)
+keymap({ "n" }, "<", "<<", key_opts)
+keymap({ "n" }, ">", ">>", key_opts)
+keymap({ "x", }, "<", "<gv", key_opts)
+keymap({ "x", }, ">", ">gv", key_opts)
 --Plugin
-set({ "n", "v", "x" }, "<leader>n", require('nvim-tree.api').tree.open, opts)
-set({ "n" }, "<leader>j", require('telescope.builtin').buffers, opts)
-set({ "n" }, "<Leader>fm", require('telescope.builtin').marks, opts)
-set({ "n" }, "<leader>fr", require('telescope.builtin').builtin, opts)
-set({ "n" }, "<leader>fh", require('telescope.builtin').oldfiles, opts)
-set({ "n" }, "<leader>fl", require('telescope.builtin').live_grep, opts)
-set({ "n" }, "<leader>ff", require('telescope.builtin').find_files, opts)
-set({ "n" }, "<Leader>fs", require('telescope.builtin').colorscheme, opts)
-set({ "n" }, "<leader>fp", require('utils.telescope_tools').zoxide, opts)
-set({ "n" }, "<leader>fw", require('telescope.builtin').current_buffer_fuzzy_find, opts)
-set({ "n", "v", "x", }, "f", require("flash").jump, opts)
-set({ "n", }, "tj", function() require("trouble").next({ skip_groups = true, jump = true }); end, opts)
-set({ "n", }, "tk", function() require("trouble").previous({ skip_groups = true, jump = true }); end, opts)
+keymap({ "n", "x" }, "<leader>n", require('nvim-tree.api').tree.open, key_opts)
+keymap({ "n" }, "<leader>j", require('telescope.builtin').buffers, key_opts)
+keymap({ "n" }, "<Leader>fm", require('telescope.builtin').marks, key_opts)
+keymap({ "n" }, "<leader>fr", require('telescope.builtin').builtin, key_opts)
+keymap({ "n" }, "<leader>fh", require('telescope.builtin').oldfiles, key_opts)
+keymap({ "n" }, "<leader>fl", require('telescope.builtin').live_grep, key_opts)
+keymap({ "n" }, "<leader>ff", require('telescope.builtin').find_files, key_opts)
+keymap({ "n" }, "<Leader>fs", require('telescope.builtin').colorscheme, key_opts)
+keymap({ "n" }, "<leader>fp", require('utils.telescope_tools').zoxide, key_opts)
+keymap({ "n" }, "<leader>fw", require('telescope.builtin').current_buffer_fuzzy_find, key_opts)
+keymap({ "n", "v", "x", }, "f", require("flash").jump, key_opts)
+keymap({ "n", }, "tj", function() require("trouble").next({ skip_groups = true, jump = true }); end, key_opts)
+keymap({ "n", }, "tk", function() require("trouble").previous({ skip_groups = true, jump = true }); end, key_opts)
 -- Terminal
-set({ "t", }, "<C-\\>", "<C-\\><C-N>", opts)
+keymap({ "t", }, "<C-\\>", "<C-\\><C-N>", key_opts)
 -- run code
-set({ "n" }, "<leader>m", require('utils.M').run, opts)
+keymap({ "n" }, "<leader>m", require('utils.M').run, key_opts)
 
 
 
 
 --NOTE: user command
-local cmd = vim.api.nvim_create_user_command
 cmd("FormatJSON", "%!python3 -m json.tool", {})
 cmd("BufferPwd", "lua require('utils.M').BufferPwd()<CR>", {})
 
@@ -257,11 +256,10 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile', 'FileType' }, {
                 vim.opt_local.softtabstop = 4
                 vim.opt_local.wrap        = true
 
-                vim.keymap.set({ 'n' }, 'j',
-                        'gj',
-                        { silent = true, buffer = true })
-                vim.keymap.set({ 'n' }, 'k',
-                        'gk',
-                        { silent = true, buffer = true })
+                keymap({ "x", "n" }, "j", "gj", { silent = true, buffer = true })
+                keymap({ "x", "n" }, 'k', "gk", { silent = true, buffer = true })
+
+                keymap("", "H", "g^", { silent = true, buffer = true })
+                keymap("", "L", "g$", { silent = true, buffer = true })
         end,
 })

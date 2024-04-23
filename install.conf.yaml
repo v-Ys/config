@@ -9,10 +9,10 @@
     # ~/.config/fish/config.fish: fish/fish_config.fish
     # ~/.config/fish/Miku_func: fish/functions
     # ~/.config/pycodestyle: fmtstyle/pycodestyle
-    #~/.ideavimrc: ideavimrc
     #~/.config/btop: btop
-    # ~/.condarc: condarc
-    # ~/.zshrc: zshrc
+    #~/.ideavimrc:
+    # ~/.condarc:
+    # ~/.zshrc:
     
     ~/.bashrc: sh/bashrc
     ~/.profile: sh/profile

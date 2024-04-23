@@ -1,3 +1,6 @@
+# zprofile: login ,zshenv:
+. "$HOME/.profile"
+
 setopt AUTO_CD
 set -o emacs
 unsetopt BEEP
