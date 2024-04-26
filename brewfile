@@ -48,6 +48,6 @@ cask "steam"
 cask "xld" #Music format
 cask "fliqlo" #screen saver
 
-vscode "github.github-vscode-theme"
+vscode "hyzeta.vscode-theme-github-light"
 vscode "vscodevim.vim"
 vscode "wayou.vscode-todo-highlight"
