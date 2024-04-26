@@ -1,36 +1,28 @@
-
 [user] 
-        name = Vv-ys
-	email = vincent.vv.mys@gmail.com 
+name = Vv-ys
+email = vincent.vv.mys@gmail.com 
 [core]
-	excludesfile = ~/.config/git/gitignore
-	editor = nvim
+excludesfile = ~/.config/git/gitignore
+editor = nvim
+
+#NOTE:!!! PASSWORD
 [credential]
-	helper = store
-
-[http]
-	version = HTTP/1.1
-#[https]
-
-[safe]
-	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-cask
-	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-core
-	directory = /opt/homebrew/Library/Taps/homebrew/homebrew-services
+helper = store
 
 [diff]
-        external = difft
+external = difft
 [merge]
-	tool = vimdiff
+tool = vimdiff
 [mergetool]
-	keepBackup = false
-	conflictstyle = diff3 # diff style
+keepBackup = false
+conflictstyle = diff3 # diff style
 [mergetool "vimdiff"]
-	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
-
+cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 
 #NOTE:
 #[url "git@github.com:"]
-#     insteadOf = https://github.com/
+#insteadOf = https://github.com/
+
 #[http "https://github.com"]
-#     proxy = socks5://127.0.0.1:7890
+#proxy = socks5://127.0.0.1:7890
