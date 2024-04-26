@@ -139,11 +139,11 @@ return {
         font = wezterm.font_with_fallback {
                 {
                         family = 'SF Mono',
-                        weight = 540,
+                        weight = 500,
                 },
                 {
                         family = 'IosevkaTerm Nerd Font Mono',
-                        weight = 580,
+                        weight = 500,
                         italic = false,
                 },
                 {

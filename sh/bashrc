@@ -1,4 +1,4 @@
-set bell-style none
+bind 'set bell-style none'
 shopt -s autocd
 set -o emacs
 
