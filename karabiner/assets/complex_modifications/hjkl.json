@@ -83,7 +83,7 @@
             ]
         },
         {
-            "description": "Map 'Right_arrow'  plus 'Enter' to ESC",
+            "description": "Map 'right_shit'  plus 'Enter' to ESC",
             "manipulators": [
                 {
                     "type": "basic",
