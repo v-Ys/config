@@ -4,21 +4,26 @@ email = vincent.vv.mys@gmail.com
 [core]
 excludesfile = ~/.config/git/gitignore
 editor = nvim
+pager = delta
 
-#NOTE:!!! PASSWORD
-[credential]
-helper = store
-
-[diff]
-external = difft
 [merge]
 tool = vimdiff
+conflictstyle = diff3
 [mergetool]
 keepBackup = false
-conflictstyle = diff3 # diff style
 [mergetool "vimdiff"]
 cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
+[diff]
+colorMoved = default
+[interactive]
+diffFilter = delta --color-only
+[delta]
+side-by-side = true
+
+#WARN:!!! PASSWORD
+[credential]
+helper = store
 
 #NOTE:
 #[url "git@github.com:"]

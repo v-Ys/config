@@ -18,7 +18,7 @@ brew "fd"
 brew "ripgrep"
 brew "bat"
 brew "tldr"
-brew "difftastic"
+brew "git-delta"
 brew "starship"
 brew "hugo"
 brew "typst"
@@ -48,6 +48,6 @@ cask "steam"
 cask "xld" #Music format
 cask "fliqlo" #screen saver
 
-vscode "hyzeta.vscode-theme-github-light"
+vscode "hyzeta.vscde-theme-github-light"
 vscode "vscodevim.vim"
 vscode "wayou.vscode-todo-highlight"
