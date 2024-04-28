@@ -265,13 +265,12 @@ autocmd("FileType", {
         end,
 })
 
-autocmd({ 'FileType' },
-        {
-                pattern = { 'typst', },
-                group = vim.api.nvim_create_augroup("TYPST", { clear = true }),
-                callback = function()
-                        vim.api.nvim_create_user_command("TypstFigures",
-                                "silent !mkdir figures",
-                                {})
-                end,
-        })
+autocmd({ 'FileType' }, {
+        pattern = { 'typst', },
+        group = vim.api.nvim_create_augroup("TYPST", { clear = true }),
+        callback = function()
+                vim.api.nvim_create_user_command("TypstFigures",
+                        "silent !mkdir figures",
+                        {})
+        end,
+})
