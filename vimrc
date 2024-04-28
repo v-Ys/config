@@ -2,16 +2,16 @@ syntax  on
 filetype indent plugin on
 set ttimeout ttyfast ttimeoutlen=1 "fix delay
 set hlsearch incsearch ignorecase smartcase list listchars=tab:<_,trail:~ fillchars=eob:\ 
+set cursorline number relativenumber ruler showcmd showmode showmatch nowrap linebreak
+set foldmethod=manual encoding=utf-8 fileencodings=utf-8 autoread splitright splitbelow
+set autoindent smartindent copyindent expandtab tabstop=4 shiftwidth=4 scrolloff=5 laststatus=2
 set nocompatible wildmenu wildmode=longest:list,full nobackup noswapfile noerrorbells vb t_vb=  mouse=a
-set foldmethod=manual encoding=utf-8 fileencodings=utf-8 autoread splitright splitbelow nowrap linebreak scrolloff=5 laststatus=2
-set cursorline number relativenumber ruler showcmd showmode showmatch autoindent smartindent copyindent expandtab tabstop=4 shiftwidth=4
 "cursor
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 "dark:retrobox koehler light:delek
 set bg=dark
 colorscheme retrobox
-
 
 let mapleader = "\<Space>"
 map K 5k
@@ -36,7 +36,6 @@ nnoremap <leader>n :NTree<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set rtp+=/opt/homebrew/opt/fzf
 let $FZF_DEFAULT_OPTS .= '  --layout=default'
-
 call plug#begin()
 Plug 'mhinz/vim-startify'
 Plug 'tomtom/tcomment_vim'
