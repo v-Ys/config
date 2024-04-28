@@ -6,37 +6,30 @@
 - clean: ['~', '~/.config']
 
 - link:
-    # ~/.config/fish/config.fish: fish/fish_config.fish
-    # ~/.config/fish/Miku_func: fish/functions
-    # ~/.config/pycodestyle: fmtstyle/pycodestyle
-    #~/.config/btop: btop
-    #~/.ideavimrc:
-    # ~/.condarc:
-    # ~/.zshrc:
-    
-    ~/.bashrc: sh/bashrc
-    ~/.profile: sh/profile
     ~/.bash_profile: sh/bash_profile
+    ~/.profile: sh/profile
+    ~/.bashrc: sh/bashrc
+    ~/.vim/vimrc: vimrc
     ~/.config/git: git
-    ~/.tmux.conf: tmux.conf
-    ~/.config/fd/ignore: fdignore
-    ~/.config/nvim: nvim
-    ~/.config/alacritty/: alacritty
-    ~/.config/ripgreprc: ripgrep/ripgreprc
-    ~/.rgignore: ripgrep/rgignore
 
-    ~/.config/yazi/theme.toml: yazi_theme.toml
-    ~/.config/wezterm/wezterm.lua: wezterm.lua
+    ~/.config/alacritty/: alacritty
+    ~/.tmux.conf: tmux.conf
+    ~/.config/nvim: nvim
+
+    ~/.config/fd/ignore: fdignore
+    ~/.rgignore: ripgrep/rgignore
+    ~/.config/ripgreprc: ripgrep/ripgreprc
+    ~/.config/yazi/thme.toml: yazi_theme.toml
     ~/.config/starship.toml: starship.toml
     ~/.config/bat/config: bat.config
-    ~/.vim/vimrc: vimrc
 
-    ~/.clang-format: fmtstyle/clang-format
     ~/.clangd: clangd
+    ~/.clang-format: fmtstyle/clang-format
     ~/.rustfmt.toml: fmtstyle/rustfmt.toml
   
     ~/.hammerspoon:  hammerspoon
     ~/.config/karabiner: karabiner
+    ~/.config/wezterm/wezterm.lua: wezterm.lua
 
 - shell:
    - git submodule sync --recursive

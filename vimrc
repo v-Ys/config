@@ -1,5 +1,5 @@
 syntax  on
-filetype indent on
+filetype indent plugin on
 set ttimeout ttyfast ttimeoutlen=1 "fix delay
 set hlsearch incsearch ignorecase smartcase list listchars=tab:<_,trail:~ fillchars=eob:\ 
 set nocompatible wildmenu wildmode=longest:list,full nobackup noswapfile noerrorbells vb t_vb=  mouse=a

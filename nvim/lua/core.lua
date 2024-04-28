@@ -41,9 +41,9 @@ opt.autoindent     = true                              --回车后下一行自�
 opt.copyindent     = true                              --复制粘贴时保留原有的缩进
 --
 opt.ignorecase     = true                              --搜索时忽略大小写
-opt.hlsearch       = true                              --高亮显示搜索的匹配结果，输入结束时才显示
-opt.incsearch      = false                             --高亮显示搜索的匹配过程，每输入一个字符，就自动跳到第一个匹配的结果：
 opt.smartcase      = true                              --智能搜索
+opt.hlsearch       = true                              --高亮显示搜索的匹配结果，输入结束时才显示
+opt.incsearch      = true                              --高亮显示搜索的匹配过程，每输入一个字符，就自动跳到第一个匹配的结果：
 opt.completeopt    = { 'menu', 'menuone', 'noselect' } --for cmp
 opt.showcmd        = true                              --显示输入命令
 opt.wildmenu       = true                              --在命令模式下，按下 tab 键可以自动补全命令
@@ -239,17 +239,18 @@ cmd("BufferPwd", "lua require('utils.M').BufferPwd()<CR>", {})
 
 
 --NOTE: autocmd
---
-local Format = vim.api.nvim_create_augroup("_format", { clear = true })
 
 vim.api.nvim_create_autocmd("BufWritePre", {
-        pattern = { "*.lua", "*.h", "*.c", "*.cpp", "*.rs", "*.go", "*.py", },
-        command = "lua vim.lsp.buf.format{sync=true}",
-        group = Format,
+        pattern = { "*.lua", "*.c", "*.cpp", "*.h", "*.rs", "*.go", "*.py", },
+        callback = function()
+                vim.lsp.buf.format { sync = true }
+        end,
+        group = vim.api.nvim_create_augroup("AUTOFORMAT", { clear = true }),
 })
 
-vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile', 'FileType' }, {
+vim.api.nvim_create_autocmd("FileType", {
         pattern = { 'markdown', 'typst', },
+        group = vim.api.nvim_create_augroup("WRITING", { clear = true }),
         callback = function()
                 vim.opt_local.tabstop     = 4
                 vim.opt_local.shiftwidth  = 4
@@ -263,3 +264,16 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile', 'FileType' }, {
                 keymap("", "L", "g$", { silent = true, buffer = true })
         end,
 })
+
+
+
+vim.api.nvim_create_autocmd({ 'FileType' },
+        {
+                pattern = { 'typst', },
+                group = vim.api.nvim_create_augroup("TYPST", { clear = true }),
+                callback = function()
+                        vim.api.nvim_create_user_command("TypstFigures",
+                                "silent !mkdir figures",
+                                {})
+                end,
+        })
