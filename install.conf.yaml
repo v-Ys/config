@@ -1,7 +1,7 @@
 - defaults:
     link:
-      create: true
-      relink: true
+        create: true
+        relink: true
 
 - clean: ['~', '~/.config']
 
@@ -10,9 +10,9 @@
     ~/.profile: sh/profile
     ~/.bashrc: sh/bashrc
     ~/.vim/vimrc: vimrc
-    ~/.config/git: git
+    ~/.config/git: git/
 
-    ~/.config/alacritty/: alacritty
+    ~/.config/alacritty: alacritty/
     ~/.tmux.conf: tmux.conf
     ~/.config/nvim: nvim
 
@@ -20,16 +20,16 @@
     ~/.rgignore: ripgrep/rgignore
     ~/.config/ripgreprc: ripgrep/ripgreprc
     ~/.config/yazi/thme.toml: yazi_theme.toml
-    ~/.config/starship.toml: starship.toml
     ~/.config/bat/config: bat.config
+    ~/.config/starship.toml: starship.toml
 
     ~/.clangd: clangd
     ~/.clang-format: fmtstyle/clang-format
     ~/.rustfmt.toml: fmtstyle/rustfmt.toml
-  
-    ~/.hammerspoon:  hammerspoon
-    ~/.config/karabiner: karabiner
-    ~/.config/wezterm/wezterm.lua: wezterm.lua
+
+    ~/.hammerspoon/: hammerspoon
+    ~/.config/karabiner/: karabiner
+    ~/.config/wezterm: wezterm
 
 - shell:
    - git submodule sync --recursive
