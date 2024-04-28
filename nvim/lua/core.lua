@@ -2,6 +2,7 @@
 local opt          = vim.opt
 local keymap       = vim.keymap.set
 local cmd          = vim.api.nvim_create_user_command
+local autocmd      = vim.api.nvim_create_autocmd
 local key_opts     = { noremap = true, silent = true }
 
 -- opt.autochdir      = true      -- auto cd
@@ -184,51 +185,49 @@ require("lazy").setup({
 -- operator_mode     = "o",
 -- select_mode       = "s"
 
-keymap({ "n" }, ";k", "<cmd>nohl<CR>", key_opts)
 keymap({ "n", "o", }, "L", "$", key_opts)
 keymap({ "x" }, "L", "$h", key_opts)
+keymap("", "H", "^", key_opts)
 keymap("", "K", "5k", key_opts)
 keymap("", "J", "5j", key_opts)
-keymap("", "H", "^", key_opts)
 keymap("", ";;", "%", key_opts)
 keymap("", ";z", "J", key_opts)
+keymap("n", ";k", "<cmd>nohl<CR>", key_opts)
 keymap("n", ";j", require("utils.M").highlightCword, key_opts)
 --buffers
-keymap({ 'n', 'i', 'x', }, "<A-]>", "<cmd>bn<cr>", key_opts)
-keymap({ 'n', 'i', 'x', }, "<A-[>", "<cmd>bp<cr>", key_opts)
-keymap({ 'n', 'i', 'x', }, "<C-]>", "<cmd>bd<cr>", key_opts)
+keymap({ 'n', 'i', 'x' }, "<A-]>", "<cmd>bn<cr>", key_opts)
+keymap({ 'n', 'i', 'x' }, "<A-[>", "<cmd>bp<cr>", key_opts)
+keymap({ 'n', 'i', 'x' }, "<C-]>", "<cmd>bd<cr>", key_opts)
 -- Resize with arrows
-keymap({ "n", "x", }, "<A-Up>", "<cmd>resize +2<CR>", key_opts)
-keymap({ "n", "x", }, "<A-Down>", "<cmd>resize -2<CR>", key_opts)
-keymap({ "n", "x", }, "<A-Left>", "<cmd>vertical resize -2<CR>", key_opts)
-keymap({ "n", "x", }, "<A-Right>", "<cmd>vertical resize +2<CR>", key_opts)
+keymap({ "n", "x" }, "<A-Up>", "<cmd>resize +2<CR>", key_opts)
+keymap({ "n", "x" }, "<A-Down>", "<cmd>resize -2<CR>", key_opts)
+keymap({ "n", "x" }, "<A-Left>", "<cmd>vertical resize -2<CR>", key_opts)
+keymap({ "n", "x" }, "<A-Right>", "<cmd>vertical resize +2<CR>", key_opts)
 -- Move  line / code block
-keymap({ "n" }, "<A-->", "<cmd>m .+1<CR>==", key_opts)
-keymap({ "n", }, "<A-=>", "<cmd>m .-2<CR>==", key_opts)
-keymap({ "x", }, "<A-->", ":m '>+1<cr>gv=gv", key_opts)
-keymap({ "x", }, "<A-=>", ":m '<-2<cr>gv=gv", key_opts)
+keymap({ "n", "i" }, "<A-->", "<cmd>m .+1<CR>==", key_opts)
+keymap({ "n", "i" }, "<A-=>", "<cmd>m .-2<CR>==", key_opts)
+keymap({ "x" }, "<A-->", ":m '>+1<cr>gv=gv", key_opts)
+keymap({ "x" }, "<A-=>", ":m '<-2<cr>gv=gv", key_opts)
 keymap({ "n" }, "<", "<<", key_opts)
 keymap({ "n" }, ">", ">>", key_opts)
 keymap({ "x", }, "<", "<gv", key_opts)
 keymap({ "x", }, ">", ">gv", key_opts)
 --Plugin
-keymap({ "n", "x" }, "<leader>n", require('nvim-tree.api').tree.open, key_opts)
-keymap({ "n" }, "<leader>j", require('telescope.builtin').buffers, key_opts)
-keymap({ "n" }, "<Leader>fm", require('telescope.builtin').marks, key_opts)
-keymap({ "n" }, "<leader>fr", require('telescope.builtin').builtin, key_opts)
-keymap({ "n" }, "<leader>fh", require('telescope.builtin').oldfiles, key_opts)
-keymap({ "n" }, "<leader>fl", require('telescope.builtin').live_grep, key_opts)
-keymap({ "n" }, "<leader>ff", require('telescope.builtin').find_files, key_opts)
-keymap({ "n" }, "<Leader>fs", require('telescope.builtin').colorscheme, key_opts)
-keymap({ "n" }, "<leader>fp", require('utils.telescope_tools').zoxide, key_opts)
-keymap({ "n" }, "<leader>fw", require('telescope.builtin').current_buffer_fuzzy_find, key_opts)
-keymap({ "n", "v", "x", }, "f", require("flash").jump, key_opts)
-keymap({ "n", }, "tj", function() require("trouble").next({ skip_groups = true, jump = true }); end, key_opts)
-keymap({ "n", }, "tk", function() require("trouble").previous({ skip_groups = true, jump = true }); end, key_opts)
--- Terminal
-keymap({ "t", }, "<C-\\>", "<C-\\><C-N>", key_opts)
--- run code
+keymap({ "n", "x" }, "f", require("flash").jump, key_opts)
+keymap("n", "<leader>n", require('nvim-tree.api').tree.open, key_opts)
+keymap("n", "<leader>j", require('telescope.builtin').buffers, key_opts)
+keymap("n", "<Leader>fm", require('telescope.builtin').marks, key_opts)
+keymap("n", "<leader>fr", require('telescope.builtin').builtin, key_opts)
+keymap("n", "<leader>fh", require('telescope.builtin').oldfiles, key_opts)
+keymap("n", "<leader>fl", require('telescope.builtin').live_grep, key_opts)
+keymap("n", "<leader>ff", require('telescope.builtin').find_files, key_opts)
+keymap("n", "<Leader>fs", require('telescope.builtin').colorscheme, key_opts)
+keymap("n", "<leader>fp", require('utils.telescope_tools').zoxide, key_opts)
+keymap("n", "<leader>fw", require('telescope.builtin').current_buffer_fuzzy_find, key_opts)
+keymap("n", "tj", function() require("trouble").next({ skip_groups = true, jump = true }); end, key_opts)
+keymap("n", "tk", function() require("trouble").previous({ skip_groups = true, jump = true }); end, key_opts)
 keymap({ "n" }, "<leader>m", require('utils.M').run, key_opts)
+keymap("t", "<C-\\>", "<C-\\><C-N>", key_opts)
 
 
 
@@ -238,9 +237,10 @@ cmd("FormatJSON", "%!python3 -m json.tool", {})
 cmd("BufferPwd", "lua require('utils.M').BufferPwd()<CR>", {})
 
 
---NOTE: autocmd
 
-vim.api.nvim_create_autocmd("BufWritePre", {
+
+--NOTE: autocmd
+autocmd("BufWritePre", {
         pattern = { "*.lua", "*.c", "*.cpp", "*.h", "*.rs", "*.go", "*.py", },
         callback = function()
                 vim.lsp.buf.format { sync = true }
@@ -248,7 +248,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         group = vim.api.nvim_create_augroup("AUTOFORMAT", { clear = true }),
 })
 
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
         pattern = { 'markdown', 'typst', },
         group = vim.api.nvim_create_augroup("WRITING", { clear = true }),
         callback = function()
@@ -265,9 +265,7 @@ vim.api.nvim_create_autocmd("FileType", {
         end,
 })
 
-
-
-vim.api.nvim_create_autocmd({ 'FileType' },
+autocmd({ 'FileType' },
         {
                 pattern = { 'typst', },
                 group = vim.api.nvim_create_augroup("TYPST", { clear = true }),

@@ -89,7 +89,7 @@ function M.zoxide(opts)
 
                 }
                 opts.layout_config = {
-                        height = 22,
+                        height = 20,
                         preview_width = 0.60,
                 }
                 opts.results_title = ""
