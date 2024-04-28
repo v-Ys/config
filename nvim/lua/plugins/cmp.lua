@@ -1,9 +1,78 @@
-local cmp_config = function()
-        local luasnip = require("luasnip")
+local M = {
+        "hrsh7th/nvim-cmp",
+        dependencies = {
+                "hrsh7th/cmp-nvim-lsp",
+                "hrsh7th/cmp-buffer",
+                "hrsh7th/cmp-path",
+                "hrsh7th/cmp-cmdline",
+                "windwp/nvim-autopairs",
+                --NOTE: snip,
+                {
+                        "saadparwaiz1/cmp_luasnip",
+                        dependencies = {
+                                "L3MON4D3/LuaSnip",
+                                "rafamadriz/friendly-snippets",
+                        },
+                },
+        },
+        Event = "VeryLazy"
+
+}
+
+local cmp_border = { " ", " ", " ", " ", " ", " ", " ", " ", }
+
+local check_backspace = function()
+        local col = vim.fn.col "." - 1
+        return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
+end
+local lspkey = {
+}
+
+local cmp_icons = {
+        Array = "",
+        Boolean = "",
+        Class = "",
+        Codeium = "",
+        Color = "󰏘",
+        Constant = "",
+        Constructor = "",
+        Enum = "",
+        EnumMember = "",
+        Event = "",
+        Field = "",
+        File = "",
+        Function = "󰆧",
+        Interface = "",
+        Key = "",
+        Keyword = "",
+        Method = "󰆧",
+        Module = "",
+        Namespace = "",
+        Null = "󰟢",
+        Number = "",
+        Object = "",
+        Operator = "󰆕",
+        Package = "",
+        Property = "",
+        Reference = "󰈇",
+        Snippet = "",
+        String = "",
+        Struct = "󰙅",
+        TabNine = "",
+        Table = "",
+        Tag = "",
+        Text = "󰉿",
+        TypeParameter = "󰊄",
+        Unit = "",
+        Value = "󰎠",
+        Variable = "",
+}
+
+M.config = function()
         local cmp = require("cmp")
+        local luasnip = require("luasnip")
         local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
-        --NOTE: luasnip config
         luasnip.config.set_config({
                 enable_autosnippets = true
         })
@@ -11,51 +80,8 @@ local cmp_config = function()
                 include = { "lua", "cpp", "c", "rust", "go", "python", "typescriptreact" }
         })
         require("luasnip.loaders.from_vscode").lazy_load({
-                paths = {
-                        vim.fn.stdpath("config") .. "/lua/snippets"
-                }
+                paths = { vim.fn.stdpath("config") .. "/snippets" }
         })
-
-        local check_backspace = function()
-                local col = vim.fn.col "." - 1
-                return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
-        end
-        local kind_icons = {
-                Array = "",
-                Boolean = "",
-                Class = "",
-                Color = "",
-                Constant = "",
-                Constructor = "",
-                Enum = "",
-                EnumMember = "",
-                Event = "",
-                Field = "",
-                File = "",
-                Folder = "",
-                Function = "",
-                Interface = "",
-                Key = "",
-                Keyword = "",
-                Method = "",
-                Module = "",
-                Namespace = "",
-                Null = "ﳠ",
-                Number = "",
-                Object = "",
-                Operator = "",
-                Package = "",
-                Property = "",
-                Reference = "",
-                Snippet = "",
-                String = "",
-                Struct = "",
-                Text = "",
-                TypeParameter = "",
-                Unit = "",
-                Value = "",
-                Variable = "",
-        }
 
         cmp.setup({
 
@@ -67,20 +93,17 @@ local cmp_config = function()
                 window = {
                         completion = {
                                 scrollbar = false,
-                                border = { " ", " ", " ", " ", " ", " ", " ", " ", },
+                                border = cmp_border
                         },
                         documentation = {
                                 scrollbar = false,
-                                border = { " ", " ", " ", " ", " ", " ", " ", " ", },
+                                border = cmp_border
                         },
-
                 },
                 formatting = {
                         fields = { "kind", "abbr", "menu" },
                         format = function(entry, vim_item)
-                                -- Kind icons
-                                vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-                                -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+                                vim_item.kind = string.format("%s", cmp_icons[vim_item.kind])
                                 vim_item.menu = ({
                                         nvim_lsp = "[LSP]",
                                         luasnip = "[Snippet]",
@@ -171,25 +194,4 @@ end
 
 
 
-
-return {
-        "hrsh7th/nvim-cmp",
-        dependencies = {
-                "hrsh7th/cmp-nvim-lsp",
-                "hrsh7th/cmp-buffer",
-                "hrsh7th/cmp-path",
-                "hrsh7th/cmp-cmdline",
-                "windwp/nvim-autopairs",
-                --NOTE: snip,
-                {
-                        "saadparwaiz1/cmp_luasnip",
-                        dependencies = {
-                                "L3MON4D3/LuaSnip",
-                                "rafamadriz/friendly-snippets",
-                        },
-                },
-        },
-        config = cmp_config,
-        Event = "VeryLazy"
-
-}
+return M

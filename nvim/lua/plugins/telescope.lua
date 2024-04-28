@@ -1,3 +1,16 @@
+local M = {
+        "nvim-telescope/telescope.nvim",
+        dependencies = {
+                "nvim-lua/plenary.nvim",
+                "nvim-telescope/telescope-ui-select.nvim",
+                {
+                        "nvim-telescope/telescope-fzf-native.nvim",
+                        build =
+                        "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
+                }
+        },
+}
+
 local theme = {
         single_dropdown = function(opts)
                 opts.theme = "dropdown"
@@ -26,10 +39,27 @@ local theme = {
         end,
 }
 
-local config = function()
+M.config = function()
         local telescope = require("telescope")
         local actions = require "telescope.actions"
         local trouble = require("trouble.providers.telescope")
+        local map = function(maps)
+                maps = maps or {}
+                local mappings = {
+                        i = {
+                                ["<c-t>"] = trouble.open_with_trouble,
+                        },
+                        n = {
+                                ["<c-t>"] = trouble.open_with_trouble,
+                        },
+                }
+                for mode, keys in pairs(maps) do
+                        for key, value in pairs(keys) do
+                                mappings[mode][key] = value
+                        end
+                end
+                return mappings
+        end
         telescope.setup {
                 defaults = {
                         prompt_prefix = " ",
@@ -48,7 +78,7 @@ local config = function()
                                 vertical = {
                                         mirror = false,
                                 },
-                                -- width = 0.87,
+                                width = 0.87,
                                 height = 0.80,
                                 preview_cutoff = 120,
                         },
@@ -63,103 +93,55 @@ local config = function()
                 },
 
                 pickers = {
-                        oldfiles = theme.simple_ivy({
-                                previewer = false,
-                                mappings = {
-                                        i = {
-                                                ["<c-t>"] = trouble.open_with_trouble,
-                                        },
-                                        n = {
-                                                ["<c-t>"] = trouble.open_with_trouble,
-                                        },
-                                }
-                        }),
-
-                        find_files = theme.simple_ivy({
-                                previewer = false,
-                                find_command = { "fd", "-H", },
-                                mappings = {
-                                        i = {
-                                                ["<c-t>"] = trouble.open_with_trouble,
-                                        },
-                                        n = {
-                                                ["<c-t>"] = trouble.open_with_trouble,
-                                        },
-                                }
-
-                        }),
+                        builtin = theme.simple_ivy({}),
 
                         colorscheme = theme.simple_ivy({
                                 previewer = false,
                         }),
 
-                        builtin = theme.simple_ivy({}),
-
-                        lsp_references = theme.simple_ivy({
-                                mappings = {
-                                        i = {
-                                                ["<c-t>"] = trouble.open_with_trouble,
-                                        },
-                                        n = {
-                                                ["<c-t>"] = trouble.open_with_trouble,
-                                        },
-                                }
-                        }),
-
-                        lsp_definitions = theme.simple_ivy({
-                                mappings = {
-                                        i = {
-                                                ["<c-t>"] = trouble.open_with_trouble,
-                                        },
-                                        n = {
-                                                ["<c-t>"] = trouble.open_with_trouble,
-                                        },
-                                }
-                        }),
-
-                        live_grep = theme.simple_ivy({
-                                find_command = { "rg" },
-                                mappings = {
-                                        i = {
-                                                ["<c-t>"] = trouble.open_with_trouble,
-                                        },
-                                        n = {
-                                                ["<c-t>"] = trouble.open_with_trouble,
-                                        },
-                                }
-                        }),
-
-                        current_buffer_fuzzy_find = theme.simple_ivy({
-                                find_command = { "rg" },
-                                mappings = {
-                                        i = {
-                                                ["<c-t>"] = trouble.open_with_trouble,
-                                        },
-                                        n = {
-                                                ["<c-t>"] = trouble.open_with_trouble,
-                                        },
-                                }
-                        }),
-
                         buffers = theme.simple_ivy({
                                 initial_mode = "normal",
                                 theme = "dropdown",
-                                mappings = {
+                                mappings = map {
                                         i = {
-                                                ["<c-t>"] = trouble.open_with_trouble,
                                                 ["<c-d>"] = "delete_buffer",
                                         },
                                         n = {
-                                                ["<c-t>"] = trouble.open_with_trouble,
-                                                ["d"] = "delete_buffer",
                                                 ["<c-d>"] = "delete_buffer",
                                         },
                                 },
                                 path_display = { "tail" },
                         }),
 
-                },
+                        oldfiles = theme.simple_ivy({
+                                previewer = false,
+                                mappings = map()
+                        }),
 
+                        find_files = theme.simple_ivy({
+                                previewer = false,
+                                find_command = { "fd", "-H", },
+                                mappings = map()
+                        }),
+
+                        live_grep = theme.simple_ivy({
+                                find_command = { "rg" },
+                                mappings = map()
+                        }),
+
+                        current_buffer_fuzzy_find = theme.simple_ivy({
+                                find_command = { "rg" },
+                                mappings = map()
+                        }),
+                        lsp_references = theme.simple_ivy({
+                                mappings = map()
+                        }),
+
+                        lsp_definitions = theme.simple_ivy({
+                                mappings = map()
+                        }),
+
+                },
 
                 extensions = {
                         fzf = {
@@ -174,24 +156,11 @@ local config = function()
 
 
         }
-
-
         telescope.load_extension('fzf')
         telescope.load_extension('ui-select')
 end
 
 
---PLUG:
-return {
-        "nvim-telescope/telescope.nvim",
-        dependencies = {
-                "nvim-lua/plenary.nvim",
-                "nvim-telescope/telescope-ui-select.nvim",
-                {
-                        "nvim-telescope/telescope-fzf-native.nvim",
-                        build =
-                        "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build"
-                }
-        },
-        config = config,
-}
+
+
+return M
