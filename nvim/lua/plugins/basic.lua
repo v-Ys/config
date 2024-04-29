@@ -44,21 +44,18 @@ M[#M + 1] = {
         "folke/todo-comments.nvim",
         opts = {
                 keywords = {
-                        -- alt ： 别名
-                        FIX = {
-                                icon = " ",
-                                color = "#C0392B",
-                                alt = { "FIXME", "BUG", "FIXIT", "ISSUE", "!" },
-                        },
-                        TODO = { icon = " ", color = "#AF7AC5", alt = { "PLUG" } },
-                        HACK = { icon = " ", color = "#7C3AED" },
-                        WARN = { icon = " ", color = "#E74C3C", alt = { "WARNING", "XXX" } },
-                        PERF = { icon = " ", color = "#5DADE2", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+                        FIX = { icon = " ", color = "#C0392B", alt = { "BUG", "ISSUE", "!" }, },
                         NOTE = { icon = "󰎞", color = "#10B981", alt = { "INFO" } },
+                        TODO = { icon = " ", color = "#7C3AED" },
+                        DONE = { icon = " ", color = "#AF7AC5", alt = { "PLUG" } },
+                        WARN = { icon = " ", color = "#E74C3C", alt = { "WARNING" } },
+                        TEST = { icon = " ", color = "#FFFC33", alt = { "REFE" } },
+                        PERF = { icon = " ", color = "#0746e6" },
                 },
         },
         event = "VeryLazy",
 }
+
 --PLUG: deffview
 M[#M + 1] = {
         "sindrets/diffview.nvim",

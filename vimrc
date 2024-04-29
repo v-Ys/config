@@ -28,7 +28,6 @@ vnoremap < <gv
 nnoremap ;k :nohl<CR>
 nnoremap ;j :let @/ = '<c-r><c-w>' \| set hlsearch<cr>
 nnoremap <c-]> :bd<CR>
-nnoremap <leader>n :NTree<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -37,9 +36,12 @@ nnoremap <leader>n :NTree<CR>
 set rtp+=/opt/homebrew/opt/fzf
 let $FZF_DEFAULT_OPTS .= '  --layout=default'
 call plug#begin()
+Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-startify'
 Plug 'tomtom/tcomment_vim'
-Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 call plug#end()
 
 let g:startify_files_number = 5
@@ -65,6 +67,10 @@ let g:startify_custom_header = [
             \'',
             \'',
             \]
+
+let g:NERDTreeMapChangeRoot="l"
+let g:NERDTreeMapUpdir="h"
+
 nnoremap  <Leader>fh :History<CR>
 nnoremap  <Leader>ff :Files<CR>
 nnoremap  <Leader>fs :Colors<CR>
@@ -72,3 +78,4 @@ nnoremap  <Leader>fl :Rg<CR>
 nnoremap  <Leader>fm :Marks<CR>
 nnoremap  <Leader>fw :Lines<CR>
 nnoremap  <Leader>j :Buffers<CR>
+nnoremap <leader>n :NERDTree<CR>
