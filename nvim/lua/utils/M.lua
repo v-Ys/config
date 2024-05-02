@@ -55,6 +55,11 @@ end
 
 M.cdBufferPwd = function()
         local dir = vim.fn.expand('%:p:h')
+        vim.api.nvim_set_current_dir(dir)
+        print("change dir to " .. dir)
+end
+
+
 --":let @/ = expand('<cword>') | set hlsearch<cr>"
 M.highlightCword = function()
         vim.fn.setreg('/', vim.fn.expand('<cword>'))
