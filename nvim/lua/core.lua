@@ -235,6 +235,7 @@ keymap("t", "<C-\\>", "<C-\\><C-N>", key_opts)
 --NOTE: user command
 cmd("FormatJSON", "%!python3 -m json.tool", {})
 cmd("BufferPwd", "lua require('utils.M').BufferPwd()<CR>", {})
+cmd("CBpwd", require('utils.M').cdBufferPwd, {})
 
 
 
