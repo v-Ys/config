@@ -53,6 +53,8 @@ M.BufferPwd = function()
         print(vim.fn.expand('%:p'))
 end
 
+M.cdBufferPwd = function()
+        local dir = vim.fn.expand('%:p:h')
 --":let @/ = expand('<cword>') | set hlsearch<cr>"
 M.highlightCword = function()
         vim.fn.setreg('/', vim.fn.expand('<cword>'))
