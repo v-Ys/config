@@ -5,41 +5,39 @@ local cmd          = vim.api.nvim_create_user_command
 local autocmd      = vim.api.nvim_create_autocmd
 local key_opts     = { noremap = true, silent = true }
 
--- opt.autochdir      = true      -- auto cd
-opt.termguicolors  = true  --true color
-opt.scrolloff      = 5     --scroll 时留下五行
-opt.cursorline     = false
-opt.wrap           = false --no wrap
-opt.linebreak      = true  --换行显示时不把一个单词拆开，遇到指定的符号（比如空格，连词号和其他标点符号）才换行
-opt.numberwidth    = 3     --行号宽度
-opt.number         = true
-opt.relativenumber = true
-opt.showtabline    = 0 -- don't showtabline
-opt.signcolumn     = 'yes' -- sign colume
-opt.list           = true -- 显示空白的符号
-opt.fillchars      = { eob = " " } -- hide  "~"
-opt.listchars      = { tab = '  ', extends = '⟩', precedes = '⟨', trail = '·' } --("eol:↴,tab:»·,trail:·")
+opt.backup         = false
+opt.swapfile       = false
+opt.errorbells     = false
+opt.autochdir      = false
+opt.termguicolors  = true
+--
 opt.splitright     = true
 opt.splitbelow     = true
-
+opt.number         = true
+opt.relativenumber = true
+opt.numberwidth    = 3
 --
-opt.backup         = false -- bak file
-opt.swapfile       = false
-opt.errorbells     = false -- bells
+opt.cursorline     = false
+opt.scrolloff      = 5 --scroll 时留下五行
+opt.wrap           = false --no wrap
+opt.linebreak      = true --换行显示时不把一个单词拆开，遇到指定的符号（比如空格，连词号和其他标点符号）才换行
+opt.showtabline    = 0 -- don't showtabline
+opt.signcolumn     = 'yes' -- sign colume
+opt.list           = true
+opt.listchars      = { tab = '  ', extends = '⟩', precedes = '⟨', trail = '·' } --("eol:↴,tab:»·,trail:·")
+opt.fillchars      = { eob = " " } -- hide  "~"
+--
+opt.shiftwidth     = 8 -- the number of spaces inserted for each indentation
+opt.tabstop        = 8 --一个tab键所占的列数
+opt.expandtab      = true --自动将tab键输入转化为相应的空格数
+opt.smartindent    = true --智能缩进
+opt.autoindent     = true --回车后下一行自动缩进
+opt.copyindent     = true --复制粘贴时保留原有的缩进
 --timeout
 opt.ttm            = 0
 opt.tm             = 0
 opt.to             = false
---
-opt.autowrite      = true                              --Enable auto write
 opt.grepprg        = 'rg --vimgrep'                    --use rg
---
-opt.shiftwidth     = 8                                 -- the number of spaces inserted for each indentation
-opt.tabstop        = 8                                 --一个tab键所占的列数
-opt.expandtab      = true                              --自动将tab键输入转化为相应的空格数
-opt.smartindent    = true                              --智能缩进-
-opt.autoindent     = true                              --回车后下一行自动缩进
-opt.copyindent     = true                              --复制粘贴时保留原有的缩进
 --
 opt.ignorecase     = true                              --搜索时忽略大小写
 opt.smartcase      = true                              --智能搜索
@@ -195,19 +193,19 @@ keymap("", ";z", "J", key_opts)
 keymap("n", ";k", "<cmd>nohl<CR>", key_opts)
 keymap("n", ";j", require("utils.M").highlightCword, key_opts)
 --buffers
-keymap({ 'n', 'i', 'x' }, "<A-]>", "<cmd>bn<cr>", key_opts)
-keymap({ 'n', 'i', 'x' }, "<A-[>", "<cmd>bp<cr>", key_opts)
-keymap({ 'n', 'i', 'x' }, "<C-]>", "<cmd>bd<cr>", key_opts)
+keymap({ 'n', 'i', 'x' }, "<M-]>", "<cmd>bn<cr>", key_opts)
+keymap({ 'n', 'i', 'x' }, "<M-[>", "<cmd>bp<cr>", key_opts)
+keymap({ 'n', 'i', 'x' }, "<M-w>", "<cmd>bd<cr>", key_opts)
 -- Resize with arrows
-keymap({ "n", "x" }, "<A-Up>", "<cmd>resize +2<CR>", key_opts)
-keymap({ "n", "x" }, "<A-Down>", "<cmd>resize -2<CR>", key_opts)
-keymap({ "n", "x" }, "<A-Left>", "<cmd>vertical resize -2<CR>", key_opts)
-keymap({ "n", "x" }, "<A-Right>", "<cmd>vertical resize +2<CR>", key_opts)
+keymap({ "n", "x" }, "<M-Up>", "<cmd>resize +2<CR>", key_opts)
+keymap({ "n", "x" }, "<M-Down>", "<cmd>resize -2<CR>", key_opts)
+keymap({ "n", "x" }, "<M-Left>", "<cmd>vertical resize -2<CR>", key_opts)
+keymap({ "n", "x" }, "<M-Right>", "<cmd>vertical resize +2<CR>", key_opts)
 -- Move  line / code block
-keymap({ "n", "i" }, "<A-->", "<cmd>m .+1<CR>==", key_opts)
-keymap({ "n", "i" }, "<A-=>", "<cmd>m .-2<CR>==", key_opts)
-keymap({ "x" }, "<A-->", ":m '>+1<cr>gv=gv", key_opts)
-keymap({ "x" }, "<A-=>", ":m '<-2<cr>gv=gv", key_opts)
+keymap({ "n", "i" }, "<M-->", "<cmd>m .+1<CR>==", key_opts)
+keymap({ "n", "i" }, "<M-=>", "<cmd>m .-2<CR>==", key_opts)
+keymap({ "x" }, "<M-->", ":m '>+1<cr>gv=gv", key_opts)
+keymap({ "x" }, "<M-=>", ":m '<-2<cr>gv=gv", key_opts)
 keymap({ "n" }, "<", "<<", key_opts)
 keymap({ "n" }, ">", ">>", key_opts)
 keymap({ "x", }, "<", "<gv", key_opts)
@@ -249,6 +247,14 @@ autocmd("BufWritePre", {
         group = vim.api.nvim_create_augroup("AUTOFORMAT", { clear = true }),
 })
 
+
+autocmd({ "BufWinEnter" }, {
+        callback = function()
+                require("utils.lastplace").set_cursor_position()
+        end,
+        group = vim.api.nvim_create_augroup("LASTPLACE", { clear = true }),
+})
+
 autocmd("FileType", {
         pattern = { 'markdown', 'typst', },
         group = vim.api.nvim_create_augroup("WRITING", { clear = true }),
@@ -257,10 +263,8 @@ autocmd("FileType", {
                 vim.opt_local.shiftwidth  = 4
                 vim.opt_local.softtabstop = 4
                 vim.opt_local.wrap        = true
-
                 keymap({ "x", "n" }, "j", "gj", { silent = true, buffer = true })
                 keymap({ "x", "n" }, 'k', "gk", { silent = true, buffer = true })
-
                 keymap("", "H", "g^", { silent = true, buffer = true })
                 keymap("", "L", "g$", { silent = true, buffer = true })
         end,
@@ -270,8 +274,6 @@ autocmd({ 'FileType' }, {
         pattern = { 'typst', },
         group = vim.api.nvim_create_augroup("TYPST", { clear = true }),
         callback = function()
-                vim.api.nvim_create_user_command("TypstFigures",
-                        "silent !mkdir figures",
-                        {})
+                cmd("TypstFigures", "silent !mkdir figures", {})
         end,
 })

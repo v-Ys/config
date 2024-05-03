@@ -1,6 +1,5 @@
 local M = {}
 
-
 -- PLUG: autopairs
 M[#M + 1] = {
         "windwp/nvim-autopairs",
@@ -27,16 +26,6 @@ M[#M + 1] = {
         version = "*",
         config = true,
         event = "VeryLazy",
-}
-
--- PLUG: lastplac
-M[#M + 1] = {
-        "ethanholz/nvim-lastplace",
-        opts = {
-                lastplace_ignore_buftype = { "quickfix", "nofile", "help" },
-                lastplace_ignore_filetype = { "gitcommit", "gitrebase", "svn", "hgcommit" },
-                lastplace_open_folds = true,
-        },
 }
 
 --PLUG: todo
@@ -97,22 +86,6 @@ M[#M + 1] = {
                 },
         },
 }
-
---PLUG: markdown table
-M[#M + 1] = {
-        "dhruvasagar/vim-table-mode",
-        ft = "markdown",
-}
-
---PLUG: smart insert
-M[#M + 1] = {
-        "ybian/smartim",
-        config = function()
-                vim.g.smartim_default = "com.apple.keylayout.ABC"
-        end,
-        ft = { "typst", "tex", "markdown" },
-}
-
 
 -- PLUG: nvim-tree
 local function nvim_tree_on_attach(bufnr)
@@ -240,13 +213,13 @@ local ts_config = function()
 end
 
 M[#M + 1] = {
-
         "nvim-treesitter/nvim-treesitter",
         dependencies = "RRethy/nvim-treesitter-textsubjects",
         build = ":TSUpdate",
         config = ts_config
 }
 
+--PLUG: align
 M[#M + 1] = {
         "junegunn/vim-easy-align",
         config = function()
@@ -254,5 +227,21 @@ M[#M + 1] = {
                 set({ "n", "v" }, ";a", "<Plug>(EasyAlign)", { noremap = true, silent = true })
         end
 }
+
+--PLUG: table
+M[#M + 1] = {
+        "dhruvasagar/vim-table-mode",
+        ft = "markdown",
+}
+
+--PLUG: smart-insert
+M[#M + 1] = {
+        "ybian/smartim",
+        config = function()
+                vim.g.smartim_default = "com.apple.keylayout.ABC"
+        end,
+        ft = { "typst", "tex", "markdown" },
+}
+
 
 return M

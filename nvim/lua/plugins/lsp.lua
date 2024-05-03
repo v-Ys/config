@@ -18,17 +18,18 @@ local function lsp_keymaps(bufnr)
         --  vim.diagnostic.setloclist()
 
         local opts = { noremap = true, silent = true, buffer = bufnr, }
-        vim.keymap.set("n", "gt", vim.lsp.buf.signature_help, opts)
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-        vim.keymap.set("n", "gd", require('telescope.builtin').lsp_definitions, opts)
-        vim.keymap.set("n", "gl", vim.lsp.buf.hover, opts)
-        vim.keymap.set("n", "go", require('telescope.builtin').lsp_implementations, opts)
-        vim.keymap.set("n", "gn", require('utils.M').rename, opts)
-        vim.keymap.set("n", "gr", require('telescope.builtin').lsp_references, opts)
-        vim.keymap.set("n", "ga", vim.diagnostic.open_float, opts)
-        vim.keymap.set("n", ";p", function() vim.diagnostic.goto_prev({ border = "single" }) end, opts)
-        vim.keymap.set("n", ";n", function() vim.diagnostic.goto_next({ border = "single" }) end, opts)
-        vim.api.nvim_create_user_command('Format', 'lua vim.lsp.buf.format{async=true}', {})
+        local keymap = vim.keymap.set
+        keymap("n", "gt", vim.lsp.buf.signature_help, opts)
+        keymap("n", "gD", vim.lsp.buf.declaration, opts)
+        keymap("n", "gd", require('telescope.builtin').lsp_definitions, opts)
+        keymap("n", "gl", vim.lsp.buf.hover, opts)
+        keymap("n", "go", require('telescope.builtin').lsp_implementations, opts)
+        keymap("n", "gn", require('utils.M').rename, opts)
+        keymap("n", "gr", require('telescope.builtin').lsp_references, opts)
+        keymap("n", "ga", vim.diagnostic.open_float, opts)
+        keymap("n", ";p", function() vim.diagnostic.goto_prev({ border = "single" }) end, opts)
+        keymap("n", ";n", function() vim.diagnostic.goto_next({ border = "single" }) end, opts)
+        vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format { async = true } end, {})
 end
 
 -- PLUG:LSP

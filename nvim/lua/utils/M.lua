@@ -1,7 +1,7 @@
 --for Terminal
 local M = {}
 
--- for run
+--NOTE: run
 local runCode = {
         markdown = function()
                 vim.cmd("silent! !open %")
@@ -12,7 +12,6 @@ local runCode = {
         end,
 }
 
---NOTE: run
 M.run = function()
         --get current buffer filetype
         local ftp = vim.bo.filetype
@@ -22,7 +21,7 @@ M.run = function()
         end
 end
 
---NOTE: lsp rename
+--NOTE:
 M.rename = function()
         local opts = {
                 relative = 'cursor',
@@ -49,19 +48,21 @@ M.rename = function()
         end, { buffer = true })
 end
 
+--NOTE:
 M.BufferPwd = function()
         print(vim.fn.expand('%:p'))
 end
 
+--NOTE:
 M.cdBufferPwd = function()
         local dir = vim.fn.expand('%:p:h')
         vim.api.nvim_set_current_dir(dir)
         print("change dir to " .. dir)
 end
 
-
---":let @/ = expand('<cword>') | set hlsearch<cr>"
+--NOTE:
 M.highlightCword = function()
+        --":let @/ = expand('<cword>') | set hlsearch<cr>"
         vim.fn.setreg('/', vim.fn.expand('<cword>'))
         vim.opt.hlsearch = true
 end
