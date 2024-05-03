@@ -73,12 +73,12 @@ local keybinds = {
                 },
         },
         {
-                key    = 'w',
+                key    = 'n',
                 mods   = 'ALT',
                 action = act.ActivatePaneDirection 'Next',
         },
         {
-                key    = 'w',
+                key    = 'W',
                 mods   = 'SUPER',
                 action = act.CloseCurrentPane { confirm = true },
 
@@ -120,9 +120,9 @@ local keybinds = {
                 action = act.ResetFontSize
         },
         {
-                key    = "s",
+                key    = "w",
                 mods   = "SUPER",
-                action = act { SendString = "\x1bs" },
+                action = act { SendString = "\x1bw" },
         },
 }
 
