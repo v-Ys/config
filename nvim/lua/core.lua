@@ -10,15 +10,20 @@ opt.swapfile       = false
 opt.errorbells     = false
 opt.autochdir      = false
 opt.termguicolors  = true
---
 opt.splitright     = true
 opt.splitbelow     = true
 opt.number         = true
 opt.relativenumber = true
 opt.numberwidth    = 3
+opt.scrolloff      = 5
+opt.smartindent    = true -- 智能缩进
+opt.autoindent     = true -- 回车后下一行自动缩进
+opt.copyindent     = true -- 复制粘贴时保留原有的缩进
+opt.ignorecase     = true -- 搜索时忽略大小写
+opt.smartcase      = true -- 智能搜索
+opt.hlsearch       = true -- 高亮显示搜索的匹配结果，输入结束时才显示
+opt.incsearch      = true -- 高亮显示搜索的匹配过程，每输入一个字符，就自动跳到第一个匹配的结果：
 --
-opt.cursorline     = false
-opt.scrolloff      = 5 --scroll 时留下五行
 opt.wrap           = false --no wrap
 opt.linebreak      = true --换行显示时不把一个单词拆开，遇到指定的符号（比如空格，连词号和其他标点符号）才换行
 opt.showtabline    = 0 -- don't showtabline
@@ -26,32 +31,21 @@ opt.signcolumn     = 'yes' -- sign colume
 opt.list           = true
 opt.listchars      = { tab = '  ', extends = '⟩', precedes = '⟨', trail = '·' } --("eol:↴,tab:»·,trail:·")
 opt.fillchars      = { eob = " " } -- hide  "~"
---
-opt.shiftwidth     = 8 -- the number of spaces inserted for each indentation
-opt.tabstop        = 8 --一个tab键所占的列数
-opt.expandtab      = true --自动将tab键输入转化为相应的空格数
-opt.smartindent    = true --智能缩进
-opt.autoindent     = true --回车后下一行自动缩进
-opt.copyindent     = true --复制粘贴时保留原有的缩进
---timeout
-opt.ttm            = 0
-opt.tm             = 0
-opt.to             = false
-opt.grepprg        = 'rg --vimgrep'                    --use rg
---
-opt.ignorecase     = true                              --搜索时忽略大小写
-opt.smartcase      = true                              --智能搜索
-opt.hlsearch       = true                              --高亮显示搜索的匹配结果，输入结束时才显示
-opt.incsearch      = true                              --高亮显示搜索的匹配过程，每输入一个字符，就自动跳到第一个匹配的结果：
 opt.completeopt    = { 'menu', 'menuone', 'noselect' } --for cmp
-opt.showcmd        = true                              --显示输入命令
-opt.wildmenu       = true                              --在命令模式下，按下 tab 键可以自动补全命令
+opt.showcmd        = true --显示输入命令
+opt.wildmenu       = true --在命令模式下，按下 tab 键可以自动补全命令
 opt.wildmode       = 'longest:list,full'
 --set fold
 opt.foldcolumn     = '0' --show fold in line number
 opt.foldlevel      = 99  -- Using ufo provider need a large value, feel free to decrease the value
 opt.foldlevelstart = 99
 opt.foldenable     = true
+--
+opt.expandtab      = true -- tab->spaces
+opt.shiftwidth     = 8    -- the number of spaces inserted for each indentation
+opt.tabstop        = 8    -- 一个tab键所占的列数
+opt.cursorline     = false
+opt.conceallevel   = 2    -- Hide * markup for bold and italic
 
 
 
@@ -193,8 +187,8 @@ keymap("", ";z", "J", key_opts)
 keymap("n", ";k", "<cmd>nohl<CR>", key_opts)
 keymap("n", ";j", require("utils.M").highlightCword, key_opts)
 --buffers
-keymap({ 'n', 'i', 'x' }, "<M-]>", "<cmd>bn<cr>", key_opts)
-keymap({ 'n', 'i', 'x' }, "<M-[>", "<cmd>bp<cr>", key_opts)
+keymap({ 'n', 'i', 'x' }, "<M-m>", "<cmd>bn<cr>", key_opts)
+keymap({ 'n', 'i', 'x' }, "<M-n>", "<cmd>bp<cr>", key_opts)
 keymap({ 'n', 'i', 'x' }, "<M-w>", "<cmd>bd<cr>", key_opts)
 -- Resize with arrows
 keymap({ "n", "x" }, "<M-Up>", "<cmd>resize +2<CR>", key_opts)

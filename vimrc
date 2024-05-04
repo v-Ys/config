@@ -1,6 +1,6 @@
 syntax  on
 filetype indent plugin on
-set ttimeout ttyfast ttimeoutlen=1 "fix delay
+set ttimeout ttyfast ttimeoutlen=1 "esc delay
 set hlsearch incsearch ignorecase smartcase list listchars=tab:<_,trail:~ fillchars=eob:\ 
 set cursorline number relativenumber ruler showcmd showmode showmatch nowrap linebreak
 set foldmethod=manual encoding=utf-8 fileencodings=utf-8 autoread splitright splitbelow
@@ -27,7 +27,6 @@ vnoremap > >gv
 vnoremap < <gv
 nnoremap ;k :nohl<CR>
 nnoremap ;j :let @/ = '<c-r><c-w>' \| set hlsearch<cr>
-nnoremap <c-]> :bd<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
