@@ -73,7 +73,7 @@ local keybinds = {
                 },
         },
         {
-                key    = 'n',
+                key    = ']',
                 mods   = 'ALT',
                 action = act.ActivatePaneDirection 'Next',
         },
