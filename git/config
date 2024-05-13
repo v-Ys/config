@@ -1,6 +1,6 @@
 [user] 
-name = Ys
-email = vincent.vv.mys@gmail.com 
+name = Y.S.
+email = vv.ys.ma@gmail.com 
 [core]
 excludesfile = ~/.config/git/gitignore
 editor = nvim
@@ -10,24 +10,18 @@ pager = delta
 tool = vimdiff
 conflictstyle = diff3
 [mergetool]
-keepBackup = false
+keepBackup = false 
 [mergetool "vimdiff"]
 cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 [diff]
-colorMoved = default
+colorMoved = default 
 [interactive]
 diffFilter = delta --color-only
 [delta]
 side-by-side = true
 
-#WARN:!!! PASSWORD
+#WARN: PASSWORD
 [credential]
 helper = store
 
-#NOTE:
-#[url "git@github.com:"]
-#insteadOf = https://github.com/
-
-#[http "https://github.com"]
-#proxy = socks5://127.0.0.1:7890

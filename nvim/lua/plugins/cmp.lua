@@ -1,22 +1,6 @@
 local M = {
         "hrsh7th/nvim-cmp",
-        dependencies = {
-                "hrsh7th/cmp-nvim-lsp",
-                "hrsh7th/cmp-buffer",
-                "hrsh7th/cmp-path",
-                "hrsh7th/cmp-cmdline",
-                "windwp/nvim-autopairs",
-                --NOTE: snip,
-                {
-                        "saadparwaiz1/cmp_luasnip",
-                        dependencies = {
-                                "L3MON4D3/LuaSnip",
-                                "rafamadriz/friendly-snippets",
-                        },
-                },
-        },
         Event = "VeryLazy"
-
 }
 
 local cmp_border = { " ", " ", " ", " ", " ", " ", " ", " ", }
@@ -68,6 +52,21 @@ local cmp_icons = {
         Variable = "",
 }
 
+M.dependencies = {
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "windwp/nvim-autopairs",
+        {
+                "saadparwaiz1/cmp_luasnip",
+                dependencies = {
+                        "L3MON4D3/LuaSnip",
+                        "rafamadriz/friendly-snippets",
+                },
+        },
+}
+
+
 M.config = function()
         local cmp = require("cmp")
         local luasnip = require("luasnip")
@@ -77,14 +76,13 @@ M.config = function()
                 enable_autosnippets = true
         })
         require("luasnip/loaders/from_vscode").lazy_load({
-                include = { "lua", "cpp", "c", "rust", "go", "python", "typescriptreact" }
+                include = { "lua", "cpp", "c", "rust", "go", "python" }
         })
         require("luasnip.loaders.from_vscode").lazy_load({
                 paths = { vim.fn.stdpath("config") .. "/snippets" }
         })
 
         cmp.setup({
-
                 snippet = {
                         expand = function(args)
                                 luasnip.lsp_expand(args.body) -- load snippets
@@ -117,6 +115,7 @@ M.config = function()
                         ghost_text = true
                 },
                 mapping = cmp.mapping.preset.insert {
+
                         ["<A-e>"] = cmp.mapping {
                                 i = cmp.mapping.abort(),
                                 c = cmp.mapping.close(),
@@ -127,6 +126,7 @@ M.config = function()
                                 behavior = cmp.ConfirmBehavior.Replace,
                                 select = true
                         }),
+
                         ["<Tab>"] = cmp.mapping(function(fallback)
                                 if cmp.visible() then
                                         cmp.select_next_item()
@@ -139,10 +139,8 @@ M.config = function()
                                 else
                                         fallback()
                                 end
-                        end, {
-                                "i",
-                                "s",
-                        }),
+                        end, { "i", "s", }),
+
                         ["<S-Tab>"] = cmp.mapping(function(fallback)
                                 if cmp.visible() then
                                         cmp.select_prev_item()
@@ -151,10 +149,7 @@ M.config = function()
                                 else
                                         fallback()
                                 end
-                        end, {
-                                "i",
-                                "s",
-                        }),
+                        end, { "i", "s", }),
 
                 },
                 sources = {
@@ -164,33 +159,11 @@ M.config = function()
                         { name = "path",     max_item_count = 5 },
                 },
         })
-
-        cmp.setup.cmdline('/', {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = {
-                        { name = 'buffer', max_item_count = 5 }
-                }
-        })
-        cmp.setup.cmdline('?', {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = {
-                        { name = 'buffer', max_item_count = 5 }
-                }
-        })
-        cmp.setup.cmdline(':', {
-                mapping = cmp.mapping.preset.cmdline(),
-                sources = cmp.config.sources({
-                        { name = 'path', max_item_count = 7 }
-                }, {
-                        { name = 'cmdline', max_item_count = 7 }
-                }),
-        })
         cmp.event:on( -- insert `(` after select function or method item
                 'confirm_done',
                 cmp_autopairs.on_confirm_done()
         )
 end
-
 
 
 

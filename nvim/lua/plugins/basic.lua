@@ -88,84 +88,81 @@ M[#M + 1] = {
 }
 
 -- PLUG: nvim-tree
-local function nvim_tree_on_attach(bufnr)
-        local api = require "nvim-tree.api"
-
-        local function opts(desc)
-                return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
-        end
-        local function my_h()
-                api.tree.change_root_to_parent()
-                api.tree.collapse_all()
-        end
-
-        api.config.mappings.default_on_attach(bufnr)
-
-        vim.keymap.del("n", "f", { buffer = bufnr })
-        vim.keymap.del("n", "F", { buffer = bufnr })
-        vim.keymap.del("n", "y", { buffer = bufnr })
-        vim.keymap.del("n", "d", { buffer = bufnr })
-        vim.keymap.del("n", "gy", { buffer = bufnr })
-        vim.keymap.del("n", "P", { buffer = bufnr })
-        vim.keymap.del("n", "s", { buffer = bufnr })
-        vim.keymap.del("n", "x", { buffer = bufnr })
-        vim.keymap.del("n", "c", { buffer = bufnr })
-        vim.keymap.set("n", "l", api.tree.change_root_to_node, opts "next")
-        vim.keymap.set("n", "i", api.node.navigate.parent, opts "parent")
-        vim.keymap.set("n", "h", my_h, opts "pre")
-        vim.keymap.set("n", "yy", api.fs.copy.node, opts "copy")
-        vim.keymap.set("n", "dd", api.fs.remove, opts "delete")
-        vim.keymap.set("n", "cc", api.fs.cut, opts "delete")
-        vim.keymap.set("n", "=", api.node.run.system, opts "open system")
-        vim.keymap.set("n", "Y", api.fs.copy.absolute_path, opts "absolute_path")
-end
-
 M[#M + 1] = {
         "nvim-tree/nvim-tree.lua",
-        opts = {
-                on_attach = nvim_tree_on_attach,
-                disable_netrw = true,
-                hijack_netrw = true,
-                hijack_cursor = true,
-                hijack_unnamed_buffer_when_opening = false,
-                sync_root_with_cwd = true,
-                update_focused_file = {
+        opts = function()
+                local R = {}
+                R.on_attach = function(bufnr)
+                        local api = require "nvim-tree.api"
+                        local keymap_set = vim.keymap.set
+                        local keymap_del = vim.keymap.del
+
+                        local function opts(desc)
+                                return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+                        end
+                        local function my_h()
+                                api.tree.change_root_to_parent()
+                                api.tree.collapse_all()
+                        end
+
+                        api.config.mappings.default_on_attach(bufnr)
+
+                        keymap_del("n", "f", { buffer = bufnr })
+                        keymap_del("n", "F", { buffer = bufnr })
+                        keymap_del("n", "y", { buffer = bufnr })
+                        keymap_del("n", "d", { buffer = bufnr })
+                        keymap_del("n", "gy", { buffer = bufnr })
+                        keymap_del("n", "P", { buffer = bufnr })
+                        keymap_del("n", "s", { buffer = bufnr })
+                        keymap_del("n", "x", { buffer = bufnr })
+                        keymap_del("n", "c", { buffer = bufnr })
+
+                        keymap_set("n", "l", api.tree.change_root_to_node, opts "next")
+                        keymap_set("n", "i", api.node.navigate.parent, opts "parent")
+                        keymap_set("n", "h", my_h, opts "pre")
+                        keymap_set("n", "yy", api.fs.copy.node, opts "copy")
+                        keymap_set("n", "dd", api.fs.remove, opts "delete")
+                        keymap_set("n", "cc", api.fs.cut, opts "delete")
+                        keymap_set("n", "=", api.node.run.system, opts "open system")
+                        keymap_set("n", "Y", api.fs.copy.absolute_path, opts "absolute_path")
+                end
+
+                R.disable_netrw = true
+                R.hijack_netrw = true
+                R.hijack_cursor = true
+                R.hijack_unnamed_buffer_when_opening = false
+                R.sync_root_with_cwd = true
+                R.update_focused_file = {
                         enable = true,
                         update_root = true,
-                },
-                view = {
+                }
+                R.view = {
                         adaptive_size = false,
                         side = "left",
                         width = 30,
                         preserve_window_proportions = true,
-                },
-                filesystem_watchers = {
-                        enable = true,
-                },
-                actions = {
+                }
+                R.filesystem_watchers = { enable = true }
+                R.actions = {
                         open_file = {
                                 resize_window = true,
                                 quit_on_open = true,
                         },
-                },
-                renderer = {
+                }
+                R.renderer = {
                         root_folder_label = false,
                         highlight_git = true,
                         highlight_opened_files = "none",
-
-                        icons = {
-                                show = {
-                                        git = false,
-                                },
-                        }
-                },
-                filters = {
+                        icons = { show = { git = false, } }
+                }
+                R.filters = {
                         dotfiles = false,
                         custom = {
-                                ".DS_Store"
-                        }
-                },
-        }
+                                ".DS_Store",
+                                ".git" }
+                }
+                return R
+        end
 }
 
 
@@ -182,41 +179,40 @@ M[#M + 1] = {
 
 
 --PLUG: treesitter
-local ts_config = function()
-        require("nvim-treesitter.configs").setup({
-                ensure_installed = { "vimdoc", "lua", "cpp", "c", "rust", "go", "python", "typst" },
-                sync_install = false,
-                highlight = {
-                        enable = true,
-                },
-                indent = {
-                        enable = true,
-                },
-                incremental_selection = {
-                        enable = true,
-                        keymaps = {
-                                node_incremental = "v",
-                                node_decremental = "<BS>",
-                                init_selection = false,
-                                scope_incremental = false,
-                        },
-
-                },
-                textsubjects = {
-                        enable = true,
-                        prev_selection = '.',
-                        keymaps = {
-                                ['<CR>'] = 'textsubjects-smart',
-                        },
-                },
-        })
-end
-
 M[#M + 1] = {
         "nvim-treesitter/nvim-treesitter",
         dependencies = "RRethy/nvim-treesitter-textsubjects",
         build = ":TSUpdate",
-        config = ts_config
+        config = function()
+                require("nvim-treesitter.configs").setup({
+                        ensure_installed = { "vimdoc", "lua", "cpp", "c", "rust", "go", "python", "typst" },
+                        sync_install = false,
+                        highlight = {
+                                enable = true,
+                        },
+                        indent = {
+                                enable = true,
+                        },
+                        incremental_selection = {
+                                enable = true,
+                                keymaps = {
+                                        node_incremental = "v",
+                                        node_decremental = "<BS>",
+                                        init_selection = false,
+                                        scope_incremental = false,
+                                },
+
+                        },
+                        textsubjects = {
+                                enable = true,
+                                prev_selection = '.',
+                                keymaps = {
+                                        ['<CR>'] = 'textsubjects-smart',
+                                },
+                        },
+                })
+        end
+
 }
 
 --PLUG: align

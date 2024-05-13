@@ -1,3 +1,6 @@
+local M = {
+        "neovim/nvim-lspconfig",
+}
 local servers = {
         "lua_ls",
         "clangd",
@@ -32,19 +35,52 @@ local function lsp_keymaps(bufnr)
         vim.api.nvim_create_user_command('Format', function() vim.lsp.buf.format { async = true } end, {})
 end
 
--- PLUG:LSP
-local lsp_config = function()
+
+M.dependencies = {
+        "hrsh7th/cmp-nvim-lsp",
+        {
+                "williamboman/mason.nvim",
+                config = {
+                        max_concurrent_installers = 10,
+                        ui = {
+                                icons = {
+                                        package_installed = "",
+                                        package_pending = "",
+                                        package_uninstalled = "",
+                                },
+                                border = "single",
+                        },
+
+                }
+        },
+        {
+                "nvimtools/none-ls.nvim",
+                config = function()
+                        local null_ls = require("null-ls")
+                        local formatting = null_ls.builtins.formatting
+                        null_ls.setup({
+                                debug = false,
+                                sources = {
+                                        formatting.black,
+                                },
+                        })
+                end,
+        },
+
+}
+
+M.config = function()
         local lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
         local on_attach = function(client, bufnr)
                 if client.name == "marksman" then
                         client.server_capabilities.semanticTokensProvider = nil
-                        -- client.server_capabilities.document_formatting = false
                 end
                 lsp_keymaps(bufnr)
         end
         -- capabilities cmp
         local capabilities = vim.lsp.protocol.make_client_capabilities()
+        -- client.server_capabilities.document_formatting = false
         capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
         for _, server in pairs(servers) do
@@ -52,7 +88,6 @@ local lsp_config = function()
                         on_attach = on_attach,
                         capabilities = capabilities,
                 }
-
                 local has_custom_opts, server_custom_opts = pcall(require,
                         "utils.lsp_settings." .. server)
                 if has_custom_opts then
@@ -62,46 +97,7 @@ local lsp_config = function()
         end
 end
 
--- PLUG: mason
-local mason_config = {
-        max_concurrent_installers = 10,
-        ui = {
-                icons = {
-                        package_installed = "",
-                        package_pending = "",
-                        package_uninstalled = "",
-                },
-                border = "single",
-        },
 
-}
 
--- PLUG: null-ls
-local nullls_config = function()
-        local null_ls = require("null-ls")
-        local formatting = null_ls.builtins.formatting
-        null_ls.setup({
-                debug = false,
-                sources = {
-                        formatting.black,
-                },
-        })
-end
 
-return {
-        "neovim/nvim-lspconfig",
-        dependencies =
-        {
-                "hrsh7th/cmp-nvim-lsp",
-                {
-                        "williamboman/mason.nvim",
-                        opts = mason_config,
-                },
-                {
-                        "nvimtools/none-ls.nvim",
-                        config = nullls_config,
-                },
-
-        },
-        config = lsp_config,
-}
+return M
