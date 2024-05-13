@@ -78,9 +78,9 @@ M.config = function()
                 end
                 lsp_keymaps(bufnr)
         end
-        -- capabilities cmp
+
+        --  cmp
         local capabilities = vim.lsp.protocol.make_client_capabilities()
-        -- client.server_capabilities.document_formatting = false
         capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
         for _, server in pairs(servers) do
