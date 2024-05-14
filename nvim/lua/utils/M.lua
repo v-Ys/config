@@ -67,5 +67,10 @@ M.highlightCword = function()
         vim.opt.hlsearch = true
 end
 
+M.troublePre = function()
+        local trouble = require("trouble")
+        trouble.next({})
+        trouble.jump({})
+end
 
 return M

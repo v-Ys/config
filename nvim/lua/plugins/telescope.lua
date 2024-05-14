@@ -43,15 +43,15 @@ M.dependencies = {
 M.config = function()
         local telescope = require("telescope")
         local actions = require "telescope.actions"
-        local trouble = require("trouble.providers.telescope")
+        local trouble = require("trouble.sources.telescope")
         local map = function(maps)
                 maps = maps or {}
                 local mappings = {
                         i = {
-                                ["<c-t>"] = trouble.open_with_trouble,
+                                ["<c-t>"] = trouble.open,
                         },
                         n = {
-                                ["<c-t>"] = trouble.open_with_trouble,
+                                ["<c-t>"] = trouble.open,
                         },
                 }
                 for mode, keys in pairs(maps) do

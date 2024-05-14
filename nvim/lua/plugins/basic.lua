@@ -33,13 +33,12 @@ M[#M + 1] = {
         "folke/todo-comments.nvim",
         opts = {
                 keywords = {
-                        FIX = { icon = " ", color = "#C0392B", alt = { "BUG", "ISSUE", "!" }, },
-                        NOTE = { icon = "󰎞", color = "#10B981", alt = { "INFO" } },
-                        TODO = { icon = " ", color = "#7C3AED" },
-                        DONE = { icon = " ", color = "#AF7AC5", alt = { "PLUG" } },
-                        WARN = { icon = " ", color = "#E74C3C", alt = { "WARNING" } },
-                        TEST = { icon = " ", color = "#FFFC33", alt = { "REFE" } },
-                        PERF = { icon = " ", color = "#0746e6" },
+                        ISSUE = { icon = "󰨰 ", color = "#C0392B", alt = { "BUG!", "FIX!", }, },
+                        TEST = { icon = " ", color = "#AF7AC5", alt = { "FUNC", "PLUG" } },
+                        WARN = { icon = " ", color = "#C0392B" },
+                        TODO = { icon = " ", color = "#C0392B", },
+                        DONE = { icon = " ", color = "#1957F3" },
+                        NOTE = { icon = "", color = "#10B981", alt = { "INFO", "TIPS" } },
                 },
         },
         event = "VeryLazy",
@@ -55,8 +54,12 @@ M[#M + 1] = {
 --PLUG: trouble
 M[#M + 1] = {
         "folke/trouble.nvim",
+        branch = "dev",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        config = true,
+        opts = {
+                auto_preview = false,
+                focus = true,
+        },
 }
 
 --PLUG:  motion

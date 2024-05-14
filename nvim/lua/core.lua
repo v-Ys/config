@@ -216,11 +216,8 @@ keymap("n", "<leader>ff", require('telescope.builtin').find_files, key_opts)
 keymap("n", "<Leader>fs", require('telescope.builtin').colorscheme, key_opts)
 keymap("n", "<leader>fp", require('utils.telescope_tools').zoxide, key_opts)
 keymap("n", "<leader>fw", require('telescope.builtin').current_buffer_fuzzy_find, key_opts)
-keymap("n", "tj", function() require("trouble").next({ skip_groups = true, jump = true }); end, key_opts)
-keymap("n", "tk", function() require("trouble").previous({ skip_groups = true, jump = true }); end, key_opts)
 keymap({ "n" }, "<leader>m", require('utils.M').run, key_opts)
 keymap("t", "<C-\\>", "<C-\\><C-N>", key_opts)
-
 
 
 
