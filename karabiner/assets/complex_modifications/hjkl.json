@@ -83,6 +83,30 @@
             ]
         },
         {
+            "description": "Map '`'  plus 'left_control' to ESC",
+            "manipulators": [
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "grave_accent_and_tilde",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_control"
+                            ],
+                            "optional": [
+                                "any"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "escape"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "description": "Map 'right_shit'  plus 'Enter' to ESC",
             "manipulators": [
                 {

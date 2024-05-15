@@ -1,7 +1,7 @@
 --for Terminal
 local M = {}
 
---NOTE: run
+--FUNC: run
 local runCode = {
         markdown = function()
                 vim.cmd("silent! !open %")
@@ -21,7 +21,7 @@ M.run = function()
         end
 end
 
---NOTE:
+--FUNC:
 M.rename = function()
         local opts = {
                 relative = 'cursor',
@@ -48,29 +48,24 @@ M.rename = function()
         end, { buffer = true })
 end
 
---NOTE:
+--FUNC:
 M.BufferPwd = function()
         print(vim.fn.expand('%:p'))
 end
 
---NOTE:
+--FUNC:
 M.cdBufferPwd = function()
         local dir = vim.fn.expand('%:p:h')
         vim.api.nvim_set_current_dir(dir)
         print("change dir to " .. dir)
 end
 
---NOTE:
+--FUNC:
 M.highlightCword = function()
         --":let @/ = expand('<cword>') | set hlsearch<cr>"
         vim.fn.setreg('/', vim.fn.expand('<cword>'))
         vim.opt.hlsearch = true
 end
 
-M.troublePre = function()
-        local trouble = require("trouble")
-        trouble.next({})
-        trouble.jump({})
-end
 
 return M
