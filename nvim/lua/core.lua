@@ -85,7 +85,7 @@ vim.diagnostic.config({
                 focusable = false,
                 style = "minimal",
                 border = "single",
-                source = "always",
+                source = "if_many",
                 header = "",
                 prefix = "",
         },
@@ -107,7 +107,7 @@ vim.g.maplocalleader = " "
 keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
         vim.fn.system({
                 "git",
                 "clone",

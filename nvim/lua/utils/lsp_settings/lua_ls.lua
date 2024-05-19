@@ -4,6 +4,7 @@ return {
                         runtime = { version = "LuaJIT" },
                         diagnostics = {
                                 globals = { "vim" },
+                                disable = { "missing-fields", "undefined-field" },
                         },
                         workspace = {
                                 library = {

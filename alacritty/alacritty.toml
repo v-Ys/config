@@ -19,7 +19,6 @@ offset={ x = 0, y = 0}
 [keyboard]  # chars :Unicode
 bindings = [
 { key = "【", mods = "Control", chars = "\u001B" },
-{ key = "w", mods = "Command", chars = "\u001B\u0077" },
 ]
 
 
