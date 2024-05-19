@@ -27,9 +27,6 @@ M[#M + 1] = {
         "folke/todo-comments.nvim",
         opts = {
                 keywords = {
-                        --TODO:
-                        --NOTE:
-                        --DONE:
                         FIX = { icon = "󰨰 ", color = "#DC2626", alt = { "BUG", "ISSUE" }, },
                         TEST = { icon = " ", color = "#AF7AC5", alt = { "FUNC", "PLUG" } },
                         WARN = { icon = " ", color = "#C0392B" },
@@ -37,6 +34,7 @@ M[#M + 1] = {
                         DONE = { icon = " ", color = "#1957F3" },
                         NOTE = { icon = "", color = "#10B981", alt = { "INFO", "TIPS" } },
                 },
+                merge_keywords = false,
         },
         event = "VeryLazy",
 }
