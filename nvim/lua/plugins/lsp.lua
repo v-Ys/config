@@ -40,7 +40,7 @@ M.dependencies = {
         "hrsh7th/cmp-nvim-lsp",
         {
                 "williamboman/mason.nvim",
-                config = {
+                opts = {
                         max_concurrent_installers = 10,
                         ui = {
                                 icons = {

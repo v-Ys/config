@@ -1,6 +1,6 @@
 local M = {
         "hrsh7th/nvim-cmp",
-        Event = "VeryLazy"
+        event = "VeryLazy",
 }
 
 local cmp_border = { " ", " ", " ", " ", " ", " ", " ", " ", }
@@ -9,8 +9,6 @@ local check_backspace = function()
         local col = vim.fn.col "." - 1
         return col == 0 or vim.fn.getline("."):sub(col, col):match "%s"
 end
-local lspkey = {
-}
 
 local cmp_icons = {
         Array = "",

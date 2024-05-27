@@ -31,7 +31,7 @@ opt.signcolumn     = 'yes' -- sign colume
 opt.list           = true
 opt.listchars      = { tab = '  ', extends = '⟩', precedes = '⟨', trail = '·' } --("eol:↴,tab:»·,trail:·")
 opt.fillchars      = { eob = " " } -- hide  "~"
-opt.completeopt    = { 'menu', 'menuone', 'noselect' } --for cmp
+opt.completeopt    = { 'menu', 'menuone', 'noselect', 'popup' } --for cmp
 opt.showcmd        = true --显示输入命令
 opt.wildmenu       = true --在命令模式下，按下 tab 键可以自动补全命令
 opt.wildmode       = 'longest:list,full'

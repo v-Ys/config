@@ -90,11 +90,18 @@ M[#M + 1] = {
 
 --PLUG:
 M[#M + 1] = {
-        "projekt0n/github-nvim-theme",
+        'projekt0n/github-nvim-theme',
         config = function()
+                require('github-theme').setup({
+                        groups = {
+                                all = {
+                                        Delimiter = { link = "Function" } }
+                        }
+
+                })
+
                 vim.cmd.colorscheme "github_light"
                 -- vim.cmd.colorscheme "github_dark"
-                -- vim.cmd.colorscheme "github_dark_default"
         end
 }
 

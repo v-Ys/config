@@ -157,7 +157,7 @@ M[#M + 1] = {
                         dotfiles = false,
                         custom = {
                                 ".DS_Store",
-                                ".git" }
+                        }
                 }
                 return R
         end
