@@ -217,6 +217,9 @@ keymap("n", "<Leader>fs", require('telescope.builtin').colorscheme, key_opts)
 keymap("n", "<leader>fp", require('utils.telescope_tools').zoxide, key_opts)
 keymap("n", "<leader>fw", require('telescope.builtin').current_buffer_fuzzy_find, key_opts)
 keymap({ "n" }, "<leader>m", require('utils.M').run, key_opts)
+keymap({ "n" }, "tx", require('utils.M').trouble.close, key_opts)
+keymap({ "n" }, "tj", require('utils.M').trouble.next, key_opts)
+keymap({ "n" }, "tk", require('utils.M').trouble.prev, key_opts)
 keymap("t", "<C-\\>", "<C-\\><C-N>", key_opts)
 
 

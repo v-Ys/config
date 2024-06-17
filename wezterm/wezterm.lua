@@ -7,12 +7,6 @@ wezterm.on("gui-startup", function(cmd)
         })
 end)
 
-local theme = {
-        "nord",
-        'Catppuccin Mocha',
-        "OneLight (Gogh)",
-}
-
 local keybinds = {
 
         {
@@ -161,6 +155,6 @@ return {
                 cursor_bg = '#CCCCCC',
                 cursor_fg = '#000000',
         },
-        color_scheme = theme[3],
+        color_scheme = "OneLight (Gogh)",
 
 }

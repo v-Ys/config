@@ -21,6 +21,7 @@ M.run = function()
         end
 end
 
+
 --FUNC:
 M.rename = function()
         local opts = {
@@ -48,10 +49,12 @@ M.rename = function()
         end, { buffer = true })
 end
 
+
 --FUNC:
 M.BufferPwd = function()
         print(vim.fn.expand('%:p'))
 end
+
 
 --FUNC:
 M.cdBufferPwd = function()
@@ -60,6 +63,7 @@ M.cdBufferPwd = function()
         print("change dir to " .. dir)
 end
 
+
 --FUNC:
 M.highlightCword = function()
         --":let @/ = expand('<cword>') | set hlsearch<cr>"
@@ -67,5 +71,25 @@ M.highlightCword = function()
         vim.opt.hlsearch = true
 end
 
+
+--FUNC:
+local trouble = require("trouble")
+M.trouble = {}
+M.trouble.next = function()
+        if trouble.is_open({}) then
+                require("trouble").next({ jump = true })
+        end
+end
+M.trouble.prev = function()
+        if trouble.is_open({}) then
+                require("trouble").prev({ jump = true })
+        end
+end
+
+M.trouble.close = function()
+        if trouble.is_open({}) then
+                require("trouble").close()
+        end
+end
 
 return M

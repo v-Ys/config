@@ -49,11 +49,25 @@ M[#M + 1] = {
 --PLUG: trouble
 M[#M + 1] = {
         "folke/trouble.nvim",
-        branch = "dev",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {
-                auto_preview = false,
                 focus = true,
+                auto_preview = false,
+                win = { position = "right" },
+                preview = {
+                        type = "float",
+                        relative = "editor",
+                        border = "single",
+                        position = { 0, -2 },
+                        size = { width = 0.3, height = 0.3 },
+                        zindex = 200,
+                },
+                modes = {
+                        symbols = {
+                                auto_preview = false,
+                                focus = true,
+                        },
+                },
         },
 }
 

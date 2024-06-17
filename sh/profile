@@ -15,9 +15,9 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS" --bind 'ctrl-y:execute-silent(echo -n
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS" --no-separator --no-scrollbar --reverse --height 40%"
 export FZF_DEFAULT_COMMAND="fd --hidden"
 
-export https_proxy=http://127.0.0.1:7890
-export http_proxy=http://127.0.0.1:7890 
-export all_proxy=socks5://127.0.0.1:7890
+# export https_proxy=http://127.0.0.1:7890
+# export http_proxy=http://127.0.0.1:7890 
+# export all_proxy=socks5://127.0.0.1:7890
 
 alias  v="nvim"
 alias  ls="eza"
