@@ -15,18 +15,17 @@ opt.splitbelow     = true
 opt.number         = true
 opt.relativenumber = true
 opt.numberwidth    = 3
-opt.scrolloff      = 5
-opt.smartindent    = true -- 智能缩进
-opt.autoindent     = true -- 回车后下一行自动缩进
-opt.copyindent     = true -- 复制粘贴时保留原有的缩进
-opt.ignorecase     = true -- 搜索时忽略大小写
-opt.smartcase      = true -- 智能搜索
-opt.hlsearch       = true -- 高亮显示搜索的匹配结果，输入结束时才显示
-opt.incsearch      = true -- 高亮显示搜索的匹配过程，每输入一个字符，就自动跳到第一个匹配的结果：
+opt.smartindent    = true  -- 智能缩进
+opt.copyindent     = true  -- 自动缩进新行时，复制已有的行的缩进结构
+opt.hlsearch       = true  -- 高亮显示搜索的匹配结果，输入结束时才显示
+opt.incsearch      = true  -- 高亮显示搜索的匹配过程，每输入一个字符，就自动跳到第一个匹配的结果：
+opt.ignorecase     = true  -- 搜索时忽略大小写
+opt.smartcase      = true  -- 智能搜索
 --
 opt.wrap           = false --no wrap
-opt.linebreak      = true --换行显示时不把一个单词拆开，遇到指定的符号（比如空格，连词号和其他标点符号）才换行
-opt.showtabline    = 0 -- don't showtabline
+opt.linebreak      = true  --换行显示时不把一个单词拆开，遇到指定的符号（比如空格，连词号和其他标点符号）才换行
+opt.scrolloff      = 5
+opt.showtabline    = 0
 opt.signcolumn     = 'yes' -- sign colume
 opt.list           = true
 opt.listchars      = { tab = '  ', extends = '⟩', precedes = '⟨', trail = '·' } --("eol:↴,tab:»·,trail:·")
@@ -45,8 +44,7 @@ opt.expandtab      = true -- tab->spaces
 opt.shiftwidth     = 8    -- the number of spaces inserted for each indentation
 opt.tabstop        = 8    -- 一个tab键所占的列数
 opt.cursorline     = false
-opt.conceallevel   = 2    -- Hide * markup for bold and italic
-
+opt.conceallevel   = 0    -- Hide * ... 0: no ,1: leave space, 2:hide space
 
 
 
