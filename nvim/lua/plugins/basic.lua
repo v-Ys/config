@@ -242,14 +242,4 @@ M[#M + 1] = {
         ft = "markdown",
 }
 
---PLUG: smart-insert
-M[#M + 1] = {
-        "ybian/smartim",
-        config = function()
-                vim.g.smartim_default = "com.apple.keylayout.ABC"
-        end,
-        ft = { "typst", "tex", "markdown" },
-}
-
-
 return M
