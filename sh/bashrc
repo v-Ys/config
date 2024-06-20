@@ -22,6 +22,21 @@ venv() {
     source ~/.vPyEnv/"$1"/bin/activate
 }
 
+PROXY_PORT=7890
+proxy() {
+    if [ -z "$http_proxy" ] && [ -z "$https_proxy" ] && [ -z "$all_proxy" ]; then
+        export http_proxy=http://127.0.0.1:$PROXY_PORT
+        export https_proxy=http://127.0.0.1:$PROXY_PORT
+        export all_proxy=socks5://127.0.0.1:$PROXY_PORT
+        echo "Proxy has been set to port $PROXY_PORT."
+    else
+        unset http_proxy
+        unset https_proxy
+        unset all_proxy
+        echo "Proxy has been unset."
+    fi
+}
+
 __fzf_history__() {
     local output opts script n x y z d
     opts="${FZF_DEFAULT_OPTS-} -n2..,.. +m --read0 "
