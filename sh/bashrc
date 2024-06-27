@@ -23,7 +23,7 @@ function venv() {
 }
 
 PROXY_PORT=7890
-function proxy() {
+proxy() {
     if [ -z "$http_proxy" ] && [ -z "$https_proxy" ] && [ -z "$all_proxy" ]; then
         export http_proxy=http://127.0.0.1:$PROXY_PORT
         export https_proxy=http://127.0.0.1:$PROXY_PORT
@@ -37,7 +37,7 @@ function proxy() {
     fi
 }
 
-function __fzf_history__() {
+__fzf_history__() {
     local output opts script n x y z d
     opts="${FZF_DEFAULT_OPTS-} -n2..,.. +m --read0 "
     [[ $(HISTTIMEFORMAT='' builtin history 1) =~ [[:digit:]]+ ]]
