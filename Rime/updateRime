@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# 文件路径和仓库URL
+FILE_PATH="$HOME/Library/Rime"
+URL="https://github.com/iDvel/rime-ice"
+
+# 检查Rime配置文件否存在
+if [ -e "$FILE_PATH" ]; then
+  echo "File '$FILE_PATH' exists."
+  
+  # 检查是否是Git仓库
+  if [ -d "$FILE_PATH/.git" ]; then
+    echo "Updating..."
+    cd "$FILE_PATH" || exit
+    git pull
+  else
+    echo "'$FILE_PATH' is not a Git repository"
+  fi
+else
+  echo "'$FILE_PATH' does not exist. Cloning repository..."
+  git clone "$URL" "$FILE_PATH"
+fi
