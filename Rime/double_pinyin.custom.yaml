@@ -1,0 +1,9 @@
+patch:
+  translator/preedit_format: []
+  switches:
+    - name: traditionalization
+      states: [ 简, 繁 ]
+      reset: 0
+    - name: emoji
+      states: [ 💀, 😄 ]
+      reset: 1

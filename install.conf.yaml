@@ -30,7 +30,9 @@
     ~/.hammerspoon/: hammerspoon
     ~/.config/karabiner/: karabiner
     ~/.config/wezterm: wezterm
+    ~/haha: Rime
 
 - shell:
    - git submodule sync --recursive
    - git submodule update --recursive
+   - git submodule update --remote

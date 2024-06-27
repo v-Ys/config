@@ -1,10 +1,11 @@
 syntax on
 filetype indent plugin on
 set ttimeout ttyfast ttimeoutlen=1 "esc delay
-set nocompatible nobackup noswapfile noerrorbells autoread vb t_vb=  mouse=a encoding=utf-8 fileencodings=utf-8
-set laststatus=2 ruler showcmd showmode wildmenu wildmode=longest:list,full hlsearch incsearch ignorecase smartcase
 set number relativenumber splitright splitbelow scrolloff=5 cursorline nowrap linebreak foldmethod=manual showmatch
+set nocompatible nobackup noswapfile noerrorbells autoread vb t_vb=  mouse=a encoding=utf-8 fileencodings=utf-8
 set list listchars=tab:<_,trail:~ fillchars=eob:\  smartindent copyindent expandtab tabstop=4 shiftwidth=4
+set laststatus=2 ruler showmode wildmode=longest,list hlsearch incsearch ignorecase smartcase
+
 "cursor
 let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"

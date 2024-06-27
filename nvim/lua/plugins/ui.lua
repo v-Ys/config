@@ -100,9 +100,22 @@ M[#M + 1] = {
 
                 })
 
-                vim.cmd.colorscheme "github_light"
+                -- vim.cmd.colorscheme "github_light"
                 -- vim.cmd.colorscheme "github_dark"
         end
 }
+
+M[#M + 1] = {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
+        lazy = false,
+        opts = function()
+                vim.cmd.colorscheme "catppuccin-latte"
+                return {}
+        end
+}
+
+
 
 return M

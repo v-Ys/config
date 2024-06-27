@@ -16,7 +16,7 @@ opt.number         = true
 opt.relativenumber = true
 opt.numberwidth    = 3
 opt.smartindent    = true  -- 智能缩进
-opt.copyindent     = true  -- 自动缩进新行时，复制已有的行的缩进结构
+opt.copyindent     = true  -- 自动缩进时，复制已有的行的缩进结构
 opt.hlsearch       = true  -- 高亮显示搜索的匹配结果，输入结束时才显示
 opt.incsearch      = true  -- 高亮显示搜索的匹配过程，每输入一个字符，就自动跳到第一个匹配的结果：
 opt.ignorecase     = true  -- 搜索时忽略大小写
@@ -31,19 +31,16 @@ opt.list           = true
 opt.listchars      = { tab = '  ', extends = '⟩', precedes = '⟨', trail = '·' } --("eol:↴,tab:»·,trail:·")
 opt.fillchars      = { eob = " " } -- hide  "~"
 opt.completeopt    = { 'menu', 'menuone', 'noselect', 'popup' } --for cmp
-opt.showcmd        = true --显示输入命令
-opt.wildmenu       = true --在命令模式下，按下 tab 键可以自动补全命令
-opt.wildmode       = 'longest:list,full'
 --set fold
 opt.foldcolumn     = '0' --show fold in line number
-opt.foldlevel      = 99  -- Using ufo provider need a large value, feel free to decrease the value
+opt.foldlevel      = 99 -- Using ufo provider need a large value, feel free to decrease the value
 opt.foldlevelstart = 99
 opt.foldenable     = true
 --
 opt.expandtab      = true -- tab->spaces
 opt.shiftwidth     = 8    -- the number of spaces inserted for each indentation
 opt.tabstop        = 8    -- 一个tab键所占的列数
-opt.cursorline     = false
+opt.cursorline     = true
 opt.conceallevel   = 0    -- Hide * ... 0: no ,1: leave space, 2:hide space
 
 
@@ -175,6 +172,7 @@ require("lazy").setup({
 -- operator_mode     = "o",
 -- select_mode       = "s"
 
+keymap({ "i", }, "jk", "<esc>", key_opts)
 keymap({ "n", "o", }, "L", "$", key_opts)
 keymap({ "x" }, "L", "$h", key_opts)
 keymap("", "H", "^", key_opts)
