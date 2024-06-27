@@ -1,13 +1,38 @@
 #!/usr/bin/env bash
-
-set -e
-
 CONFIG="install.conf.yaml"
 DOTBOT_DIR="dotbot"
-
 DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+set -e
 
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+
+RIME_PATH="$HOME/Library/Rime"
+RIME_URL="https://github.com/iDvel/rime-ice"
+
+# 检查Rime配置文件是否存在
+if [ -e "$RIME_PATH" ]; then
+        printf  "${GREEN}File '$RIME_PATH' exists.${NC}\n"
+
+        # 检查是否是Git仓库
+        if [ -d "$RIME_PATH/.git" ]; then
+                printf "${GREEN}Updating...${NC}\n"
+                cd "$RIME_PATH" || exit
+                git pull
+        else
+                printf "${RED}'$RIME_PATH' is not a Git repository. Backing up and cloning...${NC}\n"
+                mv "$RIME_PATH" "$HOME/Rime.bak"
+                git clone "$RIME_URL" "$RIME_PATH"
+        fi
+else
+        printf "${RED}'$RIME_PATH' does not exist. Cloning repository...${NC}\n"
+        git clone "$RIME_URL" "$RIME_PATH"
+fi
+
+
+#NOTE: dotbot
 cd "${BASEDIR}"
 git -C "${DOTBOT_DIR}" submodule sync --quiet --recursive
 git submodule update --init --recursive "${DOTBOT_DIR}"

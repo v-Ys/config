@@ -29,8 +29,10 @@
 
     ~/.hammerspoon/: hammerspoon
     ~/.config/karabiner/: karabiner
-    ~/.config/wezterm: wezterm
-    ~/haha: Rime
+    ~/.config/wezterm/: wezterm
+    ~/Library/Rime/default.custom.yaml: Rime/default.custom.yaml
+    ~/Library/Rime/squirrel.custom.yaml: Rime/squirrel.custom.yaml
+    ~/Library/Rime/double_pinyin.custom.yaml: Rime/double_pinyin.custom.yaml
 
 - shell:
    - git submodule sync --recursive
