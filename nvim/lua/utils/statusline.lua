@@ -71,7 +71,7 @@ M.left = {
         -- mode component
         {
                 function()
-                        return 'MIKU'
+                        return 'v39'
                 end,
                 color = m_color,
                 padding = { right = 1 },
