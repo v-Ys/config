@@ -1,6 +1,5 @@
 # 参考 squirrel.yaml
 patch:
-  
   style:
     # color_scheme: macos_light
     # color_scheme_dark: macos_dark
@@ -20,7 +19,7 @@ patch:
     color_space: srgb                    # 色彩空间： srgb | display_p3
     candidate_format: "%c\u2005%@\u2005" # 编号 %c 和候选词 %@ 前后的空间
     font_face: "PingFang SC"             # 字体及大小
-    comment_font_face: 'PingFang SC'
+    comment_font_face: 'Songti SC'
     label_font_face: 'SF Mono'
     font_point: 21
     label_font_point: 18
@@ -90,7 +89,7 @@ patch:
       font_point: 16
       label_font_point: 13
       comment_font_point: 16
-      candidate_list_layout: stacked          # 候选排布：层叠 stacked | 行 linear | tabled
+      candidate_list_layout: linear           # 候选排布：层叠 stacked | 行 linear | tabled
       translucency: false                     # 磨砂： false | true
       mutual_exclusive: false                 # 色不叠加： false | true
       border_height: 1                        # 外边框 高
@@ -118,7 +117,7 @@ patch:
       font_point: 16
       label_font_point: 13
       comment_font_point: 16
-      candidate_list_layout: stacker           # 候选排布：层叠 stacked | 行 linear
+      candidate_list_layout: linear           # 候选排布：层叠 stacked | 行 linear
       translucency: false                     # 磨砂： false | true
       mutual_exclusive: false                 # 色不叠加： false | true
       border_height: 1                        # 外边框 高

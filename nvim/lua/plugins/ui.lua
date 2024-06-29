@@ -16,7 +16,7 @@ M[#M + 1] = {
                         { type = "padding", val = 9 },
                         {
                                 type = "text",
-                                val = require('utils.header').b,
+                                val = require('utils.header').a,
                                 opts = {
                                         position = "center",
                                         hl = "KeyWord",
@@ -90,6 +90,17 @@ M[#M + 1] = {
 
 --PLUG:
 M[#M + 1] = {
+        'NvChad/nvim-colorizer.lua',
+        opts = {
+                user_default_options = {
+                        RGB = true,    -- #RGB hex codes
+                        RRGGBB = true, -- #RRGGBB hex codes
+                        names = false,
+                }
+        },
+        config = true
+}
+M[#M + 1] = {
         'projekt0n/github-nvim-theme',
         config = function()
                 require('github-theme').setup({
@@ -101,18 +112,7 @@ M[#M + 1] = {
                 })
 
                 -- vim.cmd.colorscheme "github_light"
-                -- vim.cmd.colorscheme "github_dark"
-        end
-}
-
-M[#M + 1] = {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        priority = 1000,
-        lazy = false,
-        opts = function()
-                vim.cmd.colorscheme "catppuccin-latte"
-                return {}
+                vim.cmd.colorscheme "github_dark_dimmed"
         end
 }
 

@@ -12,7 +12,7 @@
     ~/.vim/vimrc: vimrc
     ~/.config/git: git/
 
-    ~/.config/alacritty: alacritty/
+    ~/.config/kitty/: kitty
     ~/.tmux.conf: tmux.conf
     ~/.config/nvim: nvim
 
@@ -28,8 +28,8 @@
     ~/.rustfmt.toml: fmtstyle/rustfmt.toml
 
     ~/.hammerspoon/: hammerspoon
+    ~/.config/alacritty/: alacritty
     ~/.config/karabiner/: karabiner
-    ~/.config/wezterm/: wezterm
     ~/Library/Rime/default.custom.yaml: Rime/default.custom.yaml
     ~/Library/Rime/squirrel.custom.yaml: Rime/squirrel.custom.yaml
     ~/Library/Rime/double_pinyin.custom.yaml: Rime/double_pinyin.custom.yaml
