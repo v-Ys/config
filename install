@@ -5,18 +5,20 @@ DOTBOT_BIN="bin/dotbot"
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 set -e
 
+
+# NOTE: user
 RED='\033[0;31m'
 GREEN='\033[0;32m'
-NC='\033[0m' # No Color
+NC='\033[0m' # Color end
 
 RIME_PATH="$HOME/Library/Rime"
 RIME_URL="https://github.com/iDvel/rime-ice"
 
-# 检查Rime配置文件是否存在
+# check Rime dir
 if [ -e "$RIME_PATH" ]; then
         printf  "${GREEN}File '$RIME_PATH' exists.${NC}\n"
 
-        # 检查是否是Git仓库
+        # Git dir
         if [ -d "$RIME_PATH/.git" ]; then
                 printf "${GREEN}Updating...${NC}\n"
                 cd "$RIME_PATH" || exit

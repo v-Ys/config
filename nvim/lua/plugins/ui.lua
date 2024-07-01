@@ -98,7 +98,7 @@ M[#M + 1] = {
                         names = false,
                 }
         },
-        config = true
+        config = false
 }
 M[#M + 1] = {
         'projekt0n/github-nvim-theme',

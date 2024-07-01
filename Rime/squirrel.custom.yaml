@@ -1,5 +1,6 @@
 # 参考 squirrel.yaml
 patch:
+
   style:
     # color_scheme: macos_light
     # color_scheme_dark: macos_dark
@@ -8,7 +9,7 @@ patch:
 
     # 预设选项：（可被皮肤覆盖；如果皮肤没写，则默认使用这些属性。）
     text_orientation: horizontal         # horizontal | vertical
-    inline_preedit: true                 # 拼音位于： 候选框 false | 行内 true
+    inline_preedit: true                 # 拼音位于： 候选框内 false | 行内 true
     corner_radius: 10
     hilited_corner_radius: 0
     border_height: 0

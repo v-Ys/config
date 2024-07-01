@@ -7,7 +7,7 @@ patch:
 
   # 菜单
   menu:
-    page_size: 7  # 候选词个数
+    page_size: 6  # 候选词个数
 
   # 方案选单相关
   switcher:
@@ -30,7 +30,7 @@ patch:
       Control_L: noop
       Control_R: noop
 
-  #快捷键
+  # 快捷键
   key_binder:
     bindings:
       # Tab / Shift+Tab 切换光标至下/上一个拼音

@@ -1,5 +1,7 @@
 patch:
+  # 双拼不展开
   translator/preedit_format: []
+  # 切换
   switches:
     - name: traditionalization
       states: [ 简, 繁 ]
