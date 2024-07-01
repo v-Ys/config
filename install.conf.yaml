@@ -19,16 +19,16 @@
     ~/.config/fd/ignore: fdignore
     ~/.rgignore: ripgrep/rgignore
     ~/.config/ripgreprc: ripgrep/ripgreprc
-    ~/.config/yazi/thme.toml: yazi_theme.toml
     ~/.config/bat/config: bat.config
     ~/.config/starship.toml: starship.toml
+    ~/.config/yazi/thme.toml: yazi_theme.toml
 
     ~/.clangd: clangd
     ~/.clang-format: fmtstyle/clang-format
     ~/.rustfmt.toml: fmtstyle/rustfmt.toml
 
-    ~/.hammerspoon/: hammerspoon
     ~/.config/alacritty/: alacritty
+    ~/.hammerspoon/: hammerspoon
     ~/.config/karabiner/: karabiner
     ~/Library/Rime/default.custom.yaml: Rime/default.custom.yaml
     ~/Library/Rime/squirrel.custom.yaml: Rime/squirrel.custom.yaml
