@@ -90,32 +90,13 @@ M[#M + 1] = {
 
 --PLUG:
 M[#M + 1] = {
-        'NvChad/nvim-colorizer.lua',
-        opts = {
-                user_default_options = {
-                        RGB = true,    -- #RGB hex codes
-                        RRGGBB = true, -- #RRGGBB hex codes
-                        names = false,
-                }
-        },
-        config = false
-}
-M[#M + 1] = {
         'projekt0n/github-nvim-theme',
+        opts = {},
         config = function()
-                require('github-theme').setup({
-                        groups = {
-                                all = {
-                                        Delimiter = { link = "Function" } }
-                        }
-
-                })
-
                 vim.cmd.colorscheme "github_light"
                 -- vim.cmd.colorscheme "github_dark_dimmed"
         end
 }
-
 
 
 return M
