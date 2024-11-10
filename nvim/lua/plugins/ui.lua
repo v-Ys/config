@@ -94,9 +94,18 @@ M[#M + 1] = {
         opts = {},
         config = function()
                 vim.cmd.colorscheme "github_light"
-                -- vim.cmd.colorscheme "github_dark_dimmed"
+                -- vim.cmd.colorscheme "github_dark_default"
         end
 }
 
-
+M[#M + 1] = {
+        'NvChad/nvim-colorizer.lua',
+        opts = {
+                user_default_options = {
+                        RGB = true,
+                        RRGGBB = true,
+                        names = false,
+                }
+        }
+}
 return M

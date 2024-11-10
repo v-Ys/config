@@ -74,7 +74,7 @@ M.config = function()
                 enable_autosnippets = true
         })
         require("luasnip/loaders/from_vscode").lazy_load({
-                include = { "lua", "cpp", "c", "rust", "go", "python" }
+                include = { "lua", "cpp", "c", "rust", "go", "python", "javascript", "javascriptreact", "css", "html" }
         })
         require("luasnip.loaders.from_vscode").lazy_load({
                 paths = { vim.fn.stdpath("config") .. "/snippets" }

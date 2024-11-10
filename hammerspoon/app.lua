@@ -17,6 +17,7 @@ local function notFullScreenApp(appName)
         local appNotFullScreen = {
                 ["Preview"] = true,
                 ["WezTerm"] = true,
+                -- ["Alacritty"] = true,
         }
         if appNotFullScreen[appName] ~= nil then
                 return true
@@ -29,7 +30,6 @@ local function sleep(appName)
         local appToSleep = {
                 ["Visual Studio Code"] = "0.3",
                 ["Notes"] = "0.3",
-                ["Alacritty"] = "0.3",
         }
         if appToSleep[appName] == nil then
                 return

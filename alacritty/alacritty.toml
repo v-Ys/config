@@ -1,4 +1,4 @@
-import = [ "~/.config/alacritty/themes/github_light.toml" ]
+general.import = [ "~/.config/alacritty/themes/github_light.toml" ]
 
 [window]
 decorations = "buttonless"
@@ -7,12 +7,12 @@ option_as_alt = "Both"
 padding = { x = 0, y = 0 }
 position={ x = 650 ,y = 250}
 [font]
-size = 16
-normal = { family = "IosevkaTerm Nerd Font Mono",style = "Light"}
+size = 15
+normal = { family = "IosevkaTerm Nerd Font Mono",style="Regular"}
 italic = { style = "Italic"}
 bold = { style = "Bold"}
 bold_italic = { style = "Bold Italic"}
-offset={ x = 0, y = 0}
+offset={ x = 0, y = 7}
 
 [keyboard]  # chars: Unicode
 bindings = [

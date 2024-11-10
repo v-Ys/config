@@ -9,7 +9,7 @@ local servers = {
         "pyright",
 
         -- "racket_langserver",
-        -- "tsserver",
+        "ts_ls",
 }
 
 local function lsp_keymaps(bufnr)
@@ -62,6 +62,9 @@ M.dependencies = {
                                 debug = false,
                                 sources = {
                                         formatting.black,
+                                        formatting.prettier.with {
+                                                extra_args = { "--tab-width", "4" },
+                                        },
                                 },
                         })
                 end,
@@ -73,8 +76,9 @@ M.config = function()
         local lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
         local on_attach = function(client, bufnr)
-                if client.name == "marksman" then
-                        client.server_capabilities.semanticTokensProvider = nil
+                if client.name == "ts_ls" then
+                        client.server_capabilities.documentFormattingProvider      = false
+                        client.server_capabilities.documentRangeFormattingProvider = false
                 end
                 lsp_keymaps(bufnr)
         end

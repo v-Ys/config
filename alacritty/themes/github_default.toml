@@ -17,11 +17,11 @@ cyan        = "#a5d6ff"
 magenta     = "#bc8cff"
 white       = "#b1bac4"
 [colors.primary]
-background = "#0d1117"
-foreground = "#e6edf3"
+background  = "#0d1117"
+foreground  = "#e6edf3"
 [colors.cursor]
-text   = "#0d1117"
-cursor = "#e6edf3"
+text        = "#0d1117"
+cursor      = "#e6edf3"
 [colors.selection]
 background  = "#17335a"
 text        = "CellForeground"

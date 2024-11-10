@@ -49,7 +49,8 @@ opt.conceallevel   = 0    -- Hide * ... 0: no ,1: leave space, 2:hide space
 vim.g.rust_recommended_style = 0
 vim.filetype.add({
         pattern = {
-                [".*.typ"] = 'typst',
+                [".*.typ"] = "typst",
+                [".*.mdx"] = "markdown"
         },
 })
 
@@ -230,7 +231,7 @@ cmd("CBpwd", require('utils.M').cdBufferPwd, {})
 
 --NOTE: autocmd
 autocmd("BufWritePre", {
-        pattern = { "*.lua", "*.c", "*.cpp", "*.h", "*.rs", "*.go", "*.py", },
+        pattern = { "*.lua", "*.c", "*.cpp", "*.h", "*.rs", "*.go", "*.py", "*.js", "*.jsx", "*.mjs" },
         callback = function()
                 vim.lsp.buf.format { sync = true }
         end,

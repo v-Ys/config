@@ -13,8 +13,9 @@ hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "o", windowManager("bottom"))
 
 -- lanuch or focue app
 hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "z", lanuchOrFocusApp("Preview"))
-hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "d", lanuchOrFocusApp("kitty"))
-hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "f", lanuchOrFocusApp("Arc"))
+hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "i", lanuchOrFocusApp("kitty"))
+hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "d", lanuchOrFocusApp("Alacritty"))
+hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "f", lanuchOrFocusApp("Safari"))
 hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "x", lanuchOrFocusApp("Craft"))
 hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "r", FocusDesktop())
 hk.bind({ 'ctrl', 'cmd', 'shift' }, "down", lanuchOrFocusApp("Reminders"))

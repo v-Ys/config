@@ -106,9 +106,11 @@ M.config = function()
                                 mappings = map {
                                         i = {
                                                 ["<c-d>"] = "delete_buffer",
+                                                ["<M-w>"] = "delete_buffer",
                                         },
                                         n = {
                                                 ["<c-d>"] = "delete_buffer",
+                                                ["<M-w>"] = "delete_buffer",
                                         },
                                 },
                                 path_display = { "tail" },
