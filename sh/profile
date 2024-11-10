@@ -8,6 +8,11 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 export PATH=/opt/homebrew/opt/llvm/bin:$PATH
 export GOPATH=$HOME/.go
 export GO111MODULE=on
+export PNPM_HOME="/Users/v39/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
 export FZF_DEFAULT_OPTS="--color=bg+:-1,fg+:#BE002F,gutter:-1,border:#C0C0C0,hl+:#0DBC79,hl:#0DBC79"

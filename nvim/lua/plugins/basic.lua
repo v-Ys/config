@@ -146,7 +146,7 @@ M[#M + 1] = {
                 R.sync_root_with_cwd = true
                 R.update_focused_file = {
                         enable = true,
-                        update_root = true,
+                        update_root = false,
                 }
                 R.view = {
                         adaptive_size = false,
@@ -242,4 +242,10 @@ M[#M + 1] = {
         ft = "markdown",
 }
 
+M[#M + 1] = {
+        'stevearc/oil.nvim',
+        opts = {},
+        dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+
+}
 return M
