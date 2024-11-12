@@ -24,9 +24,9 @@ if [ -e "$RIME_PATH" ]; then
                 cd "$RIME_PATH" || exit
                 git pull
         else
-                printf "${RED}'$RIME_PATH' is not a Git repository. Backing up and cloning...${NC}\n"
+                printf "${RED} '$RIME_PATH' is not a Git repository. Backing up and cloning...${NC}\n"
                 mv "$RIME_PATH" "$HOME/Rime.bak"
-                git clone "$RIME_URL" "$RIME_PATH"
+                git clone  --depth 1 "$RIME_URL" "$RIME_PATH"
         fi
 else
         printf "${RED}'$RIME_PATH' does not exist. Cloning repository...${NC}\n"

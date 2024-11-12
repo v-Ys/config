@@ -2,10 +2,10 @@
 patch:
 
   style:
-    # color_scheme: macos_light
-    # color_scheme_dark: macos_dark
-    color_scheme: wechat_light
-    color_scheme_dark: wechat_dark
+    color_scheme: macos_light
+    color_scheme_dark: macos_dark
+    # color_scheme: wechat_light
+    # color_scheme_dark: wechat_dark
 
     # 预设选项：（可被皮肤覆盖；如果皮肤没写，则默认使用这些属性。）
     text_orientation: horizontal         # horizontal | vertical
