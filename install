@@ -15,22 +15,24 @@ RIME_PATH="$HOME/Library/Rime"
 RIME_URL="https://github.com/iDvel/rime-ice"
 
 # check Rime dir
-if [ -e "$RIME_PATH" ]; then
+if [[ "$(uname)" == "Darwin" ]]; then
+    if [ -e "$RIME_PATH" ]; then
         printf  "${GREEN}File '$RIME_PATH' exists.${NC}\n"
 
         # Git dir
         if [ -d "$RIME_PATH/.git" ]; then
-                printf "${GREEN}Updating...${NC}\n"
-                cd "$RIME_PATH" || exit
-                git pull
+            printf "${GREEN}Updating...${NC}\n"
+            cd "$RIME_PATH" || exit
+            git pull
         else
-                printf "${RED} '$RIME_PATH' is not a Git repository. Backing up and cloning...${NC}\n"
-                mv "$RIME_PATH" "$HOME/Rime.bak"
-                git clone  --depth 1 "$RIME_URL" "$RIME_PATH"
+            printf "${RED} '$RIME_PATH' is not a Git repository. Backing up and cloning...${NC}\n"
+            mv "$RIME_PATH" "$HOME/Rime.bak"
+            git clone  --depth 1 "$RIME_URL" "$RIME_PATH"
         fi
-else
+    else
         printf "${RED}'$RIME_PATH' does not exist. Cloning repository...${NC}\n"
         git clone "$RIME_URL" "$RIME_PATH"
+    fi
 fi
 
 

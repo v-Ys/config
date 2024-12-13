@@ -9,9 +9,11 @@
     ~/.bash_profile: sh/bash_profile
     ~/.profile: sh/profile
     ~/.bashrc: sh/bashrc
+    ~/.screenrc: screenrc
     ~/.vim/vimrc: vimrc
     ~/.config/git: git/
 
+    ~/.config/alacritty/: alacritty
     ~/.config/kitty/: kitty
     ~/.tmux.conf: tmux.conf
     ~/.config/nvim: nvim
@@ -27,7 +29,6 @@
     ~/.clang-format: fmtstyle/clang-format
     ~/.rustfmt.toml: fmtstyle/rustfmt.toml
 
-    ~/.config/alacritty/: alacritty
     ~/.hammerspoon/: hammerspoon
     ~/.config/karabiner/: karabiner
     ~/Library/Rime/default.custom.yaml: Rime/default.custom.yaml
