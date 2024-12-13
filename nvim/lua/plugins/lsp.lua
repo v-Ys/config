@@ -8,8 +8,8 @@ local servers = {
         "gopls",
         "pyright",
 
-        -- "racket_langserver",
         "ts_ls",
+        -- "racket_langserver",
 }
 
 local function lsp_keymaps(bufnr)
@@ -76,6 +76,7 @@ M.config = function()
         local lspconfig = require("lspconfig")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
         local on_attach = function(client, bufnr)
+                -- ???
                 if client.name == "ts_ls" then
                         client.server_capabilities.documentFormattingProvider      = false
                         client.server_capabilities.documentRangeFormattingProvider = false

@@ -28,3 +28,4 @@ alias  ltl="eza -T -L"
 alias  ll="eza -l"
 alias  lla="eza -l -a"
 alias  yz="yazi"
+

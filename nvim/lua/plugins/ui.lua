@@ -13,10 +13,10 @@ M[#M + 1] = {
                 layout = {
 
                         --val c:2 a:9
-                        { type = "padding", val = 9 },
+                        { type = "padding", val = 4 },
                         {
                                 type = "text",
-                                val = require('utils.header').a,
+                                val = require('utils.header').e,
                                 opts = {
                                         position = "center",
                                         hl = "KeyWord",
@@ -100,6 +100,7 @@ M[#M + 1] = {
 
 M[#M + 1] = {
         'NvChad/nvim-colorizer.lua',
+
         opts = {
                 user_default_options = {
                         RGB = true,

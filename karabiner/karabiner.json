@@ -1,5 +1,8 @@
 {
-    "global": { "show_in_menu_bar": false },
+    "global": {
+        "enable_notification_window": false,
+        "show_in_menu_bar": false
+    },
     "profiles": [
         {
             "complex_modifications": {
@@ -126,24 +129,8 @@
                     },
                     "simple_modifications": [
                         {
-                            "from": { "key_code": "backslash" },
-                            "to": [{ "key_code": "delete_or_backspace" }]
-                        },
-                        {
                             "from": { "key_code": "caps_lock" },
                             "to": [{ "key_code": "left_control" }]
-                        },
-                        {
-                            "from": { "key_code": "delete_or_backspace" },
-                            "to": [{ "key_code": "backslash" }]
-                        },
-                        {
-                            "from": { "key_code": "left_option" },
-                            "to": [{ "key_code": "left_shift" }]
-                        },
-                        {
-                            "from": { "key_code": "left_shift" },
-                            "to": [{ "key_code": "left_option" }]
                         }
                     ]
                 },

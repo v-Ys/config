@@ -1,6 +1,8 @@
+. "$HOME/.profile"
 bind 'set bell-style none'
 shopt -s autocd
 set -o emacs
+touch ~/.hushlogin #don't show login last login info
 
 eval "$(zoxide init bash)"
 eval "$(starship init bash)"
@@ -19,7 +21,7 @@ function venv() {
                 echo "Error"
                 return 1
         fi
-        source ~/.vPyEnv/"$1"/bin/activate
+        source ~/.pyEnv/"$1"/bin/activate
 }
 
 
@@ -62,5 +64,4 @@ __fzf_history__() {
 }
 bind -m emacs-standard '"\er": redraw-current-line'
 bind -m emacs-standard '"\C-r": "\C-e \C-u\C-y\ey\C-u`__fzf_history__`\e\C-e\er"'
-
 

@@ -247,5 +247,17 @@ M[#M + 1] = {
         opts = {},
         dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
 
+
+}
+
+M[#M + 1] = {
+        "ibhagwan/fzf-lua",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {}
+}
+M[#M + 1] = {
+        "folke/ts-comments.nvim",
+        opts = {},
+        event = "VeryLazy",
 }
 return M
