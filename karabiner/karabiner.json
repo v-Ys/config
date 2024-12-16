@@ -233,20 +233,61 @@
                         "vendor_id": 9306
                     },
                     "ignore": false
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 49305,
+                        "vendor_id": 1130
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "caps_lock" },
+                            "to": [{ "key_code": "left_control" }]
+                        },
+                        {
+                            "from": { "key_code": "left_command" },
+                            "to": [{ "key_code": "left_option" }]
+                        },
+                        {
+                            "from": { "key_code": "left_option" },
+                            "to": [{ "key_code": "left_command" }]
+                        },
+                        {
+                            "from": { "key_code": "right_command" },
+                            "to": [{ "key_code": "right_option" }]
+                        },
+                        {
+                            "from": { "key_code": "right_option" },
+                            "to": [{ "key_code": "right_command" }]
+                        }
+                    ]
                 }
             ],
             "fn_function_keys": [
                 {
+                    "from": { "key_code": "f3" },
+                    "to": [{ "key_code": "f3" }]
+                },
+                {
                     "from": { "key_code": "f4" },
-                    "to": [{ "software_function": { "cg_event_double_click": { "button": 0 } } }]
+                    "to": [{ "key_code": "f4" }]
                 },
                 {
                     "from": { "key_code": "f5" },
-                    "to": [{ "apple_vendor_keyboard_key_code": "dashboard" }]
+                    "to": [{ "key_code": "f5" }]
                 },
                 {
-                    "from": { "key_code": "f6" },
-                    "to": [{ "apple_vendor_top_case_key_code": "keyboard_fn" }]
+                    "from": { "key_code": "f7" },
+                    "to": [{ "key_code": "f7" }]
+                },
+                {
+                    "from": { "key_code": "f8" },
+                    "to": [{ "key_code": "f8" }]
+                },
+                {
+                    "from": { "key_code": "f9" },
+                    "to": [{ "key_code": "f9" }]
                 }
             ],
             "name": "方向键",

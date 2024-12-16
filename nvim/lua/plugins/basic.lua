@@ -1,5 +1,13 @@
 local M = {}
 
+-- PLUG: surround
+M[#M + 1] = {
+        "kylechui/nvim-surround",
+        version = "*",
+        config = true,
+        event = "VeryLazy",
+}
+
 -- PLUG: autopairs
 M[#M + 1] = {
         "windwp/nvim-autopairs",
@@ -13,12 +21,10 @@ M[#M + 1] = {
         end,
 }
 
-
 -- PLUG: surround
 M[#M + 1] = {
-        "kylechui/nvim-surround",
-        version = "*",
-        config = true,
+        "folke/ts-comments.nvim",
+        opts = {},
         event = "VeryLazy",
 }
 
@@ -242,22 +248,39 @@ M[#M + 1] = {
         ft = "markdown",
 }
 
+------------------------------------------------------PLUG: OTHER
+---
 M[#M + 1] = {
         'stevearc/oil.nvim',
-        opts = {},
+        config = true,
         dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
-
-
 }
 
 M[#M + 1] = {
         "ibhagwan/fzf-lua",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = {}
+        opts = {
+                winopts = {
+                        height   = 0.45,
+                        width    = 1,
+                        row      = 1,
+                        col      = 0,
+                        backdrop = 100,
+                        border   = { '─', '─', '─', ' ', ' ', ' ', ' ', ' ' },
+                        preview  = {
+                                border     = 'noborder',
+                                horizontal = 'right:50%',
+                                title      = false,
+                                scrollbar  = false,
+                                winopts    = {
+                                        number = false,
+                                },
+                        },
+                },
+                files   = {
+                        previewer = false
+                }
+        }
 }
-M[#M + 1] = {
-        "folke/ts-comments.nvim",
-        opts = {},
-        event = "VeryLazy",
-}
+
 return M
