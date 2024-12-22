@@ -21,7 +21,7 @@ local theme = {
                         preview = { "", "", "", " ", "", "", "", "" },
                 }
                 opts.layout_config = {
-                        height = 20,
+                        height = 0.5,
                         preview_width = 0.60,
                 }
                 opts.results_title = ""

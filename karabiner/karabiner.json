@@ -9,6 +9,7 @@
                 "rules": [
                     {
                         "description": "Map '`'  plus 'left_control' to ESC",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
@@ -120,19 +121,6 @@
                         "vendor_id": 1452
                     },
                     "ignore": false
-                },
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "product_id": 833,
-                        "vendor_id": 1452
-                    },
-                    "simple_modifications": [
-                        {
-                            "from": { "key_code": "caps_lock" },
-                            "to": [{ "key_code": "left_control" }]
-                        }
-                    ]
                 },
                 {
                     "identifiers": {
@@ -260,6 +248,19 @@
                         {
                             "from": { "key_code": "right_option" },
                             "to": [{ "key_code": "right_command" }]
+                        }
+                    ]
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 833,
+                        "vendor_id": 1452
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "caps_lock" },
+                            "to": [{ "key_code": "left_control" }]
                         }
                     ]
                 }

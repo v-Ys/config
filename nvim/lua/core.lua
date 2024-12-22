@@ -47,10 +47,22 @@ opt.conceallevel   = 0    -- Hide * ... 0: no ,1: leave space, 2:hide space
 
 --NOTE: //
 vim.g.rust_recommended_style = 0
+vim.g.clipboard = {
+        name = 'OSC 52',
+        copy = {
+                ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+                ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+        },
+        paste = {
+                ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+                ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+        },
+}
 vim.filetype.add({
         pattern = {
                 [".*.typ"] = "typst",
-                [".*.mdx"] = "markdown"
+                [".*.mdx"] = "markdown",
+                [".*profile"] = "bash",
         },
 })
 
@@ -268,4 +280,3 @@ autocmd({ 'FileType' }, {
                 cmd("TypstFigures", "silent !mkdir figures", {})
         end,
 })
-

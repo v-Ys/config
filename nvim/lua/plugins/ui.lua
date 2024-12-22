@@ -93,7 +93,7 @@ M[#M + 1] = {
         'projekt0n/github-nvim-theme',
         opts = {},
         config = function()
-                vim.cmd.colorscheme "github_light"
+                vim.cmd.colorscheme "github_dark"
                 -- vim.cmd.colorscheme "github_dark_default"
         end
 }

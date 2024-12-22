@@ -1,1 +1,6 @@
-. "$HOME/.bashrc"
+[ "$XDG_SESSION_TYPE" = "x11" ] && [ -f "$HOME/.xinitrc" ] && . .xinitrc
+
+[ -f "$HOME/.profile" ] && . .profile
+[ "$(uname)" = "Darwin" ] && [ -f "$HOME/.bashrc" ] && . .bashrc
+
+[ -n "$SSH_TTY" ] && exec fish

@@ -1,4 +1,7 @@
-general.import = [ "~/.config/alacritty/themes/github_light.toml" ]
+general.import = [ "~/.config/alacritty/themes/dark.toml" ]
+
+[env]
+TERM_PROGRAM="alacritty"
 
 [window]
 decorations = "buttonless"
@@ -6,6 +9,7 @@ dynamic_padding = true
 option_as_alt = "Both"
 padding = { x = 0, y = 0 }
 position={ x = 650 ,y = 250}
+
 [font]
 size = 15
 normal = { family = "IosevkaTerm Nerd Font Mono",style="Regular"}
@@ -14,9 +18,10 @@ bold = { style = "Bold"}
 bold_italic = { style = "Bold Italic"}
 offset={ x = 0, y = 7}
 
-[keyboard]  # chars: Unicode
+[keyboard]  
 bindings = [
-{ key = "【", mods = "Control", chars = "\u001B" },
+{ key = "【", mods = "Control", chars = "\u001B" },# chars: Unicode
+{ key = "c", mods = "Super", action = "Copy" },
+{ key = "v", mods = "Super", action = "Paste" },
+{ key = "w", mods = "Super", action = "Quit" },
 ]
-
-

@@ -3,7 +3,6 @@ local lanuchOrFocusApp = require("app").lanuchOrFocusApp
 local windowManager = require('window').windowManager
 local FocusDesktop = require('app').FocusDesktop
 
-
 -- window manager
 hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "q", windowManager("fullScreen"))
 hk.bind({ 'ctrl', 'alt', 'cmd', 'shift' }, "m", windowManager("right"))

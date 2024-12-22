@@ -253,7 +253,7 @@ M[#M + 1] = {
 M[#M + 1] = {
         'stevearc/oil.nvim',
         config = true,
-        dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+        dependencies = { "nvim-tree/nvim-web-devicons" },
 }
 
 M[#M + 1] = {
