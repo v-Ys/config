@@ -1,6 +1,5 @@
-[ "$XDG_SESSION_TYPE" = "x11" ] && [ -f "$HOME/.xinitrc" ] && . .xinitrc
+[ -f "$HOME/.profile" ] && . "$HOME/.profile" 
+[ "$(uname)" = "Darwin" -a -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"  
+[ "$XDG_SESSION_TYPE" = "x11" -a -f "$HOME/.xinitrc" ] && . "$HOME/.xinitrc"
 
-[ -f "$HOME/.profile" ] && . .profile
-[ "$(uname)" = "Darwin" ] && [ -f "$HOME/.bashrc" ] && . .bashrc
-
-[ -n "$SSH_TTY" ] && exec fish
+[ -n "$SSH_TTY" ] && command -v fish >/dev/null 2>&1  && exec fish

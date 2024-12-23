@@ -1,11 +1,7 @@
 #NOTE: BASIC
-if [ "$(uname)" = "Darwin" ]; then
-        eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
+[ "$(uname)" = "Darwin" -a -f "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+command -v nvim >/dev/null 2>&1 && export EDITOR="nvim"
 
-if command -v nvim >/dev/null 2>&1; then
-        export EDITOR="nvim"
-fi
 
 #NOTE: PATH
 export GOPATH="$HOME/.local/share/go"
@@ -22,7 +18,8 @@ ADD_TO_PATH "$PNPM_HOME"
 ADD_TO_PATH "$GOPATH/bin"
 ADD_TO_PATH "$HOME/.cargo/bin"
 
-#NOTE: USER
+
+#NOTE: CONFIG
 export RIPGREP_CONFIG_PATH="$HOME/.config/ripgreprc"
 
 # bg+: bottom bar color, fg+: selected item color ,gutter: sidebar color

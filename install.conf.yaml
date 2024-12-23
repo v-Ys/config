@@ -11,12 +11,13 @@
     ~/.bashrc: sh/bashrc
     ~/.screenrc: screenrc
     ~/.vim/vimrc: vimrc
-    ~/.config/git: git/
 
     ~/.config/alacritty/: alacritty
     ~/.config/kitty/: kitty
+    ~/.config/fish/: fish
     ~/.tmux.conf: tmux.conf
     ~/.config/nvim: nvim
+    ~/.config/git: git/
 
     ~/.config/fd/ignore: fdignore
     ~/.rgignore: ripgrep/rgignore

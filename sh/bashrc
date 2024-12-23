@@ -1,11 +1,8 @@
-bind 'set bell-style none'
+set bell-style none
 set -o emacs
 shopt -s autocd
 #don't show login last login info
 [ ! -f "$HOME/.hushlogin" ] && touch "$HOME/.hushlogin" 
 
 alias  v="nvim"
-
-if [ -n "$DISPLAY" ] || [ -n "$TERM_PROGRAM" ] ;then
-        exec fish
-fi
+[ -n "$DISPLAY" -o -n "$TERM_PROGRAM" ] && command -v fish >/dev/null 2>&1  && exec fish
