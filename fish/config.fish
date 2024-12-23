@@ -15,8 +15,7 @@ if status is-interactive
         abbr -a glr   git pull --rebase -v
         abbr -a gf    git fetch
         abbr -a gp    git push
-        abbr -a glo   git log --graph
-        abbr -a glg   git log --oneline --decorate --color --graph
+        abbr -a gg   git log --oneline --decorate --color --graph
         abbr -a grm   git remote -v
 
         zoxide init fish | source
