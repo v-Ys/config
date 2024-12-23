@@ -1,0 +1,145 @@
+mixed-port: 53939 # HTTP(S) 和 SOCKS 代理混合端口
+redir-port: 63939 # 透明代理端口，用于 Linux 和 MacOS
+mode: rule
+log-level: info
+ipv6: false
+allow-lan: false # 局域网连接
+external-controller-unix: mihomo.sock
+external-controller: 127.0.0.1:59393 # WebUI 控制端口
+secret: "xx11"
+external-ui: ./ui
+geo-auto-update: true
+
+tun:
+  enable: true  
+  # system 使用系统协议栈，可以提供更稳定/全面的 tun 体验，且占用相对其他堆栈更低
+  # gvisor 通过在用户空间中实现网络协议栈，可以提供更高的安全性和隔离性，同时可以避免操作系统内核和用户空间之间的切换，从而在特定情况下具有更好的网络处理性能
+  # mixed 混合堆栈，tcp 使用 system栈，udp 使用 gvisor栈，使用体验可能相对更好
+  stack: mixed
+  # 劫持所有dns解析请求
+  dns-hijack:
+    - "any:53"
+    - "tcp://any:53"
+  auto-route: true
+  auto-detect-interface: true
+
+dns:
+  enable: true
+  ipv6: false
+  prefer-h3: false # true 会导致国内 DNS 解析慢 
+  # 启用 DNS 服务并让其在 53 端口（这是绝大多数操作系统将 DNS 解析报文发送到的端口）监听来自任意网络界面的 DNS 请求。
+  # 如果你的设备并不需要向其他设备提供解析服务 将0.0.0.0:53 改为 127.0.0.1:53 仅监听本机的 DNS 解析报文。
+  listen: 127.0.0.1:53
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter-mode: blacklist
+  # 黑名单里的不会返回fakeip ,以下都为匹配局域网规则
+  fake-ip-filter:
+    - '*' 
+    - '+.lan'
+    - '+.local'
+  # ???? must ip, 国内 干净
+  default-nameserver:
+    - 119.29.29.29 #tencent
+    - 223.5.5.5    #ali
+  nameserver:
+    - 'tls://8.8.4.4#dns'
+    - 'tls://1.0.0.1#dns'
+  # 解析代理域名的DNS
+  proxy-server-nameserver:
+    - https://doh.pub/dns-query
+  nameserver-policy:
+    "geosite:cn,private": # apple@cn
+      - https://doh.pub/dns-query
+      - https://dns.alidns.com/dns-query
+    "geosite:!cn,!private": 
+      - "tls://dns.google"
+      - "tls://cloudflare-dns.com"
+
+proxy-providers:
+  provider1:
+    type: file
+    path: ./proxy_providers/proxy_dg.yaml
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 1000
+      lazy: true
+  provider2:
+    type: file
+    path: ./proxy_providers/proxy_ik.yaml
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+      timeout: 1000
+      lazy: true
+
+proxy-groups:
+  - name: PROXY-1
+    type: select
+    use:
+      - provider1
+
+  - name: PROXY-2
+    type: select
+    use:
+      - provider1
+
+  - name: PROXY-3
+    type: select
+    use:
+      - provider2
+    proxies:
+      - DIRECT
+
+  - name: PROXY
+    type: select
+    proxies: [PROXY-1, PROXY-2, PROXY-3, DIRECT]
+
+  - name: AI
+    type: select
+    proxies: [ PROXY-1, PROXY-2, PROXY-3]
+
+  - name: MEDIA-CN
+    type: select
+    proxies: [ DIRECT, PROXY-1, PROXY-2, PROXY-3]
+
+  - name: Apple-CN
+    type: select
+    proxies: [DIRECT, PROXY-1, PROXY-2, PROXY-3]
+
+  - name: MS-CN
+    type: select
+    proxies: [DIRECT, PROXY-1, PROXY-2, PROXY-3]
+
+rules:
+    # CN Media
+  - GEOSITE,bilibili,MEDIA-CN
+    # AI
+  - GEOSITE,openai,AI
+  - GEOSITE,google-gemini,AI
+    # common
+  - GEOSITE,github,PROXY
+  - GEOSITE,twitter,PROXY
+  - GEOSITE,youtube,PROXY
+  - GEOSITE,steam,PROXY
+  - GEOSITE,spotify,PROXY
+  - GEOSITE,pixiv,PROXY
+  - GEOSITE,google,PROXY
+  - GEOSITE,google-cn,PROXY # Google CN 不走代理会导致香港等地区节点 Play Store 异常
+    # CN Apple & MS  
+  - GEOSITE,apple@cn,Apple-CN
+  - GEOSITE,apple,PROXY
+  - GEOSITE,microsoft@cn,MS-CN
+  - GEOSITE,microsoft,PROXY
+    # CN site
+  - GEOSITE,cn,DIRECT
+    # other no CN site
+  - GEOSITE,geolocation-!cn,PROXY
+  - GEOIP,private,DIRECT,no-resolve  # lan 不用dns 解析
+  - GEOIP,twitter,PROXY
+  - GEOIP,google,PROXY
+  - GEOIP,cn,DIRECT
+  - MATCH,PROXY
