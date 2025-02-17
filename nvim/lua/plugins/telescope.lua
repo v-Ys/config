@@ -1,33 +1,7 @@
+local theme = require("utils.telescope").picker_theme
+
 local M = {
         "nvim-telescope/telescope.nvim",
-}
-
-local theme = {
-        single_dropdown = function(opts)
-                opts.theme = "dropdown"
-                opts.borderchars = {
-                        prompt = { " ", "", "", " ", "", "", "", "" },
-                        results = { "─", "", "─", "", "", "", "", "" },
-                        preview = { "─", "", "", "", "", "", "", "" },
-                }
-                return opts
-        end,
-
-        simple_ivy = function(opts)
-                opts.theme = "ivy"
-                opts.borderchars = {
-                        prompt = { "─", " ", " ", " ", "─", "─", " ", " " },
-                        results = { " " },
-                        preview = { "", "", "", " ", "", "", "", "" },
-                }
-                opts.layout_config = {
-                        height = 0.4,
-                        preview_width = 0.60,
-                }
-                opts.results_title = ""
-                opts.preview_title = ""
-                return opts
-        end,
 }
 
 M.dependencies = {
@@ -162,7 +136,6 @@ M.config = function()
         telescope.load_extension('fzf')
         telescope.load_extension('ui-select')
 end
-
 
 
 

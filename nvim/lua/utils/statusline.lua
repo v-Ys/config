@@ -369,11 +369,14 @@ return function()
                 end,
                 init = function(self)
                         self.style_buftype = { fg = utils.get_highlight("Function").fg, bold = true, force = true }
+                        self.style_workdir = { fg = utils.get_highlight("Function").fg, bold = true, force = true }
                 end,
 
                 Space,
                 BufType,
                 Align,
+                WorkDir,
+                Space,
         }
         return {
                 colors = {
