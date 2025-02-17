@@ -105,7 +105,7 @@ M[#M + 1] = {
         },
 }
 
--- PLUG: nvim-tree
+-- PLUG: nvimtree
 M[#M + 1] = {
         "nvim-tree/nvim-tree.lua",
         opts = function()
@@ -156,8 +156,8 @@ M[#M + 1] = {
                 }
                 R.view = {
                         adaptive_size = false,
-                        side = "left",
-                        width = 30,
+                        side = "right",
+                        width = "17%",
                         preserve_window_proportions = true,
                 }
                 R.filesystem_watchers = { enable = true }
@@ -248,12 +248,61 @@ M[#M + 1] = {
         ft = "markdown",
 }
 
-------------------------------------------------------PLUG: OTHER
----
+--PLUG: OTHER
 M[#M + 1] = {
         'stevearc/oil.nvim',
-        config = true,
         dependencies = { "nvim-tree/nvim-web-devicons" },
+
+        opts = {
+                default_file_explorer = false,
+                delete_to_trash = true,
+                skip_confirm_for_simple_edits = true,
+                watch_for_changes = true,
+                use_default_keymaps = false,
+                keymaps = {
+                        ["g?"]    = { "actions.show_help", mode = "n" },
+                        ["<C-R>"] = "actions.refresh",
+                        ["<CR>"]  = "actions.select",
+                        ["<C-s>"] = { "actions.select", opts = { vertical = true } },
+                        ["<C-v>"] = { "actions.select", opts = { horizontal = true } },
+                        ["<C-t>"] = { "actions.select", opts = { tab = true } },
+                        ["q"]     = { "actions.close", mode = "n" },
+                        ["H"]     = { "actions.parent", mode = "n" },
+                        ["L"]     = "actions.select",
+                        ["="]     = "actions.open_external",
+                        ["gs"]    = { "actions.change_sort", mode = "n" },
+                        ["."]     = { "actions.toggle_hidden", mode = "n" },
+                        [","]     = { "actions.open_cwd", mode = "n" },
+                        ["`"]     = { "actions.cd", mode = "n" },
+                        ["~"]     = { "actions.cd", opts = { scope = "tab" }, mode = "n" },
+                },
+                view_options = {
+                        show_hidden = true,
+                },
+                float = {
+                        padding = 0,
+                        border = "single",
+                        get_win_title = nil,
+                        preview_split = "auto",
+                        override = function(conf)
+                                local ui = vim.api.nvim_list_uis()[1]
+                                local sidebar_width = math.floor(ui.width * 0.17)
+
+                                -- send to nvim_open_win.
+                                conf = {
+                                        relative = "editor",
+                                        width = sidebar_width,
+                                        height = ui.height,
+                                        row = 0,
+                                        col = ui.width - sidebar_width,
+                                        style = "minimal",
+                                        border = "single"
+                                }
+
+                                return conf
+                        end
+                }
+        }
 }
 
 M[#M + 1] = {

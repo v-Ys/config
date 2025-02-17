@@ -24,8 +24,9 @@ opt.smartcase      = true  -- 智能搜索
 --
 opt.wrap           = false --no wrap
 opt.linebreak      = true  --换行显示时不把一个单词拆开，遇到指定的符号（比如空格，连词号和其他标点符号）才换行
-opt.scrolloff      = 5
+opt.scrolloff      = 999
 opt.showtabline    = 0
+opt.laststatus     = 3 --  one statusline
 opt.signcolumn     = 'yes' -- sign colume
 opt.list           = true
 opt.listchars      = { tab = '  ', extends = '⟩', precedes = '⟨', trail = '·' } --("eol:↴,tab:»·,trail:·")
@@ -58,6 +59,9 @@ vim.g.clipboard = {
                 ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
         },
 }
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.filetype.add({
         pattern = {
                 [".*.typ"] = "typst",
@@ -189,16 +193,16 @@ keymap({ "i", }, "jk", "<esc>", key_opts)
 keymap({ "n", "o", }, "L", "$", key_opts)
 keymap({ "x" }, "L", "$h", key_opts)
 keymap("", "H", "^", key_opts)
-keymap("", "K", "5k", key_opts)
-keymap("", "J", "5j", key_opts)
+keymap("", "K", "2k", key_opts)
+keymap("", "J", "2j", key_opts)
 keymap("", ";;", "%", key_opts)
 keymap("", ";z", "J", key_opts)
 keymap("n", ";k", "<cmd>nohl<CR>", key_opts)
 keymap("n", ";j", require("utils.M").highlightCword, key_opts)
 --buffers
-keymap({ 'n', 'i', 'x' }, "<M-m>", "<cmd>bn<cr>", key_opts)
-keymap({ 'n', 'i', 'x' }, "<M-n>", "<cmd>bp<cr>", key_opts)
-keymap({ 'n', 'i', 'x' }, "<M-w>", "<cmd>bd<cr>", key_opts)
+keymap({ 'n', 'i', 'x' }, "<leader>l", "<cmd>bn<cr>", key_opts)
+keymap({ 'n', 'i', 'x' }, "<leader>h", "<cmd>bp<cr>", key_opts)
+keymap({ 'n', 'i', 'x' }, "<leader>w", "<cmd>bd<cr>", key_opts)
 -- Resize with arrows
 keymap({ "n", "x" }, "<M-Up>", "<cmd>resize +2<CR>", key_opts)
 keymap({ "n", "x" }, "<M-Down>", "<cmd>resize -2<CR>", key_opts)

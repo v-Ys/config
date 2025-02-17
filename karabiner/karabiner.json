@@ -9,7 +9,6 @@
                 "rules": [
                     {
                         "description": "Map '`'  plus 'left_control' to ESC",
-                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
@@ -267,6 +266,14 @@
             ],
             "fn_function_keys": [
                 {
+                    "from": { "key_code": "f1" },
+                    "to": [{ "key_code": "f1" }]
+                },
+                {
+                    "from": { "key_code": "f2" },
+                    "to": [{ "key_code": "f2" }]
+                },
+                {
                     "from": { "key_code": "f3" },
                     "to": [{ "key_code": "f3" }]
                 },
@@ -289,6 +296,18 @@
                 {
                     "from": { "key_code": "f9" },
                     "to": [{ "key_code": "f9" }]
+                },
+                {
+                    "from": { "key_code": "f10" },
+                    "to": [{ "key_code": "f10" }]
+                },
+                {
+                    "from": { "key_code": "f11" },
+                    "to": [{ "key_code": "f11" }]
+                },
+                {
+                    "from": { "key_code": "f12" },
+                    "to": [{ "key_code": "f12" }]
                 }
             ],
             "name": "方向键",
