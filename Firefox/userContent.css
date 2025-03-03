@@ -1,26 +1,32 @@
-@-moz-document url(about:home), url(about:newtab), url(about:privatebrowsing){
-.logo-and-wordmark {
-        display: none !important;
-}
+/* === Apply this style only to Firefox Home, New Tab, and Private Browsing pages === */
+@-moz-document url(about:home), url(about:newtab), url(about:privatebrowsing) {
 
-.search-inner-wrapper {
-        display: none !important;
-}
+        /* === Hide the Firefox logo and branding on the homepage === */
+        .logo-and-wordmark {
+                display: none !important;
+        }
 
-body {
-        --newtab-topsites-outer-card-hover: rgba(255, 255, 255, 0.4) !important;
-        --newtab-element-hover-color: rgba(255, 255, 255, 0.3) !important;
-}
+        /* === Hide the search bar on the Firefox homepage === */
+        .search-inner-wrapper {
+                display: none !important;
+        }
 
-body::before {
-        content: "";
-        z-index: -1;
-        position: fixed;
-        top: 0;
-        left: 0;
-        background: no-repeat url(bg.png) center;
-        background-size: cover;
-        width: 100vw;
-        height: 100vh;
-}
+        /* === Adjust hover effects for Top Sites cards and other elements on the New Tab page === */
+        body {
+                --newtab-topsites-outer-card-hover: rgba(255, 255, 255, 0.4) !important; /* Background color when hovering over Top Sites cards */
+                --newtab-element-hover-color: rgba(255, 255, 255, 0.3) !important; /* Background color when hovering over other elements */
+        }
+
+        /* === Set a custom background image for the Firefox homepage and New Tab page === */
+        body::before {
+                content: ""; /* Create a pseudo-element to hold the background image */
+                z-index: -1; /* Keep the background at the lowest layer so it does not interfere with other content */
+                position: fixed; /* Keep the background fixed while scrolling */
+                top: 0;
+                left: 0;
+                background: no-repeat url(bg.png) center; /* Use bg.png as the background image and center it */
+                background-size: cover; /* Ensure the background image covers the entire screen and adapts to different resolutions */
+                width: 100vw; /* Set the background width to cover the entire viewport */
+                height: 100vh; /* Set the background height to cover the entire viewport */
+        }
 }

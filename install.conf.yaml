@@ -13,18 +13,17 @@
     ~/.vim/vimrc: vimrc
 
     ~/.config/alacritty/: alacritty
-    ~/.config/kitty/: kitty
+    ~/.config/ghostty/: ghostty
     ~/.config/fish/: fish
     ~/.tmux.conf: tmux.conf
-    ~/.config/nvim: nvim
-    ~/.config/git: git/
+    ~/.config/nvim/: nvim
+    ~/.config/git/: git
 
     ~/.config/fd/ignore: fdignore
     ~/.rgignore: ripgrep/rgignore
     ~/.config/ripgreprc: ripgrep/ripgreprc
     ~/.config/bat/config: bat.config
     ~/.config/starship.toml: starship.toml
-    ~/.config/yazi/thme.toml: yazi_theme.toml
 
     ~/.clangd: clangd
     ~/.clang-format: fmtstyle/clang-format

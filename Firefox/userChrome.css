@@ -1,197 +1,62 @@
-/* - https: //github.com/JarnotMaciej/Essence */
-
-/* Navbar size calc stuff */
-:root {
-        /* remove fullscreen hover active */
-        --button-active-bgcolor: rgba(0, 0, 0, 0) !important;
-        --button-hover-bgcolor: rgba(0, 0, 0, 0) !important;
-
-        --tab-border-radius: 6px !important;
-        /*  Tab border radius -- Changes the tabs rounding  */
-        /*  Default: 6px  */
-        --NavbarWidth: 43;
-        /*  Default values: 36 - 43  */
-        --TabsHeight: 36;
-        /*  Minimum: 30  */
-        /*  Default: 36  */
-        --TabsBorder: 8;
-        /*  Doesnt do anything on small layout  */
-        /*  Default: 8  */
-        --NavbarHeightSmall: calc(var(--TabsHeight) + var(--TabsBorder))
-        /*  Only on small layout  */
-        /*  Default: calc(var(--TabsHeight) + var(--TabsBorder))  */
-        /*  Default as a number: 44  */
-}
-
-/* fullcreen */
-@media screen and (min-width:1325px) {
-        :root #nav-bar {
-                margin-top: calc(var(--TabsHeight) * -1px - var(--TabsBorder) * 1px) !important;
-                height: calc(var(--TabsHeight) * 1px + var(--TabsBorder) * 1px)
-        }
-
-        #TabsToolbar {
-                margin-right: calc(1325px / 100 * var(--NavbarWidth)) !important
-        }
-
-        #nav-bar {
-                margin-left: calc(100vw - calc(1325px / 100 * var(--NavbarWidth))) !important;
-                vertical-align: center !important;
-                order: 0 !important;
-        }
-
-        #urlbar-container {
-                min-width: 0px !important;
-                flex: auto !important
-        }
-
-        toolbarspring {
-                display: none !important
-        }
-}
-
-/* max */
-@media screen and (min-width:950px) and (max-width:1324px) {
-        :root #nav-bar {
-                margin-top: calc(var(--TabsHeight) * -1px - var(--TabsBorder) * 1px) !important;
-                height: calc(var(--TabsHeight) * 1px + var(--TabsBorder) * 1px)
-        }
-
-        #TabsToolbar {
-                margin-right: calc(var(--NavbarWidth) * 1vw) !important
-        }
-
-        #nav-bar {
-                margin-left: calc(100vw - calc(var(--NavbarWidth) * 1vw)) !important;
-                vertical-align: center !important
-        }
-
-        #urlbar-container {
-                min-width: 0px !important;
-                flex: auto !important
-        }
-
-        #TabsToolbar,
-        #nav-bar {
-                transition: margin-top .25s !important
-        }
-
-        toolbarspring {
-                display: none !important
-        }
-
-}
-
-/* min */
-@media screen and (max-width:949px) {
-        :root #nav-bar {
-                padding: 0 5px 0 5px !important;
-                height: calc(var(--NavbarHeightSmall) * 1px) !important
-        }
-
-        #TabsToolbar,
-        #nav-bar {
-                transition: margin-top .25s !important
-        }
-
-        toolbarspring {
-                display: none !important;
-        }
-
-}
-
-/*???? don't know*/ 
-#nav-bar,
-#PersonalToolbar {
-        background-color: #0000 !important;
-        background-image: none !important;
-        box-shadow: none !important
-}
-.tab-background,
-.tab-stack {
-        min-height: calc(var(--TabsHeight) * 1px) !important
-}
-
-
-/*CUSTOM*/
-/*  Removes annoying border  */
-#navigator-toolbox {
-        border: none !important
-}
-/* Remove fullscreen warning border */
+/* === Remove the fullscreen mode warning border === */
 #fullscreen-warning {
-        display: none !important
+        display: none !important;
 }
 
-.titlebar-spacer {
-        width: 0px !important;
-}
 
-/*new-tab-button use plus icon */
-#new-tab-button{
-        list-style-image: url(chrome://global/skin/icons/plus.svg) !important
-}
 
-/* Fades window while not in focus */
-#navigator-toolbox-background:-moz-window-inactive {
-        filter: contrast(90%)
-}
-
-/* Hide Extension Name in the identity area */
-#identity-box.extensionPage #identity-icon-label {
-        visibility: collapse !important
-}
-
-/*  Removes urlbar border/background  */
+/* === Remove the border and background of the address bar === */
 #urlbar-background {
         border: none !important;
         outline: none !important;
-        transition: .15s !important;
+        transition: .15s !important; /* Add a transition effect */
 }
-/*  Removes the background from the urlbar while not in use  */
+/* === Make the address bar transparent when not in use === */
 #urlbar:not(:hover):not([breakout][breakout-extend])>#urlbar-background {
         box-shadow: none !important;
-        background: #0000 !important;
+        background: #0000 !important; /* Transparent background */
 }
 
-/* Remove "This time search with:..." in Search Bar */
+/* === Remove the "Search with..." suggestion in the address bar === */
 #urlbar .search-one-offs {
-        display: none !important
+        display: none !important;
 }
 
-/* Remove icons from urlbar */
-#identity-permission-box,
-#star-button-box,
-#alltabs-button,
-#identity-icon-box,
-#picture-in-picture-button,
-#tracking-protection-icon-container,
-#reader-mode-button,
-#translations-button {
-        display: none !important
+/* === Hide certain icons in the address bar === */
+#identity-permission-box, /* Site permissions */
+#star-button-box, /* Bookmark star */
+#alltabs-button, /* "All Tabs" button */
+#identity-icon-box, /* Site identity icon */
+#picture-in-picture-button, /* Picture-in-picture mode button */
+#tracking-protection-icon-container, /* Tracking protection icon */
+#reader-mode-button, /* Reader mode button */
+#translations-button { /* Translation button */
+        display: none !important;
 }
 
-/*remove panel menu*/
+
+
+/* === Change the "New Tab" button icon to a plus sign (+) === */
+#new-tab-button {
+        list-style-image: url(chrome://global/skin/icons/plus.svg) !important;
+}
+/* === Remove the Firefox menu button (hamburger menu) in the top right corner === */
 #PanelUI-button {
-        display: none !important
+        display: none !important;
 }
-
-/*Removes reload/stop buttons*/
-#reload-button,
-#stop-button {
-        display: none !important
-}
-
-/*Remove extensions button*/
+/* === Remove the extensions management button === */
 #unified-extensions-button {
-        display: none !important
+        display: none !important;
 }
 
-/* remove x -  */
-/*.titlebar-buttonbox-container {*/
-/*        display: none !important*/
+
+
+/* === Hide the identity label in extension pages === */
+/*#identity-box.extensionPage #identity-icon-label {*/
+/*        visibility: collapse !important; /* Hide the "Extension Page" text label */*/
 /*}*/
 
-
-
-
+/* === Remove the border of the navigation toolbar === */
+/*#navigator-toolbox {*/
+/*        border: none !important;*/
+/*}*/
