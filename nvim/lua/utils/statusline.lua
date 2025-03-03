@@ -60,6 +60,33 @@ return function()
         local conditions = require("heirline.conditions")
         local utils = require("heirline.utils")
 
+        local function setup_colors()
+                return {
+
+                        heirline_diagnostic_error = utils.get_highlight("DiagnosticError").fg or "",
+                        heirline_diagnostic_warn  = utils.get_highlight("DiagnosticWarn").fg or "",
+                        heirline_diagnostic_info  = utils.get_highlight("DiagnosticInfo").fg or "",
+                        heirline_diagnostic_hint  = utils.get_highlight("DiagnosticHint").fg or "",
+
+                        heirline_git_branch       = utils.get_highlight("Keyword").fg or "",
+                        heirline_git_added        = utils.get_highlight("diffAdded").fg or "",
+                        heirline_git_removed      = utils.get_highlight("diffRemoved").fg or "",
+                        heirline_git_modified     = utils.get_highlight("diffChanged").fg or "",
+
+                        heirline_filename         = utils.get_highlight("Function").fg or "",
+                        heirline_workdir          = utils.get_highlight("Function").fg or "",
+                        heirline_buftype          = utils.get_highlight("Function").fg or "",
+                }
+        end
+        require("heirline").load_colors(setup_colors)
+        vim.api.nvim_create_augroup("Heirline", { clear = true })
+        vim.api.nvim_create_autocmd("ColorScheme", {
+                callback = function()
+                        utils.on_colorscheme(setup_colors)
+                end,
+                group    = "Heirline",
+        })
+
         vim.api.nvim_create_autocmd("BufEnter", {
                 callback = function()
                         local buffer_path = vim.fn.expand('%:p:h')
@@ -108,7 +135,7 @@ return function()
                         return filename
                 end,
                 hl = function(self)
-                        return self.style_filename
+                        return { fg = "heirline_filename", bold = true, force = true }
                 end
         }
 
@@ -152,7 +179,7 @@ return function()
                         return icon .. cwd .. trail
                 end,
                 hl = function(self)
-                        return self.style_workdir
+                        return { fg = "heirline_workdir", bold = true, force = true }
                 end
         }
 
@@ -163,7 +190,7 @@ return function()
                         return vim.bo.filetype
                 end,
                 hl = function(self)
-                        return self.style_buftype
+                        return { fg = "heirline_buftype", bold = true, force = true }
                 end
         }
 
@@ -188,13 +215,7 @@ return function()
                         self.warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
                         self.hints = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.HINT })
                         self.info = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.INFO })
-
-                        self.style_diagnostic_error = { fg = utils.get_highlight("DiagnosticError").fg }
-                        self.style_diagnostic_warn = { fg = utils.get_highlight("DiagnosticWarn").fg }
-                        self.style_diagnostic_info = { utils.get_highlight("DiagnosticInfo").fg }
-                        self.style_diagnostic_hint = { fg = utils.get_highlight("DiagnosticHint").fg }
                 end,
-
 
                 update = { "DiagnosticChanged", "BufEnter" },
 
@@ -203,7 +224,7 @@ return function()
                                 return self.errors > 0 and (self.error_icon .. " " .. self.errors .. " ")
                         end,
                         hl = function(self)
-                                return self.style_diagnostic_error
+                                return { fg = "heirline_diagnostic_error" }
                         end
                 },
                 {
@@ -211,7 +232,7 @@ return function()
                                 return self.warnings > 0 and (self.warn_icon .. " " .. self.warnings .. " ")
                         end,
                         hl = function(self)
-                                return self.style_diagnostic_warn
+                                return { fg = "heirline_diagnostic_warn" }
                         end
                 },
                 {
@@ -219,7 +240,7 @@ return function()
                                 return self.info > 0 and (self.info_icon .. " " .. self.info .. " ")
                         end,
                         hl = function(self)
-                                return self.style_diagnostic_info
+                                return { fg = "heirline_diagnostic_info" }
                         end
                 },
                 {
@@ -227,7 +248,7 @@ return function()
                                 return self.hints > 0 and (self.hint_icon .. " " .. self.hints)
                         end,
                         hl = function(self)
-                                return self.style_diagnostic_hint
+                                return { fg = "heirline_diagnostic_hint" }
                         end
                 },
         }
@@ -255,11 +276,6 @@ return function()
                         self.diff_dict = get_git_diff_stats(current_file)
                         self.has_changes = self.diff_dict.added ~= 0 or self.diff_dict.removed ~= 0 or
                             self.diff_dict.modified ~= 0
-
-                        self.style_branch = { fg = utils.get_highlight("Keyword").fg, bold = true }
-                        self.style_added = { fg = utils.get_highlight("diffAdded").fg, bold = true }
-                        self.style_removed = { fg = utils.get_highlight("diffRemoved").fg, bold = true }
-                        self.style_modified = { fg = utils.get_highlight("diffChanged").fg, bold = true }
                 end,
 
                 {
@@ -267,7 +283,7 @@ return function()
                                 return " " .. self.branch
                         end,
                         hl = function(self)
-                                return self.style_branch
+                                return { fg = "heirline_git_branch", bold = true }
                         end
                 },
                 {
@@ -285,7 +301,7 @@ return function()
                                 return count > 0 and ("+" .. count .. " ")
                         end,
                         hl = function(self)
-                                return self.style_added
+                                return { fg = "heirline_git_added", bold = true }
                         end
                 },
                 {
@@ -294,7 +310,7 @@ return function()
                                 return count > 0 and ("-" .. count .. " ")
                         end,
                         hl = function(self)
-                                return self.style_removed
+                                return { fg = "heirline_git_removed", bold = true }
                         end
                 },
                 {
@@ -303,7 +319,7 @@ return function()
                                 return count > 0 and ("~" .. count .. " ")
                         end,
                         hl = function(self)
-                                return self.style_modified
+                                return { fg = "heirline_git_modified", bold = true }
                         end
                 },
                 {
@@ -328,10 +344,6 @@ return function()
 
 
         local DefaultStatusline = {
-                init = function(self)
-                        self.style_filename = { fg = utils.get_highlight("Function").fg, bold = true, force = true }
-                        self.style_workdir = { fg = utils.get_highlight("Function").fg, bold = true, force = true }
-                end,
                 Space,
                 FileNameBlock,
                 Space,
@@ -352,9 +364,6 @@ return function()
         }
         local InactiveStatusline = {
                 condition = conditions.is_not_active,
-                init = function(self)
-                        self.style_filename = { fg = utils.get_highlight("Function").fg, bold = true, force = true }
-                end,
                 Space,
                 FileNameBlock,
                 Align,
@@ -367,25 +376,19 @@ return function()
                                 filetype = { "^git.*", "fugitive" },
                         })
                 end,
-                init = function(self)
-                        self.style_buftype = { fg = utils.get_highlight("Function").fg, bold = true, force = true }
-                        self.style_workdir = { fg = utils.get_highlight("Function").fg, bold = true, force = true }
-                end,
-
                 Space,
                 BufType,
                 Align,
                 WorkDir,
                 Space,
         }
-        return {
-                colors = {
-                        git_add = utils.get_highlight("Define").fg,
-                },
-                statusline = {
-                        hl = "Normal",
-                        fallthrough = false,
 
+
+        return {
+                colors     = setup_colors(),
+                statusline = {
+                        hl          = "Normal",
+                        fallthrough = false,
                         SpecialStatusline,
                         InactiveStatusline,
                         DefaultStatusline,

@@ -1,6 +1,6 @@
+local M = {}
 local opts = {}
 local T = require("utils.telescope")
-local M = {}
 
 opts.entry_maker = function(item)
         local trimmed = string.gsub(item, '^%s*(.-)%s*$', '%1')

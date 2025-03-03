@@ -118,6 +118,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
 
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
         vim.fn.system({
@@ -200,9 +201,9 @@ keymap("", ";z", "J", key_opts)
 keymap("n", ";k", "<cmd>nohl<CR>", key_opts)
 keymap("n", ";j", require("utils.M").highlightCword, key_opts)
 --buffers
-keymap({ 'n', 'i', 'x' }, "<leader>l", "<cmd>bn<cr>", key_opts)
-keymap({ 'n', 'i', 'x' }, "<leader>h", "<cmd>bp<cr>", key_opts)
-keymap({ 'n', 'i', 'x' }, "<leader>w", "<cmd>bd<cr>", key_opts)
+keymap({ 'n' }, "<leader>l", "<cmd>bn<cr>", key_opts)
+keymap({ 'n' }, "<leader>h", "<cmd>bp<cr>", key_opts)
+keymap({ 'n' }, "<leader>w", "<cmd>bd<cr>", key_opts)
 -- Resize with arrows
 keymap({ "n", "x" }, "<M-Up>", "<cmd>resize +2<CR>", key_opts)
 keymap({ "n", "x" }, "<M-Down>", "<cmd>resize -2<CR>", key_opts)
@@ -234,6 +235,8 @@ keymap({ "n" }, "tx", require('utils.M').trouble.close, key_opts)
 keymap({ "n" }, "tj", require('utils.M').trouble.next, key_opts)
 keymap({ "n" }, "tk", require('utils.M').trouble.prev, key_opts)
 keymap("t", "<C-\\>", "<C-\\><C-N>", key_opts)
+
+
 
 
 
