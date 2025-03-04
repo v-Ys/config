@@ -12,12 +12,12 @@
     ~/.screenrc: screenrc
     ~/.vim/vimrc: vimrc
 
-    ~/.config/alacritty/: alacritty
-    ~/.config/ghostty/: ghostty
-    ~/.config/fish/: fish
+    ~/.config/alacritty: alacritty
+    ~/.config/ghostty: ghostty
+    ~/.config/fish: fish
     ~/.tmux.conf: tmux.conf
-    ~/.config/nvim/: nvim
-    ~/.config/git/: git
+    ~/.config/nvim: nvim
+    ~/.config/git: git
 
     ~/.config/fd/ignore: fdignore
     ~/.rgignore: ripgrep/rgignore
@@ -29,8 +29,8 @@
     ~/.clang-format: fmtstyle/clang-format
     ~/.rustfmt.toml: fmtstyle/rustfmt.toml
 
-    ~/.hammerspoon/: hammerspoon
-    ~/.config/karabiner/: karabiner
+    ~/.hammerspoon: hammerspoon
+    ~/.config/karabiner: karabiner
     ~/Library/Rime/default.custom.yaml: Rime/default.custom.yaml
     ~/Library/Rime/squirrel.custom.yaml: Rime/squirrel.custom.yaml
     ~/Library/Rime/double_pinyin.custom.yaml: Rime/double_pinyin.custom.yaml
